@@ -4,9 +4,9 @@ Looking into MERS-CoV dynamics through the structured coalescent lens.
 ------------------------------
 # TODO (Spanish for "all"):
 - Run MTT trees with whole genomes, preventing humans from infecting camels.
-- Run MTT trees with whole genomes, allowing humans to infect camels.
+- Run MTT trees with whole genomes, allowing humans to infect camels.__[in progress]__
 - Run MTT trees with fragmented genomes, with shared deme sizes.
-- Run BEAST on camel sequences to get a skygrid.
+- Run BEAST on camel sequences to get a skygrid. __[in progress]__
 - SIR simulations to look into R_0 and its variance?
 
 
@@ -18,9 +18,9 @@ Current problems:
 # Figures
 Main:
 - Distribution of cluster sizes, will give an idea of R_0.
-- Skygrid of camel MERS-CoVs, will give an idea of what's going on in camels.
+- Skygrid of camel MERS-CoVs, will give an idea of what's going on in camels.__[in progress]__ So far difficult to tell apart from constant population size.
 - Correlation between MERS pop sizes in camels versus introductions into humans.
-- Correlation between MERS cases and MERS sequences, binned in time.
+- Correlation between MERS cases and MERS sequences, binned in time. __[~Done]__ Correlation not the best, but reasonable (Spearman ~0.6).
 - Clade frequencies of each MERS cluster over time.
 
 
