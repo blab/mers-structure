@@ -3,15 +3,16 @@ Looking into MERS-CoV dynamics through the structured coalescent lens.
 
 ------------------------------
 # TODO (Spanish for "all"):
-- Run MTT trees with whole genomes, preventing humans from infecting camels.__[in progress]__
-- Run MTT trees with whole genomes, allowing humans to infect camels.__[in progress]__
-- Run MTT trees with fragmented genomes, with shared deme sizes.__[in progress]__
+- ~~Run MTT trees with whole genomes, preventing humans from infecting camels.~~ Preventing reverse infection severely restricts tree space traversal, resulting in runs that go off the rails eventually.
+- Run MTT trees with whole genomes, allowing humans to infect camels.__[in progress]__ Much better behaved than above, recovers reasonable parameter estimates, with human to camel counts being low and 95% HPD including 0.
+- ~~Run MTT trees with fragmented genomes, with shared deme sizes.~~ More stable than single fragment analysis, but same problem. Restricting migration results in seemingly non-ergodic MCMC.
+- Run MTT trees with fragmented genomes, with shared deme sizes and reverse infection allowed. __[in progress]__
 - Run BEAST on camel sequences to get a skygrid. __[Done]__
 - SIR simulations to look into R_0 and its variance?
 
 
 Current problems:
-- Hard constraint on no back-transmission into camels makes MTT trees go crazy. Trying to introduce relatively strong priors to correct this. Uniform prior on ucld.mean (E-5 to E-2) and exponential (instead of gamma) prior on ucld.stdev might have worked.
+- ~~Hard constraint on no back-transmission into camels makes MTT trees go crazy. Trying to introduce relatively strong priors to correct this. Uniform prior on ucld.mean (E-5 to E-2) and exponential (instead of gamma) prior on ucld.stdev might have worked.~~ Dropped - too many constraints required to run analysis.
 
 ------------------------------
 
