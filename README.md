@@ -2,31 +2,28 @@
 Looking into MERS-CoV dynamics through the structured coalescent lens.
 
 ------------------------------
-# TODO (Spanish for "all"):
-- ~~Run MTT trees with whole genomes, preventing humans from infecting camels.~~ Preventing reverse infection severely restricts tree space traversal, resulting in runs that go off the rails eventually.
-- Run MTT trees with whole genomes, allowing humans to infect camels.__[in progress]__ Much better behaved than above, recovers reasonable parameter estimates, with human to camel counts being low and 95% HPD including 0.
-- ~~Run MTT trees with fragmented genomes, with shared deme sizes.~~ More stable than single fragment analysis, but same problem. Restricting migration results in seemingly non-ergodic MCMC.
-- Run MTT trees with fragmented genomes, with shared deme sizes and reverse infection allowed. __[in progress]__
-- Run BEAST on camel sequences to get a skygrid. __[Done]__
-- SIR simulations to look into R_0 and its variance?
-
-
-Current problems:
-- ~~Hard constraint on no back-transmission into camels makes MTT trees go crazy. Trying to introduce relatively strong priors to correct this. Uniform prior on ucld.mean (E-5 to E-2) and exponential (instead of gamma) prior on ucld.stdev might have worked.~~ Dropped - too many constraints required to run analysis.
-
+# Questions:
+- What is the *actual* number of introductions of MERS-CoV into humans? Literature knows the number >1, but nothing more precise reported.
+- What can be estimated about an epidemic from sequence data and structure? A spin off of Zika in Florida work.
+- What is the rate of coinfection in camels? A consistent mutation-scaled recombination rate could be rescaled into absolute time to give a recombination rate in time.
 ------------------------------
-
+# TODO (Spanish for "all"):
+- ~~MTT trees after splitting the alignment into two fragments is done.~~ Good indications topologies are very similar between the two fragments.
+- ~~Single MTT tree done.~~ Human-to-camel transmission was impossible to prevent, but data is strongly informative of camel-dominated evolution of MERS.
+- ~~Regular BEAST skygrid on 92 camel sequences done.~~
+- ~~R0 analyses somewhat complete.~~ Show R0<1.0, which makes sense. Waiting for additional analyses from Luiz.
+- Seasonality. There's an apparent relationship between end cluster size and introduction time - largest clusters switched hosts in January-February.
+------------------------------
 # Figures
-Main:
-- Distribution of cluster sizes, will give an idea of R_0.
-- Skygrid of camel MERS-CoVs, will give an idea of what's going on in camels.__[Done]__ Running second replicate now. So far difficult to tell apart from constant population size.
-- Correlation between MERS pop sizes in camels versus introductions into humans.
-- Correlation between MERS cases and MERS sequences, binned in time. __[~Done]__ Correlation not the best, but reasonable (Spearman ~0.6).
-- Clade frequencies of each MERS cluster over time.
+### Main:
+- Typed node tree. Shows evolution primarily occurring in camels.
+- Exploded tree. Show the distribution of cluster sizes, their introduction time density. Camel skygrid too?
+- R0. Shows value <1.0, similar to other publications based on case clusters.
 
 
-Supplementary:
-- Tree with heatmap, showing the absence of a large number of synapomorphic loci supporting the maximum likelihood, or any other phylogeny.
-- Heatmap of clade membership for human cases, should (the 'theoretically' should, not 'make it so' should) show that recombination does not affect human cluster inference.
-
+### Supplementary:
+- Plot showing good support for consistent inference of human clusters across genomic fragment trees. Heatmap/composite plots.
+- Posterior densities for camel and human deme effective population sizes?
+- Posterior counts for introductions into humans.
+- Anything related to R0.
 ------------------------------
