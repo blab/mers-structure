@@ -6,6 +6,7 @@ Looking into MERS-CoV dynamics through the structured coalescent lens.
 - What is the *actual* number of introductions of MERS-CoV into humans? Literature knows the number >1, but nothing more precise reported.
 - What can be estimated about an epidemic from sequence data and structure? A spin off of Zika in Florida work.
 - What is the rate of coinfection in camels? A consistent mutation-scaled recombination rate could be rescaled into absolute time to give a recombination rate in time.
+
 ------------------------------
 # TODO (Spanish for "all"):
 - ~~MTT trees after splitting the alignment into two fragments is done.~~ Good indications topologies are very similar between the two fragments.
@@ -13,6 +14,7 @@ Looking into MERS-CoV dynamics through the structured coalescent lens.
 - ~~Regular BEAST skygrid on 92 camel sequences done.~~
 - ~~R0 analyses somewhat complete.~~ Show R0<1.0, which makes sense. Waiting for additional analyses from Luiz.
 - Seasonality. There's an apparent relationship between end cluster size and introduction time - largest clusters switched hosts in January-February.
+
 ------------------------------
 # Figures
 ### Main:
