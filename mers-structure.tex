@@ -1,0 +1,160 @@
+\documentclass[11pt,oneside,letterpaper]{article}
+
+% graphicx package, useful for including eps and pdf graphics
+\usepackage{graphicx}
+\usepackage{grffile}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+% basic packages
+\usepackage{color} 
+\usepackage{parskip}
+\usepackage{float}
+
+
+% reference figures across documents
+\usepackage{xr}
+\externaldocument{mers-structure_supp}
+
+% text layout
+\usepackage{geometry}
+\geometry{textwidth=15cm} % 15.25cm for single-space, 16.25cm for double-space
+\geometry{textheight=22cm} % 22cm for single-space, 22.5cm for double-space
+
+% helps to keep figures from being orphaned on a page by themselves
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+
+% bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,font=small]{caption}
+
+% review layout with double-spacing
+%\usepackage{setspace} 
+%\doublespacing
+%\captionsetup{labelfont=bf,labelsep=period,font=doublespacing}
+
+% cite package, to clean up citations in the main text. Do not remove.
+%\usepackage{cite}
+\usepackage{natbib}
+%\renewcommand\citepleft{(}
+%\renewcommand\citepright{)}
+%\renewcommand\citepform[1]{\textsl{#1}}
+
+\usepackage{amsmath}
+
+% Remove brackets from numbering in list of References
+%\renewcommand\refname{\large References}
+%\makeatletter
+%\renewcommand{\@biblabel}[1]{\quad#1.}
+%\makeatother
+
+\usepackage{authblk}
+\renewcommand\Authands{ \& }
+\renewcommand\Authfont{\normalsize \bf}
+\renewcommand\Affilfont{\small \normalfont}
+\makeatletter
+\renewcommand\AB@affilsepx{, \protect\Affilfont}
+\makeatother
+
+% comments
+\usepackage{ulem}
+\definecolor{purple}{rgb}{0.459,0.109,0.538}
+\def\tb#1#2{\sout{#1} \textcolor{purple}{#2}} 
+\def\tbc#1{\textcolor{purple}{[#1]}}
+
+% symbols
+\newcommand{\chiSq}{\chi^{2}_{df}}
+\newcommand{\dtmrca}{\Delta_\mathrm{TMRCA}}
+\newcommand{\undtmrca}{\delta_\mathrm{TMRCA}}
+\newcommand{\dspr}{d_\mathrm{SPR}}
+
+%%% TITLE %%%
+\title{\vspace{1.0cm} \LARGE \bf MERS structure}
+
+\author[1]{Gytis Dudas}
+\author[2]{Luiz Max Carvalho}
+\author[1]{Allison Black}
+\author[1]{Trevor Bedford}
+\author[2,4,5]{Andrew Rambaut}
+
+\affil[1]{Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Research Center, Seattle, WA, USA}
+\affil[2]{Institute of Evolutionary Biology, University of Edinburgh, Edinburgh, UK}
+\affil[4]{Fogarty International Center, National Institutes of Health, Bethesda, MD, USA}
+\affil[5]{Centre for Immunology, Infection and Evolution at the University of Edinburgh, Edinburgh, UK}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+Middle East Respiratory Syndrome coronavirus (MERS-CoV) is a zoonotic virus causing significant mortality and morbidity largely in the Arabian Peninsula.
+The epidemiology of the virus is relatively poorly understood with most MERS patients being older males with comorbidities, although large nosocomial have occurred, notably in Jeddah, Riyadh and South Korea.
+Our understanding of MERS-CoV epidemiology is further complicated by some patients not recalling contact with camels, the accepted reservoir for MERS-CoV, or any other livestock, suggesting significant cryptic MERS-CoV circulation in communities.
+Seroepidemiology has been employed extensively during the time since the discovery of MERS-CoV to understand the exposure and therefore risk among camels and humans alike, but various sequencing efforts have not been fully leveraged against this zoonotic virus.
+Here we use existing MERS-CoV sequencing data to estimate the number of times the virus has been introduced into humans and use the distribution of sequence clusters to estimate the reproductive number for the virus from sequence data alone.
+We confirm that MERS-CoV has relatively poor capacity to spread in humans and arrive at an estimate of at least 65 zoonotic introductions of the virus into humans.
+
+\end{abstract}
+
+\pagebreak
+
+\section*{Introduction}
+Middle East Respiratory Syndrome Coronavirus (MERS-CoV) is a zoonotic infection of humans in the Arabian Peninsula originating from camels.
+The virus, first discovered in 2012 \cite{WHO_2016}, has gone on to cause more than 1800 infections with at least 600 associated deaths.
+Its epidemiology remains obscure, largely because outbreaks are observed among the most severely affected patients, such as older males with comorbidities.
+Whilst contact with camels is often reported by patients, many do not recall contact with any livestock, suggesting a significant but unobserved community contribution to the outbreak.
+Studies into MERS-CoV epidemiology often rely on serology to identify factors associated with MERS CoV exposure in potential risk groups or hosts.
+The new era of genomic epidemiology, however, has repeatedly shown the utility of sequence data in outbreak scenarios.
+Often only sequence data can pinpoint sources of pathogens and discriminate between multiple and single source scenarios, which are a fundamental part of quantifying risk.
+Sequencing MERS-CoV has been performed as part of initial attempts to link human infections with the camel reservoir, nosocomial outbreak investigations and routine surveillance.
+
+It is accepted that human MERS-CoV infections are a result of multiple introductions of the virus into humans, but no study has attempted to go beyond educated guesses about this number.
+Here we use existing MERS-CoV sequence data to investigate the population structure of the virus between two of its known hosts: humans and camels.
+By explicitly modelling the evolution of MERS-CoV between these two distinct host populations we show that human MERS infections are the result of frequent and unidirectional spillover events from camels into humans.
+Inter-outbreak evolution of the virus occurs exclusively in camels, highlighting the need for genomic surveillance of MERS-CoV in the reservoir as well.
+We also use the sequence clusters recovered from our population structure analyses to estimate the reproductive number for the virus (R$_{0}$), which is in agreement with previous findings that MERS-CoV is, on average, poor at spreading in human populations.
+Our analyses also capture seasonal variation in zoonotic transmission patterns, with indications that particularly large outbreaks are the result of zoonotic transmissions that take place at the beginning of each new year.
+
+
+%Here we use 307 largely complete MERS-CoV genomes, 91 of which are from camel viruses, to explicitly model the population structure of the virus in humans and camels in order to arrive at an estimate of the number of times the virus has been introduced into human populations.
+%We then explore the resulting sequence clusters that can be thought of as replicates of the transmission process, albeit with different settings, as the data include large nosocomial outbreaks.
+
+%\begin{figure}[h]
+% \centering		
+%	\includegraphics[width=0.45\textwidth]{figures/}
+%	\caption{\textbf{}
+%	
+%	}
+%	\label{}
+%\end{figure}
+
+\section*{Results}
+
+\subsection*{}
+
+
+\section*{Discussion}
+
+\subsection*{}
+
+\newpage
+
+\section*{Methods}
+\subsection*{Sequence data}
+All MERS-CoV sequences were downloaded from GenBank.
+Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
+Sequences were annotated with available collection dates and hosts, designated as camel or human.
+For partitioned analyses the alignment was split into two fragments, the first containing all nucleotides up to nucleotide 21000, and the rest of the genome being assigned to the second fragment.
+Despite their divergence both Severe Acute Respiratory Syndrome (SARS) and MERS betacoronaviruses appear to recombine across position 21000, which may indicate the existence of a recombinogenic secondary RNA structure that remains to be described in its vicinity. %% "Work by Zhang et al. (66) suggested that the presence of a stable hairpin between two direct repeats increases the rate of homologous recombination in MLV. Their data led to the conclusion that stable secondary structures decrease processive RT synthesis and, further, that a functional NC can increase RT processivity. However, in this case, there were no corresponding in vitro data (such as primer extension assays) to correlate with the in vivo observations. Here, we have demonstrated for the first time a direct relationship between pausing in vitro and viral recombination in vivo."
+
+\subsection*{Data availability}
+
+
+\section*{Acknowledgements}
+
+\bibliographystyle{mbe.bst}
+\bibliography{mers-structure}
+
+\end{document}

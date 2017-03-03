@@ -1,0 +1,102 @@
+\documentclass[11pt,oneside,letterpaper]{article}
+
+% graphicx package, useful for including eps and pdf graphics
+\usepackage{graphicx}
+\usepackage{grffile}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+% basic packages
+\usepackage{color} 
+\usepackage{parskip}
+\usepackage{float}
+
+% reference figures across documents
+\usepackage{xr}
+\externaldocument{mers-structure}
+
+% text layout
+\usepackage{geometry}
+\geometry{textwidth=15cm} % 15.25cm for single-space, 16.25cm for double-space
+\geometry{textheight=22cm} % 22cm for single-space, 22.5cm for double-space
+
+% helps to keep figures from being orphaned on a page by themselves
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+
+% bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,font=small]{caption}
+
+% review layout with double-spacing
+%\usepackage{setspace} 
+%\doublespacing
+%\captionsetup{labelfont=bf,labelsep=period,font=doublespacing}
+
+% cite package, to clean up citations in the main text. Do not remove.
+%\usepackage{cite}
+\usepackage{natbib}
+%\renewcommand\citepleft{(}
+%\renewcommand\citepright{)}
+%\renewcommand\citepform[1]{\textsl{#1}}
+
+\usepackage{amsmath}
+
+% Remove brackets from numbering in list of References
+%\renewcommand\refname{\large References}
+%\makeatletter
+%\renewcommand{\@biblabel}[1]{\quad#1.}
+%\makeatother
+
+\usepackage{authblk}
+\renewcommand\Authands{ \& }
+\renewcommand\Authfont{\normalsize \bf}
+\renewcommand\Affilfont{\small \normalfont}
+\makeatletter
+\renewcommand\AB@affilsepx{, \protect\Affilfont}
+\makeatother
+
+% comments
+\usepackage{ulem}
+\definecolor{purple}{rgb}{0.459,0.109,0.538}
+\def\tb#1#2{\sout{#1} \textcolor{purple}{#2}} 
+\def\tbc#1{\textcolor{purple}{[#1]}}
+
+% symbols
+\newcommand{\chiSq}{\chi^{2}_{df}}
+\newcommand{\dtmrca}{\Delta_\mathrm{TMRCA}}
+\newcommand{\undtmrca}{\delta_\mathrm{TMRCA}}
+\newcommand{\dspr}{d_\mathrm{SPR}}
+
+\begin{document}
+
+%%% TITLE %%%
+\title{\vspace{1.0cm} \huge \bf Supplemental information:\\ \LARGE MERS structure}
+
+\author[1]{Gytis Dudas}
+\author[2]{Luiz Max Carvalho}
+\author[1]{Trevor Bedford}
+\author[2,4,5]{Andrew Rambaut}
+
+\affil[1]{Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Research Center, Seattle, WA, USA}
+\affil[2]{Institute of Evolutionary Biology, University of Edinburgh, Edinburgh, UK}
+\affil[4]{Fogarty International Center, National Institutes of Health, Bethesda, MD, USA}
+\affil[5]{Centre for Immunology, Infection and Evolution at the University of Edinburgh, Edinburgh, UK}
+
+\date{\today}
+
+\maketitle
+
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\subsection*{}
+
+
+\clearpage
+
+\bibliographystyle{mbe}
+\bibliography{mers-structure}
+
+\end{document}
