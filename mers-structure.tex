@@ -132,7 +132,29 @@ Our analyses also capture seasonal variation in zoonotic transmission patterns, 
 
 \section*{Results}
 
-\subsection*{}
+\subsection*{Cross species transmission of MERS-CoV}
+It is generally accepted that MERS-CoV is a continuously re-emerging human pathogen, however the exact number of cross-species transmission events remains unknown.
+We confirm this by identifying the camel reservoir as the host population where most of MERS-CoV evolution takes place (see figure \ref{mcc}).
+The human side of MERS outbreaks, on the other hand, are caused by repetitive zoonotic transmissions from camels, which we estimated by using an explicit model of population structure.
+We infer that across 216 MERS-CoV sequences collected from humans, we detect a median of 67 individual camel to human cross-species transmissions (95\% highest posterior density: 60--72), with little support for back-transmission scenarios (median 3, 95\% HPDs: 0--13).
+There is also apparent heterogeneity in resulting human cluster sizes, which is not unexpected.
+Large clusters of MERS are apparent and mostly correspond to known large transmission chains, often in a nosocomial setting, such as the outbreak in South Korea and Riyadh.
+We also note a general predisposition for large MERS-CoV clusters to have crossed the species barrier into humans early in each year.
+
+
+\begin{figure}[h]
+ \centering		
+	\includegraphics[width=0.65\textwidth]{figures/mers_mcc.png}
+	\caption{\textbf{Typed maximum clade credibility tree of MERS-CoV sequences from humans and camels.}
+	Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered using the structured coalescent.
+	Vast majority of MERS-CoV evolution is inferred to occur in camels (orange) with human outbreaks (blue) representing evolutionary dead-ends for the virus.
+	Whilst large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early. 
+	}
+	\label{mcc}
+\end{figure}
+
+\subsection*{Estimated epidemiological parameters}
+Removing the confounding effects of shared ancestry for MERS-CoV sequences has allowed us to treat every viral introduction into humans as an independent replicate of the transmission process in humans.
 
 
 \section*{Discussion}
@@ -145,9 +167,27 @@ Our analyses also capture seasonal variation in zoonotic transmission patterns, 
 \subsection*{Sequence data}
 All MERS-CoV sequences were downloaded from GenBank.
 Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
+Protein coding sequences were extracted and concatenated.
 Sequences were annotated with available collection dates and hosts, designated as camel or human.
 For partitioned analyses the alignment was split into two fragments, the first containing all nucleotides up to nucleotide 21000, and the rest of the genome being assigned to the second fragment.
 Despite their divergence both Severe Acute Respiratory Syndrome (SARS) and MERS betacoronaviruses appear to recombine across position 21000, which may indicate the existence of a recombinogenic secondary RNA structure that remains to be described in its vicinity. %% "Work by Zhang et al. (66) suggested that the presence of a stable hairpin between two direct repeats increases the rate of homologous recombination in MLV. Their data led to the conclusion that stable secondary structures decrease processive RT synthesis and, further, that a functional NC can increase RT processivity. However, in this case, there were no corresponding in vitro data (such as primer extension assays) to correlate with the in vivo observations. Here, we have demonstrated for the first time a direct relationship between pausing in vitro and viral recombination in vivo."
+
+\subsection*{Structured coalescent analyses}
+MultiTypeTree module was used in BEAUti v2.4.3 to specify a structured coalescent model with two demes - humans and camels - based on GenBank records.
+Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ nucleotide substitution models specified for codon positions 1+2 and 3.
+A relaxed molecular clock with branch rates drawn from a lognormal distribution was used to infer the evolutionary rate from date calibrated tips.
+Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
+An identical set up was used for analysing alignments split into two fragments, with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
+Eight independent whole-genome MCMC analyses were run, for 200 million states each subsampling every 20000 states.
+For two-fragment MCMC analyses ten independent runs were set up.
+Due to the increased complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burnin.
+
+\subsection*{Epidemiological analyses}
+
+
+\begin{equation}
+r_{j} = \frac{\Gamma(kj+j-1)}{\Gamma(kj)\Gamma(j+1)} \frac{(\frac{R_{0}}{k})^{j-1}}{(1+\frac{R_{0}}{k})^{kj+j-1}}
+\end{equation}
 
 \subsection*{Data availability}
 
