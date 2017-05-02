@@ -227,7 +227,7 @@ This makes camels the ideal host where distinct lineages of MERS-CoV can frequen
 	This is evidence for recombinant viruses generated in the reservoir entering human populations.
 	Coding sequences in the MERS-CoV genome are indicated with arrows at the bottom of the plot with position 21000 indicated by the black line.
 	}
-	\label{}
+	\label{fig:mers_chain}
 \end{figure}
 
 % \subsection*{Effects of recombination are minimal on human clusters}
@@ -323,8 +323,23 @@ Due to the increased complexity of multitype tree parameter space 50\% of states
 
 
 \begin{equation}
-r_{j} = \frac{\Gamma(kj+j-1)}{\Gamma(kj)\Gamma(j+1)} \frac{(\frac{R_{0}}{k})^{j-1}}{(1+\frac{R_{0}}{k})^{kj+j-1}}
+p(r = j | R_{0}, \omega) = \frac{\Gamma(\omega j+j-1)}{\Gamma(\omega j)\Gamma(j+1)} \frac{(\frac{R_{0}}{\omega})^{j-1}}{(1+\frac{R_{0}}{\omega})^{\omega j+j-1}}
 \end{equation}
+
+\subsubsection*{Introduction seasonality}
+We computed the times of camel-to-human introductions in the posterior distribution of trees.
+This distribution of introduction times was then discretised as follows: for state  $k = 1, 2, \ldots, L$ in the chain,  $Z_{ijk}$ was $1$ if there as an introduction in month $i$ and year $j$ and $0$ otherwise.
+We model the variable $Y_{ij} = \sum_{k = 1}^M Z_{ijk}$ with the hierarchical model:
+\begin{align}
+ Y_{ij} &\sim \text{Binomial}(L, \theta_{ij}); \\
+ logit(\theta_{ij}) &= \alpha_j + \beta_i; \\
+ \beta_i &\sim \text{Normal}(0, \sigma_{m}); \\ 
+  \sigma_{m} &\sim \text{Cauchy}(0, 2.5); \\
+ \alpha_j &\sim \text{Normal}(\mu_{y}, \sigma_{y});  \\
+ \mu_{y}  &\sim  \text{Normal}(0, 1); \\
+ \sigma_{y} &\sim \text{Cauchy}(0, 2.5).
+\end{align}
+
 
 \subsection*{Data availability}
 
