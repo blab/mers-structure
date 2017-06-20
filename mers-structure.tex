@@ -475,7 +475,7 @@ These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for stand
 \subsubsection*{Introduction seasonality}
 We extracted the times of camel-to-human introductions from the posterior distribution of multitype trees.
 This distribution of introduction times was then discretised as follows: for state  $k = 1, 2, \ldots, L$ in the chain,  $Z_{ijk}$ was $1$ if there as an introduction in month $i$ and year $j$ and $0$ otherwise.
-We model the variable $Y_{ij} = \sum_{k = 1}^M Z_{ijk}$ with the hierarchical model:
+We model the variable $Y_{ij} = \sum_{k = 1}^L Z_{ijk}$ with the hierarchical model:
 \begin{align*}
   Y_{ij} &\sim \text{Binomial}(L, \theta_{ij}); \\
   logit(\theta_{ij}) &= \alpha_j + \beta_i; \\
