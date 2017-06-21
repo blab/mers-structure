@@ -178,8 +178,8 @@ Unlike the most basic ``mugration'' approaches that simply infer and label the i
 We use the posterior distribution of MERS-CoV introduction times for human clades observed in the MCC tree (Figure \ref{mcc}) to model seasonal variation in zoonotic transfer of viruses.
 We identify four months (April, May, June, July) when the odds of MERS-CoV introductions are increased (Figure \ref{seasonality}) and four when the odds are decreased (August, September, November, December).
 Camel calving is reported to occur from October to February \citep{almutairi_non-genetic_2010}, with rapidly declining maternal antibody levels in calves within the first weeks after birth \citep{wernery_camelid_2001}.
-It is possible that MERS-CoV sweeps through each new camel generation once critical mass of susceptibles is reached, leading to a sharp rise in incidence of the virus in camels that leads to seasonal variation in force of infection in humans.
-Strong influx of susceptibles and subequent sweeping outbreaks in camels may explain evidence of widespread exposure to MERS-CoV in camels from seroepidemiology.
+It is possible that MERS-CoV sweeps through each new camel generation once critical mass of susceptibles is reached, leading to a sharp rise in incidence of the virus in camels that leads to increased force of infection sparking human outbreaks.
+Strong influx of susceptibles and subequent sweeping outbreaks in camels may explain evidence of widespread exposure to MERS-CoV in camels from seroepidemiology \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014}.
 
 \begin{figure}[h]
 \centering
@@ -207,42 +207,48 @@ Grey areas spanning October to February indicate the reported camel calving seas
 %\end{figure}
 
 \subsection*{MERS-CoV is poorly suited for human transmission}
-Structured coalescent approaches clearly show humans to be a terminal host for MERS-CoV, implying poor transmissibility.
-However, we wanted to translate this observation into the basic reproductive number, R$_{0}$, which is more familiar to epidemiologists, as well as extrapolate the migration process observed from sequence data to case data.
-In order to achieve this we perform approximate Bayesian computation (ABC) analyses with two steps.
-We simulate outbreaks using equation \ref{clusterLikelihood} with a fixed dispersion parameter and then subsample using a multivariate hypergeometric distribution from each case cluster to simulate sequencing.
-Sequencing simulations take place at different levels of bias, where case clusters likely to be sequenced become even more likely to be sequenced and \textit{vice versa} for cases that would be sequenced rarely.
+Structured coalescent approaches clearly show humans to be a terminal host \tbc{again, I don't know if this is the right term or not} for MERS-CoV, implying poor transmissibility.
+However, we wanted to translate this observation into the basic reproductive number, $R_{0}$, which is more familiar to epidemiologists and provides expectations of epidemic behavior.
+The parameter $R_{0}$, along with the degree of heterogeneity in tranmission quantified by dispersion parameter $\omega$, can be used to determine the distribution of total cases that result from a single introduction event into the human population (Equation \ref{clusterLikelihood}).
+We estimate $R_{0}$ along with other relevant parameters via approximate Bayesian computation (ABC) in two steps.
+We simulate case counts across multiple outbreaks totalling 2000 cases using Equation \ref{clusterLikelihood} with a fixed dispersion parameter $\omega$ and then subsample using a multivariate hypergeometric distribution from each case cluster to simulate sequencing of a fraction of cases.
+Sequencing simulations take place at different levels of bias, wherein bias enriches sequencing of larger case clusters.
 This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from index cases will be sampled exceedingly rarely.
-We record the R$_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions) for simulations that produce sequence cluster sizes with mean, median and standard deviation falling within the 95\% highest posterior density for these summary statistics observed in MERS-CoV data from structured coalescent analyses.
+We record the $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions) for simulations that produce sequence cluster sizes with mean, median and standard deviation falling within the 95\% highest posterior density for these summary statistics observed in MERS-CoV data from structured coalescent analyses (left-hand panels in Figure \ref{ABC}).
 
-We identify R$_{0}$ values below 1.0 as being more likely to generate MERS-CoV-like distributions of sequence clusters (middle panels in Figure \ref{ABC}).
-For increasing levels of bias mean R$_{0}$ values observed in matching simulations are 0.844, 0.730, and 0.683, respectively.
-Whilst the 95\% percentiles for R$_{0}$ values are close to 1.0 (0.720--0.995) for the unbiased sequencing simulation (\textit{i.e.} uniform sequencing efforts), we also note that increasing levels of bias are considerably better at generating MERS-CoV-like sequence clusters.
-Under unbiased sequencing only 2282 (out of 363 000) simulations fit our observations in structured coalescent analyses of MERS-CoV which increase to 9763 and 9923 for bias levels of 2.0 and 3.0, respectively.
+We find that observed phylogenetic patterns sequence clustering strongly support $R_{0}$ below 1.0 (middle panels in Figure \ref{ABC}).
+For increasing levels of bias mean $R_{0}$ values observed in matching simulations are 0.844, 0.730, and 0.683, respectively.
+Whilst the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.720--0.995) for the unbiased sequencing simulation (\textit{i.e.} uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably better at generating MERS-CoV-like sequence clusters.
+Under unbiased sequencing only 0.6\% (2282 out of 363 000) of simulations fit our phylogenetic observations, while 2.7\% and 2.7\% of simulations fit for bias levels of 2.0 and 3.0, respectively.
 This is apparent in the heights of the histograms in Figure \ref{ABC}.
-Simulations with bias suggest that R$_{0}$ values could have ranges [0.605--0.870] (bias = 2) and [0.555--0.825] (bias = 3).
+This is equivalent to a higher marginal likelihood for bias levels of 2.0 and 3.0 relative to bias of 1.0 (10\% support for bias level 1.0, 45\% support for bias level 2.0, and 45\% support for bias level 3.0).
+Simulations with bias suggest that $R_{0}$ values could have ranges [0.605--0.870] (bias = 2) and [0.555--0.825] (bias = 3).
 
-Lower values for R$_{0}$ in turn suggest relatively large numbers of zoonotic transfers of viruses into humans.
+Lower values for $R_{0}$ in turn suggest relatively large numbers of zoonotic transfers of viruses into humans (right-hand panels in Figure \ref{ABC}).
 The median number of cross-species introductions observed in simulations matching MERS data without bias are 339 (95\% percentiles 255--431).
-These numbers jump up to 558 (95\% percentiles 424--720) for bias = 2 and 650 (95\% percentiles 481--850) for bias = 3 simulations, which as mentioned previously seem to produce considerably more MERS-CoV-like data.
+These numbers jump up to 558 (95\% percentiles 424--720) for bias = 2 and 650 (95\% percentiles 481--850) for bias = 3 simulations, which as mentioned previously match considerably better to MERS phylogenetic data.
 Our results suggest a large number of unobserved MERS index cases.
 Given this, we also performed simulations where the total number of cases is doubled to 4000 to explore the impact of dramatic underestimation of MERS cases.
-In those sets of analyses R$_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
-Overall our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated R$_{0}<1.0$ and sequence sampling wholly unrepresentative of viral diversity found in humans.
+In those sets of analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
+
+Overall our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<1.0$ and sequence sampling wholly unrepresentative of viral diversity found in humans.
+\tbc{I didn't understand what you meant by `sequence sampling wholly unrepresentative of viral diversity found in humans'.}
 Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices appear sufficient to explain observed epidemiological patterns of MERS-CoV.
+\tbc{It would be really nice to be able to reference something here on hospital spread of MERS (or SARS) owing to hygiene practices.}
 
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_epi.png}
 	\caption{\textbf{Results of ABC simulations.}
 Each row corresponds to a different bias value used to concentrate the hypergeometric distribution that simulates sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias).
-Leftmost scatter plots show a 10\% subsample of all outbreak and sequencing simulations, coloured by the R$_{0}$ value used for the simulation.
+Leftmost scatter plots show a 10\% subsample of all outbreak and sequencing simulations, coloured by the $R_{0}$ value used for the simulation.
 The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and standard deviation observed for MERS-CoV data.
-The distribution of R$_{0}$ values found within the dotted rectangle is shown in the middle, on the same y axis across all levels of bias.
-Bins falling inside the 95\% percentiles are coloured by R$_{0}$, as in the leftmost scatter plot.
+The distribution of $R_{0}$ values found within the dotted rectangle is shown in the middle, on the same y axis across all levels of bias.
+Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
 The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same y axis across all levels of bias.
 Darker shade of grey indicates bins falling within the 95\% percentiles.
-ABC indicates R$_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
+ABC indicates $R_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
+\tbc{Not at all essential, but I can imagine that an initial panel A showing the logic of the two step ABC process would do a whole lot to eleviate confusion. I'm picturing a set of tables numbered with case counts in a top row and then a bottom row with sequence counts. This could also work better as a separate figure referenced from the Methods.}
 	}
 	\label{ABC}
 \end{figure}
@@ -260,8 +266,8 @@ ABC indicates R$_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequen
 
 
 \subsection*{Recombination shapes MERS-CoV diversity}
-Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV.
-In order to explore the role of recombination in shaping MERS-CoV genetic diversity we used two recombination detection approaches across partitions of data corresponding to inferred MERS-CoV clades.
+Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \tbc{needs citations}.
+In order to explore the role of recombination in shaping MERS-CoV genetic diversity we used two recombination detection approaches across partitions of taxa corresponding to inferred MERS-CoV clades.
 Both methods rely on sampling parental and recombinant alleles within the alignment, although each quantifies different signals of recombination.
 One hallmark of recombination is the ability to carry alleles derived via mutation from one lineage to another, that appear as repeated mutations taking place in the recipient lineage, somewhere else in the tree.
 PHI (pairwise homoplasy index) test quantifies the appearance of these excessive repeat mutations (homoplasies) within an alignment \citep{bruen_simple_2006}.
