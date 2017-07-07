@@ -64,6 +64,7 @@
 \definecolor{purple}{rgb}{0.459,0.109,0.538}
 \def\tb#1#2{\sout{#1} \textcolor{purple}{#2}}
 \def\tbc#1{\textcolor{purple}{[#1]}}
+\def\gdc#1{\textcolor{blue}{[#1]}}
 
 % symbols
 \newcommand{\chiSq}{\chi^{2}_{df}}
@@ -95,10 +96,11 @@ Middle East Respiratory Syndrome coronavirus (MERS-CoV) is a zoonotic virus orig
 The epidemiology of the virus remains poorly understood, with hospital outbreaks, isolated cases with known exposure to camels and apparent community transmission occurring simultaneously.
 Whilst traditional and seroepidemiological studies have been employed extensively throughout the epidemic, viral sequence data have not been utilised to their full potential in understanding transmission patterns within the outbreak.
 Here we use existing MERS-CoV sequence data to explore the phylodynamics of the virus in two of its known major hosts, humans and camels.
-We employ state-of-the-art structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as the virus' terminal host.
+We employ state-of-the-art structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as a transient, and ultimately terminal host.
 \tbc{Fields' Virology textbook defines `terminal host' as `one that is not involved in maintaining the virus, such infections rarely result in transmission to other human or non-human hosts'. I think you want a different word here. Maybe `transient host'?}
+\gdc{Good point about the term. Hope the definition leans towards `one not involved in maintenance' rather than `limited to index case'. Asked a friend working on zoonoses about this.}
 By analysing the distribution of human outbreak cluster sizes and zoonotic introduction times we show that MERS-CoV is unlikely to become endemic in humans and that human outbreaks in the Arabian peninsula for the most part are driven by seasonally varying zoonotic transfer of viruses from camels.
-\tbc{Powerful and succient abstract. Great.}
+% \tbc{Powerful and succinct abstract. Great.}
 
 \end{abstract}
 
@@ -129,7 +131,7 @@ Unlike discrete trait analyses (DTA, or ``mugration'' models) that treat a poten
 By estimating independent coalescence rates for MERS-CoV in humans and camels, as well as migration patterns between the two demes, we show that long-term viral evolution of MERS-CoV occurs exclusively in camels.
 Our results suggest that spillover events into humans are seasonal and might be associated with the calving season in camels.
 Once human MERS-CoV infections are established, however, we find that MERS-CoV is poor at transmitting between humans.
-Using approximate Bayesian computation we show that $R_{0}$ for MERS-CoV circulating in humans is much lower than the epidemic threshold of 1.0 and that correspondingly the virus has been introduced into humans hundreds of times.
+Using Monte Carlo simulations we show that $R_{0}$ for MERS-CoV circulating in humans is much lower than the epidemic threshold of 1.0 and that correspondingly the virus has been introduced into humans hundreds of times.
 
 %\begin{figure}[h]
 % \centering
@@ -207,10 +209,11 @@ Grey areas spanning October to February indicate the reported camel calving seas
 %\end{figure}
 
 \subsection*{MERS-CoV is poorly suited for human transmission}
-Structured coalescent approaches clearly show humans to be a terminal host \tbc{again, I don't know if this is the right term or not} for MERS-CoV, implying poor transmissibility.
+Structured coalescent approaches clearly show humans to be a terminal host %\tbc{again, I don't know if this is the right term or not}
+for MERS-CoV, implying poor transmissibility.
 However, we wanted to translate this observation into the basic reproductive number, $R_{0}$, which is more familiar to epidemiologists and provides expectations of epidemic behavior.
 The parameter $R_{0}$, along with the degree of heterogeneity in tranmission quantified by dispersion parameter $\omega$, can be used to determine the distribution of total cases that result from a single introduction event into the human population (Equation \ref{clusterLikelihood}).
-We estimate $R_{0}$ along with other relevant parameters via approximate Bayesian computation (ABC) in two steps.
+We estimate $R_{0}$ along with other relevant parameters via Monte Carlo simulation in two steps.
 We simulate case counts across multiple outbreaks totalling 2000 cases using Equation \ref{clusterLikelihood} with a fixed dispersion parameter $\omega$ and then subsample using a multivariate hypergeometric distribution from each case cluster to simulate sequencing of a fraction of cases.
 Sequencing simulations take place at different levels of bias, wherein bias enriches sequencing of larger case clusters.
 This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from index cases will be sampled exceedingly rarely.
@@ -231,15 +234,15 @@ Our results suggest a large number of unobserved MERS index cases.
 Given this, we also performed simulations where the total number of cases is doubled to 4000 to explore the impact of dramatic underestimation of MERS cases.
 In those sets of analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
 
-Overall our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<1.0$ and sequence sampling wholly unrepresentative of viral diversity found in humans.
-\tbc{I didn't understand what you meant by `sequence sampling wholly unrepresentative of viral diversity found in humans'.}
-Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices appear sufficient to explain observed epidemiological patterns of MERS-CoV.
-\tbc{It would be really nice to be able to reference something here on hospital spread of MERS (or SARS) owing to hygiene practices.}
+Overall our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<1.0$ and sequence sampling likely to be biased towards large hospital outbreaks.
+% \tbc{I didn't understand what you meant by `sequence sampling wholly unrepresentative of viral diversity found in humans'.}
+Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices \citep{assiri_hospital_2013,chen_comparative_2017} appear sufficient to explain observed epidemiological patterns of MERS-CoV.
+%\tbc{It would be really nice to be able to reference something here on hospital spread of MERS (or SARS) owing to hygiene practices.}
 
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_epi.png}
-	\caption{\textbf{Results of ABC simulations.}
+	\caption{\textbf{Results of Monte Carlo simulations.}
 Each row corresponds to a different bias value used to concentrate the hypergeometric distribution that simulates sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias).
 Leftmost scatter plots show a 10\% subsample of all outbreak and sequencing simulations, coloured by the $R_{0}$ value used for the simulation.
 The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and standard deviation observed for MERS-CoV data.
@@ -247,8 +250,8 @@ The distribution of $R_{0}$ values found within the dotted rectangle is shown in
 Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
 The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same y axis across all levels of bias.
 Darker shade of grey indicates bins falling within the 95\% percentiles.
-ABC indicates $R_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
-\tbc{Not at all essential, but I can imagine that an initial panel A showing the logic of the two step ABC process would do a whole lot to eleviate confusion. I'm picturing a set of tables numbered with case counts in a top row and then a bottom row with sequence counts. This could also work better as a separate figure referenced from the Methods.}
+Monte Carlo simulations indicate $R_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
+% \tbc{Not at all essential, but I can imagine that an initial panel A showing the logic of the two step ABC process would do a whole lot to alleviate confusion. I'm picturing a set of tables numbered with case counts in a top row and then a bottom row with sequence counts. This could also work better as a separate figure referenced from the Methods.}
 	}
 	\label{ABC}
 \end{figure}
@@ -266,7 +269,7 @@ ABC indicates $R_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequen
 
 
 \subsection*{Recombination shapes MERS-CoV diversity}
-Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \tbc{needs citations}.
+Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \citep{lai_1985,makino_1986,keck_1988,kottier_1995,herrewegh_1998}. %\tbc{needs citations}.
 In order to explore the role of recombination in shaping MERS-CoV genetic diversity we used two recombination detection approaches across partitions of taxa corresponding to inferred MERS-CoV clades.
 Both methods rely on sampling parental and recombinant alleles within the alignment, although each quantifies different signals of recombination.
 One hallmark of recombination is the ability to carry alleles derived via mutation from one lineage to another, that appear as repeated mutations taking place in the recipient lineage, somewhere else in the tree.
@@ -475,7 +478,7 @@ p(r = j | R_{0}, \omega) = \frac{\Gamma(\omega j+j-1)}{\Gamma(\omega j)\Gamma(j+
 Although case clusters and their sizes are difficult to infer directly and require detailed epidemiological follow up, sequence data have fewer limitations.
 Our structured coalescent analyses indicate that every MERS outbreak is a contained cross-species transmission of the virus from camels into humans.
 The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying distribution of case clusters.
-We employ an approximate Bayesian computation (ABC) approach to identify simulations where the recovered distribution of sequence cluster sizes fall within the 95\% highest posterior density intervals for three summary statistics of MERS-CoV sequence cluster sizes recovered via structured coalescent analyses: mean, median and standard deviation.
+We employ a Monte Carlo simulation approach to identify simulations where the recovered distribution of sequence cluster sizes fall within the 95\% highest posterior density intervals for three summary statistics of MERS-CoV sequence cluster sizes recovered via structured coalescent analyses: mean, median and standard deviation.
 These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for standard deviation of sequence cluster sizes and a median sequence cluster size of 1.
 
 \subsubsection*{Introduction seasonality}
@@ -524,17 +527,33 @@ This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in huma
 	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
 	\caption{\textbf{Result are robust to prior choice.}
 Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice.
-Plots on the left show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme (left) and \textit{vice versa} (right).
-Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (top) or 10.0 (bottom).
-\tbc{I think this would be more clear if the left and right sides shared the same x-axis. As it stands it looks at first glance like there's different priors for camel-to-human compared to human-to-camel. It's okay if the blue human-to-camel rates gets smushed up against the left of the plot.}
+Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme (blue) and \textit{vice versa} (orange).
+Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).
+%\tbc{I think this would be more clear if the left and right sides shared the same x-axis. As it stands it looks at first glance like there's different priors for camel-to-human compared to human-to-camel. It's okay if the blue human-to-camel rates gets smushed up against the left of the plot.}
 	}
 	\label{prior}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_method.pdf}
+	\caption{\textbf{Monte Carlo simulation method.}
+Case clusters are simulated according to \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
+We sample 174 cases from each simulation to represent sequencing of human MERS cases.
+`Sequencing' is carried out by using multivariate hypergeometric sampling, where at each iteration case cluster size $C_{i}$ is the number of successes in the population, $\sum_{i=1}^{K} C_{i} - C_{i}$ is the number of failures and number of trials is equal to leftover sequencing capacity, that is $\sum_{i=1}^{K} S_{i}$ minus whatever has been `sequenced' up to that iteration.
+Sequencing simulations take place at three levels of bias - 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
+Simulated sequence clusters are summarised by their mean and standard deviation, both of which reflect some aspect of the partitioning of sequences into clusters.
+A simulations is considered to match if its sequence cluster size mean and standard deviation fell within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
+$R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are summarised in Figure \ref{ABC}.
+	}
+	\label{method}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_epi_4000c.png}
-	\caption{\textbf{Results of ABC simulations with vast underestimation of cases.}
+	\caption{\textbf{Results of Monte Carlo simulations with vast underestimation of cases.}
 The plot is identical to Figure \ref{ABC}, but instead of 2000 cases, the currently reported number of MERS-CoV cases, simulations were run with 4000 cases.
 With more unobserved cases the R$_{0}$ values matching observed MERS-CoV sequence clusters can only be smaller, with a corresponding increase in numbers of zoonotic transmissions.
 However, the numbers of simulations that match MERS-CoV data go down too.
