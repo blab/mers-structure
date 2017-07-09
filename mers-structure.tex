@@ -97,7 +97,7 @@ Middle East Respiratory Syndrome coronavirus (MERS-CoV) is a zoonotic virus orig
 The epidemiology of the virus remains poorly understood, with hospital outbreaks, isolated cases with known exposure to camels and apparent community transmission occurring simultaneously.
 Whilst traditional and seroepidemiological studies have been employed extensively throughout the epidemic, viral sequence data have not been utilised to their full potential in understanding transmission patterns within the outbreak.
 Here we use existing MERS-CoV sequence data to explore the phylodynamics of the virus in two of its known major hosts, humans and camels.
-We employ state-of-the-art structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as a transient, and ultimately terminal host.
+We employ structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as a transient, and ultimately terminal host. 
 \tbc{Fields' Virology textbook defines `terminal host' as `one that is not involved in maintaining the virus, such infections rarely result in transmission to other human or non-human hosts'. I think you want a different word here. Maybe `transient host'?}
 \gdc{Good point about the term. Hope the definition leans towards `one not involved in maintenance' rather than `limited to index case'. Asked a friend working on zoonoses about this.}
 By analysing the distribution of human outbreak cluster sizes and zoonotic introduction times we show that MERS-CoV is unlikely to become endemic in humans and that human outbreaks in the Arabian peninsula for the most part are driven by seasonally varying zoonotic transfer of viruses from camels.
@@ -108,8 +108,9 @@ By analysing the distribution of human outbreak cluster sizes and zoonotic intro
 \pagebreak
 
 \section*{Introduction}
-Middle East Respiratory Syndrome Coronavirus (MERS-CoV) is a zoonotic infection of humans in the Arabian Peninsula originating from camels.
-The virus, first discovered in 2012 \citep{zaki_isolation_2012,boheemen_genomic_2012}, has gone on to cause more than 2000  infections and over 700 deaths according to the World Health Organization (WHO) \citep{mersfactsheet}.
+%% Middle East Respiratory Syndrome Coronavirus (MERS-CoV) is a zoonotic infection of humans in the Arabian Peninsula originating from camels. % AR - a virus isn't an infection and not all infections in the Arabian Peninsula
+Middle East Respiratory Syndrome Coronavirus (MERS-CoV), endemic in camels in the Arabian Peninsula, is the causative agent of zoonotic infections and limited outbreaks in humans. % ? something like this ?
+The virus, first discovered in 2012 \citep{zaki_isolation_2012,boheemen_genomic_2012}, has caused more than 2000  infections and over 700 deaths, according to the World Health Organization (WHO) \citep{mersfactsheet}.
 Its epidemiology remains obscure, largely because outbreaks are observed among the most severely affected individuals, such as older males with comorbidities \citep{assiri_2013,group_state_2013}.
 Whilst contact with camels is often reported, patients may not recall contact with \lmc{other?} livestock, suggesting an unobserved community contribution to the outbreak \citep{group_state_2013}.
 Studies into MERS-CoV epidemiology in the past often relied on serology to identify factors associated with MERS-CoV exposure in potential risk groups \citep{reusken_occupational_2015,reusken_2013}.
@@ -129,7 +130,10 @@ Similar studies on MERS-CoV have taken place at broader geographic scales, such 
 It is widely accepted that recorded human MERS-CoV infections are a result of at least several introductions of the virus into humans \citep{cotten_2013} and that contact with camels is a major risk factor for developing MERS, per WHO guidelines \lmc{how about a citation here?}.
 Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional, and necessarily limited, approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
 Here we use existing MERS-CoV sequence data to investigate the population structure of the virus between two of its known hosts, humans and camels by using an explicit model of metapopulation structure and migration between discrete sub-populations, referred to here as demes \citep{vaughan_efficient_2014}.
-Unlike discrete trait analyses (DTA, or ``mugration'' models) that treat a potential trait of interest (such as host state) as if it were a nucleotide site with an arbitrary number of states, population structure models explicitly incorporate distinct sampling patterns and population dynamics across demes.
+
+%Unlike discrete trait analyses (DTA, or ``mugration'' models) %% AR - I don't like 'DTA' as name for this model - it is not specific enough. The model is a continuous time Markov process
+%that treat a potential trait of interest (such as host state) as if it were a nucleotide site with an arbitrary number of states, population structure models explicitly incorporate distinct sampling patterns and population dynamics across demes.
+Unlike approaches that model the host species as a discrete trait of the virus using continuous-time Markov processes (or simpler, parsimony based, approaches) [cite here, Philippe's bat rabies and Sam's avian flu?, others?], population structure models explicitly incorporate the distinct sampling patterns, population dynamics within demes and the migration between demes.
 By estimating independent coalescence rates for MERS-CoV in humans and camels, as well as migration patterns between the two demes, we show that long-term viral evolution of MERS-CoV occurs exclusively in camels.
 Our results suggest that spillover events into humans are seasonal and might be associated with the calving season in camels.
 Once human MERS-CoV infections are established, however, we find that MERS-CoV is poor at transmitting between humans.
