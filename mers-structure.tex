@@ -99,8 +99,8 @@ The epidemiology of the virus remains poorly understood, with hospital outbreaks
 Whilst traditional and seroepidemiological studies have been employed extensively throughout the epidemic, viral sequence data have not been utilised to their full potential in understanding transmission patterns within the outbreak.
 Here we use existing MERS-CoV sequence data to explore the phylodynamics of the virus in two of its known major hosts, humans and camels.
 We employ structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as a transient, and ultimately terminal host.
-\tbc{Fields' Virology textbook defines `terminal host' as `one that is not involved in maintaining the virus, such infections rarely result in transmission to other human or non-human hosts'. I think you want a different word here. Maybe `transient host'?}
-\gdc{Good point about the term. Hope the definition leans towards `one not involved in maintenance' rather than `limited to index case'. Asked a friend working on zoonoses about this.}
+%\tbc{Fields' Virology textbook defines `terminal host' as `one that is not involved in maintaining the virus, such infections rarely result in transmission to other human or non-human hosts'. I think you want a different word here. Maybe `transient host'?}
+%\gdc{Good point about the term. Hope the definition leans towards `one not involved in maintenance' rather than `limited to index case'. Asked a friend working on zoonoses about this.}
 By analysing the distribution of human outbreak cluster sizes and zoonotic introduction times we show that MERS-CoV is unlikely to become endemic in humans and that human outbreaks in the Arabian peninsula for the most part are driven by seasonally varying zoonotic transfer of viruses from camels.
 % \tbc{Powerful and succinct abstract. Great.}
 
@@ -111,7 +111,7 @@ By analysing the distribution of human outbreak cluster sizes and zoonotic intro
 \section*{Introduction}
 %% Middle East Respiratory Syndrome Coronavirus (MERS-CoV) is a zoonotic infection of humans in the Arabian Peninsula originating from camels. % AR - a virus isn't an infection and not all infections in the Arabian Peninsula
 Middle East Respiratory Syndrome Coronavirus (MERS-CoV), endemic in camels in the Arabian Peninsula, is the causative agent of zoonotic infections and limited outbreaks in humans. % ? something like this ?
-The virus, first discovered in 2012 \citep{zaki_isolation_2012,boheemen_genomic_2012}, has caused more than 2000  infections and over 700 deaths, according to the World Health Organization (WHO) \citep{mersfactsheet}.
+The virus, first discovered in 2012 \citep{zaki_isolation_2012,boheemen_genomic_2012}, has caused more than 2000  infections and over 700 deaths, according to the World Health Organization (WHO) \citep{who_2017}.
 Its epidemiology remains obscure, largely because outbreaks are observed among the most severely affected individuals, such as older males with comorbidities \citep{assiri_2013,group_state_2013}.
 Whilst contact with camels is often reported, patients may not recall contact with %\lmc{other?}
 any livestock, suggesting an unobserved community contribution to the outbreak \citep{group_state_2013}.
@@ -133,11 +133,11 @@ Similar studies on MERS-CoV have taken place at broader geographic scales, such 
 
 
 It is widely accepted that recorded human MERS-CoV infections are a result of at least several introductions of the virus into humans \citep{cotten_2013} and that contact with camels is a major risk factor for developing MERS, per WHO guidelines %\lmc{how about a citation here?}
-\citep{who_2017}.
+\citep{who_2016_MERS}.
 Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional, and necessarily limited, approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
 Here we use existing MERS-CoV sequence data to investigate the population structure of the virus between two of its known hosts, humans and camels by using an explicit model of metapopulation structure and migration between discrete sub-populations, referred to here as demes \citep{vaughan_efficient_2014}.
 
-%Unlike discrete trait analyses (DTA, or ``mugration'' models) %% AR - I don't like 'DTA' as name for this model - it is not specific enough. The model is a continuous time Markov process
+%Unlike discrete trait analyses (DTA, or ``mugration'' models) % AR - I don't like 'DTA' as name for this model - it is not specific enough. The model is a continuous time Markov process
 %that treat a potential trait of interest (such as host state) as if it were a nucleotide site with an arbitrary number of states, population structure models explicitly incorporate distinct sampling patterns and population dynamics across demes.
 Unlike approaches that model the host species as a discrete trait of the virus using continuous-time Markov processes (or simpler, parsimony based, approaches) %[cite here, Philippe's bat rabies and Sam's avian flu?, others?]
 \citep{faria_simultaneously_2013,global_consortium_for_h5n8_and_related_influenza_viruses_role_2016}, population structure models explicitly incorporate the distinct sampling patterns, population dynamics within demes and the migration between demes.
@@ -457,6 +457,91 @@ Protein coding sequences were extracted and concatenated.
 Sequences were annotated with available collection dates and hosts, designated as camel or human.
 The final dataset consisted of 174 genomes from human infections and 100 genomes from camel infections (Table \ref{sequences}).
 
+\subsection*{Structured coalescent analyses}
+
+MultiTypeTree module \citep{vaughan_efficient_2014} was used in BEAUti v2.4.3 \citep{bouckaert_beast_2014} to specify a structured coalescent model with two demes - humans and camels - based on GenBank records.
+Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models specified for codon positions 1+2 and 3.
+A relaxed molecular clock with branch rates drawn from a lognormal distribution \citep{drummond_2006} was used to infer the evolutionary rate from date calibrated tips.
+Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
+All analyses were run across ten independent Markov chains (MCMC runs).
+To confirm that demographic inference was derived from the data rather than the prior we set up an additional ten independent analyses where the mean of the exponential distribution prior for migration rate was set to 10.0.
+
+We also analysed a dataset where alignments split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-onwards), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
+Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
+All analyses were set to run for 200 million states, subsampling every 20 000 states.
+Due to the increased complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burnin for single fragment analyses and 20\% for two-fragment analyses.
+Chains not converging after 200 million states were discarded.
+For single fragment analysis with migration rate prior set to exponential with mean 1.0 there were three chains out of ten that did not converge and two for the analysis where the migration rate prior was an exponential with mean 10.0.
+For the two fragment structured coalescent analyses three chains out of ten failed to converge.
+
+\subsection*{Demographic inference of MERS-CoV in the reservoir}
+In order to infer the demographic history of MERS-CoV in camels we used the results of structured coalescent analyses to identify introductions of the virus into humans.
+The oldest sequence from each cluster introduced into humans was used to represent a random draw from the diversity of MERS-CoV circulating in camels.
+These sequences were combined with existing sequence data from camels to give us a dataset with minimal demographic signal coming from epidemiological processes in humans.
+Sequences belonging to the outgroup clade where most of MERS-CoV sequences from Egypt fall were removed out of concern that MERS epidemics in the Arabian Peninsula and Egypt are distinct epidemics with relatively poor sampling in the latter.
+A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity (N$_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}.
+We set up five independent MCMC chains to run for 500 million states, sampling every 50 000 states.
+This analysis suffered from poor convergence, where two chains converged onto one stationary distribution, two to another and the last chain onto a third stationary distribution, with high effective sample sizes.%\lmc{already reported above. Why not remove?} \gdc{Never hurts to repeat.}
+
+\subsection*{Epidemiological analyses}
+
+As of 10 May 2017, the World Health Organization has been notified of 1952 cases of MERS-CoV.
+We thus simulate final transmission chain sizes using equation \ref{clusterLikelihood} \citep{lloyd-smith_superspreading_2005,blumberg_inference_2013} until we reach an epidemic comprised of 2000 cases.
+10 000 simulations were run for 121 uniformly spaced values of R$_{0}$ across the range [0.5--1.1] with dispersion parameter $\omega$ fixed to 0.1.
+Each simulation results in a vector of outbreak sizes $C$, where $C_{i}$ is the size of the \textit{i}th transmission cluster and $\sum_{i=1}^{K} C_{i} = 2000$, where $K$ is the number of clusters generated.
+We sample from the case cluster size vector according to a multivariate hypergeometric distribution to simulate sequencing.
+The resulting sequence cluster size vector $S$ contains $K$ entries, some of which are zero (\textit{i.e.} case clusters not sequenced), but $\sum_{i=1}^{K} S_{i} = 174$ which reflects the number of MERS-CoV sequences used in this study.
+Since the sampling scheme operates under equi-probable sequencing we also simulated biased sequencing by using concentrated hypergeometric distributions where the probability mass function is squared (bias = 2) or cubed (bias = 3) and then normalized.
+This makes clusters likely to be `sequenced' even more likely to be sequenced and \textit{vice versa}.
+We performed a smaller set of simulations with 2500 replicates and twice the number of cases, \textit{i.e.} $\sum_{i=1}^{K} C_{i} = 4000$, to explore a dramatically underreported epidemic.
+
+Let $R_{0}$ be the basic reproductive number ($ 0 < R_{0} < 1$),  and $\omega > 0$ be the a dispersion parameter, then the probability of observing a stuttering chain of size (cluster) $r$ of size $j$ is~\citep{blumberg_inference_2013}
+\begin{equation}
+Pr(r = j | R_{0}, \omega) = \frac{\Gamma(\omega j+j-1)}{\Gamma(\omega j)\Gamma(j+1)} \frac{(\frac{R_{0}}{\omega})^{j-1}}{(1+\frac{R_{0}}{\omega})^{\omega j+j-1}}.
+\label{clusterLikelihood}
+\end{equation}
+
+Although case clusters and their sizes are difficult to infer directly and require detailed epidemiological follow up, sequence data have fewer limitations.%\lmc{other than the ``obvious'' limitation that they're \textbf{not} the actual infection process, uh? >.>} \gdc{fair point, but we're talking about cluster inference}
+Our structured coalescent analyses indicate that every MERS outbreak is a contained cross-species transmission of the virus from camels into humans.
+The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying distribution of case clusters.
+We employ a Monte Carlo simulation approach to identify simulations where the recovered distribution of sequence cluster sizes fall within the 95\% highest posterior density intervals for three summary statistics of MERS-CoV sequence cluster sizes recovered via structured coalescent analyses: mean, median and standard deviation.
+These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for standard deviation of sequence cluster sizes and a median sequence cluster size of 1.
+
+\subsubsection*{Introduction seasonality}
+
+We extracted the times of camel-to-human introductions from the posterior distribution of multitype trees.
+This distribution of introduction times was then discretised as follows: for state  $k = 1, 2, \ldots, L$ in the chain,  $Z_{ijk}$ was $1$ if there as an introduction in month $i$ and year $j$ and $0$ otherwise.
+We model the variable $Y_{ij} = \sum_{k = 1}^L Z_{ijk}$ with the hierarchical model:
+\begin{align*}
+  Y_{ij} &\sim \text{Binomial}(L, \theta_{ij}); \\
+  logit(\theta_{ij}) &= \alpha_j + \beta_i; \\
+  \beta_i &\sim \text{Normal}(0, \sigma_{m}); \\
+  \sigma_{m} &\sim \text{Cauchy}(0, 2.5); \\
+  \alpha_j &\sim \text{Normal}(\mu_{y}, \sigma_{y}); \\
+  \mu_{y}  &\sim  \text{Normal}(0, 1); \\
+  \sigma_{y} &\sim \text{Cauchy}(0, 2.5).
+\end{align*}
+
+Odds ratios of introductions can then be computed for each month $i$ as $\text{OR}_i = \exp(\beta_i)$.
+
+\subsection*{Data availability}
+Sequence data and all analytical code is publicly available at https://github.com/blab/structured-mers.
+
+\section*{Acknowledgements}
+We would like to thank Allison Black for useful discussion and advice.
+GD is supported by the Mahan postdoctoral fellowship from the Fred Hutchinson Cancer Research Center.
+
+
+\bibliographystyle{mbe.bst}
+\bibliography{mers-structure}
+
+\newpage
+
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
 \begin{longtable}{ | l | l | l | l | l | }
 
   \caption{Strain names, accessions (where available), identified host and reported collection dates for MERS-CoV genomes used in this study.} \label{sequences} \\
@@ -753,89 +838,6 @@ The final dataset consisted of 174 genomes from human infections and 100 genomes
   274 & Jordan\_10\_2015 & KU233362 & human & 2015-09-17 \\
 \end{longtable}
 
-\subsection*{Structured coalescent analyses}
-
-MultiTypeTree module \citep{vaughan_efficient_2014} was used in BEAUti v2.4.3 \citep{bouckaert_beast_2014} to specify a structured coalescent model with two demes - humans and camels - based on GenBank records.
-Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models specified for codon positions 1+2 and 3.
-A relaxed molecular clock with branch rates drawn from a lognormal distribution \citep{drummond_2006} was used to infer the evolutionary rate from date calibrated tips.
-Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
-All analyses were run across ten independent Markov chains (MCMC runs).
-To confirm that demographic inference was derived from the data rather than the prior we set up an additional ten independent analyses where the mean of the exponential distribution prior for migration rate was set to 10.0.
-
-We also analysed a dataset where alignments split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-onwards), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
-Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
-All analyses were set to run for 200 million states, subsampling every 20 000 states.
-Due to the increased complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burnin for single fragment analyses and 20\% for two-fragment analyses.
-Chains not converging after 200 million states were discarded.
-For single fragment analysis with migration rate prior set to exponential with mean 1.0 there were three chains out of ten that did not converge and two for the analysis where the migration rate prior was an exponential with mean 10.0.
-For the two fragment structured coalescent analyses three chains out of ten failed to converge.
-
-\subsection*{Demographic inference of MERS-CoV in the reservoir}
-In order to infer the demographic history of MERS-CoV in camels we used the results of structured coalescent analyses to identify introductions of the virus into humans.
-The oldest sequence from each cluster introduced into humans was used to represent a random draw from the diversity of MERS-CoV circulating in camels.
-These sequences were combined with existing sequence data from camels to give us a dataset with minimal demographic signal coming from epidemiological processes in humans.
-Sequences belonging to the outgroup clade where most of MERS-CoV sequences from Egypt fall were removed out of concern that MERS epidemics in the Arabian Peninsula and Egypt are distinct epidemics with relatively poor sampling in the latter.
-A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity (N$_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}.
-We set up five independent MCMC chains to run for 500 million states, sampling every 50 000 states.
-This analysis suffered from poor convergence, where two chains converged onto one stationary distribution, two to another and the last chain onto a third stationary distribution, with high effective sample sizes.%\lmc{already reported above. Why not remove?} \gdc{Never hurts to repeat.}
-
-\subsection*{Epidemiological analyses}
-
-As of 10 May 2017, the World Health Organization has been notified of 1952 cases of MERS-CoV.
-We thus simulate final transmission chain sizes using equation \ref{clusterLikelihood} \citep{lloyd-smith_superspreading_2005,blumberg_inference_2013} until we reach an epidemic comprised of 2000 cases.
-10 000 simulations were run for 121 uniformly spaced values of R$_{0}$ across the range [0.5--1.1] with dispersion parameter $\omega$ fixed to 0.1.
-Each simulation results in a vector of outbreak sizes $C$, where $C_{i}$ is the size of the \textit{i}th transmission cluster and $\sum_{i=1}^{K} C_{i} = 2000$, where $K$ is the number of clusters generated.
-We sample from the case cluster size vector according to a multivariate hypergeometric distribution to simulate sequencing.
-The resulting sequence cluster size vector $S$ contains $K$ entries, some of which are zero (\textit{i.e.} case clusters not sequenced), but $\sum_{i=1}^{K} S_{i} = 174$ which reflects the number of MERS-CoV sequences used in this study.
-Since the sampling scheme operates under equi-probable sequencing we also simulated biased sequencing by using concentrated hypergeometric distributions where the probability mass function is squared (bias = 2) or cubed (bias = 3) and then normalized.
-This makes clusters likely to be `sequenced' even more likely to be sequenced and \textit{vice versa}.
-We performed a smaller set of simulations with 2500 replicates and twice the number of cases, \textit{i.e.} $\sum_{i=1}^{K} C_{i} = 4000$, to explore a dramatically underreported epidemic.
-
-Let $R_{0}$ be the basic reproductive number ($ 0 < R_{0} < 1$),  and $\omega > 0$ be the a dispersion parameter, then the probability of observing a stuttering chain of size (cluster) $r$ of size $j$ is~\citep{blumberg_inference_2013}
-\begin{equation}
-Pr(r = j | R_{0}, \omega) = \frac{\Gamma(\omega j+j-1)}{\Gamma(\omega j)\Gamma(j+1)} \frac{(\frac{R_{0}}{\omega})^{j-1}}{(1+\frac{R_{0}}{\omega})^{\omega j+j-1}}.
-\label{clusterLikelihood}
-\end{equation}
-
-Although case clusters and their sizes are difficult to infer directly and require detailed epidemiological follow up, sequence data have fewer limitations.%\lmc{other than the ``obvious'' limitation that they're \textbf{not} the actual infection process, uh? >.>} \gdc{fair point, but we're talking about cluster inference}
-Our structured coalescent analyses indicate that every MERS outbreak is a contained cross-species transmission of the virus from camels into humans.
-The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying distribution of case clusters.
-We employ a Monte Carlo simulation approach to identify simulations where the recovered distribution of sequence cluster sizes fall within the 95\% highest posterior density intervals for three summary statistics of MERS-CoV sequence cluster sizes recovered via structured coalescent analyses: mean, median and standard deviation.
-These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for standard deviation of sequence cluster sizes and a median sequence cluster size of 1.
-
-\subsubsection*{Introduction seasonality}
-
-We extracted the times of camel-to-human introductions from the posterior distribution of multitype trees.
-This distribution of introduction times was then discretised as follows: for state  $k = 1, 2, \ldots, L$ in the chain,  $Z_{ijk}$ was $1$ if there as an introduction in month $i$ and year $j$ and $0$ otherwise.
-We model the variable $Y_{ij} = \sum_{k = 1}^L Z_{ijk}$ with the hierarchical model:
-\begin{align*}
-  Y_{ij} &\sim \text{Binomial}(L, \theta_{ij}); \\
-  logit(\theta_{ij}) &= \alpha_j + \beta_i; \\
-  \beta_i &\sim \text{Normal}(0, \sigma_{m}); \\
-  \sigma_{m} &\sim \text{Cauchy}(0, 2.5); \\
-  \alpha_j &\sim \text{Normal}(\mu_{y}, \sigma_{y}); \\
-  \mu_{y}  &\sim  \text{Normal}(0, 1); \\
-  \sigma_{y} &\sim \text{Cauchy}(0, 2.5).
-\end{align*}
-
-Odds ratios of introductions can then be computed for each month $i$ as $\text{OR}_i = \exp(\beta_i)$.
-
-\subsection*{Data availability}
-Sequence data and all analytical code is publicly available at https://github.com/blab/structured-mers.
-
-\section*{Acknowledgements}
-We would like to thank Allison Black for useful discussion and advice.
-GD is supported by the Mahan postdoctoral fellowship from the Fred Hutchinson Cancer Research Center.
-
-
-\bibliographystyle{mbe.bst}
-\bibliography{mers-structure}
-
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
-
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_exploded.png}
@@ -864,7 +866,7 @@ Dotted lines indicate exponential priors specified for migration rates, with mea
 	\includegraphics[scale=0.25]{figures/mers_method.pdf}
 	\caption{\textbf{Monte Carlo simulation method.}
 Case clusters are simulated according to \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
-We sample 174 cases from each simulation to represent sequencing of human MERS cases.\lmc{is this implicitly a binomial sampling with $p = 1/2$?}
+We sample 174 cases from each simulation to represent sequencing of human MERS cases.%\lmc{is this implicitly a binomial sampling with $p = 1/2$?} \gdc{hypergeometric, since we probably don't resequence people}
 `Sequencing' is carried out by using multivariate hypergeometric sampling, where at each iteration case cluster size $C_{i}$ is the number of successes in the population, $\sum_{i=1}^{K} C_{i} - C_{i}$ is the number of failures and number of trials is equal to leftover sequencing capacity, that is $\sum_{i=1}^{K} S_{i}$ minus whatever has been `sequenced' up to that iteration.
 Sequencing simulations take place at three levels of bias - 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
 Simulated sequence clusters are summarised by their mean and standard deviation, both of which reflect some aspect of the partitioning of sequences into clusters.
