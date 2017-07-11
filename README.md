@@ -7,7 +7,7 @@ Looking into MERS-CoV dynamics through the structured coalescent lens.
 - What can be estimated about an epidemic from sequence data and structure? A spin off of Zika in Florida work.
 - Are MERS-CoV introductions seasonal? Would expect introductions to track prevalence in camels.
 
-==============================
+------------------------------
 # Figures
 ### Main:
 
@@ -19,7 +19,7 @@ Confidence in host assignment is depicted as a colour gradient, with increased u
 Some of the branches leading up to zoonotic transmission of MERS-CoV into humans are too long to have spent much of their time in humans, given our _a priori_ belief that MERS-CoV cannot circulate in humans for long periods of time.
 Thus branches encompassing cross-species transmissions are depicted as being in camels right up to the common ancestor or tip of each human outbreak.
 Whilst large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early.
-
+------------------------------
 ![](figures/mers_seasonality.png)
 **MERS-CoV seasonality.**
 A) Violin plots coloured by month showing the 95% highest posterior density interval for odds ratios of MERS-CoV introductions into human populations.
@@ -30,7 +30,7 @@ B) Each clade entering humans is positioned based on the median introduction tim
 95% highest posterior density intervals for zoonotic introduction of MERS-CoV into human populations observed in the MCC tree are indicated with coloured lines, coloured by median estimated introduction time.
 The black dotted line indicates the joint probability density for introductions.
 Grey areas spanning October to February indicate the reported camel calving season.
-
+------------------------------
 ![](figures/mers_epi.png)
 **Results of Monte Carlo simulations.**
 Each row corresponds to a different bias value used to concentrate the hypergeometric distribution that simulates sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias).
@@ -41,7 +41,7 @@ Bins falling inside the 95% percentiles are coloured by R0, as in the leftmost s
 The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same y axis across all levels of bias.
 Darker shade of grey indicates bins falling within the 95% percentiles.
 Monte Carlo simulations indicate R0 for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
-
+------------------------------
 ![](figures/mers_fragments.png)
 A) Heatmap shows the posterior probability that a pair of tips from trees of genomic fragments fall within the same clade - tips from fragment 1 are on the x axis, tips from fragment 2 are on the y axis.
 Tips are ordered by their appearance in tree of genome fragment 2 (positions from nucleotide 21000 onwards) reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
@@ -54,7 +54,7 @@ Tree branches are coloured by inferred ancestral host state (human in blue, came
 Whilst some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in camels.
 Human clusters in blue change phylogenetic positions between the trees wholesale, with minor incongruences within clusters.
 This is evidence for recombinant viruses generated in the reservoir entering human populations.
-
+------------------------------
 ### Supplementary:
 - Exploded tree.
 - Robustness of inference to choice of prior.

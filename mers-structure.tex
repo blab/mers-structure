@@ -122,9 +122,9 @@ Epidemiological modeling approaches have been used to look at traditional data s
 
 Although traditional epidemiological approaches yield important clues about exposure patterns and potential for larger outbreaks, much inevitably remains opaque to such approaches %\lmc{why, specifically?}
 due to difficulties in linking cases into clusters in the absence of detailed information.
-The new era of genomic epidemiology, however, has repeatedly shown the utility of viral sequence data in outbreak scenarios \citep{quick_real-time_2016,arias_rapid_2016}, where data are relatively cheap to produce.
+Genomic epidemiology, however, can fill this critical gap and has repeatedly shown the utility of viral sequence data in outbreak scenarios \citep{gire_genomic_2014,quick_real-time_2016,arias_rapid_2016}, where data are relatively cheap to produce.
 These data can stand in for diagnostics and often yield a highly detailed picture of an epidemic when complete genome sequencing is performed consistently and appropriate metadata collected \citep{dudas_virus_2017}.
-Often only sequence data can %\lmc{help}
+In the absence of other information often only sequence data can %\lmc{help}
 help pinpoint sources of pathogens and discriminate between multiple and single source scenarios \citep{gire_genomic_2014}, which are fundamental to quantifying risk \citep{grubaugh_multiple_2017}.
 Sequencing MERS-CoV has been performed as part of initial attempts to link human infections with the camel reservoir \citep{memish_human_2014}, nosocomial outbreak investigations \citep{assiri_hospital_2013} and routine surveillance \citep{park_acute_2015}.
 A large portion of MERS-CoV sequences come from %\lmc{when you say hospital outbreak, do you mean an actual outbreak taking place inside the hospital?}
@@ -134,7 +134,7 @@ Similar studies on MERS-CoV have taken place at broader geographic scales, such 
 
 It is widely accepted that recorded human MERS-CoV infections are a result of at least several introductions of the virus into humans \citep{cotten_2013} and that contact with camels is a major risk factor for developing MERS, per WHO guidelines %\lmc{how about a citation here?}
 \citep{who_2016_MERS}.
-Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional, and necessarily limited, approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
+Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
 Here we use existing MERS-CoV sequence data to investigate the population structure of the virus between two of its known hosts, humans and camels by using an explicit model of metapopulation structure and migration between discrete sub-populations, referred to here as demes \citep{vaughan_efficient_2014}.
 
 %Unlike discrete trait analyses (DTA, or ``mugration'' models) % AR - I don't like 'DTA' as name for this model - it is not specific enough. The model is a continuous time Markov process
@@ -174,7 +174,7 @@ We observe dense terminal clusters of MERS-CoV circulating in humans that are of
 These clusters of presumed human-to-human transmission are then embedded within extensive diversity of MERS-CoV lineages inferred to be circulating in camels, a classic pattern of source-sink dynamics.
 Our analyses recover these results despite sequence data heavily skewed towards non-uniformly %\lmc{maybe ``non-uniformly'' is redundant here} \gdc{disagree, the point I am trying to make is that the data are mostly human and that human data are further skewed in how they are sampled}
 sampled human cases and are robust to choice of prior.
-We therefore argue that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to index cases that might be mild and ultimately not detected by surveillance or sequencing.
+We therefore argue that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
 
 \begin{figure}[h]
  \centering
@@ -236,7 +236,7 @@ The parameter $R_{0}$, along with the degree of heterogeneity in tranmission qua
 We estimate $R_{0}$ along with other relevant parameters via Monte Carlo simulation in two steps.
 First, we simulate case counts across multiple outbreaks totalling 2000 cases using Equation \ref{clusterLikelihood} with a fixed dispersion parameter $\omega$ and then subsample using a multivariate hypergeometric distribution from each case cluster to simulate sequencing of a fraction of cases.
 Sequencing simulations take place at different levels of bias, wherein bias enriches sequencing of larger case clusters.
-This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from index cases will be sampled exceedingly rarely.
+This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from primary cases will be sampled exceedingly rarely.
 We record the $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions) for simulations that produce sequence cluster sizes with mean, median and standard deviation falling within the 95\% highest posterior density for these summary statistics observed in MERS-CoV data from structured coalescent analyses (left-hand panels in Figure \ref{ABC}).
 
 We find that observed phylogenetic patterns of sequence clustering strongly support $R_{0}$ below 1.0 (middle panels in Figure \ref{ABC}).
@@ -250,7 +250,7 @@ Simulations with bias suggest that $R_{0}$ values could have ranges [0.605--0.87
 Lower values for $R_{0}$ in turn suggest relatively large numbers of zoonotic transfers of viruses into humans (right-hand panels in Figure \ref{ABC}).
 The median number of cross-species introductions observed in simulations matching MERS data without bias are 339 (95\% percentiles 255--431).
 These numbers jump up to 558 (95\% percentiles 424--720) for bias = 2 and 650 (95\% percentiles 481--850) for bias = 3 simulations, which as mentioned previously match considerably better to MERS phylogenetic data.
-Our results suggest a large number of unobserved MERS index cases.%\lmc{does the definition of ``index case'' allow for ``multiple''?} \gdc{not in epi literature I don't think}
+Our results suggest a large number of unobserved MERS primary cases.%\lmc{does the definition of ``index case'' allow for ``multiple''?} \gdc{not in epi literature I don't think}
 Given this, we also performed simulations where the total number of cases is doubled to 4000 to explore the impact of dramatic underestimation of MERS cases.
 In those sets of analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
 
@@ -439,11 +439,11 @@ As computational infrastructure improves \citep{ayres_beagle:_2012}, it is hopef
 % We also strongly advise against drawing hasty conclusions from MERS-CoV phylogenies recovered from human sequences if they span more than four months of evolution or camel sequences under virtually all circumstances, as there is no guarantee that phylogenies will cover the clonal evolutionary history of the virus in humans.
 
 \subsection*{Sequence data as a universal epidemiology tool}
-As the field of epidemiology enters the age of genomics sequence data are likely to be brought to the forefront of epidemiological investigations.
+As the field of epidemiology enters the age of genomics sequence data are likely to be brought in to reinforce and augment epidemiological investigations.
 At a relatively low price, sequence data offer the combined benefits of diagnostics and typing, whilst also offering insight into a pathogen's evolutionary history.
 With a small amount of metadata, primarily collection dates and features of interest, such as location or host, much can be revealed through phylogenetic clustering of sequences, or absence thereof.
-This was used to great effect towards the end of the Ebola virus epidemic in West Africa, where the final transmission chains were tracked and confirmed as such with sequence data \citep{arias_rapid_2016}.
-Although sequence data can be collected for multiple reasons and used to address different questions, sequence data are a fundamental unit of ground truth, which allows data from wildly different studies to be combined trivially%\lmc{TRIVIALLY???} \gdc{yes, since you literally just put sequences into the same alignment}
+This was used to great effect at all stages of the Ebola virus epidemic in West Africa, where sequence data early on were used to show continued circulation of the same strain in the region rather than multiple zoonotic introductions \citep{gire_genomic_2014}, to study viral migration at a broad level \citep{park_ebola_2015,ladner_evolution_2015} as healthcare infrastructure was being overwhelmed during the peak, and towards the end where the final transmission chains were tracked and confirmed as such \citep{arias_rapid_2016}.
+Although sequence data can be collected for multiple reasons and used to address different questions, sequence data are a fundamental unit of ground truth, which allows sequences from wildly different studies to be combined trivially%\lmc{TRIVIALLY???} \gdc{yes, since you literally just put sequences into the same alignment}
 .
 In fact it has often been the combination of data from distinct populations and different time periods that yielded most insight in the past \citep{dudas_virus_2017}.
 
