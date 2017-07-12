@@ -2,6 +2,7 @@
 Looking into MERS-CoV dynamics through the structured coalescent lens.
 
 ------------------------------
+
 # Questions:
 - What is the *actual* number of introductions of MERS-CoV into humans? Literature and WHO know the number >1.
 - What can be estimated about an epidemic from sequence data and structure? A spin off of Zika in Florida work.
@@ -13,15 +14,19 @@ Looking into MERS-CoV dynamics through the structured coalescent lens.
 
 ![](figures/mers_mcc.png)
 **Typed maximum clade credibility tree of MERS-CoV genomes from humans and camels.**
+
 Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered with the structured coalescent.
 Vast majority of MERS-CoV evolution is inferred to occur in camels (orange) with human outbreaks (blue) representing evolutionary dead-ends for the virus.
 Confidence in host assignment is depicted as a colour gradient, with increased uncertainty in host assignment (posterior probabilities close to 0.5) shown as grey.
 Some of the branches leading up to zoonotic transmission of MERS-CoV into humans are too long to have spent much of their time in humans, given our _a priori_ belief that MERS-CoV cannot circulate in humans for long periods of time.
 Thus branches encompassing cross-species transmissions are depicted as being in camels right up to the common ancestor or tip of each human outbreak.
 Whilst large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early.
+
 ------------------------------
+
 ![](figures/mers_seasonality.png)
 **MERS-CoV seasonality.**
+
 A) Violin plots coloured by month showing the 95% highest posterior density interval for odds ratios of MERS-CoV introductions into human populations.
 Posterior means are indicated with circles.
 Evidence for increased or decreased risk (95% HPD excludes 1.0) for introductions are indicated by black or white circles, respectively.
@@ -30,9 +35,12 @@ B) Each clade entering humans is positioned based on the median introduction tim
 95% highest posterior density intervals for zoonotic introduction of MERS-CoV into human populations observed in the MCC tree are indicated with coloured lines, coloured by median estimated introduction time.
 The black dotted line indicates the joint probability density for introductions.
 Grey areas spanning October to February indicate the reported camel calving season.
+
 ------------------------------
+
 ![](figures/mers_epi.png)
 **Results of Monte Carlo simulations.**
+
 Each row corresponds to a different bias value used to concentrate the hypergeometric distribution that simulates sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias).
 Leftmost scatter plots show a 10% subsample of all outbreak and sequencing simulations, coloured by the R0 value used for the simulation.
 The dotted rectangle identifies the 95% highest posterior density bounds for sequence cluster size mean and standard deviation observed for MERS-CoV data.
@@ -54,7 +62,9 @@ Tree branches are coloured by inferred ancestral host state (human in blue, came
 Whilst some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in camels.
 Human clusters in blue change phylogenetic positions between the trees wholesale, with minor incongruences within clusters.
 This is evidence for recombinant viruses generated in the reservoir entering human populations.
+
 ------------------------------
+
 ### Supplementary:
 - Exploded tree.
 - Robustness of inference to choice of prior.

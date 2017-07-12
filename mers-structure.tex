@@ -14,6 +14,7 @@
 \urlstyle{same}
 
 \usepackage{longtable}
+\usepackage[]{algorithm2e}
 
 % reference figures across documents
 \usepackage{xr}
@@ -489,7 +490,7 @@ As of 10 May 2017, the World Health Organization has been notified of 1952 cases
 We thus simulate final transmission chain sizes using equation \ref{clusterLikelihood} \citep{lloyd-smith_superspreading_2005,blumberg_inference_2013} until we reach an epidemic comprised of 2000 cases.
 10 000 simulations were run for 121 uniformly spaced values of R$_{0}$ across the range [0.5--1.1] with dispersion parameter $\omega$ fixed to 0.1.
 Each simulation results in a vector of outbreak sizes $C$, where $C_{i}$ is the size of the \textit{i}th transmission cluster and $\sum_{i=1}^{K} C_{i} = 2000$, where $K$ is the number of clusters generated.
-We sample from the case cluster size vector according to a multivariate hypergeometric distribution to simulate sequencing.
+We sample from the case cluster size vector according to a multivariate hypergeometric distribution to simulate sequencing (algorithm \ref{hypergeometric}).
 The resulting sequence cluster size vector $S$ contains $K$ entries, some of which are zero (\textit{i.e.} case clusters not sequenced), but $\sum_{i=1}^{K} S_{i} = 174$ which reflects the number of MERS-CoV sequences used in this study.
 Since the sampling scheme operates under equi-probable sequencing we also simulated biased sequencing by using concentrated hypergeometric distributions where the probability mass function is squared (bias = 2) or cubed (bias = 3) and then normalized.
 This makes clusters likely to be `sequenced' even more likely to be sequenced and \textit{vice versa}.
@@ -506,6 +507,26 @@ Our structured coalescent analyses indicate that every MERS outbreak is a contai
 The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying distribution of case clusters.
 We employ a Monte Carlo simulation approach to identify simulations where the recovered distribution of sequence cluster sizes fall within the 95\% highest posterior density intervals for three summary statistics of MERS-CoV sequence cluster sizes recovered via structured coalescent analyses: mean, median and standard deviation.
 These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for standard deviation of sequence cluster sizes and a median sequence cluster size of 1.
+
+\begin{algorithm}[H]
+ \KwData{Array of case cluster sizes in outbreak $[C_{i},C_{i+1},C_{i+2}...C_{K}]$, sequences available $S$, total outbreak size $\sum_{i=1}^{K} C_{i}$}
+ \KwResult{Array of sequence cluster sizes sampled: $[S_{i},S_{i+1},S_{i+2}...S_{K}]$}
+ Draw from $C_{i}$ according to a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $S$ trials\;
+ \While{$i < K$}{
+  $i = i + 1$\;
+  $S = S - S_{i-1}$\;
+  Recover probability mass function $p = [p(0), ..., p(C_{i})]$ for a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $S$ trials\;
+  (Optional) Introduce bias into $p_{bias} = \frac{[p(0)^{bias}, ..., p(C_{i})^{bias}]}{\sum p_{bias}}$\;
+  Draw a sequence cluster size $S_{i}$ from array of potential sequence cluster sizes $[0, ..., C_{i}]$ according to $p$\;
+ }
+ Add remaining sequences to last sequence cluster $C_{K} = S - S_{K-1}$\;
+ \caption{\textbf{Multivariate hypergeometric sampling scheme.}
+ Pseudocode describes the multivariate hypergeometric sampling scheme that simulates sequencing.
+ Probability of sequencing a given number of cases from a case cluster depends on cluster size and sequences left (\textit{i.e.} ``sequencing capacity'').
+ The bias parameter determines how probability mass function of the hypergeometric distribution is concentrated.
+ }
+ \label{hypergeometric}
+\end{algorithm}
 
 \subsubsection*{Introduction seasonality}
 
