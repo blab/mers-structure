@@ -509,17 +509,16 @@ We employ a Monte Carlo simulation approach to identify simulations where the re
 These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for standard deviation of sequence cluster sizes and a median sequence cluster size of 1.
 
 \begin{algorithm}[H]
- \KwData{Array of case cluster sizes in outbreak $[C_{i},C_{i+1},C_{i+2}...C_{K}]$, sequences available $S$, total outbreak size $\sum_{i=1}^{K} C_{i}$}
- \KwResult{Array of sequence cluster sizes sampled: $[S_{i},S_{i+1},S_{i+2}...S_{K}]$}
- Draw from $C_{i}$ according to a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $S$ trials\;
+ \KwData{Array of case cluster sizes in outbreak $\boldsymbol C = [C_{1},C_{2}, \ldots, C_{K}]$, sequences available $M$, total outbreak size $\sum_{i=1}^{K} C_{i}$.}
+ \KwResult{Array of sequence cluster sizes sampled: $\boldsymbol S = [S_{1},S_{2}, \ldots, S_{K}]$.}
+ Draw from $S_{i}$ from a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $M$ trials\;
  \While{$i < K$}{
   $i = i + 1$\;
-  $S = S - S_{i-1}$\;
-  Recover probability mass function $p = [p(0), ..., p(C_{i})]$ for a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $S$ trials\;
-  (Optional) Introduce bias into $p_{bias} = \frac{[p(0)^{bias}, ..., p(C_{i})^{bias}]}{\sum p_{bias}}$\;
-  Draw a sequence cluster size $S_{i}$ from array of potential sequence cluster sizes $[0, ..., C_{i}]$ according to $p$\;
+  $M = M - S_{i-1}$\;
+  Compute the probability mass function (pmf) for all possible values of $S_i$, $\boldsymbol p = [p(0)^{\text{bias}}, p(1), \ldots, p(C_{i})^{\text{bias}}] \times (\sum_i p_i^{\text{bias}}) ^{-1}$, where $p(\cdot)$  is the pmf for a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $M$ trials\;
+  Draw a sequence cluster size $S_{i}$ from array of potential sequence cluster sizes $[0, 1, \ldots, C_{i}]$ according to $\boldsymbol p$\;
  }
- Add remaining sequences to last sequence cluster $C_{K} = S - S_{K-1}$\;
+ Add remaining sequences to last sequence cluster $C_{K} = M - S_{K-1}$\;
  \caption{\textbf{Multivariate hypergeometric sampling scheme.}
  Pseudocode describes the multivariate hypergeometric sampling scheme that simulates sequencing.
  Probability of sequencing a given number of cases from a case cluster depends on cluster size and sequences left (\textit{i.e.} ``sequencing capacity'').
