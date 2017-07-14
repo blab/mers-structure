@@ -511,7 +511,7 @@ These values are 2.90--3.70 for mean sequence cluster size, 4.87--6.07 for stand
 \begin{algorithm}[H]
  \KwData{Array of case cluster sizes in outbreak $\boldsymbol C = [C_{1},C_{2}, \ldots, C_{K}]$, sequences available $M$, total outbreak size $\sum_{i=1}^{K} C_{i}$.}
  \KwResult{Array of sequence cluster sizes sampled: $\boldsymbol S = [S_{1},S_{2}, \ldots, S_{K}]$.}
- Draw from $S_{i}$ from a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $M$ trials\;
+ Draw $S_{i}$ from a hypergeometric distribution with $C_{i}$ successes, $\sum_{i=1}^{K} C_{i}-C_{i}$ failures after $M$ trials\;
  \While{$i < K$}{
   $i = i + 1$\;
   $M = M - S_{i-1}$\;
