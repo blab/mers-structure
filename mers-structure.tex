@@ -103,10 +103,7 @@ The epidemiology of the virus remains poorly understood, with hospital outbreaks
 Whilst traditional and seroepidemiological studies have been employed extensively throughout the epidemic, viral sequence data have not been utilised to their full potential in understanding transmission patterns within the outbreak.
 Here we use existing MERS-CoV sequence data to explore the phylodynamics of the virus in two of its known major hosts, humans and camels.
 We employ structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as a transient, and ultimately terminal host.
-%\tbc{Fields' Virology textbook defines `terminal host' as `one that is not involved in maintaining the virus, such infections rarely result in transmission to other human or non-human hosts'. I think you want a different word here. Maybe `transient host'?}
-%\gdc{Good point about the term. Hope the definition leans towards `one not involved in maintenance' rather than `limited to index case'. Asked a friend working on zoonoses about this.}
 By analysing the distribution of human outbreak cluster sizes and zoonotic introduction times we show that MERS-CoV is unlikely to become endemic in humans and that human outbreaks in the Arabian peninsula for the most part are driven by seasonally varying zoonotic transfer of viruses from camels.
-% \tbc{Powerful and succinct abstract. Great.}
 
 \end{abstract}
 
@@ -139,7 +136,7 @@ Similar studies on MERS-CoV have taken place at broader geographic scales, such 
 It is widely accepted that recorded human MERS-CoV infections are a result of at least several introductions of the virus into humans \citep{cotten_2013} and that contact with camels is a major risk factor for developing MERS, per WHO guidelines %\lmc{how about a citation here?}
 \citep{who_2016_MERS}.
 Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
-Here we use existing MERS-CoV sequence data to investigate the population structure of the virus between two of its known hosts, humans and camels by using an explicit model of metapopulation structure and migration between discrete sub-populations, referred to here as demes \citep{vaughan_efficient_2014}.
+Here we use existing MERS-CoV sequence data (174 MERS-CoV genomes from human infections and 100 MERS-CoV genomes from camel infections) to investigate the population structure of the virus between two of its known hosts, humans and camels by using an explicit model of metapopulation structure and migration between discrete sub-populations, referred to here as demes \citep{vaughan_efficient_2014}.
 
 %Unlike discrete trait analyses (DTA, or ``mugration'' models) % AR - I don't like 'DTA' as name for this model - it is not specific enough. The model is a continuous time Markov process
 %that treat a potential trait of interest (such as host state) as if it were a nucleotide site with an arbitrary number of states, population structure models explicitly incorporate distinct sampling patterns and population dynamics across demes.
@@ -168,8 +165,7 @@ Across 174 MERS-CoV genomes collected from humans, we detect a median of 56 indi
 Whilst we %\lmc{estimate?}
 estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
 We conclude that most human-to-camel migrations are induced by the migration rate prior, whilst some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
-It is most apparent in the lineages existing in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where poor sampling of MERS-CoV genetic diversity from camels %\lmc{is ``allow'' the best word here? I understand you' rather not use ``biases'' or ``misleads'', though...}
-the model cannot dismiss humans as a potential alternative host.
+It is most apparent in the lineages existing in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot dismiss humans as a potential alternative host.
 The first sequences of MERS-CoV from camels do not appear in our data until November 2013.
 Our finding of negligible human-to-camel transmission is robust to choice of prior (Figure~\ref{prior}).
 
@@ -179,6 +175,7 @@ These clusters of presumed human-to-human transmission are then embedded within 
 Our analyses recover these results despite sequence data heavily skewed towards non-uniformly %\lmc{maybe ``non-uniformly'' is redundant here} \gdc{disagree, the point I am trying to make is that the data are mostly human and that human data are further skewed in how they are sampled}
 sampled human cases and are robust to choice of prior.
 We therefore argue that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
+\tbc{I think this sentence (``We therefore...'') needs to be spelled out a bit more. It feels like the logic is what the Monte Carlo sampling does. Either spell out more, or push back to section with figure \ref{ABC}.}
 
 \begin{figure}[h]
  \centering
@@ -197,10 +194,10 @@ We therefore argue that instances of human infection with MERS-CoV are more comm
 
 
 \subsection*{Signals of MERS-CoV seasonality}
-Unlike the most simpler %\lmc{simpler?}
-``mugration'' approaches that simply infer and label the internal nodes of a phylogeny, 
-% please lets drop 'mugration'. Terrible word. Also I don't see why they are 'simpler'. 
-structured population models possess the ability to estimate migration times. % So do Markov Jumps. 
+Unlike simpler ``mugration'' approaches that simply infer and label the internal nodes of a phylogeny,
+% please lets drop 'mugration'. Terrible word. Also I don't see why they are 'simpler'.
+% TB: Agree.
+structured population models possess the ability to estimate migration times. % So do Markov Jumps.
 We use the posterior distribution of MERS-CoV introduction times for human clades observed in the MCC tree (Figure \ref{mcc}) to model seasonal variation in zoonotic transfer of viruses.
 We identify four months (April, May, June, July) when the odds of MERS-CoV introductions are increased (Figure \ref{seasonality}) and four when the odds are decreased (August, September, November, December).
 Camel calving is reported to occur from October to February \citep{almutairi_non-genetic_2010}, with rapidly declining maternal antibody levels in calves within the first weeks after birth \citep{wernery_camelid_2001}.
@@ -318,8 +315,8 @@ This provides ideal conditions for co-infection with distinct genotypes, which i
 Conversely, our results strongly suggest that co-infection of humans with distinct lineages of MERS-CoV should be exceedingly rare.
 We find little evidence that recombination will interfere with the inference of human outbreak clusters %beyond what could be expected of phylogenetic noise %% doesn't make sense to say that recombination is interfering as expected by phylogenetic noise.
 (Figure \ref{recombination}A).
-And whilst we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombination}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}). 
-Observed departures from strictly clonal evolution suggest that whilst recombination is a serious issue for inferring MERS-CoV phylogenies, its effects on the human side of MERS outbreaks is minimal, as expected. 
+And whilst we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombination}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
+Observed departures from strictly clonal evolution suggest that whilst recombination is a serious issue for inferring MERS-CoV phylogenies, its effects on the human side of MERS outbreaks is minimal, as expected.
 %Overall we advise extreme caution when interpreting branches in MERS-CoV phylogenies that are suspected of having spent any time in camels, especially when attempting to identify origins of human cases. %% a bit overblown 'extreme caution'?
 On the other hand, the largely clonal evolution of MERS-CoV in humans, despite limited diversity, should be more amenable to traditional phylogenetic approaches. %% But why won't recombination be happening in humans? Sure it won't be 2 divergent lineages.
 
@@ -371,6 +368,8 @@ On the other hand, the largely clonal evolution of MERS-CoV in humans, despite l
 \end{figure}
 
 \subsection*{Demographic trajectory of MERS-CoV in camels}
+
+\tbc{Slightly strange to have this at the level of full results subsection and not have a main text figure.}
 Since MERS-CoV in humans will have a distinct epidemiology
 % evolves under a distinct demographic regime, %% evolves under a demographic regime?
 we split our sequence dataset based on whether sequences were collected in humans or camels.
@@ -417,8 +416,8 @@ As the representation of evolution drifts away from a strictly bifurcating tree 
 Convergence difficulties are well known in rich models, such as ancestral recombination graphs, and multitype trees are no different.
 Even with a moderate number of sequences (N=274) and the smallest possible number of demes (N=2) structured population model mixing is slow and problematic.
 Some convergence issues (Figure \ref{skygrid}) could be attributed to the presence of recombination in MERS-CoV data (Figure \ref{recombination}), but active research into approximations to the structured coalescent \citep{maio_new_2015} seem to acknowledge both the utility and difficulties in applying such methods. %% Don't understand this sentence. How is the second clause related to the first?
-As computational infrastructure improves \citep{ayres_beagle:_2012}, %it is hopefully only a matter of time before 
-phylogenetic population structure models will reach the point where large datasets with multiple demes (\textit{e.g.} West African Ebola virus epidemic \citep{dudas_virus_2017}, global influenza virus circulation \citep{bedford_global_2015}) will be tractable. 
+As computational infrastructure improves \citep{ayres_beagle:_2012}, %it is hopefully only a matter of time before
+phylogenetic population structure models will reach the point where large datasets with multiple demes (\textit{e.g.} West African Ebola virus epidemic \citep{dudas_virus_2017}, global influenza virus circulation \citep{bedford_global_2015}) will be tractable.
 
 
 % Similar approaches have been used to quantify population structure in American Zika viruses, where repeated introductions into Florida observed in sequence data were used to extrapolate probable numbers of viral introductions
@@ -449,7 +448,7 @@ phylogenetic population structure models will reach the point where large datase
 % We thus conclude that whilst sequence analyses of MERS-CoV are perfectly legitimate for well-defined human outbreaks, extreme care must be taken when inferring their origins in the context of the reservoir, or even when comparing related outbreaks in humans.
 % We also strongly advise against drawing hasty conclusions from MERS-CoV phylogenies recovered from human sequences if they span more than four months of evolution or camel sequences under virtually all circumstances, as there is no guarantee that phylogenies will cover the clonal evolutionary history of the virus in humans.
 
-\subsection*{Sequence data as a universal epidemiology tool} %% Drop this paragraph and finish on something better. I think this point has been made already. 
+\subsection*{Sequence data as a universal epidemiology tool} %% Drop this paragraph and finish on something better. I think this point has been made already.
 As the field of epidemiology enters the age of genomics sequence data are likely to be brought in to reinforce and augment epidemiological investigations.
 At a relatively low price, sequence data offer the combined benefits of diagnostics and typing, whilst also offering insight into a pathogen's evolutionary history.
 With a small amount of metadata, primarily collection dates and features of interest, such as location or host, much can be revealed through phylogenetic clustering of sequences, or absence thereof.
@@ -559,8 +558,9 @@ Odds ratios of introductions can then be computed for each month $i$ as $\text{O
 Sequence data and all analytical code is publicly available at https://github.com/blab/structured-mers.
 
 \section*{Acknowledgements}
-We would like to thank Allison Black for useful discussion and advice.
+We would like to thank \tbc{XXX, YYY, ZZZ, etc...} for kindly sharing sequence data, and Allison Black for useful discussion and advice.
 GD is supported by the Mahan postdoctoral fellowship from the Fred Hutchinson Cancer Research Center.
+TB is a Pew Biomedical Scholar and is supported by NIH R35 GM119774-01.
 
 
 \bibliographystyle{mbe.bst}
