@@ -30,11 +30,10 @@ Whilst large clusters of human cases are apparent in the tree, significant contr
 A) Violin plots coloured by month showing the 95% highest posterior density interval for odds ratios of MERS-CoV introductions into human populations.
 Posterior means are indicated with circles.
 Evidence for increased or decreased risk (95% HPD excludes 1.0) for introductions are indicated by black or white circles, respectively.
-Grey area spanning October to February indicates the camel calving season.
+Hatched area spanning October to February indicates the camel calving season.
 B) Each clade entering humans is positioned based on the median introduction time, as recovered by structured coalescent analyses and coloured by time of year with height indicating number of descendent sequences recovered from human cases.
 95% highest posterior density intervals for zoonotic introduction of MERS-CoV into human populations observed in the MCC tree are indicated with coloured lines, coloured by median estimated introduction time.
 The black dotted line indicates the joint probability density for introductions.
-Grey areas spanning October to February indicate the reported camel calving season.
 
 ------------------------------
 
@@ -49,7 +48,9 @@ Bins falling inside the 95% percentiles are coloured by R0, as in the leftmost s
 The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same y axis across all levels of bias.
 Darker shade of grey indicates bins falling within the 95% percentiles.
 Monte Carlo simulations indicate R0 for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
+
 ------------------------------
+
 ![](figures/mers_fragments.png)
 A) Heatmap shows the posterior probability that a pair of tips from trees of genomic fragments fall within the same clade - tips from fragment 1 are on the x axis, tips from fragment 2 are on the y axis.
 Tips are ordered by their appearance in tree of genome fragment 2 (positions from nucleotide 21000 onwards) reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
