@@ -98,208 +98,165 @@
 
 \begin{abstract}
 
-Middle East Respiratory Syndrome coronavirus (MERS-CoV) is a zoonotic virus originating in camels that has been causing significant mortality and morbidity in humans in the Arabian Peninsula.
+Middle East respiratory syndrome coronavirus (MERS-CoV) is a zoonotic virus originating in camels that has been causing significant mortality and morbidity in humans in the Arabian Peninsula.
 The epidemiology of the virus remains poorly understood, with hospital outbreaks, isolated cases with known exposure to camels and apparent community transmission occurring simultaneously.
-Whilst traditional and seroepidemiological studies have been employed extensively throughout the epidemic, viral sequence data have not been utilised to their full potential in understanding transmission patterns within the outbreak.
+While traditional and seroepidemiological studies have been employed extensively throughout the epidemic, viral sequence data have not been utilised to their full potential in understanding transmission patterns within the outbreak.
 Here we use existing MERS-CoV sequence data to explore the phylodynamics of the virus in two of its known major hosts, humans and camels.
 We employ structured coalescent models to show that long-term MERS-CoV evolution occurs exclusively in camels, whereas humans act as a transient, and ultimately terminal host.
-By analysing the distribution of human outbreak cluster sizes and zoonotic introduction times we show that MERS-CoV is unlikely to become endemic in humans and that human outbreaks in the Arabian peninsula for the most part are driven by seasonally varying zoonotic transfer of viruses from camels.
+By analysing the distribution of human outbreak cluster sizes and zoonotic introduction times we show that human outbreaks in the Arabian peninsula are driven by seasonally varying zoonotic transfer of viruses from camels.
+Without heretofore unseen evolution of host tropism, MERS-CoV is unlikely to become endemic in humans.
 
 \end{abstract}
 
 \pagebreak
 
 \section*{Introduction}
-%% Middle East Respiratory Syndrome Coronavirus (MERS-CoV) is a zoonotic infection of humans in the Arabian Peninsula originating from camels. % AR - a virus isn't an infection and not all infections in the Arabian Peninsula
-Middle East Respiratory Syndrome Coronavirus (MERS-CoV), endemic in camels in the Arabian Peninsula, is the causative agent of zoonotic infections and limited outbreaks in humans. % ? something like this ?
+Middle East respiratory syndrome coronavirus (MERS-CoV), endemic in camels in the Arabian Peninsula, is the causative agent of zoonotic infections and limited outbreaks in humans.
 The virus, first discovered in 2012 \citep{zaki_isolation_2012,boheemen_genomic_2012}, has caused more than 2000  infections and over 700 deaths, according to the World Health Organization (WHO) \citep{who_2017}.
-Its epidemiology remains obscure, largely because outbreaks are observed among the most severely affected individuals, such as older males with comorbidities \citep{assiri_2013,group_state_2013}.
-Whilst contact with camels is often reported, patients may not recall contact with %\lmc{other?}
-any livestock, suggesting an unobserved community contribution to the outbreak \citep{group_state_2013}.
-Studies into MERS-CoV epidemiology in the past often relied on serology to identify factors associated with MERS-CoV exposure in potential risk groups \citep{reusken_occupational_2015,reusken_2013}.
-Indeed, such data have been used to show high seroprevalence in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014} and evidence of contact with MERS-CoV in workers with occupational exposure to camels \citep{reusken_occupational_2015,muller_presence_2015}.
-Epidemiological modeling approaches have been used to look at traditional data sources of case clusters through time, space and across hosts \citep{cauchemez_unraveling_2016}.
+Its epidemiology remains obscure, largely because infections are observed among the most severely affected individuals, such as older males with comorbidities \citep{assiri_2013,group_state_2013}.
+While contact with camels is often reported, other patients do not recall contact with any livestock, suggesting an unobserved community contribution to the outbreak \citep{group_state_2013}.
+Previous studies on MERS-CoV epidemiology have used serology to identify factors associated with MERS-CoV exposure in potential risk groups \citep{reusken_occupational_2015,reusken_2013}.
+Such data have shown high seroprevalence in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014} and evidence of contact with MERS-CoV in workers with occupational exposure to camels \citep{reusken_occupational_2015,muller_presence_2015}.
+Separately, epidemiological modelling approaches have been used to look at incidence reports through time, space and across hosts \citep{cauchemez_unraveling_2016}.
 
 
-Although traditional epidemiological approaches yield important clues about exposure patterns and potential for larger outbreaks, much inevitably remains opaque to such approaches %\lmc{why, specifically?}
-due to difficulties in linking cases into clusters in the absence of detailed information.
-Genomic epidemiology, however, can fill this critical gap and has repeatedly shown the utility of viral sequence data in outbreak scenarios \citep{gire_genomic_2014,quick_real-time_2016,arias_rapid_2016}, where data are relatively cheap to produce.
+Although such traditional epidemiological approaches yield important clues about exposure patterns and potential for larger outbreaks, much inevitably remains opaque to such approaches due to difficulties in linking cases into transmission clusters in the absence of detailed information.
+Genomic epidemiology, however, can fill this critical gap and has repeatedly shown the utility of viral sequence data in outbreak scenarios \citep{liu_h7n9_2013,gire_genomic_2014,grubaugh_multiple_2017}, where data are relatively cheap to produce.
 These data can stand in for diagnostics and often yield a highly detailed picture of an epidemic when complete genome sequencing is performed consistently and appropriate metadata collected \citep{dudas_virus_2017}.
-In the absence of other information often only sequence data can %\lmc{help}
-help pinpoint sources of pathogens and discriminate between multiple and single source scenarios \citep{gire_genomic_2014}, which are fundamental to quantifying risk \citep{grubaugh_multiple_2017}.
+Sequence data can help discriminate between multiple and single source scenarios \citep{gire_genomic_2014}, which are fundamental to quantifying risk \citep{grubaugh_multiple_2017}.
 Sequencing MERS-CoV has been performed as part of initial attempts to link human infections with the camel reservoir \citep{memish_human_2014}, nosocomial outbreak investigations \citep{assiri_hospital_2013} and routine surveillance \citep{park_acute_2015}.
-A large portion of MERS-CoV sequences come from %\lmc{when you say hospital outbreak, do you mean an actual outbreak taking place inside the hospital?}
-outbreaks within hospitals, where sequence data have been used to determine whether infections were isolated introductions or were part of a larger hospital-associated outbreak \citep{fagbo_molecular_2015}.
+A large portion of MERS-CoV sequences come from outbreaks within hospitals, where sequence data have been used to determine whether infections were isolated introductions or were part of a larger hospital-associated outbreak \citep{fagbo_molecular_2015}.
 Similar studies on MERS-CoV have taken place at broader geographic scales, such as cities \citep{cotten_2013}.
 
 
-It is widely accepted that recorded human MERS-CoV infections are a result of at least several introductions of the virus into humans \citep{cotten_2013} and that contact with camels is a major risk factor for developing MERS, per WHO guidelines %\lmc{how about a citation here?}
-\citep{who_2016_MERS}.
-Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
-Here we use existing MERS-CoV sequence data (174 MERS-CoV genomes from human infections and 100 MERS-CoV genomes from camel infections) to investigate the population structure of the virus between two of its known hosts, humans and camels by using an explicit model of metapopulation structure and migration between discrete sub-populations, referred to here as demes \citep{vaughan_efficient_2014}.
+It is widely accepted that recorded human MERS-CoV infections are a result of at least several introductions of the virus into humans \citep{cotten_2013} and that contact with camels is a major risk factor for developing MERS, per WHO guidelines \citep{who_2016_MERS}.
+Previous studies attempting to quantify the actual number of spillover infections have either relied on traditional epidemiological approaches \citep{cauchemez_unraveling_2016} or employed methods agnostic to signals of population structure within sequence data \citep{zhang_evolutionary_2016}.
+Here we use a dataset of 274 MERS-CoV genomes to investigate transmission patterns of the virus between humans and camels.
 
-%Unlike discrete trait analyses (DTA, or ``mugration'' models) % AR - I don't like 'DTA' as name for this model - it is not specific enough. The model is a continuous time Markov process
-%that treat a potential trait of interest (such as host state) as if it were a nucleotide site with an arbitrary number of states, population structure models explicitly incorporate distinct sampling patterns and population dynamics across demes.
-Unlike approaches that model the host species as a discrete trait of the virus using continuous-time Markov processes (or simpler, parsimony based, approaches) %[cite here, Philippe's bat rabies and Sam's avian flu?, others?]
-\citep{faria_simultaneously_2013,global_consortium_for_h5n8_and_related_influenza_viruses_role_2016}, population structure models explicitly incorporate the distinct sampling patterns, population dynamics within demes and the migration between demes.
+Here, we use an explicit model of metapopulation structure and migration between discrete subpopulations, referred to here as demes \citep{vaughan_efficient_2014}, derived from the structured coalescent \citep{notohara_structured_coalescent_1990}.
+Unlike approaches that model host species as a discrete phylogenetic trait of the virus using continuous-time Markov processes (or simpler, parsimony based, approaches) \citep{faria_simultaneously_2013,lycett_h5n8_2016}, population structure models explicitly incorporate distinct sampling patterns, population dynamics within demes and migration between demes.
 By estimating independent coalescence rates for MERS-CoV in humans and camels, as well as migration patterns between the two demes, we show that long-term viral evolution of MERS-CoV occurs exclusively in camels.
 Our results suggest that spillover events into humans are seasonal and might be associated with the calving season in camels.
 Once human MERS-CoV infections are established, however, we find that MERS-CoV is poor at transmitting between humans.
 Using Monte Carlo simulations we show that $R_{0}$ for MERS-CoV circulating in humans is much lower than the epidemic threshold of 1.0 and that correspondingly the virus has been introduced into humans hundreds of times.
 
-%\begin{figure}[h]
-% \centering
-%	\includegraphics[width=0.45\textwidth]{figures/}
-%	\caption{\textbf{}
-%
-%	}
-%	\label{}
-%\end{figure}
-
 \section*{Results}
 
 \subsection*{MERS-CoV is predominantly a camel virus}
 
-The structured coalescent approach we employ \citep{vaughan_efficient_2014} identifies camels as a reservoir host where most of MERS-CoV evolution takes place (Figure \ref{mcc}), whilst human MERS outbreaks are transient and terminal with respect to long-term evolution of the virus (Figure~\ref{exploded}).
-Across 174 MERS-CoV genomes collected from humans, we detect a median of 56 individual camel-to-human cross-species transmissions (95\% highest posterior density (HPD): 48--63).
-Whilst we %\lmc{estimate?}
-estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
-We conclude that most human-to-camel migrations are induced by the migration rate prior, whilst some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
-It is most apparent in the lineages existing in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot dismiss humans as a potential alternative host.
+The structured coalescent approach we employ (see Methods) identifies camels as a reservoir host where most of MERS-CoV evolution takes place (Figure \ref{mcc}), while human MERS outbreaks are transient and terminal with respect to long-term evolution of the virus (Figure~\ref{exploded}).
+Across 174 MERS-CoV genomes collected from humans, we estimate a median of 56 separate camel-to-human cross-species transmissions (95\% highest posterior density (HPD): 48--63).
+While we estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
+This inference derives from the tree structure wherein human viruses appear as clusters of highly related sequences nested within the diversity seen in camel viruses, which themselves show signicantly higher diversity and less clustering.
+This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of \tbc{XXX (95\% HPD: XXX--XXX)} and human viruses showing a scaled effective population of \tbc{XXX (95\% HPD: XXX--XXX)}.
+
+We believe that the small number of inferred human-to-camel migrations are induced by the migration rate prior, while some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
+This is most apparent in lineages in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot completely dismiss humans as a potential alternative host.
 The first sequences of MERS-CoV from camels do not appear in our data until November 2013.
 Our finding of negligible human-to-camel transmission is robust to choice of prior (Figure~\ref{prior}).
 
 The repeated and asymmetric introductions of short-lived clusters of MERS-CoV sequences from camels into humans leads us to conclude that MERS-CoV epidemiology in humans is dominated by zoonotic transmission (Figure~\ref{mcc} and~\ref{exploded}).
 We observe dense terminal clusters of MERS-CoV circulating in humans that are of no subsequent relevance to the evolution of the virus.
 These clusters of presumed human-to-human transmission are then embedded within extensive diversity of MERS-CoV lineages inferred to be circulating in camels, a classic pattern of source-sink dynamics.
-Our analyses recover these results despite sequence data heavily skewed towards non-uniformly %\lmc{maybe ``non-uniformly'' is redundant here} \gdc{disagree, the point I am trying to make is that the data are mostly human and that human data are further skewed in how they are sampled}
-sampled human cases and are robust to choice of prior.
-We therefore argue that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
-\tbc{I think this sentence (``We therefore...'') needs to be spelled out a bit more. It feels like the logic is what the Monte Carlo sampling does. Either spell out more, or push back to section with figure \ref{ABC}.}
+Our analyses recover these results despite sequence data heavily skewed towards non-uniformly sampled human cases and are robust to choice of prior.
+This suggests that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
 
 \begin{figure}[h]
  \centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_mcc.png}
-	\caption{\textbf{Typed maximum clade credibility tree of MERS-CoV genomes from humans and camels.}
+	\includegraphics[width=0.75\textwidth]{figures/mers_mcc.png}
+	\caption{\textbf{Typed maximum clade credibility tree of MERS-CoV genomes from 174 human viruses and 100 camel viruses.}
 	Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered with the structured coalescent.
-	Vast majority of MERS-CoV evolution is inferred to occur in camels (orange) with human outbreaks (blue) representing evolutionary dead-ends for the virus.
+	The vast majority of MERS-CoV evolution is inferred to occur in camels (orange) with human outbreaks (blue) representing evolutionary dead-ends for the virus.
   Confidence in host assignment is depicted as a colour gradient, with increased uncertainty in host assignment (posterior probabilities close to 0.5) shown as grey.
   Some of the branches leading up to zoonotic transmission of MERS-CoV into humans are too long to have spent much of their time in humans, given our \textit{a priori} belief that MERS-CoV cannot circulate in humans for long periods of time.
   Thus branches encompassing cross-species transmissions are depicted as being in camels right up to the common ancestor or tip of each human outbreak.
-	Whilst large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early.
+  \tbc{The previous two sentences (``Some of the...'') seem unnecessary and confusingly written. I would just drop them.}
+	While large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early.
 	}
 	\label{mcc}
 \end{figure}
 
-
-
-\subsection*{Signals of MERS-CoV seasonality}
-% Unlike the most simpler %\lmc{simpler?}
-% ``mugration'' approaches that simply infer and label the internal nodes of a phylogeny,
-% please lets drop 'mugration'. Terrible word. Also I don't see why they are 'simpler'.
-% structured population models possess the ability to estimate migration times. % So do Markov Jumps. \gdc{good point, yeah}
-We use the posterior distribution of MERS-CoV introduction times of human clades observed in the MCC tree (Figure \ref{mcc}) recovered from structured coalescent to model seasonal variation in zoonotic transfer of viruses.
+\subsection*{MERS-CoV shows seasonal introductions}
+We use the posterior distribution of MERS-CoV introduction events from camels to humans (Figure \ref{mcc}) to model seasonal variation in zoonotic transfer of viruses.
 We identify four months (April, May, June, July) when the odds of MERS-CoV introductions are increased (Figure \ref{seasonality}) and four when the odds are decreased (August, September, November, December).
 Camel calving is reported to occur from October to February \citep{almutairi_non-genetic_2010}, with rapidly declining maternal antibody levels in calves within the first weeks after birth \citep{wernery_camelid_2001}.
-It is possible that MERS-CoV sweeps through each new camel generation once critical mass of susceptibles is reached, leading to a sharp rise in incidence of the virus in camels resulting in increased force of infection sparking human outbreaks.
+It is possible that MERS-CoV sweeps through each new camel generation once critical mass of susceptibles is reached \citep{martinez_seasonality_2014}, leading to a sharp rise in prevalence of the virus in camels and resulting in increased force of infection into the human population.
 Strong influx of susceptibles and subsequent sweeping outbreaks in camels may explain evidence of widespread exposure to MERS-CoV in camels from seroepidemiology \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014}.
+
+\tbc{I think this is the best place to discuss the lack of correlation between date and size of human cluster. This can be referenced later on in Discussion when talking about pandemic potential. Also, seems relevant to look at seasonality in size of cluster here, yes? This would get at whether there are seasonal factors on the human side.}
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_seasonality.png}
-	\caption{\textbf{MERS-CoV seasonality.}
-A) %Violin plots% %  (the plot type is irrelevant).
-Posterior density estimates coloured by month showing the 95\% highest posterior density interval for odds ratios of MERS-CoV introductions into human populations.
+	\includegraphics[width=0.75\textwidth]{figures/mers_seasonality.png}
+	\caption{\textbf{Seasonality of MERS-CoV introduction events.}
+A) Posterior density estimates partitioned by month showing the 95\% highest posterior density interval for relative odds ratios of MERS-CoV introductions into humans.
 Posterior means are indicated with circles.
 Evidence for increased or decreased risk (95\% HPD excludes 1.0) for introductions are indicated by black or white circles, respectively.
 Hatched area spanning October to February indicates the camel calving season.
-B) Each clade entering humans is positioned based on the median introduction time, as recovered by structured coalescent analyses and coloured by time of year with height indicating number of descendent sequences recovered from human cases.
-95\% highest posterior density intervals for zoonotic introduction of MERS-CoV into human populations observed in the MCC tree (Figure \ref{mcc}) are indicated with coloured lines, coloured by median estimated introduction time.
+B) Sequence cluster sizes and inferred dates of introduction events.
+Each introduction event is shown as a vertical line positioned based on the median introduction time, as recovered by structured coalescent analyses and coloured by time of year with height indicating number of descendant sequences recovered from human cases.
+95\% highest posterior density intervals for introductions of MERS-CoV into humans are indicated with coloured lines, coloured by median estimated introduction time.
 The black dotted line indicates the joint probability density for introductions.
-%Grey areas spanning October to February indicate the reported camel calving season.\lmc{if these two panels indeed end up being presented together, this is superfluous}
+We find little correlation between date and size of introduction (Spearman $\rho = 0.06$, $p=0.68$).
 	}
 	\label{seasonality}
 \end{figure}
 
-%\begin{figure}[h]
-% \centering
-%	\includegraphics[width=0.45\textwidth]{figures/}
-%	\caption{\textbf{}
-%
-%	}
-%	\label{}
-%\end{figure}
-
 \subsection*{MERS-CoV is poorly suited for human transmission}
 
-Structured coalescent approaches clearly show humans to be a terminal host %\tbc{again, I don't know if this is the right term or not}
-for MERS-CoV, implying poor transmissibility.
-However, we wanted to translate this observation into the basic reproductive number, $R_{0}$, which is more familiar to epidemiologists and provides %\lmc{insights?}
-insight into epidemic behavior.
-The parameter $R_{0}$, along with the degree of heterogeneity in tranmission quantified by a dispersion parameter $\omega$, can be used to determine the distribution of total cases that result from a single introduction event into the human population (Equation~\ref{clusterLikelihood}).
+Structured coalescent approaches clearly show humans to be a terminal host for MERS-CoV, implying poor transmissibility.
+However, we wanted to translate this observation into an estimate of the basic reproductive number, $R_{0}$, which is more familiar to epidemiologists and provides insight into epidemic behavior.
+The parameter $R_{0}$ determines expected number of secondary cases in a single infections as well as the distribution of total cases that result from a single introduction event into the human population (Equation~\ref{clusterLikelihood}, Methods).
 We estimate $R_{0}$ along with other relevant parameters via Monte Carlo simulation in two steps.
-First, we simulate case counts across multiple outbreaks totalling 2000 cases using Equation \ref{clusterLikelihood} with a fixed dispersion parameter $\omega$ and then subsample using a multivariate hypergeometric distribution from each case cluster to simulate sequencing of a fraction of cases.
+First, we simulate case counts across multiple outbreaks totaling 2000 cases using Equation \ref{clusterLikelihood} and then we subsample from each case cluster to simulate sequencing of a fraction of cases.
 Sequencing simulations take place at different levels of bias, wherein bias enriches sequencing of larger case clusters.
 This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from primary cases will be sampled exceedingly rarely.
-We record the $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions) for simulations that produce sequence cluster sizes with mean, median and standard deviation falling within the 95\% highest posterior density for these summary statistics observed in MERS-CoV data from structured coalescent analyses (left-hand panels in Figure \ref{ABC}).
+We record the mean, median and standard deviation of sequence cluster sizes in each simulation (left-hand panels in Figure \ref{mers_epi}) and extract the subset of Monte Carlo simulations in which these summary statistics fall within the 95\% highest posterior density observed in the empirical MERS-CoV data from structured coalescent analyses.
+We record $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions), for these empirically matched simulations.
+A schematic of this Monte Carlo produre is shown in Figure \ref{mc_method}.
+Generally, higher $R_0$ results in fewer larger transmission clusters, while lower $R_0$ results in many smaller transmission clusters (Figure \ref{mers_epi}).
 
-We find that observed phylogenetic patterns of sequence clustering strongly support $R_{0}$ below 1.0 (middle panels in Figure \ref{ABC}).
+We find that observed phylogenetic patterns of sequence clustering strongly support $R_{0}$ below 1.0 (middle panels in Figure \ref{mers_epi}).
 For increasing levels of bias mean $R_{0}$ values observed in matching simulations are 0.844, 0.730, and 0.683, respectively.
-Whilst the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.720--0.995) for the unbiased sequencing simulation (\textit{i.e.} uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably better at generating MERS-CoV-like sequence clusters.
-Under unbiased sequencing only 0.6\% (2282 out of 363 000) of simulations fit our phylogenetic observations, while 2.7\% and 2.7\%%\lmc{again?}
-(nearly 10 000 out of 363 000 for both) of simulations fit for bias levels of 2.0 and 3.0, respectively.
-This is apparent from the heights of the histograms in Figure \ref{ABC}, which indicate that a higher number of simulations generate MERS-CoV-like data at bias levels of 2.0 and 3.0 relative to bias of 1.0 (10\% support for bias level 1.0, 45\% support for bias level 2.0, and 45\% support for bias level 3.0).%\lmc{I don't follow this argument...}
-Simulations with bias suggest that $R_{0}$ values could have ranges [0.605--0.870] (bias = 2) and [0.555--0.825] (bias = 3).
+While the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.720--0.995) for the unbiased sequencing simulation (\textit{i.e.}\ uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably more to likely to generate MERS-CoV-like sequence clusters (Figure \ref{mers_epi}).
+Under unbiased sequencing only 0.6\% of simulations fit our phylogenetic observations, while 2.7\% and 2.7\% of simulations fit for bias levels of 2.0 and 3.0, respectively.
+Correspondingly, we estimate 10\% support for a model with bias level 1.0, 45\% support for a model with bias level 2.0, and 45\% support for a model with bias level 3.0.
+Model averaging would suggest plausible $R_0$ values between \tbc{XXX} and \tbc{XXX}.
 
-Lower values for $R_{0}$ in turn suggest relatively large numbers of zoonotic transfers of viruses into humans (right-hand panels in Figure \ref{ABC}).
-The median number of cross-species introductions observed in simulations matching MERS data without bias are 339 (95\% percentiles 255--431).
+Lower values for $R_{0}$ in turn suggest relatively large numbers of zoonotic transfers of viruses into humans (right-hand panels in Figure \ref{mers_epi}).
+The median number of cross-species introductions observed in simulations matching empirical data without bias are 339 (95\% percentiles 255--431).
 These numbers jump up to 558 (95\% percentiles 424--720) for bias = 2 and 650 (95\% percentiles 481--850) for bias = 3 simulations, which as mentioned previously match considerably better to MERS phylogenetic data.
-Our results suggest a large number of unobserved MERS primary cases.%\lmc{does the definition of ``index case'' allow for ``multiple''?} \gdc{not in epi literature I don't think}
+Model averaging would suggest plausible numbers of introductions between \tbc{XXX} and \tbc{XXX}.
+Our results suggest a large number of unobserved MERS primary cases.
 Given this, we also performed simulations where the total number of cases is doubled to 4000 to explore the impact of dramatic underestimation of MERS cases.
-In those sets of analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
+In these analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
 
 Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<1.0$ and sequence sampling likely to be biased towards large hospital outbreaks.
-% \tbc{I didn't understand what you meant by `sequence sampling wholly unrepresentative of viral diversity found in humans'.}
 Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices \citep{assiri_hospital_2013,chen_comparative_2017} appear sufficient to explain observed epidemiological patterns of MERS-CoV.
-%\tbc{It would be really nice to be able to reference something here on hospital spread of MERS (or SARS) owing to hygiene practices.}
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_epi.png}
-	\caption{\textbf{Results of Monte Carlo simulations.}
-Each row corresponds to a different bias value used to concentrate the multivariate hypergeometric distribution used to simulate sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias which make large case clusters to be more likely to be sequenced%\lmc{make sequences from large clusters more likely to be picked}
-).
-Leftmost scatter plots show a 10\% subsample of all outbreak and sequencing simulations, coloured by the $R_{0}$ value used for the simulation.
-The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and standard deviation observed for MERS-CoV data.
-The distribution of $R_{0}$ values found within the dotted rectangle is shown in the middle, on the same y axis across all levels of bias.
+	\includegraphics[width=0.75\textwidth]{figures/mers_epi.png}
+	\caption{\textbf{Monte Carlo simulations of human transmission clusters.}
+Each row corresponds to a different bias value used to concentrate the subsampling of sequences from cases, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias which make large case clusters to be more likely to be sequenced).
+Leftmost scatter plots show results of individual Monte Carlo simulations, coloured by the $R_{0}$ value used for the simulation.
+The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and standard deviation observed for empirical MERS-CoV data.
+The distribution of $R_{0}$ values found within the dotted rectangle is shown in the middle, on the same $y$-axis across all levels of bias.
 Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
-The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same y axis across all levels of bias.
+The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same $y$-axis across all levels of bias.
 Darker shade of grey indicates bins falling within the 95\% percentiles.
 These Monte Carlo simulations indicate $R_{0}$ for MERS-CoV is likely to be below 1.0, with biased sequencing and numbers of zoonotic transmissions numbering in the hundreds.
-% \tbc{Not at all essential, but I can imagine that an initial panel A showing the logic of the two step ABC process would do a whole lot to alleviate confusion. I'm picturing a set of tables numbered with case counts in a top row and then a bottom row with sequence counts. This could also work better as a separate figure referenced from the Methods.}
 	}
-	\label{ABC}
+	\label{mers_epi}
 \end{figure}
-
-
-%\begin{figure}[h]
-% \centering
-%	\includegraphics[width=0.65\textwidth]{figures/}
-%	\caption{\textbf{}
-%
-%	}
-%	\label{}
-%\end{figure}
-
-
 
 \subsection*{Recombination shapes MERS-CoV diversity}
 Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \citep{lai_1985,makino_1986,keck_1988,kottier_1995,herrewegh_1998}. %\tbc{needs citations}.
 In order to explore the role of recombination in shaping MERS-CoV genetic diversity we used two recombination detection approaches across partitions of taxa corresponding to inferred MERS-CoV clades.
 Both methods rely on sampling parental and recombinant alleles within the alignment, although each quantifies different signals of recombination.
-One hallmark of recombination is the ability to carry alleles derived via mutation from one lineage to another, that appear as repeated mutations taking place in the recipient lineage, somewhere else in the tree.
-PHI (pairwise homoplasy index) test quantifies the appearance of these excessive repeat mutations (homoplasies) within an alignment \citep{bruen_simple_2006}.
-Another hallmark of recombination is spatial clustering of alleles in the genome, due to how template switching, the primary mechanism of recombination in RNA viruses, occurs.
+One hallmark of recombination is the ability to carry alleles derived via mutation from one lineage to another, which appear as repeated mutations taking place in the recipient lineage, somewhere else in the tree.
+The PHI (pairwise homoplasy index) test quantifies the appearance of these excessive repeat mutations (homoplasies) within an alignment \citep{bruen_simple_2006}.
+Another hallmark of recombination is spatial clustering of alleles along the genome, due to how template switching, the primary mechanism of recombination in RNA viruses, occurs.
 3Seq relies on the spatial structure of nucleotide similarities between sequence triplets -- two potential parent-donors and one candidate offspring-recipient sequences \citep{boni_exact_2007}.
 
 Both tests can give spurious results in cases of extreme rate heterogeneity and sampling over time \citep{dudas_mers-cov_2016}, but both tests have not been reported to fail simultaneously.
@@ -307,18 +264,18 @@ PHI and 3Seq methods consistently identify most of the apparent `backbone' of th
 Neither method can identify where in the tree recombination occurred, but each full asterisk in Figure \ref{recombination_tree} should be interpreted as the minimum partition of data that still captures both donor and recipient alleles involved in a recombination event.
 This suggests a non-negligible contribution of recombination in shaping existing MERS-CoV diversity.
 As done previously \citep{dudas_mers-cov_2016}, we show large numbers of homoplasies in MERS-CoV data (Figure \ref{incompatibilities}) with some evidence of spatial clustering of such alleles.
-Homoplasies present in multiple strains at a time, indicating ancestral events that have been successful.
-Although the proportion of time that the virus is inferred to spend in camels alone may be sufficient to argue that camels are the host where MERS-CoV recombines, incidence of MERS-CoV is known to be much higher in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2014,ali_systematic_2017}.
-This provides ideal conditions for co-infection with distinct genotypes, which is a pre-requisite for detectable RNA virus recombination to occur%\lmc{stupid biostatistician here: is it?} \gdc{fair comment actually, it's a pre-requisite for detectable recombination to occur usually}
+% Homoplasies are present in multiple strains at a time, indicating recombination events that have been successful.
+Although the evolutionary centrality of camel viruses (Figure \ref{mcc}) may be sufficient to argue that camels are the host where MERS-CoV recombines, incidence of MERS-CoV is known to be much higher in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2014,ali_systematic_2017}.
+This provides ideal conditions for co-infection with distinct genotypes, which is a pre-requisite for detectable RNA virus recombination to occur.
 
 %%% AR - this paragraph is a bit of a mess. Suggests we can't trust most of the analysis above. If we can't believe the camel tree why do we trust a structured coalescent model?
 Conversely, our results strongly suggest that co-infection of humans with distinct lineages of MERS-CoV should be exceedingly rare.
-We find little evidence that recombination will interfere with the inference of human outbreak clusters %beyond what could be expected of phylogenetic noise %% doesn't make sense to say that recombination is interfering as expected by phylogenetic noise.
-(Figure \ref{recombination}A).
-And whilst we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombination}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
-Observed departures from strictly clonal evolution suggest that whilst recombination is an issue for inferring MERS-CoV phylogenies, its effects on the human side of MERS outbreaks is minimal, as expected.
+We find little evidence that recombination will interfere with the inference of human outbreak clusters (Figure \ref{recombinant_features}A).
+\tbc{Summarize Figure \ref{recombinant_features}A with something like: ``We find that 95\% of human viruses fall within the same introduction event in genomic fragment 1 and in genomic fragment 2.''}
+And while we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombinant_features}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
+Observed departures from strictly clonal evolution suggest that while recombination is an issue for inferring MERS-CoV phylogenies, its effect on the human side of MERS outbreaks is minimal, as expected.
 MERS-CoV evolution on the reservoir side, though complicated by recombination, is nonetheless still amenable to phylogenetic methods, in part through limited diversity of the virus in camels (see next section).
-%Overall we advise extreme caution when interpreting branches in MERS-CoV phylogenies that are suspected of having spent any time in camels, especially when attempting to identify origins of human cases. %% a bit overblown 'extreme caution'?
+%Overall we advise extreme caution when interpreting branches in MERS-CoV phylogenies that are suspected of having spent any time in camels, especially when attempting to identify origins of human cases. %% a bit overblown 'extreme caution'? %TB: Agree to leave out this sentence.
 In humans MERS-CoV evolution should be far easier to track as the only detectable and problematic recombinants are more likely to arise within the transmission chain, than through human co-infection with distinct MERS-CoV lineages.
 % On the other hand, the largely clonal evolution of MERS-CoV in humans, despite limited diversity, should be more amenable to traditional phylogenetic approaches. %% But why won't recombination be happening in humans? Sure it won't be 2 divergent lineages.
 
@@ -331,7 +288,7 @@ In humans MERS-CoV evolution should be far easier to track as the only detectabl
 % 	Tangled chain of the full genome (a), all nucleotides up to position 21000 (b) and all nucleotides past position 21000 (c) of MERS-CoV.
 % 	The same taxa, if available in neighbouring trees, are connected via coloured lines (human sequences in blue, camel sequences in red).
 % 	Tree branches are coloured by inferred ancestral host state (human in grey, camel in black).
-% 	Whilst some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in the camel host.
+% 	While some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in the camel host.
 % 	Human clusters in grey change phylogenetic positions between the trees wholesale, with minor incongruences within clusters.
 % 	This is evidence for recombinant viruses generated in the reservoir entering human populations.
 % 	Coding sequences in the MERS-CoV genome are indicated with arrows at the bottom of the plot with position 21000 indicated by the black line.}
@@ -350,45 +307,47 @@ In humans MERS-CoV evolution should be far easier to track as the only detectabl
 % \end{figure}
 \begin{figure}%
     \centering
-    \subfloat{{\includegraphics[width=7cm]{figures/mers_fragments.png} }}%
-    \qquad
-    \subfloat{{\includegraphics[width=5cm]{figures/mers_chain.png} }}%
-    \caption{\textbf{Recombinant features of MERS-CoV phylogenies}.
-    A) Heatmap shows the posterior probability that a pair of tips from trees of genomic fragments fall within the same clade - tips from fragment 1 are on the x axis, tips from fragment 2 are on the y axis.
-    Tips are ordered by their appearance in tree of genome fragment 2 (positions from nucleotide 21000 onwards) reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
+    \includegraphics[width=0.95\textwidth]{figures/mers_recombinant_features.png}
+    \caption{\textbf{Recombinant features of MERS-CoV phylogenies.}
+    A) Heatmap showing the posterior probability that viruses from trees of different genomic fragments belong to the same introduction event.
+    Genomic fragment 1 represents nucleotide positions 1 to 21000 and genomic fragment 2 represents nucleotide positions 21001 to \tbc{XXX}.
+    The same set of viruses are arrayed on the $x$-axis and on the $y$-axis; the $x$-axis shows identity of these viruses along genomic fragment 1 and the $y$-axis shows identity of these viruses along genomic fragment 2.
+    Viruses are ordered by their appearance in tree of genomic fragment 2 reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
     Human clusters are largely well-supported as monophyletic and consistent across trees of both genomic fragments.
-    B) Phylogenies derived from MERS-CoV genome nucleotides up to position 21000 (left) and all nucleotides past position 21000 (right), reduced to just the human tips.
-  	Same taxa are connected via coloured lines indicating their vertical position in the tree on the right.
+    B) Phylogenies derived from genomic fragment 1 (left) and genomic fragment 2 (right), reduced to just the human tips.
+  	Identical taxa are connected via coloured lines with colour indicating vertical position in the tree on the right.
   	Branches are coloured by inferred ancestral host state (human in blue, camel in orange).
-  	Whilst some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in camels, adding support to the idea that camels are often co-infected.%\lmc{I'm sure this is important, but I didn't get why. Referees might not either...}
-  	Human clusters in blue change phylogenetic positions between the trees %\lmc{wholesale??}
-    together, with minor incongruences within clusters.
-  	This is evidence for recombinant viruses generated in the camel reservoir%\lmc{(camels)}
-    entering human populations.
-    }%
-    \label{recombination}%
+  	While some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in camels, adding support to the idea that camels are often co-infected. %\lmc{I'm sure this is important, but I didn't get why. Referees might not either...}
+    \tbc{I would favor just dropping the ``While some of apparent...'' sentence. Confusing and I don't see what it adds.}
+  	Human clusters in blue change phylogenetic positions between the trees together, with little incongruence within clusters.
+  	This is evidence for recombinant viruses generated in the camel reservoir entering human populations.
+    }
+    \label{recombination}
 \end{figure}
 
 \subsection*{Demographic trajectory of MERS-CoV in camels}
 
 \tbc{Slightly strange to have this at the level of full results subsection and not have a main text figure.}
-Since MERS-CoV in humans will have a distinct epidemiology
+Here we attempt to investigate MERS-CoV demographic patterns in the camel reservoir.
+%Since MERS-CoV in humans has a distinct epidemiology
 % evolves under a distinct demographic regime, %% evolves under a demographic regime?
-we split our sequence dataset based on whether sequences were collected in humans or camels.
+%we split our sequence dataset based on whether sequences were collected in humans or camels.
 We supplement camel sequence data with a single earliest sequence from each human cluster, treating viral diversity present in humans as a sentinel sample of MERS-CoV diversity circulating in camels.
 This removes conflicting demographic signals sampled during human outbreaks, where densely sampled closely related sequences from humans could be misconstrued as evidence of demographic crash in the viral population.
 
 Our attempt at controlling the confounding effects of different sampling regimes between humans and camels revealed a troubling pattern, however.
 We find that this camel-like dataset results in poor MCMC performance, where independent chains reach stationary distributions which are not necessarily the same.
-Out of the five runs we set up two chains converged to one stationary distribution, two to another and the last one to a third.
+Out of five runs, two chains converged to one stationary distribution, two to another and the last one to a third.
 Demographic trajectories recovered by the two main stationary distributions are very similar and differences between the two appear to be caused by convergence onto different tree topologies, with onward effects on evolutionary rate estimates and distributions of coalescence times.
 This non-convergence effect may have been masked previously by the use of all available MERS-CoV sequences from humans which may have lead MCMC towards one of the multiple stationary distributions.
+\tbc{This entire paragraph should be moved to Methods. Too much detail for Results. Below just say that ``Multiple MCMC chains showed similar patternso of $N_e \tau$ through time.''}
 
-Despite lack of convergence, neither of the two demographic reconstructions show evidence of fluctuations in the relative genetic diversity (N$_{e}\tau$) of  MERS-CoV over time (Figure \ref{skygrid}).
+Despite lack of convergence, neither of the two demographic reconstructions show evidence of fluctuations in the relative genetic diversity ($N_e \tau$) of  MERS-CoV over time (Figure \ref{skygrid}).
 However, we do note that estimates of relative genetic diversity are relatively low overall, and MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
 This raises the possibility that MERS-CoV populations undergo lineage turnover at a rate not often seen in other livestock viruses (\textit{e.g.} swine influenza A viruses \citep{vijaykrishna_long-term_2011}).
 Part of this could be caused by MERS-CoV ability to re-infect camels previously exposed to the virus \citep{ali_systematic_2017}, which may result in a process akin to antigenic drift, where the depletion of susceptible calves leads to ever increasing selective pressure for the virus to evolve antigenically.
-Whilst this could be tested by looking for seasonally varying patterns in selection on MERS-CoV surface proteins, recombination would remain a key confounding problem.
+While this could be tested by looking for seasonally varying patterns in selection on MERS-CoV surface proteins, recombination would remain a key confounding problem.
+\tbc{This section seems like its reaching pretty far, but if keeping could mention that human seasonal coronaviruses undergo antigenic drift.}
 
 % In order to disentangle distinct demographic modes within the phylogeny of MERS-CoV we split our alignment according to whether the virus was collected from camels or humans.
 % For sequences collected from humans and inferred to be in the same cluster we only keep the earliest sequence, and arrive at a sequence dataset that for the most part is comprised of viral diversity present in camels, and supplemented with human sequences that are treated as sentinel samples.
@@ -400,27 +359,32 @@ Whilst this could be tested by looking for seasonally varying patterns in select
 %\lmc{Detecting?}
 Understanding population structure yields important insight into any biological system.
 It also often implies the existence of barriers experienced by an organism, be it geographic \citep{dudas_virus_2017}, ecological \citep{smith_dating_2009} or evolutionary \citep{turner_genomic_2005,dudas_reassortment_2015}.
+\tbc{This seems way overly broad to me. I much preferred the Introductions take on genomic epi revealing important population structure. Just revise to keep this focused on pathogen transmission. Identification of reservoirs, source-sink, all very important.}
 Understanding what barriers exist and how they affect transmission of viruses remains one of the key parameters in designing efficient interventions.
 In this study we aimed to understand the drivers of MERS coronavirus transmission in humans and what role the camel reservoir plays in perpetuating the epidemic in the Arabian peninsula.
-Whilst there are clear indications that human cases of MERS are largely the result of sporadic spillover from camels, sequence data have not yet been fully utilised in estimating basic epidemiological parameters, such as R$_{0}$ or the number of zoonotic introductions of MERS-CoV into humans.
+While there are clear indications that human cases of MERS are largely the result of sporadic spillover from camels, sequence data have not yet been fully utilised in estimating basic epidemiological parameters, such as $R_0$ or the number of zoonotic introductions of MERS-CoV into humans.
+\tbc{This sentence (``While there...'') is overly like Intro.}
 
-We showed that currently existing models of population structure \citep{vaughan_efficient_2014} can identify distinct demographic modes in MERS-CoV data, where viruses continuously circulating in camels repeatedly jump into humans and cause small outbreaks doomed to extinction (Figures \ref{mcc}, \ref{exploded}).
-This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{prior}) and in the presence of strong biases in sequence sampling schemes (Figure \ref{ABC}).
-From sequence data we identify at least 50 zoonotic introductions of MERS-CoV into humans from the reservoir (Figure \ref{mcc}), from which we extrapolate that hundreds more such introductions must have taken place (Figure \ref{ABC}).
-We also looked at potential seasonality in MERS-CoV spillover into humans, which is an additional advantage of explicitly modeling population structure.
+We showed that currently existing models of population structure \citep{vaughan_efficient_2014} can identify distinct demographic modes in MERS-CoV genomic data, where viruses continuously circulating in camels repeatedly jump into humans and cause small outbreaks doomed to extinction (Figures \ref{mcc}, \ref{exploded}).
+This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{prior}) and in the presence of strong biases in sequence sampling schemes (Figure \ref{mers_epi}).
+From sequence data we identify at least 50 zoonotic introductions of MERS-CoV into humans from the reservoir (Figure \ref{mcc}), from which we extrapolate that hundreds more such introductions must have taken place (Figure \ref{mers_epi}).
+We also looked at potential seasonality in MERS-CoV spillover into humans.
 Our analyses indicated a period of three months where the odds of a sequenced spillover event are increased, with timing consistent with an enzootic amongst camel calves (Figure \ref{seasonality}).
-As a result of our identification of large and asymmetric flow of viral lineages into humans we also find that the basic reproduction number for MERS-CoV in humans is well below the epidemic threshold (Figure \ref{ABC}).
+As a result of our identification of large and asymmetric flow of viral lineages into humans we also find that the basic reproduction number for MERS-CoV in humans is well below the epidemic threshold (Figure \ref{mers_epi}).
 
 \subsection*{Transmissibility differences between zoonoses and pandemics}
-Severe Acute Respiratory Syndrome coronavirus, a Betacoronavirus like MERS-CoV, caused a serious epidemic in humans in 2003, with over 8000 cases and nearly 800 deaths.
+Severe acute respiratory syndrome (SARS) coronavirus, a Betacoronavirus like MERS-CoV, caused a serious epidemic in humans in 2003, with over 8000 cases and nearly 800 deaths.
 Since MERS-CoV was also able to cause significant pathogenicity in the human host it was inevitable that parallels would be drawn between MERS-CoV and SARS-CoV at the time of MERS discovery in 2012.
 Although we describe the epidemiology of MERS-CoV from sequence data, indications that MERS-CoV has poor capacity to spread human-to-human existed prior to any sequence data.
 SARS-CoV swept through the world in a short period of time, but MERS cases trickled slowly and were restricted to the Arabian Peninsula or resulted in self-limiting outbreaks outside of the region, a pattern strongly indicative of repeat zoonotic spillover.
 Infectious disease surveillance and control measures remain limited, so much like the SARS epidemic in 2003 or the H1N1 pandemic in 2009, zoonotic pathogens with $R_{0}>1.0$ are probably going to be discovered after spreading beyond the original location of spillover.
+\tbc{I like the basic approach, this last segue could be cleaner however.}
 
 MERS-CoV may join the list of pathogens able to jump species barriers but not spread efficiently in the new host, but every system is distinct.
 Pathogens such as \textit{Bacillus anthracis}, Andes hantavirus \citep{martinez_person--person_2005}, monkeypox \citep{reed_detection_2004}, triple reassortant and H3N2v influenza A viruses \citep{shinde_triple-reassortant_2009,epperson_human_2013} belong to this list and yet only triple reassortant viruses eventually contributed to a pandemic, due to epidemiology and phylodynamics confined to influenza A virus.
 When information about a system is lacking either because it is recent or entirely novel or if the system is inherently unpredictable, sequence data can and should be used jointly with whatever data sources are available to provide the unique pathogen perspective on an infectious disease outbreak.
+
+\tbc{Perhaps close with discussion of evolution of host tropism? So far outbreaks have been self-limiting, but continued circulation in camels and continued spill-over into humans provides continued chances for evolution of a more human transmissible virus.}
 
 % Despite higher resolution of inference offered by structured population models, especially when sequence data are plentiful, serious drawbacks exist.
 % As the representation of evolution drifts away from a strictly bifurcating tree model, the space over which phylogenetic inference needs to take place becomes increasingly complex.
@@ -445,7 +409,7 @@ When information about a system is lacking either because it is recent or entire
 % Traditional epidemiological approaches fare no better, since links between human cases outside of known family clusters or hospital outbreaks are exceedingly difficult to establish \citep{cauchemez_unraveling_2016}.
 %
 % Our study has shown how significantly different demographic regimes between hosts such as those observed in MERS-CoV can be leveraged against biased sequence data to arrive at conclusions perfectly in line with prior observations.
-% MERS-CoV sequences collected from camels are, on average, relatively distantly related to each other, whilst human outbreaks fall into densely sampled clusters of no apparent relation to each other and of no consequence to further evolution of the virus.
+% MERS-CoV sequences collected from camels are, on average, relatively distantly related to each other, while human outbreaks fall into densely sampled clusters of no apparent relation to each other and of no consequence to further evolution of the virus.
 % These hallmarks of distinct demographic modes were easily picked up by the explicit population structure model we employ, and reveals a cohesive picture of MERS-CoV epidemiology in agreement with previous empirical studies.
 % However, we do note that at present phylogenetic models with population structure are limited in terms of computational efficiency than current models, even when approximations are used.
 
@@ -455,12 +419,12 @@ When information about a system is lacking either because it is recent or entire
 % We argue that although MERS-CoV sequences contain overwhelming evidence for recombination, we do not expect humans to play a major role in this process.
 % As human infection with MERS-CoV remains very low, every introduction of the virus into a human population is expected to establish a clonally evolving and short-lived population.
 % However, lineages crossing the species barrier are very likely to have experienced recombination at some point in their past, in some cases occurring right before zoonotic transmission, as was the case in the Korean outbreak of MERS.
-% We thus conclude that whilst sequence analyses of MERS-CoV are perfectly legitimate for well-defined human outbreaks, extreme care must be taken when inferring their origins in the context of the reservoir, or even when comparing related outbreaks in humans.
+% We thus conclude that while sequence analyses of MERS-CoV are perfectly legitimate for well-defined human outbreaks, extreme care must be taken when inferring their origins in the context of the reservoir, or even when comparing related outbreaks in humans.
 % We also strongly advise against drawing hasty conclusions from MERS-CoV phylogenies recovered from human sequences if they span more than four months of evolution or camel sequences under virtually all circumstances, as there is no guarantee that phylogenies will cover the clonal evolutionary history of the virus in humans.
 
 % \subsection*{Sequence data as a universal epidemiology tool} %% Drop this paragraph and finish on something better. I think this point has been made already.
 % As the field of epidemiology enters the age of genomics sequence data are likely to be brought in to reinforce and augment epidemiological investigations.
-% At a relatively low price, sequence data offer the combined benefits of diagnostics and typing, whilst also offering insight into a pathogen's evolutionary history.
+% At a relatively low price, sequence data offer the combined benefits of diagnostics and typing, while also offering insight into a pathogen's evolutionary history.
 % With a small amount of metadata, primarily collection dates and features of interest, such as location or host, much can be revealed through phylogenetic clustering of sequences, or absence thereof.
 % This was used to great effect at all stages of the Ebola virus epidemic in West Africa, where sequence data early on were used to show continued circulation of the same strain in the region rather than multiple zoonotic introductions \citep{gire_genomic_2014}, to study viral migration at a broad level \citep{park_ebola_2015,ladner_evolution_2015} as healthcare infrastructure was being overwhelmed during the peak, and towards the end where the final transmission chains were tracked and confirmed as such \citep{arias_rapid_2016}.
 % %Although sequence data can be collected for multiple reasons and used to address different questions, sequence data are a fundamental unit of ground truth, which allows sequences from wildly different studies to be combined trivially%\lmc{TRIVIALLY???} \gdc{yes, since you literally just put sequences into the same alignment}  %% AR - sorry, I hate this sentence - 'fundamental unit of ground truth' WTF?
@@ -490,7 +454,7 @@ To confirm that demographic inference was derived from the data rather than the 
 We also analysed a dataset where alignments split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-onwards), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
 All analyses were set to run for 200 million states, subsampling every 20 000 states.
-Due to the increased complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burnin for single fragment analyses and 20\% for two-fragment analyses.
+Due to the increased complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burn-in for single fragment analyses and 20\% for two-fragment analyses.
 Chains not converging after 200 million states were discarded.
 For single fragment analysis with migration rate prior set to exponential with mean 1.0 there were three chains out of ten that did not converge and two for the analysis where the migration rate prior was an exponential with mean 10.0.
 For the two fragment structured coalescent analyses three chains out of ten failed to converge.
@@ -568,8 +532,9 @@ Odds ratios of introductions can then be computed for each month $i$ as $\text{O
 Sequence data and all analytical code is publicly available at https://github.com/blab/structured-mers.
 
 \section*{Acknowledgements}
-We would like to thank \tbc{XXX, YYY, ZZZ, etc...} for kindly sharing sequence data, and Allison Black for useful discussion and advice.
+We would like to thank Allison Black for useful discussion and advice.
 GD is supported by the Mahan postdoctoral fellowship from the Fred Hutchinson Cancer Research Center.
+TB is a Pew Biomedical Scholar and is supported by NIH R35 GM119774-01.
 We gratefully acknowledge the contribution of the following scientists for sharing MERS-CoV sequence data before publication:
 
 Ali M. Somily$^{1}$, Mazin Barry$^{1}$, Sarah S. Al Subaie$^{1}$, Abdulaziz A. BinSaeed$^{1}$, Fahad A. Alzamil$^{1}$, Waleed Zaher$^{1}$, Theeb Al Qahtani$^{1}$, Khaldoon Al Jerian$^{1}$, Scott J.N. McNabb$^{2}$, Imad A. Al-Jahdali$^{3}$, Ahmed M. Alotaibi$^{4}$, Nahid A. Batarfi$^{5}$, Matthew Cotten$^{6}$, Simon J. Watson$^{6}$, Spela Binter$^{6}$, Paul Kellam$^{6}$.
@@ -583,7 +548,7 @@ $^{5}$Epidemiology section, Command and Control Center (CCC) Ministry of Health,
 $^{6}$Wellcome Trust Sanger Institute, Hinxton, United Kingdom \\
 
 
-\bibliographystyle{mbe.bst}
+\bibliographystyle{mbe}
 \bibliography{mers-structure}
 
 \newpage
@@ -893,7 +858,7 @@ $^{6}$Wellcome Trust Sanger Institute, Hinxton, United Kingdom \\
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_exploded.png}
 	\caption{\textbf{Evolutionary history of MERS-CoV partitioned between camels and humans.}
-Same tree as shown in Figure \ref{mcc}, but all contiguous stretches of MERS-CoV evolutionary history split by inferred host: camels (top) and humans (bottom).
+This is the same tree as shown in Figure \ref{mcc}, but with contiguous stretches of MERS-CoV evolutionary history split by inferred host: camels (top in orange) and humans (bottom in blue).
 This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in humans, compared to continuous circulation of the virus in camels.
 	}
 	\label{exploded}
@@ -914,25 +879,25 @@ Dotted lines indicate exponential priors specified for migration rates, with mea
 
 \begin{figure}[h]
 \centering
-	\includegraphics[scale=0.25]{figures/mers_method.pdf}
-	\caption{\textbf{Monte Carlo simulation method.}
-Case clusters are simulated according to \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
-We sample 174 cases from each simulation to represent sequencing of human MERS cases.%\lmc{is this implicitly a binomial sampling with $p = 1/2$?} \gdc{hypergeometric, since we probably don't resequence people}
-`Sequencing' is carried out by using multivariate hypergeometric sampling, where at each iteration case cluster size $C_{i}$ is the number of successes in the population, $\sum_{i=1}^{K} C_{i} - C_{i}$ is the number of failures and number of trials is equal to leftover sequencing capacity, that is $\sum_{i=1}^{K} S_{i}$ minus whatever has been `sequenced' up to that iteration.
-Sequencing simulations take place at three levels of bias - 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
-Simulated sequence clusters are summarised by their mean and standard deviation, both of which reflect some aspect of the partitioning of sequences into clusters.
-A simulation is considered to match if its sequence cluster size mean and standard deviation fell within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
-$R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are kept as estimates.
-These estimates are summarised in Figure \ref{ABC}.
+	\includegraphics[width=0.75\textwidth]{figures/mers_mc_method.pdf}
+	\caption{\textbf{Monte Carlo simulation schematic.}
+Case clusters are simulated according to Equation \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
+We sample 174 cases from each simulation to represent sequencing of human MERS cases.
+`Sequencing' is carried out by using multivariate hypergeometric sampling, representing sampling cases without replacement to be sequenced.
+Sequencing simulations take place at three levels of bias: 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
+The distribution of simulated sequence clusters is summarised by its mean, median and standard deviation.
+A simulation is considered to match if the mean, median and standard deviation of its sequence cluster sizes falls within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
+$R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are retained as estimates.
+These estimates are summarised in Figure \ref{mers_epi}.
 	}
-	\label{method}
+	\label{mc_method}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_epi_4000c.png}
 	\caption{\textbf{Results of Monte Carlo simulations with vast underestimation of cases.}
-The plot is identical to Figure \ref{ABC}, but instead of 2000 cases,
+The plot is identical to Figure \ref{mers_epi}, but instead of 2000 cases,
 % the currently reported number of MERS-CoV cases,
 simulations were run with 4000 cases.
 With more unobserved cases the R$_{0}$ values matching observed MERS-CoV sequence clusters can only be smaller, with a corresponding increase in numbers of zoonotic transmissions.
@@ -943,19 +908,19 @@ However, the numbers of simulations that match MERS-CoV data go down as well.
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_recombination.png}
-	\caption{\textbf{Tests of recombination across MERS-CoV clades.}}
+	\includegraphics[width=0.65\textwidth]{figures/mers_recombination_tree.png}
+	\caption{\textbf{Tests of recombination across MERS-CoV clades.}
 Maximum clade credibility tree of MERS-CoV genomes annotated with results of two recombination detection tests (PHI and 3Seq) applied to descendent sequences of each clade.
 Both tests identify large portions of existing sequence data as containing signals of recombination.
-Note that markings do not indicate where recombinations have occurred on the tree, merely the minimum distance in sequence/time space between recombining lineages.
+Note that markings do not indicate where recombinations have occurred on the tree, merely the minimum distance in sequence/time space between recombining lineages.}
 	\label{recombination_tree}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_incompatibilities.png}
+	\includegraphics[width=0.75\textwidth]{figures/mers_incompatibilities.png}
 	\caption{\textbf{MERS-CoV genomes exhibit high numbers of non-clonal loci.}
-Ancestral state reconstruction (right) identifies a large number of loci that have occurred more than once in the tree (homoplasies, orange) or are reversions (red) from a state arising in an ancestor.
+Ancestral state reconstruction (right) identifies a large number of sites in which mutations have occurred more than once in the tree (homoplasies, orange) or are reversions (red) from a state arising in an ancestor.
 Mutations that apparently only occur once in the tree (synapomorphies) are shown in grey.
 The maximum likelihood phylogeny on the left is coloured by whether sequences were sampled in humans (blue) or camels (orange).
 	}
