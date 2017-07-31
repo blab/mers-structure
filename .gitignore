@@ -1,3 +1,8 @@
+## Specific to structured-mers repo
+mers-structure.pdf
+mers-structure_supp.pdf
+cover-letter.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -17,7 +22,6 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-*.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
