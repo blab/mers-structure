@@ -1,5 +1,8 @@
-# MERS-CoV dynamics in camels and sporadic clusters in humans
-Looking into MERS-CoV dynamics through the structured coalescent lens.
+# MERS-CoV spillover at the camel-human interface
+
+#### Gytis Dudas<sup>1</sup>, Luiz Max Carvalho<sup>2</sup>, Andrew Rambaut<sup>2,3,4</sup>, Trevor Bedford<sup>1</sup>
+
+<sup>1</sup>Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Research Center, Seattle, WA, USA, <sup>2</sup>Institute of Evolutionary Biology, University of Edinburgh, Edinburgh, UK, <sup>3</sup>Fogarty International Center, National Institutes of Health, Bethesda, MD, USA, <sup>4</sup> Centre for Immunology, Infection and Evolution at the University of Edinburgh, Edinburgh, UK
 
 ------------------------------
 
