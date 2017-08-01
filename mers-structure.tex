@@ -148,7 +148,7 @@ The structured coalescent approach we employ (see Methods) identifies camels as 
 Across 174 MERS-CoV genomes collected from humans, we estimate a median of 56 separate camel-to-human cross-species transmissions (95\% highest posterior density (HPD): 48--63).
 While we estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
 This inference derives from the tree structure wherein human viruses appear as clusters of highly related sequences nested within the diversity seen in camel viruses, which themselves show signicantly higher diversity and less clustering.
-This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of \tbc{XXX (95\% HPD: XXX--XXX)} and human viruses showing a scaled effective population of \tbc{XXX (95\% HPD: XXX--XXX)}.
+This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of 3.49 (95\% HPD: 2.71--4.38) and human viruses showing a scaled effective population of 0.24 (95\% HPD: 0.14--0.34).
 
 We believe that the small number of inferred human-to-camel migrations are induced by the migration rate prior, while some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
 This is most apparent in lineages in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot completely dismiss humans as a potential alternative host.
@@ -168,9 +168,6 @@ This suggests that instances of human infection with MERS-CoV are more common th
 	Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered with the structured coalescent.
 	The vast majority of MERS-CoV evolution is inferred to occur in camels (orange) with human outbreaks (blue) representing evolutionary dead-ends for the virus.
   Confidence in host assignment is depicted as a colour gradient, with increased uncertainty in host assignment (posterior probabilities close to 0.5) shown as grey.
-  Some of the branches leading up to zoonotic transmission of MERS-CoV into humans are too long to have spent much of their time in humans, given our \textit{a priori} belief that MERS-CoV cannot circulate in humans for long periods of time.
-  Thus branches encompassing cross-species transmissions are depicted as being in camels right up to the common ancestor or tip of each human outbreak.
-  \tbc{The previous two sentences (``Some of the...'') seem unnecessary and confusingly written. I would just drop them.}
 	While large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early.
 	}
 	\label{mcc}
@@ -317,8 +314,6 @@ In humans MERS-CoV evolution should be far easier to track as the only detectabl
     B) Phylogenies derived from genomic fragment 1 (left) and genomic fragment 2 (right), reduced to just the human tips.
   	Identical taxa are connected via coloured lines with colour indicating vertical position in the tree on the right.
   	Branches are coloured by inferred ancestral host state (human in blue, camel in orange).
-  	While some of apparent incongruities are caused by having less data in some of the fragments, inconsistencies between topologies occur across internal branches inferred to be in camels, adding support to the idea that camels are often co-infected. %\lmc{I'm sure this is important, but I didn't get why. Referees might not either...}
-    \tbc{I would favor just dropping the ``While some of apparent...'' sentence. Confusing and I don't see what it adds.}
   	Human clusters in blue change phylogenetic positions between the trees together, with little incongruence within clusters.
   	This is evidence for recombinant viruses generated in the camel reservoir entering human populations.
     }
@@ -361,9 +356,7 @@ Understanding population structure yields important insight into any biological 
 It also often implies the existence of barriers experienced by an organism, be it geographic \citep{dudas_virus_2017}, ecological \citep{smith_dating_2009} or evolutionary \citep{turner_genomic_2005,dudas_reassortment_2015}.
 \tbc{This seems way overly broad to me. I much preferred the Introductions take on genomic epi revealing important population structure. Just revise to keep this focused on pathogen transmission. Identification of reservoirs, source-sink, all very important.}
 Understanding what barriers exist and how they affect transmission of viruses remains one of the key parameters in designing efficient interventions.
-In this study we aimed to understand the drivers of MERS coronavirus transmission in humans and what role the camel reservoir plays in perpetuating the epidemic in the Arabian peninsula.
-While there are clear indications that human cases of MERS are largely the result of sporadic spillover from camels, sequence data have not yet been fully utilised in estimating basic epidemiological parameters, such as $R_0$ or the number of zoonotic introductions of MERS-CoV into humans.
-\tbc{This sentence (``While there...'') is overly like Intro.}
+In this study we aimed to understand the drivers of MERS coronavirus transmission in humans and what role the camel reservoir plays in perpetuating the epidemic in the Arabian peninsula by using sequence data collected from both hosts (174 from humans and 100 from camels).
 
 We showed that currently existing models of population structure \citep{vaughan_efficient_2014} can identify distinct demographic modes in MERS-CoV genomic data, where viruses continuously circulating in camels repeatedly jump into humans and cause small outbreaks doomed to extinction (Figures \ref{mcc}, \ref{exploded}).
 This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{prior}) and in the presence of strong biases in sequence sampling schemes (Figure \ref{mers_epi}).
@@ -383,8 +376,8 @@ Infectious disease surveillance and control measures remain limited, so much lik
 MERS-CoV may join the list of pathogens able to jump species barriers but not spread efficiently in the new host, but every system is distinct.
 Pathogens such as \textit{Bacillus anthracis}, Andes hantavirus \citep{martinez_person--person_2005}, monkeypox \citep{reed_detection_2004}, triple reassortant and H3N2v influenza A viruses \citep{shinde_triple-reassortant_2009,epperson_human_2013} belong to this list and yet only triple reassortant viruses eventually contributed to a pandemic, due to epidemiology and phylodynamics confined to influenza A virus.
 When information about a system is lacking either because it is recent or entirely novel or if the system is inherently unpredictable, sequence data can and should be used jointly with whatever data sources are available to provide the unique pathogen perspective on an infectious disease outbreak.
-
-\tbc{Perhaps close with discussion of evolution of host tropism? So far outbreaks have been self-limiting, but continued circulation in camels and continued spill-over into humans provides continued chances for evolution of a more human transmissible virus.}
+Although MERS-CoV seems to cause self-limiting outbreaks in humans with no evidence of worsening outbreaks over time, sustained evolution of the virus in the reservoir and flow of viral lineages into humans does not eliminate the possibility that a more transmissible variant of MERS-CoV will emerge.
+We encourage continued genomic surveillance of MERS-CoV in the camel reservoir and from sporadic human cases.
 
 % Despite higher resolution of inference offered by structured population models, especially when sequence data are plentiful, serious drawbacks exist.
 % As the representation of evolution drifts away from a strictly bifurcating tree model, the space over which phylogenetic inference needs to take place becomes increasingly complex.
