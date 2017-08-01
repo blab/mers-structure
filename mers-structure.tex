@@ -429,22 +429,29 @@ We encourage continued genomic surveillance of MERS-CoV in the camel reservoir a
 
 \section*{Methods}
 \subsection*{Sequence data}
-All MERS-CoV sequences were downloaded from GenBank.%\lmc{accession numbers are given in Table X}.
+All MERS-CoV sequences were downloaded from GenBank and accession numbers are given in Table \ref{sequences}.
+\tbc{Mention what's going on with accession-less sequences.}
 Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
-Protein coding sequences were extracted and concatenated.
+\tbc{This should be obvious in Table \ref{sequences}. Some strains should be multiple accessions. However, I don't see any.}
+\tbc{What we the criteria for inclusion? How many bases were necessary to be considered a `genome'?}
 Sequences were annotated with available collection dates and hosts, designated as camel or human.
+Protein coding sequences were extracted and concatenated.
+\tbc{Leaving how many bases?}
+\tbc{How were they aligned?}
 The final dataset consisted of 174 genomes from human infections and 100 genomes from camel infections (Table \ref{sequences}).
 
 \subsection*{Structured coalescent analyses}
 
-MultiTypeTree module \citep{vaughan_efficient_2014} was used in BEAUti v2.4.3 \citep{bouckaert_beast_2014} to specify a structured coalescent model with two demes - humans and camels - based on GenBank records.
+MultiTypeTree module \citep{vaughan_efficient_2014} was used in BEAUti v2.4.3 \citep{bouckaert_beast_2014} to specify a structured coalescent model with two demes -- humans and camels.
+This model estimates 4 parameters: rate of coalescence in human viruses, rate of coalescence in camel viruses, rate of migration from the human deme to the camel deme and rate of migration from the camel deme to the human deme.
 Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models specified for codon positions 1+2 and 3.
 A relaxed molecular clock with branch rates drawn from a lognormal distribution \citep{drummond_2006} was used to infer the evolutionary rate from date calibrated tips.
 Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
 All analyses were run across ten independent Markov chains (MCMC runs).
+\tbc{What was burn-in? How many steps in the MCMC? How was convergence assessed? How were chains combined?}
 To confirm that demographic inference was derived from the data rather than the prior we set up an additional ten independent analyses where the mean of the exponential distribution prior for migration rate was set to 10.0.
 
-We also analysed a dataset where alignments split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-onwards), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
+As a secondary analysis, we also considered a scenario where alignments split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-onwards), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
 All analyses were set to run for 200 million states, subsampling every 20 000 states.
 Due to the increased complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burn-in for single fragment analyses and 20\% for two-fragment analyses.
