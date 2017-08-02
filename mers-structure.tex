@@ -185,7 +185,7 @@ Camel calving is reported to occur from October to February \citep{almutairi_non
 It is possible that MERS-CoV sweeps through each new camel generation once critical mass of susceptibles is reached \citep{martinez_seasonality_2014}, leading to a sharp rise in prevalence of the virus in camels and resulting in increased force of infection into the human population.
 Strong influx of susceptibles and subsequent sweeping outbreaks in camels may explain evidence of widespread exposure to MERS-CoV in camels from seroepidemiology \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014}.
 
-Although we find evidence of seasonality in zoonotic spillover timing, no such relationship exists for sizes of human sequence clusters \tbc{reference a figure}.
+Although we find evidence of seasonality in zoonotic spillover timing, no such relationship exists for sizes of human sequence clusters (figure \ref{seasonality}C? \gdc{note - lettering might change}).
 This is entirely expected, since little seasonality in human behaviour that could facilitate MERS-CoV transmission is expected following an introduction.
 Similarly, we do not observe any trend in human sequence cluster sizes over time (Figure \ref{seasonality}B, Spearman $\rho = 0.06$, $p=0.68$), suggesting that MERS-CoV outbreaks in humans are neither growing nor shrinking in size.
 This is not surprising either, since MERS-CoV is a camel virus that has to date, experienced little-to-no selective pressure to improve transmissibility between humans.
@@ -256,7 +256,7 @@ These Monte Carlo simulations indicate $R_{0}$ for MERS-CoV is likely to be belo
 \end{figure}
 
 \subsection*{Recombination shapes MERS-CoV diversity}
-Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \citep{lai_1985,makino_1986,keck_1988,kottier_1995,herrewegh_1998}. %\tbc{needs citations}.
+Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \citep{lai_1985,makino_1986,keck_1988,kottier_1995,herrewegh_1998}.
 In order to explore the role of recombination in shaping MERS-CoV genetic diversity we used two recombination detection approaches across partitions of taxa corresponding to inferred MERS-CoV clades.
 Both methods rely on sampling parental and recombinant alleles within the alignment, although each quantifies different signals of recombination.
 One hallmark of recombination is the ability to carry alleles derived via mutation from one lineage to another, which appear as repeated mutations taking place in the recipient lineage, somewhere else in the tree.
@@ -276,7 +276,9 @@ This provides ideal conditions for co-infection with distinct genotypes, which i
 %%% AR - this paragraph is a bit of a mess. Suggests we can't trust most of the analysis above. If we can't believe the camel tree why do we trust a structured coalescent model?
 Conversely, our results strongly suggest that co-infection of humans with distinct lineages of MERS-CoV should be exceedingly rare.
 We find little evidence that recombination will interfere with the inference of human outbreak clusters (Figure \ref{recombinant_features}A).
-\tbc{Summarize Figure \ref{recombinant_features}A with something like: ``We find that 95\% of human viruses fall within the same introduction event in genomic fragment 1 and in genomic fragment 2.''}
+Between the two trees in figure \ref{recombinant_features}B four `human' clades are expanded where either singleton introductions or two-taxon clades in fragment 2 join other clades in fragment 1.
+For the reverse comparison there are five `human' clades in fragment 2 that are expanded.
+All such clades have low divergence (figure \ref{recombinant_features}B) and thus incongruences in human clades are more likely to be caused by differences in deme assignment rather than actual recombination.
 And while we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombinant_features}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
 Critically, we observe the same source-sink dynamics between camel and human populations in trees constructed from separate genomic fragments as were observed in the original full genome tree (Figures \ref{mcc}, \ref{recombinant_features}B).
 Observed departures from strictly clonal evolution suggest that while recombination is an issue for inferring MERS-CoV phylogenies, its effect on the human side of MERS outbreaks is minimal, as expected.
@@ -347,6 +349,19 @@ While this could be tested by looking for seasonally varying patterns in selecti
 
 % In order to disentangle distinct demographic modes within the phylogeny of MERS-CoV we split our alignment according to whether the virus was collected from camels or humans.
 % For sequences collected from humans and inferred to be in the same cluster we only keep the earliest sequence, and arrive at a sequence dataset that for the most part is comprised of viral diversity present in camels, and supplemented with human sequences that are treated as sentinel samples.
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_skygrid.png}
+	\caption{\textbf{Demographic history of MERS-CoV in Arabian peninsula camels.}
+Demographic history of MERS-CoV in camels, as inferred via a skygrid coalescent tree prior \citep{gill_2013}.
+Three skygrid reconstructions are shown, red and orange for each of the stationary distributions reached by MCMC with the whole genome and a black one where the genome was split into ten partitions.
+Shaded interval indicates the 95\% highest posterior density interval for the product of generation time and effective population size, $N_{e}\tau$.
+Midline tracks the inferred median of $N_{e}\tau$.
+%Maximum clade credibility (MCC) tree from the skygrid was inferred is shown in the background, with camel sequences highlighted in orange and human sequences highlighted in blue.
+	}
+	\label{skygrid}
+\end{figure}
 
 
 \section*{Discussion}
@@ -444,23 +459,23 @@ This model estimates 4 parameters: rate of coalescence in human viruses, rate of
 Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models specified for codon positions 1+2 and 3.
 A relaxed molecular clock with branch rates drawn from a lognormal distribution \citep{drummond_2006} was used to infer the evolutionary rate from date calibrated tips.
 Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
-All analyses were run for 200 million steps across ten independent Markov chains (MCMC runs) and states were sampled every \tbc{XXX} steps.
+All analyses were run for 200 million steps across ten independent Markov chains (MCMC runs) and states were sampled every 20 000 steps.
 Due to the complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burn-in, convergence assessed in Tracer v1.6 and states combined using LogCombiner distributed with BEAST v2.4.3 \citep{bouckaert_beast_2014}.
 Three chains out of ten did not converge and were discarded altogether.
-This left \tbc{XXX} states on which to base posterior inference.
+This left 70 000 states on which to base posterior inference.
 
 As a secondary analysis to test robustness to choice of prior, we set up an analysis where we increased the mean of the exponential distribution prior for migration rate to 10.0.
 All other parameters were identical to the primary analysis and as before 10 independent MCMC chains were run.
 In this case, two chains did not converge.
-This left \tbc{XXX} states on which to base posterior inference.
+This left 80 000 states on which to base posterior inference.
 
-As an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-onwards), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
+As an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-29364), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
 All analyses were set to run for 200 million states, subsampling every 20 000 states.
 Chains not converging after 200 million states were discarded.
 20\% of the states were discarded as burn-in, convergence assessed with Tracer 1.6 and combined with LogCombiner.
 Three chains out of ten did not converge.
-This left \tbc{XXX} states on which to base posterior inference.
+This left 70 000 states on which to base posterior inference.
 
 \subsubsection*{Introduction seasonality}
 
@@ -532,8 +547,7 @@ Sequences belonging to the outgroup clade where most of MERS-CoV sequences from 
 A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity ($N_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}.
 We set up five independent MCMC chains to run for 500 million states, sampling every 50 000 states.
 This analysis suffered from poor convergence, where two chains converged onto one stationary distribution, two to another and the last chain onto a third stationary distribution, with high effective sample sizes.
-Demographic trajectories recovered by the two main stationary distributions are very similar and differences between the two appear to be caused by convergence onto different tree topologies, with onward effects on evolutionary rate estimates and distributions of coalescence times.
-\tbc{This statement seemd a bit strong, as it looked like the $N_{e}\tau$ trajectory was highly similar between these different stationary distributions.}
+Demographic trajectories recovered by the two main stationary distributions are very similar and differences between the two appear to be caused by convergence onto subtly different tree topologies.
 This non-convergence effect may have been masked previously by the use of all available MERS-CoV sequences from humans which may have lead MCMC towards one of the multiple stationary distributions.
 
 \subsection*{Data availability}
@@ -947,19 +961,6 @@ The cumulative probability of human clades present in either tree are tracked by
 Most of the probability mass is concentrated within human clades that are present in trees of both genomic fragment 1 and 2 (0.9701 and 0.9474 of all human clades across posteriors, respectively).
 	}
 	\label{flower}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_skygrid.png}
-	\caption{\textbf{Demographic history of MERS-CoV in Arabian peninsula camels.}
-Demographic history of MERS-CoV in camels, as inferred via a skygrid coalescent tree prior \citep{gill_2013}.
-Two skygrid reconstructions are shown, one for each of the stationary distributions reached by MCMC.
-Shaded interval indicates the 95\% highest posterior density interval for the product of generation time and effective population size, $N_{e}\tau$.
-Midline tracks the inferred median of $N_{e}\tau$.
-Maximum clade credibility (MCC) tree from the skygrid was inferred is shown in the background, with camel sequences highlighted in orange and human sequences highlighted in blue.
-	}
-	\label{skygrid}
 \end{figure}
 
 \end{document}
