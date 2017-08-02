@@ -10,8 +10,12 @@
 \usepackage{color}
 \usepackage{parskip}
 \usepackage{float}
+\usepackage{microtype}
 \usepackage{url}
 \urlstyle{same}
+
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
 
 \usepackage{longtable}
 \usepackage[]{algorithm2e}
@@ -147,8 +151,9 @@ Using Monte Carlo simulations we show that $R_{0}$ for MERS-CoV circulating in h
 The structured coalescent approach we employ (see Methods) identifies camels as a reservoir host where most of MERS-CoV evolution takes place (Figure \ref{mcc}), while human MERS outbreaks are transient and terminal with respect to long-term evolution of the virus (Figure~\ref{exploded}).
 Across 174 MERS-CoV genomes collected from humans, we estimate a median of 56 separate camel-to-human cross-species transmissions (95\% highest posterior density (HPD): 48--63).
 While we estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
+Correspondingly, we observe substantially higher camel-to-human migration rate estimates than human-to-camel migration rate estimates (Figure~\ref{prior}).
 This inference derives from the tree structure wherein human viruses appear as clusters of highly related sequences nested within the diversity seen in camel viruses, which themselves show signicantly higher diversity and less clustering.
-This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of 3.49 (95\% HPD: 2.71--4.38) and human viruses showing a scaled effective population of 0.24 (95\% HPD: 0.14--0.34).
+This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of 3.49 years (95\% HPD: 2.71--4.38) and human viruses showing a scaled effective population of 0.24 years (95\% HPD: 0.14--0.34).
 
 We believe that the small number of inferred human-to-camel migrations are induced by the migration rate prior, while some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
 This is most apparent in lineages in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot completely dismiss humans as a potential alternative host.
@@ -180,12 +185,10 @@ Camel calving is reported to occur from October to February \citep{almutairi_non
 It is possible that MERS-CoV sweeps through each new camel generation once critical mass of susceptibles is reached \citep{martinez_seasonality_2014}, leading to a sharp rise in prevalence of the virus in camels and resulting in increased force of infection into the human population.
 Strong influx of susceptibles and subsequent sweeping outbreaks in camels may explain evidence of widespread exposure to MERS-CoV in camels from seroepidemiology \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014}.
 
-Although we find evidence of seasonality in zoonotic spill over timing, no such relationship exists for sizes of human sequence clusters (\textit{i.e. post-spillover clades})(?).
+Although we find evidence of seasonality in zoonotic spillover timing, no such relationship exists for sizes of human sequence clusters \tbc{reference a figure}.
 This is entirely expected, since little seasonality in human behaviour that could facilitate MERS-CoV transmission is expected following an introduction.
-Similarly, we do not observe any trend in human sequence cluster sizes over time, suggesting that MERS-CoV outbreaks in humans are neither growing nor shrinking in size.
-This is not surprising either, since MERS-CoV is a camel virus that experiences little to no selective pressure to improve transmissibility between humans.
-
-\tbc{I think this is the best place to discuss the lack of correlation between date and size of human cluster. This can be referenced later on in Discussion when talking about pandemic potential. Also, seems relevant to look at seasonality in size of cluster here, yes? This would get at whether there are seasonal factors on the human side.}
+Similarly, we do not observe any trend in human sequence cluster sizes over time (Figure \ref{seasonality}B, Spearman $\rho = 0.06$, $p=0.68$), suggesting that MERS-CoV outbreaks in humans are neither growing nor shrinking in size.
+This is not surprising either, since MERS-CoV is a camel virus that has to date, experienced little-to-no selective pressure to improve transmissibility between humans.
 
 \begin{figure}[h]
 \centering
@@ -233,7 +236,7 @@ Our results suggest a large number of unobserved MERS primary cases.
 Given this, we also performed simulations where the total number of cases is doubled to 4000 to explore the impact of dramatic underestimation of MERS cases.
 In these analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
 
-Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<1.0$ and sequence sampling likely to be biased towards large hospital outbreaks.
+Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<0.91$ and sequence sampling likely to be biased towards large hospital outbreaks.
 Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices \citep{assiri_hospital_2013,chen_comparative_2017} appear sufficient to explain observed epidemiological patterns of MERS-CoV.
 
 \begin{figure}[h]
@@ -275,11 +278,10 @@ Conversely, our results strongly suggest that co-infection of humans with distin
 We find little evidence that recombination will interfere with the inference of human outbreak clusters (Figure \ref{recombinant_features}A).
 \tbc{Summarize Figure \ref{recombinant_features}A with something like: ``We find that 95\% of human viruses fall within the same introduction event in genomic fragment 1 and in genomic fragment 2.''}
 And while we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombinant_features}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
+Critically, we observe the same source-sink dynamics between camel and human populations in trees constructed from separate genomic fragments as were observed in the original full genome tree (Figures \ref{mcc}, \ref{recombinant_features}B).
 Observed departures from strictly clonal evolution suggest that while recombination is an issue for inferring MERS-CoV phylogenies, its effect on the human side of MERS outbreaks is minimal, as expected.
 MERS-CoV evolution on the reservoir side, though complicated by recombination, is nonetheless still amenable to phylogenetic methods, in part through limited diversity of the virus in camels (see next section).
-%Overall we advise extreme caution when interpreting branches in MERS-CoV phylogenies that are suspected of having spent any time in camels, especially when attempting to identify origins of human cases. %% a bit overblown 'extreme caution'? %TB: Agree to leave out this sentence.
 In humans MERS-CoV evolution should be far easier to track as the only detectable and problematic recombinants are more likely to arise within the transmission chain, than through human co-infection with distinct MERS-CoV lineages.
-% On the other hand, the largely clonal evolution of MERS-CoV in humans, despite limited diversity, should be more amenable to traditional phylogenetic approaches. %% But why won't recombination be happening in humans? Sure it won't be 2 divergent lineages.
 
 
 % \begin{figure}[h]
@@ -322,12 +324,11 @@ In humans MERS-CoV evolution should be far easier to track as the only detectabl
   	Human clusters in blue change phylogenetic positions between the trees together, with little incongruence within clusters.
   	This is evidence for recombinant viruses generated in the camel reservoir entering human populations.
     }
-    \label{recombination}
+    \label{recombinant_features}
 \end{figure}
 
-\subsection*{Demographic trajectory of MERS-CoV in camels}
+\subsection*{MERS-CoV shows population turnover in camels}
 
-\tbc{Slightly strange to have this at the level of full results subsection and not have a main text figure.}
 Here we attempt to investigate MERS-CoV demographic patterns in the camel reservoir.
 %Since MERS-CoV in humans has a distinct epidemiology
 % evolves under a distinct demographic regime, %% evolves under a demographic regime?
@@ -340,7 +341,9 @@ However, we do note that estimates of relative genetic diversity are relatively 
 This raises the possibility that MERS-CoV populations undergo lineage turnover at a rate not often seen in other livestock viruses (\textit{e.g.} swine influenza A viruses \citep{vijaykrishna_long-term_2011}).
 Part of this could be caused by MERS-CoV ability to re-infect camels previously exposed to the virus \citep{ali_systematic_2017}, which may result in a process akin to antigenic drift, where the depletion of susceptible calves leads to ever increasing selective pressure for the virus to evolve antigenically.
 While this could be tested by looking for seasonally varying patterns in selection on MERS-CoV surface proteins, recombination would remain a key confounding problem.
-\tbc{This section seems like its reaching pretty far, but if keeping could mention that human seasonal coronaviruses undergo antigenic drift.}
+\tbc{Include results of N and S to indicate that surface protein is evolving quickly supporting antigenic evolution. Or not, if the data says otherwise...}
+
+\tbc{Okay for me to leave Figure \ref{skygrid} as supplementary or it can be main text. I'm happy either way. Suggest second panel showing correspondence between fragmented genome and full genome trajectories.}
 
 % In order to disentangle distinct demographic modes within the phylogeny of MERS-CoV we split our alignment according to whether the virus was collected from camels or humans.
 % For sequences collected from humans and inferred to be in the same cluster we only keep the earliest sequence, and arrive at a sequence dataset that for the most part is comprised of viral diversity present in camels, and supplemented with human sequences that are treated as sentinel samples.
@@ -359,9 +362,8 @@ Our analyses indicated a period of three months where the odds of a sequenced sp
 As a result of our identification of large and asymmetric flow of viral lineages into humans we also find that the basic reproduction number for MERS-CoV in humans is well below the epidemic threshold (Figure \ref{mers_epi}).
 
 Strong population structure in viruses often arises through limited gene flow, either due to geography \citep{dudas_virus_2017}, ecology \citep{smith_dating_2009} or evolutionary forces \citep{turner_genomic_2005,dudas_reassortment_2015}.
-On a smaller scale population structure can unveil important details about transmission patterns, such as identifying reservoirs and understanding spill over trends and risk, much as we have done here.
+On a smaller scale population structure can unveil important details about transmission patterns, such as identifying reservoirs and understanding spillover trends and risk, much as we have done here.
 When properly understood naturally arising barriers to gene flow can be exploited for more efficient disease control and prevention, as well as risk management.
-%\tbc{This seems way overly broad to me. I much preferred the Introductions take on genomic epi revealing important population structure. Just revise to keep this focused on pathogen transmission. Identification of reservoirs, source-sink, all very important.}
 
 \subsection*{Transmissibility differences between zoonoses and pandemics}
 Severe acute respiratory syndrome (SARS) coronavirus, a Betacoronavirus like MERS-CoV, caused a serious epidemic in humans in 2003, with over 8000 cases and nearly 800 deaths.
@@ -370,12 +372,11 @@ Although we describe the epidemiology of MERS-CoV from sequence data, indication
 SARS-CoV swept through the world in a short period of time, but MERS cases trickled slowly and were restricted to the Arabian Peninsula or resulted in self-limiting outbreaks outside of the region, a pattern strongly indicative of repeat zoonotic spillover.
 Infectious disease surveillance and control measures remain limited, so much like the SARS epidemic in 2003 or the H1N1 pandemic in 2009, zoonotic pathogens with $R_{0}>1.0$ are probably going to be discovered after spreading beyond the original location of spillover.
 Even though our results show that MERS-CoV does not appear to present a serious global threat, we would like to highlight that its epidemiology is nonetheless concerning.
-%\tbc{I like the basic approach, this last segue could be cleaner however.}
 
 MERS-CoV may join the list of pathogens able to jump species barriers but not spread efficiently in the new host, but every system is distinct.
 Pathogens such as \textit{Bacillus anthracis}, Andes hantavirus \citep{martinez_person--person_2005}, monkeypox \citep{reed_detection_2004}, triple reassortant and H3N2v influenza A viruses \citep{shinde_triple-reassortant_2009,epperson_human_2013} belong to this list and yet only triple reassortant viruses eventually contributed to a pandemic, due to epidemiology and phylodynamics confined to influenza A virus.
 When information about a system is lacking either because it is recent or entirely novel or if the system is inherently unpredictable, sequence data can and should be used jointly with whatever data sources are available to provide the unique pathogen perspective on an infectious disease outbreak.
-Although MERS-CoV seems to cause self-limiting outbreaks in humans with no evidence of worsening outbreaks over time, sustained evolution of the virus in the reservoir and flow of viral lineages into humans does not eliminate the possibility that a more transmissible variant of MERS-CoV will emerge.
+Although MERS-CoV seems to cause self-limiting outbreaks in humans with no evidence of worsening outbreaks over time, sustained evolution of the virus in the reservoir and flow of viral lineages into humans provides the substrate for a more transmissible variant of MERS-CoV to possibly emerge.
 We encourage continued genomic surveillance of MERS-CoV in the camel reservoir and from sporadic human cases.
 
 % Despite higher resolution of inference offered by structured population models, especially when sequence data are plentiful, serious drawbacks exist.
@@ -529,7 +530,7 @@ We model the variable $Y_{ij} = \sum_{k = 1}^L Z_{ijk}$ with the hierarchical mo
 Odds ratios of introductions can then be computed for each month $i$ as $\text{OR}_i = \exp(\beta_i)$.
 
 \subsection*{Data availability}
-Sequence data and all analytical code is publicly available at https://github.com/blab/structured-mers.
+Sequence data and all analytical code is publicly available at \href{https://github.com/blab/structured-mers}{github.com/blab/structured-mers}.
 
 \section*{Acknowledgements}
 We would like to thank Allison Black for useful discussion and advice.
@@ -558,7 +559,7 @@ $^{6}$Wellcome Trust Sanger Institute, Hinxton, United Kingdom \\
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
 
-\begin{longtable}{ | l | l | l | l | l | }
+\begin{longtable}{ | r | l | p{2cm} | l | l | }
 
   \caption{Strain names, accessions (where available), identified host and reported collection dates for MERS-CoV genomes used in this study.} \label{sequences} \\
 
@@ -870,7 +871,7 @@ This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in huma
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
-	\caption{\textbf{Result are robust to prior choice.}
+	\caption{\textbf{Posterior migration rate estimates for two choices of prior.}
 Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice.
 Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme (blue) and \textit{vice versa} (orange).
 Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).
