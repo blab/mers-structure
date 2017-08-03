@@ -544,11 +544,18 @@ In order to infer the demographic history of MERS-CoV in camels we used the resu
 The oldest sequence from each cluster introduced into humans was used to represent a random draw from the diversity of MERS-CoV circulating in camels.
 These sequences were combined with existing sequence data from camels to give us a dataset with minimal demographic signal coming from epidemiological processes in humans.
 Sequences belonging to the outgroup clade where most of MERS-CoV sequences from Egypt fall were removed out of concern that MERS epidemics in the Arabian Peninsula and Egypt are distinct epidemics with relatively poor sampling in the latter.
-A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity ($N_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}.
+A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity ($N_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}, under a relaxed molecular clock with rates drawn from a lognormal distribution \citep{drummond_2006} and codon position partitioned (positions $1+2$ and $3$) HKY$+\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models.
 We set up five independent MCMC chains to run for 500 million states, sampling every 50 000 states.
 This analysis suffered from poor convergence, where two chains converged onto one stationary distribution, two to another and the last chain onto a third stationary distribution, with high effective sample sizes.
 Demographic trajectories recovered by the two main stationary distributions are very similar and differences between the two appear to be caused by convergence onto subtly different tree topologies.
 This non-convergence effect may have been masked previously by the use of all available MERS-CoV sequences from humans which may have lead MCMC towards one of the multiple stationary distributions.
+
+To ensure that recombination was not interfering with the skygrid reconstruction we also split our MERS-CoV alignment into ten parts 2937 nucleotides long.
+These were then used as separate partitions with independent trees and clock rates in BEAST v1.8.4 \citep{drummond_bayesian_2012}.
+Nucleotide substitution and relaxed clock models were set up identically to the whole genome skygrid analysis described above \citep{drummond_2006,hky_1985,yang_1994}.
+Skygrid coalescent tree prior \citep{gill_2013} was used jointly across all ten partitions for demographic inference.
+Five MCMC chains were set up, each running for 200 million states, sampling every 20 000 states.
+
 
 \subsection*{Data availability}
 Sequence data and all analytical code is publicly available at \href{https://github.com/blab/structured-mers}{github.com/blab/structured-mers}.
@@ -961,6 +968,16 @@ The cumulative probability of human clades present in either tree are tracked by
 Most of the probability mass is concentrated within human clades that are present in trees of both genomic fragment 1 and 2 (0.9701 and 0.9474 of all human clades across posteriors, respectively).
 	}
 	\label{flower}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_skygrid_comparison.png}
+	\caption{\textbf{Skygrid comparison between whole and fragmented genomes.}
+Inferred median $N_{e}\tau$ recovered using a skygrid tree prior on whole genome (bottom) and ten genomic fragments with independent trees (left), coloured by time.
+Dotted line indicates the one-to-one line.
+	}
+	\label{skygrid_comparison}
 \end{figure}
 
 \end{document}
