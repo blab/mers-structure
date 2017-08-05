@@ -332,23 +332,26 @@ In humans MERS-CoV evolution should be far easier to track as the only detectabl
 \subsection*{MERS-CoV shows population turnover in camels}
 
 Here we attempt to investigate MERS-CoV demographic patterns in the camel reservoir.
-%Since MERS-CoV in humans has a distinct epidemiology
-% evolves under a distinct demographic regime, %% evolves under a demographic regime?
-%we split our sequence dataset based on whether sequences were collected in humans or camels.
 We supplement camel sequence data with a single earliest sequence from each human cluster, treating viral diversity present in humans as a sentinel sample of MERS-CoV diversity circulating in camels.
 This removes conflicting demographic signals sampled during human outbreaks, where densely sampled closely related sequences from humans could be misconstrued as evidence of demographic crash in the viral population.
 
 Despite lack of convergence, neither of the two demographic reconstructions show evidence of fluctuations in the relative genetic diversity ($N_e \tau$) of  MERS-CoV over time (Figure \ref{skygrid}).
-However, we do note that estimates of relative genetic diversity are relatively low overall, and MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
-This raises the possibility that MERS-CoV populations undergo lineage turnover at a rate not often seen in other livestock viruses (\textit{e.g.} swine influenza A viruses \citep{vijaykrishna_long-term_2011}).
-Part of this could be caused by MERS-CoV ability to re-infect camels previously exposed to the virus \citep{ali_systematic_2017}, which may result in a process akin to antigenic drift, where the depletion of susceptible calves leads to ever increasing selective pressure for the virus to evolve antigenically.
-While this could be tested by looking for seasonally varying patterns in selection on MERS-CoV surface proteins, recombination would remain a key confounding problem.
-\tbc{Include results of N and S to indicate that surface protein is evolving quickly supporting antigenic evolution. Or not, if the data says otherwise...}
+However, we do note that estimates of relative genetic diversity are relatively low overall with a mean estimate of $N_e\tau$ of 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
+This estimate of $N_e\tau$ can be translated into an estimate of effective prevalence $N_e$ given an estimate of generation time or serial intervals.
+Given a 20 day duration of infection in camels \tbc{please add citation}, we expect a 10 day serial interval or $\tau$ of 0.027 years per generation.
+Dividing by $\tau$ yields an estimate of $N_e$ of 129 (100--162) individuals.
 
-\tbc{Okay for me to leave Figure \ref{skygrid} as supplementary or it can be main text. I'm happy either way. Suggest second panel showing correspondence between fragmented genome and full genome trajectories.}
+Here, we compare this estimate of effective prevalence to a rough estimate of census prevalence.
+Given extremely high seroprevalence estimates within camels in Saudi Arabia \tbc{please add citation}, we expect camels to usually be infected within their first year of life.
+Therefore we can estimate the rough number of camel infections per year as the number of calves produced each year.
+We find there are $830\,000$ camels in Saudi Arabia \citep{abdallah_camel_farming_2013} and that female camels in Saudi Arabia have an average fecundity of 45\% \citep{abdallah_camel_farming_2013}.
+Thus, we expect $830\,000 \times 0.50 \times 0.45 = 186\,750$ new calves produced yearly and correspondingly $186\,750$ new infections every year, which spread over 10 day serial intervals gives an average of $N = 5042$ infections.
 
-% In order to disentangle distinct demographic modes within the phylogeny of MERS-CoV we split our alignment according to whether the virus was collected from camels or humans.
-% For sequences collected from humans and inferred to be in the same cluster we only keep the earliest sequence, and arrive at a sequence dataset that for the most part is comprised of viral diversity present in camels, and supplemented with human sequences that are treated as sentinel samples.
+We thus arrive a ratio of $N/N_e = 39.1$ (31.1--50.4).
+This is less than the equivalent ratio for human measles virus \citep{bedford_strength_2011} and is in line with the expectation from neutral evolutionary dynamics plus some degree of transmission heterogeneity \citep{volz_phylodynamics_2013} and seasonal troughs in prevalence.
+Thus, we believe that the ladder-like appearance of the MERS-CoV tree can likely be explained by entirely demographic factors.
+
+\tbc{Say something like: ``We find that this result is robust to recombination by...'' and reference Figure \ref{skygrid_comparison}.}
 
 \begin{figure}[h]
 \centering
