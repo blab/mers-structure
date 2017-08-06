@@ -489,18 +489,20 @@ This left 70 000 states on which to base posterior inference.
 
 We extracted the times of camel-to-human introductions from the posterior distribution of multitype trees.
 This distribution of introduction times was then discretised as follows: for sample  $k = 1, 2, \ldots, L$ from the posterior,  $Z_{ijk}$ was $1$ if there as an introduction in month $i$ and year $j$ and $0$ otherwise.
-We model the variable $Y_{ij} = \sum_{k = 1}^L Z_{ijk}$ with the hierarchical model:
+We model the sum of introductions at month $i$ and year $j$ across the posterior sample $Y_{ij} = \sum_{k = 1}^L Z_{ijk}$ with the hierarchical model:
 \begin{align*}
-  Y_{ij} &\sim \text{Binomial}(L, \theta_{ij}); \\
-  logit(\theta_{ij}) &= \alpha_j + \beta_i; \\
-  \beta_i &\sim \text{Normal}(0, \sigma_{m}); \\
-  \sigma_{m} &\sim \text{Cauchy}(0, 2.5); \\
-  \alpha_j &\sim \text{Normal}(\mu_{y}, \sigma_{y}); \\
-  \mu_{y}  &\sim  \text{Normal}(0, 1); \\
-  \sigma_{y} &\sim \text{Cauchy}(0, 2.5).
+  Y_{ij} &\sim \text{Binomial}(L, \theta_{ij}) \\
+  \theta_{ij} &= \mathrm{logistic}(\alpha_j + \beta_i) \\
+  \alpha_j &\sim \text{Normal}(\mu_{y}, \sigma_{y}) \\
+  \mu_{y}  &\sim  \text{Normal}(0, 1) \\
+  \sigma_{y} &\sim \text{Cauchy}(0, 2.5) \\
+  \beta_i &\sim \text{Normal}(0, \sigma_{m}) \\
+  \sigma_{m} &\sim \text{Cauchy}(0, 2.5), \\
 \end{align*}
-
-Odds ratios of introductions can then be computed for each month $i$ as $\text{OR}_i = \exp(\beta_i)$.
+where $\alpha_j$ represents the contribution of year to expected introduction count and $\beta_i$ represents the contribution of month to expected introduction count.
+Here, $\mathrm{logistic}(\alpha_j + \beta_i) =  \frac{\mathrm{exp}(\alpha_j + \beta_i)}{\mathrm{exp}(\alpha_j + \beta_i) + 1}$.
+We sampled posterior values from this model via the Markov chain Monte Carlo methods implemented in Stan \citep{carpenter_stan_2016}.
+Odds ratios of introductions were computed for each month $i$ as $\text{OR}_i = \exp(\beta_i)$.
 %\tbc{Please spell out what parameters are referring to. In English, what is $\alpha_j$ and what is $\beta_i$? I'm having a hard time figuring out what's going on here.}
 %\tbc{Can you move `\textit{logit}' to the right hand side of the equation (if not too messy)?}
 
