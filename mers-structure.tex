@@ -152,7 +152,7 @@ The structured coalescent approach we employ (see Methods) identifies camels as 
 Across 174 MERS-CoV genomes collected from humans, we estimate a median of 56 separate camel-to-human cross-species transmissions (95\% highest posterior density (HPD): 48--63).
 While we estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
 Correspondingly, we observe substantially higher camel-to-human migration rate estimates than human-to-camel migration rate estimates (Figure~\ref{prior}).
-This inference derives from the tree structure wherein human viruses appear as clusters of highly related sequences nested within the diversity seen in camel viruses, which themselves show signicantly higher diversity and less clustering.
+This inference derives from the tree structure wherein human viruses appear as clusters of highly related sequences nested within the diversity seen in camel viruses, which themselves show significantly higher diversity and less clustering.
 This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of 3.49 years (95\% HPD: 2.71--4.38) and human viruses showing a scaled effective population of 0.24 years (95\% HPD: 0.14--0.34).
 
 \begin{figure}[h]
@@ -221,7 +221,7 @@ Sequencing simulations take place at different levels of bias, wherein bias enri
 This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from primary cases will be sampled exceedingly rarely.
 We record the mean, median and standard deviation of sequence cluster sizes in each simulation (left-hand panels in Figure \ref{mers_epi}) and extract the subset of Monte Carlo simulations in which these summary statistics fall within the 95\% highest posterior density observed in the empirical MERS-CoV data from structured coalescent analyses.
 We record $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions), for these empirically matched simulations.
-A schematic of this Monte Carlo produre is shown in Figure \ref{mc_method}.
+A schematic of this Monte Carlo procedure is shown in Figure \ref{mc_method}.
 Generally, higher $R_0$ results in fewer larger transmission clusters, while lower $R_0$ results in many smaller transmission clusters (Figure \ref{mers_epi}).
 
 \begin{figure}[h]
@@ -453,7 +453,7 @@ We encourage continued genomic surveillance of MERS-CoV in the camel reservoir a
 \section*{Methods}
 \subsection*{Sequence data}
 All MERS-CoV sequences were downloaded from GenBank and accession numbers are given in Table \ref{sequences}.
-Sequences without accessions were kindly shared by Ali M. Somily, Mazin Barry, Sarah S. Al Subaie, Abdulaziz A. BinSaeed, Fahad A. Alzamil, Waleed Zaher, Theeb Al Qahtani, Khaldoon Al Jerian, Scott J.N. McNabb, Imad A. Al-Jahdali, Ahmed M. Alotaibi, Nahid A. Batarfi, Matthew Cotten, Simon J. Watson, Spela Binter, and Paul Kellam prior to publication.
+Sequences without accessions were kindly shared by Ali M.\ Somily, Mazin Barry, Sarah S.\ Al Subaie, Abdulaziz A.\ BinSaeed, Fahad A.\ Alzamil, Waleed Zaher, Theeb Al Qahtani, Khaldoon Al Jerian, Scott J.N.\ McNabb, Imad A.\ Al-Jahdali, Ahmed M.\ Alotaibi, Nahid A.\ Batarfi, Matthew Cotten, Simon J.\ Watson, Spela Binter, and Paul Kellam prior to publication.
 Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
 Only sequences covering at least 50\% of MERS-CoV genome were kept.
 Sequences were annotated with available collection dates and hosts, designated as camel or human and aligned with MAFFT \citep{katoh_mafft_2013} and edited manually.
@@ -467,23 +467,23 @@ This model estimates four parameters: rate of coalescence in human viruses, rate
 Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models specified for codon positions 1+2 and 3.
 A relaxed molecular clock with branch rates drawn from a lognormal distribution \citep{drummond_2006} was used to infer the evolutionary rate from date calibrated tips.
 Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
-All analyses were run for 200 million steps across ten independent Markov chains (MCMC runs) and states were sampled every 20 000 steps.
+All analyses were run for 200 million steps across ten independent Markov chains (MCMC runs) and states were sampled every $20\,000$ steps.
 Due to the complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burn-in, convergence assessed in Tracer v1.6 and states combined using LogCombiner distributed with BEAST v2.4.3 \citep{bouckaert_beast_2014}.
 Three chains out of ten did not converge and were discarded altogether.
-This left 70 000 states on which to base posterior inference.
+This left $70\,000$ states on which to base posterior inference.
 
 As a secondary analysis to test robustness to choice of prior, we set up an analysis where we increased the mean of the exponential distribution prior for migration rate to 10.0.
 All other parameters were identical to the primary analysis and as before 10 independent MCMC chains were run.
 In this case, two chains did not converge.
-This left 80 000 states on which to base posterior inference.
+This left $80\,000$ states on which to base posterior inference.
 
 As an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-29364), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
-All analyses were set to run for 200 million states, subsampling every 20 000 states.
+All analyses were set to run for 200 million states, subsampling every $20\,000$ states.
 Chains not converging after 200 million states were discarded.
 20\% of the states were discarded as burn-in, convergence assessed with Tracer 1.6 and combined with LogCombiner.
 Three chains out of ten did not converge.
-This left 70 000 states on which to base posterior inference.
+This left $70\,000$ states on which to base posterior inference.
 
 \subsubsection*{Introduction seasonality}
 
@@ -555,7 +555,7 @@ The oldest sequence from each cluster introduced into humans was used to represe
 These sequences were combined with existing sequence data from camels to give us a dataset with minimal demographic signal coming from epidemiological processes in humans.
 Sequences belonging to the outgroup clade where most of MERS-CoV sequences from Egypt fall were removed out of concern that MERS epidemics in the Arabian Peninsula and Egypt are distinct epidemics with relatively poor sampling in the latter.
 A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity ($N_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}, under a relaxed molecular clock with rates drawn from a lognormal distribution \citep{drummond_2006} and codon position partitioned (positions $1+2$ and $3$) HKY$+\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models.
-We set up five independent MCMC chains to run for 500 million states, sampling every 50 000 states.
+We set up five independent MCMC chains to run for 500 million states, sampling every $50\,000$ states.
 This analysis suffered from poor convergence, where two chains converged onto one stationary distribution, two to another and the last chain onto a third stationary distribution, with high effective sample sizes.
 Demographic trajectories recovered by the two main stationary distributions are very similar and differences between the two appear to be caused by convergence onto subtly different tree topologies.
 This non-convergence effect may have been masked previously by the use of all available MERS-CoV sequences from humans which may have lead MCMC towards one of the multiple stationary distributions.
@@ -564,7 +564,7 @@ To ensure that recombination was not interfering with the skygrid reconstruction
 These were then used as separate partitions with independent trees and clock rates in BEAST v1.8.4 \citep{drummond_bayesian_2012}.
 Nucleotide substitution and relaxed clock models were set up identically to the whole genome skygrid analysis described above \citep{drummond_2006,hky_1985,yang_1994}.
 Skygrid coalescent tree prior \citep{gill_2013} was used jointly across all ten partitions for demographic inference.
-Five MCMC chains were set up, each running for 200 million states, sampling every 20 000 states.
+Five MCMC chains were set up, each running for 200 million states, sampling every $20\,000$ states.
 
 
 \subsection*{Data availability}
@@ -576,12 +576,12 @@ GD is supported by the Mahan postdoctoral fellowship from the Fred Hutchinson Ca
 TB is a Pew Biomedical Scholar and is supported by NIH R35 GM119774-01.
 We gratefully acknowledge the contribution of the following scientists for sharing MERS-CoV sequence data before publication:
 
-Ali M. Somily$^{1}$, Mazin Barry$^{1}$, Sarah S. Al Subaie$^{1}$, Abdulaziz A. BinSaeed$^{1}$, Fahad A. Alzamil$^{1}$, Waleed Zaher$^{1}$, Theeb Al Qahtani$^{1}$, Khaldoon Al Jerian$^{1}$, Scott J.N. McNabb$^{2}$, Imad A. Al-Jahdali$^{3}$, Ahmed M. Alotaibi$^{4}$, Nahid A. Batarfi$^{5}$, Matthew Cotten$^{6}$, Simon J. Watson$^{6}$, Spela Binter$^{6}$, Paul Kellam$^{6}$.
+Ali M.\ Somily$^{1}$, Mazin Barry$^{1}$, Sarah S.\ Al Subaie$^{1}$, Abdulaziz A.\ BinSaeed$^{1}$, Fahad A.\ Alzamil$^{1}$, Waleed Zaher$^{1}$, Theeb Al Qahtani$^{1}$, Khaldoon Al Jerian$^{1}$, Scott J.N.\ McNabb$^{2}$, Imad A.\ Al-Jahdali$^{3}$, Ahmed M.\ Alotaibi$^{4}$, Nahid A.\ Batarfi$^{5}$, Matthew Cotten$^{6}$, Simon J.\ Watson$^{6}$, Spela Binter$^{6}$, Paul Kellam$^{6}$.
 
 
 $^{1}$College of Medicine, King Saud University, Riyadh, Kingdom of Saudi Arabia \\
 $^{2}$Rollins School of Public Health, Emory University, Atlanta, GA, USA \\
-$^{3}$Deputy Minister. Ex. General Director King Fahad General Hospital, Jeddah and Occupational and environmental medicine, Um AlQura University, Kingdom of Saudi Arabia \\
+$^{3}$Deputy Minister.\ Ex.\ General Director King Fahad General Hospital, Jeddah and Occupational and environmental medicine, Um AlQura University, Kingdom of Saudi Arabia \\
 $^{4}$Department of Intensive Care, Prince Mohammed bin Abdulaziz Hospital, Riyadh, Kingdom of Saudi Arabia \\
 $^{5}$Epidemiology section, Command and Control Center (CCC) Ministry of Health, Jeddah \\
 $^{6}$Wellcome Trust Sanger Institute, Hinxton, United Kingdom \\
