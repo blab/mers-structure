@@ -454,15 +454,17 @@ We encourage continued genomic surveillance of MERS-CoV in the camel reservoir a
 All MERS-CoV sequences were downloaded from GenBank and accession numbers are given in Table \ref{sequences}.
 Sequences without accessions were kindly shared by Ali M.\ Somily, Mazin Barry, Sarah S.\ Al Subaie, Abdulaziz A.\ BinSaeed, Fahad A.\ Alzamil, Waleed Zaher, Theeb Al Qahtani, Khaldoon Al Jerian, Scott J.N.\ McNabb, Imad A.\ Al-Jahdali, Ahmed M.\ Alotaibi, Nahid A.\ Batarfi, Matthew Cotten, Simon J.\ Watson, Spela Binter, and Paul Kellam prior to publication.
 Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
-Only sequences covering at least 50\% of MERS-CoV genome were kept.
-Sequences were annotated with available collection dates and hosts, designated as camel or human and aligned with MAFFT \citep{katoh_mafft_2013} and edited manually.
-Protein coding sequences were extracted and concatenated, reducing alignment length from 30130 down to 29364.
+Only sequences covering at least 50\% of MERS-CoV genome were kept, to facilitate later analyses where the alignment is split into two parts in order to account for effects of recombination \citep{dudas_mers-cov_2016}.
+Sequences were annotated with available collection dates and hosts, designated as camel or human, aligned with MAFFT \citep{katoh_mafft_2013}, and edited manually.
+Protein coding sequences were extracted and concatenated, reducing alignment length from 30130 down to 29364, which allowed for codon-partitioned substitution models to be used.
 The final dataset consisted of 174 genomes from human infections and 100 genomes from camel infections (Table \ref{sequences}).
 
 \subsection*{Structured coalescent analyses}
 
 For our primary analysis, the MultiTypeTree module \citep{vaughan_efficient_2014} of BEAST v2.4.3 \citep{bouckaert_beast_2014} was used to specify a structured coalescent model with two demes -- humans and camels.
-This model estimates four parameters: rate of coalescence in human viruses, rate of coalescence in camel viruses, rate of migration from the human deme to the camel deme and rate of migration from the camel deme to the human deme.
+At time of writing structured population models are available in BEAST v2 \citep{bouckaert_beast_2014} but not in BEAST v1 \citep{drummond_bayesian_2012}.
+We use the more computationally intensive MultiTypeTree module \citep{vaughan_efficient_2014} over approximate methods also available in BEAST v2, such as BASTA \citep{maio_new_2015}, MASCOT \citep{mueller_mascot:_2017}, and PhyDyn \citep{volz_complex_2011}.
+Structured coalescent model implemented in the MultiTypeTree module \citep{vaughan_efficient_2014} estimates four parameters: rate of coalescence in human viruses, rate of coalescence in camel viruses, rate of migration from the human deme to the camel deme and rate of migration from the camel deme to the human deme.
 Analyses were run on codon position partitioned data with two separate HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models specified for codon positions 1+2 and 3.
 A relaxed molecular clock with branch rates drawn from a lognormal distribution \citep{drummond_2006} was used to infer the evolutionary rate from date calibrated tips.
 Default priors were used for all parameters except for migration rates between demes for which an exponential prior with mean 1.0 was used.
@@ -476,7 +478,7 @@ All other parameters were identical to the primary analysis and as before 10 ind
 In this case, two chains did not converge.
 This left $80\,000$ states on which to base posterior inference.
 
-As an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-29364), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
+Due to concerns that recombination might affect our conclusions \citep{dudas_mers-cov_2016}, as an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-29364), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
 All analyses were set to run for 200 million states, subsampling every $20\,000$ states.
 Chains not converging after 200 million states were discarded.
@@ -505,9 +507,9 @@ Odds ratios of introductions were computed for each month $i$ as $\text{OR}_i = 
 
 \subsection*{Epidemiological analyses}
 
-Here, we emply a Monte Carlo simulation approach to identify parameters consistent with observed patterns of sequence clustering (Figure \ref{mc_method}).
+Here, we employ a Monte Carlo simulation approach to identify parameters consistent with observed patterns of sequence clustering (Figure \ref{mc_method}).
 Our structured coalescent analyses indicate that every MERS outbreak is a contained cross-species spillover of the virus from camels into humans.
-The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying tranmission process.
+The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying transmission process.
 At heart, we expect fewer larger clusters if fundamental reproductive number $R_0$ is large and more smaller clusters if $R_0$ is small.
 A similar approach was used in \citet{grubaugh_multiple_2017} to estimate $R_0$ for Zika introductions into Florida.
 
@@ -557,10 +559,12 @@ Additionally, we performed a smaller set of simulations with 2500 replicates and
 
 \subsection*{Demographic inference of MERS-CoV in the reservoir}
 In order to infer the demographic history of MERS-CoV in camels we used the results of structured coalescent analyses to identify introductions of the virus into humans.
-The oldest sequence from each cluster introduced into humans was used to represent a random draw from the diversity of MERS-CoV circulating in camels.
-These sequences were combined with existing sequence data from camels to give us a dataset with minimal demographic signal coming from epidemiological processes in humans.
+The oldest sequence from each cluster introduced into humans was kept for further analysis.
+This procedure removes lineages coalescing rapidly in humans, which would otherwise introduce a strong signal of low effective population size.
+These subsampled MERS-CoV sequences from humans were combined with existing sequence data from camels to give us a dataset with minimal demographic signal coming from epidemiological processes in humans.
 Sequences belonging to the outgroup clade where most of MERS-CoV sequences from Egypt fall were removed out of concern that MERS epidemics in the Arabian Peninsula and Egypt are distinct epidemics with relatively poor sampling in the latter.
 A flexible skygrid tree prior \citep{gill_2013} was used to recover estimates of relative genetic diversity ($N_{e}\tau$) at 50 evenly spaced grid points across six years, ending at the most recent tip in the tree (2015 August) in BEAST v1.8.4 \citep{drummond_bayesian_2012}, under a relaxed molecular clock with rates drawn from a lognormal distribution \citep{drummond_2006} and codon position partitioned (positions $1+2$ and $3$) HKY$+\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution models.
+At time of writing advanced flexible coalescent tree priors from the skyline family, such as skygrid \citep{gill_2013} are available in BEAST v1 \citep{drummond_bayesian_2012} but not in BEAST v2 \citep{bouckaert_beast_2014}.
 We set up five independent MCMC chains to run for 500 million states, sampling every $50\,000$ states.
 This analysis suffered from poor convergence, where two chains converged onto one stationary distribution, two to another and the last chain onto a third stationary distribution, with high effective sample sizes.
 Demographic trajectories recovered by the two main stationary distributions are very similar and differences between the two appear to be caused by convergence onto subtly different tree topologies.
