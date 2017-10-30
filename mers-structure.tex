@@ -174,12 +174,16 @@ Our finding of negligible human-to-camel transmission is robust to choice of pri
 The repeated and asymmetric introductions of short-lived clusters of MERS-CoV sequences from camels into humans leads us to conclude that MERS-CoV epidemiology in humans is dominated by zoonotic transmission (Figure~\ref{mcc} and~\ref{exploded}).
 We observe dense terminal clusters of MERS-CoV circulating in humans that are of no subsequent relevance to the evolution of the virus.
 These clusters of presumed human-to-human transmission are then embedded within extensive diversity of MERS-CoV lineages inferred to be circulating in camels, a classic pattern of source-sink dynamics.
-Our analyses recover these results despite sequence data heavily skewed towards non-uniformly sampled human cases and are robust to choice of prior.
-This suggests that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
-
+Our findings suggest that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
+Structured coalescent analyses recover the camel-centered picture of MERS-CoV evolution despite sequence data heavily skewed towards non-uniformly sampled human cases and are robust to choice of prior.
+Comparing these results with a currently standard discrete trait analysis \citep{lemey_bayesian_2009} approach for ancestral state reconstruction shows dramatic differences in host reconstruction at internal nodes (Figure \ref{dta}).
+Discrete trait analysis reconstruction identifies both camels and humans as important hosts for MERS-CoV persistence, but with humans as the ultimate source of camel infections.
+A similar approach has been attempted previously \citep{zhang_evolutionary_2016}, but this interpretation of MERS-CoV evolution disagrees with lack of continuing human transmission chains outside of Arabian peninsula, low seroprevalence in humans and very high seroprevalence in camels across Saudi Arabia.
+We suspect that this particular discrete trait analysis reconstruction is false due to biased data, \textit{i.e.} having nearly twice as many MERS-CoV sequences from humans (N=174) than from camels (N=100) and the inability of the model to account for and quantify vastly different rates of coalescence in the phylogenetic vicinity of both types of sequences.
 
 
 \subsection*{MERS-CoV shows seasonal introductions}
+
 We use the posterior distribution of MERS-CoV introduction events from camels to humans (Figure \ref{mcc}) to model seasonal variation in zoonotic transfer of viruses.
 We identify four months (April, May, June, July) when the odds of MERS-CoV introductions are increased (Figure \ref{seasonality}) and four when the odds are decreased (August, September, November, December).
 Camel calving is reported to occur from October to February \citep{almutairi_non-genetic_2010}, with rapidly declining maternal antibody levels in calves within the first weeks after birth \citep{wernery_camelid_2001}.
@@ -453,6 +457,7 @@ We encourage continued genomic surveillance of MERS-CoV in the camel reservoir a
 
 \section*{Methods}
 \subsection*{Sequence data}
+
 All MERS-CoV sequences were downloaded from GenBank and accession numbers are given in Table \ref{sequences}.
 Sequences without accessions were kindly shared by Ali M.\ Somily, Mazin Barry, Sarah S.\ Al Subaie, Abdulaziz A.\ BinSaeed, Fahad A.\ Alzamil, Waleed Zaher, Theeb Al Qahtani, Khaldoon Al Jerian, Scott J.N.\ McNabb, Imad A.\ Al-Jahdali, Ahmed M.\ Alotaibi, Nahid A.\ Batarfi, Matthew Cotten, Simon J.\ Watson, Spela Binter, and Paul Kellam prior to publication.
 Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
@@ -474,11 +479,13 @@ All analyses were run for 200 million steps across ten independent Markov chains
 Due to the complexity of multitype tree parameter space 50\% of states from every analysis were discarded as burn-in, convergence assessed in Tracer v1.6 and states combined using LogCombiner distributed with BEAST v2.4.3 \citep{bouckaert_beast_2014}.
 Three chains out of ten did not converge and were discarded altogether.
 This left $70\,000$ states on which to base posterior inference.
+Posterior sets of typed (where migrating branches from structured coalescent are collapsed, and migration information is left as a switch in state between parent and descendant nodes) trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
 
 As a secondary analysis to test robustness to choice of prior, we set up an analysis where we increased the mean of the exponential distribution prior for migration rate to 10.0.
 All other parameters were identical to the primary analysis and as before 10 independent MCMC chains were run.
 In this case, two chains did not converge.
 This left $80\,000$ states on which to base posterior inference.
+Posterior sets of typed trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
 
 Due to concerns that recombination might affect our conclusions \citep{dudas_mers-cov_2016}, as an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-29364), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
@@ -487,6 +494,18 @@ Chains not converging after 200 million states were discarded.
 20\% of the states were discarded as burn-in, convergence assessed with Tracer 1.6 and combined with LogCombiner.
 Three chains out of ten did not converge.
 This left $70\,000$ states on which to base posterior inference.
+Posterior sets of typed trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
+
+\subsubsection*{Discrete trait analysis}
+
+A currently widely used approach to infer ancestral states in phylogenies relies on treating traits of interest (such as geography, host, \textit{etc.}) as features evolving along a phylogeny as continuous time Markov chains with an arbitrary number of states \citep{lemey_bayesian_2009}.
+Unlike structured coalescent methods, such discrete trait approaches are independent from the tree (\textit{i.e.} demographic) prior and thus unable to influence coalescence rates under different trait states.
+Such models have been used in the past to infer the number of MERS-CoV host jumps \citep{zhang_evolutionary_2016} with results contradicting other sources of information.
+In order to test how a discrete trait approach compares to the structured coalescent we used our 274 MERS-CoV genome data set in BEAST v2.4.3 \citep{bouckaert_beast_2014} and specified identical codon-partitioned nucleotide substitution and molecular clock models to our structured coalescent analysis.
+To give the most comparable results we used a constant population size coalescent model, as this is the demographic function for each deme in the structured coalescent model.
+Five replicate MCMC analyses were run for 200 million states, three of which converged onto the same posterior distribution.
+The converging chains were combined after removing 20 million states as burn-in to give a total of $27\,000$ trees drawn from the posterior distribution.
+These trees were then summarised using TreeAnnotator v2.4.5 with the common ancestor heights option \citep{heled_looking_2013}.
 
 \subsubsection*{Introduction seasonality}
 
@@ -537,16 +556,6 @@ Thus, bias makes larger clusters more likely to be `sequenced'.
 
 After simulations were completed, we identified simulations in which the recovered distribution of sequence cluster sizes $\mathbf{s}$ fell within the 95\% highest posterior density intervals for four summary statistics of empirical MERS-CoV sequence cluster sizes recovered via structured coalescent analysis: number of sequence clusters, mean, standard deviation and skewness (third central moment).
 These values were 48-61 for number of sequence clusters, 2.87--3.65 for mean sequence cluster size, 4.84--6.02 for standard deviation of sequence cluster sizes, and 415.40--621.06 for skewness of sequence cluster sizes.
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_simMarginals.png}
-	\caption{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
-Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
-More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
-	}
-	\label{marginals}
-\end{figure}
 
 We performed a smaller set of simulations with 2500 replicates and twice the number of cases, \textit{i.e.} $\sum_{i=1}^{K} C_{i} = 4000$, to explore a dramatically underreported epidemic.
 Additionally, we performed additional smaller set of simulations on a rougher grid of $R_{0}$ values (23 values, 0.50--1.05), with 5 values of dispersion parameter $\omega$ (0.002, 0.04, 0.1, 0.5, 1.0) and 3 levels of bias (1, 2, 3) to justify our choice of dispersion parameter $\omega$ that was fixed to 0.1 in the main analyses.
@@ -933,6 +942,16 @@ This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in huma
 
 \begin{figure}[h]
 \centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_dta_mcc.png}
+	\caption{\textbf{Maximum clade credibility (MCC) tree with ancestral state reconstruction according to a discrete trait model.}
+MCC tree is presented the same as Figure \ref{mcc}, with colours indicating the most probable state reconstruction at internal nodes.
+Unlike the structured coalescent summary shown in Figure \ref{mcc} where camels are reconstructed as the main host where MERS-CoV persists, the discrete trait approach identifies both camels and humans as major hosts with humans being the source of MERS-CoV infection in camels.
+	}
+	\label{dta}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
 	\caption{\textbf{Posterior migration rate estimates for two choices of prior.}
 Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice.
@@ -957,6 +976,16 @@ $R_{0}$ values that ultimately generate data matching empirical observations, as
 These estimates are summarised in Figure \ref{mers_epi}.
 	}
 	\label{mc_method}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_simMarginals.png}
+	\caption{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
+Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
+More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
+	}
+	\label{marginals}
 \end{figure}
 
 \begin{figure}[h]
