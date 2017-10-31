@@ -554,6 +554,7 @@ Each simulation results in a vector of outbreak sizes $\mathbf{c}$, where $c_i$ 
 Following the underlying transmission process generating case clusters $\mathbf{c}$ we simulate a secondary process of sampling some fraction of cases and sequencing them to generate data analogous to what we empirically observe.
 We sample from the case cluster size vector $\mathbf{c}$ without replacement according to a multivariate hypergeometric distribution (Algorithm \ref{hypergeometric}).
 The resulting sequence cluster size vector $\mathbf{s}$ contains $K$ entries, some of which are zero (\textit{i.e.}\ case clusters not sequenced), but $\sum_{i=1}^{K} s_i = 174$ which reflects the number of human MERS-CoV sequences used in this study.
+Note that this ``sequencing capacity'' parameter does not vary over time, even though MERS-CoV sequencing efforts have varied in intensity, starting out slow due to lack of awareness, methods and materials and increasing in response to hospital outbreaks later.
 As the default sampling scheme operates under equiprobable sequencing, we also simulated biased sequencing by using concentrated hypergeometric distributions where the probability mass function is squared (bias = 2) or cubed (bias = 3) and then normalized.
 Here, bias enriches the hypergeometric distribution so that sequences are sampled with weights proportional to $(c_1^\mathrm{bias}, c_2^\mathrm{bias}, \ldots, c_k^\mathrm{bias})$.
 Thus, bias makes larger clusters more likely to be `sequenced'.
