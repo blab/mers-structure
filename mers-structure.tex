@@ -180,6 +180,7 @@ Comparing these results with a currently standard discrete trait analysis \citep
 Discrete trait analysis reconstruction identifies both camels and humans as important hosts for MERS-CoV persistence, but with humans as the ultimate source of camel infections.
 A similar approach has been attempted previously \citep{zhang_evolutionary_2016}, but this interpretation of MERS-CoV evolution disagrees with lack of continuing human transmission chains outside of Arabian peninsula, low seroprevalence in humans and very high seroprevalence in camels across Saudi Arabia.
 We suspect that this particular discrete trait analysis reconstruction is false due to biased data, \textit{i.e.} having nearly twice as many MERS-CoV sequences from humans (N=174) than from camels (N=100) and the inability of the model to account for and quantify vastly different rates of coalescence in the phylogenetic vicinity of both types of sequences.
+We can replicate these results by either applying the same model to current data (Figure \ref{dta}) or by enforcing equal coalescence rates within each deme in the structured coalescent model (Figure \ref{}).
 
 
 \subsection*{MERS-CoV shows seasonal introductions}
@@ -387,7 +388,10 @@ Thus, we believe that the ladder-like appearance of the MERS-CoV tree can likely
 In this study we aimed to understand the drivers of MERS coronavirus transmission in humans and what role the camel reservoir plays in perpetuating the epidemic in the Arabian peninsula by using sequence data collected from both hosts (174 from humans and 100 from camels).
 We showed that currently existing models of population structure \citep{vaughan_efficient_2014} can identify distinct demographic modes in MERS-CoV genomic data, where viruses continuously circulating in camels repeatedly jump into humans and cause small outbreaks doomed to extinction (Figures \ref{mcc}, \ref{exploded}).
 This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{prior}) and in the presence of strong biases in sequence sampling schemes (Figure \ref{mers_epi}).
+When rapid coalescence in the human deme is not allowed (Figure \ref{equal_sizes}) structured coalescent inference loses power and ancestral state reconstruction is nearly identical to that of discrete trait analysis (Figure \ref{dta}).
+
 From sequence data we identify at least 50 zoonotic introductions of MERS-CoV into humans from the reservoir (Figure \ref{mcc}), from which we extrapolate that hundreds more such introductions must have taken place (Figure \ref{mers_epi}).
+Although we recover migration rates from our model (Figure \ref{prior}), these only pertain to sequences and in no way reflect the epidemiologically relevant \textit{per capita} rates of zoonotic spillover events.
 We also looked at potential seasonality in MERS-CoV spillover into humans.
 Our analyses indicated a period of three months where the odds of a sequenced spillover event are increased, with timing consistent with an enzootic amongst camel calves (Figure \ref{seasonality}).
 As a result of our identification of large and asymmetric flow of viral lineages into humans we also find that the basic reproduction number for MERS-CoV in humans is well below the epidemic threshold (Figure \ref{mers_epi}).
@@ -470,7 +474,9 @@ Sequences were annotated with available collection dates and hosts, designated a
 Protein coding sequences were extracted and concatenated, reducing alignment length from 30130 down to 29364, which allowed for codon-partitioned substitution models to be used.
 The final dataset consisted of 174 genomes from human infections and 100 genomes from camel infections (Table \ref{sequences}).
 
-\subsection*{Structured coalescent analyses}
+\subsection*{Phylogenetic analyses}
+
+\subsubsection*{Primary analysis, structured coalescent}
 
 For our primary analysis, the MultiTypeTree module \citep{vaughan_efficient_2014} of BEAST v2.4.3 \citep{bouckaert_beast_2014} was used to specify a structured coalescent model with two demes -- humans and camels.
 At time of writing structured population models are available in BEAST v2 \citep{bouckaert_beast_2014} but not in BEAST v1 \citep{drummond_bayesian_2012}.
@@ -484,12 +490,24 @@ Due to the complexity of multitype tree parameter space 50\% of states from ever
 Three chains out of ten did not converge and were discarded altogether.
 This left $70\,000$ states on which to base posterior inference.
 Posterior sets of typed (where migrating branches from structured coalescent are collapsed, and migration information is left as a switch in state between parent and descendant nodes) trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
+A maximum likelihood phylogeny showing just the genetic relationships between MERS-CoV genomes from camels and humans was recovered using PhyML \citep{guindon_simple_2003} under a HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution model and is shown in Figure \ref{ml}.
+
+\subsubsection*{Control, structured coalescent with different prior}
 
 As a secondary analysis to test robustness to choice of prior, we set up an analysis where we increased the mean of the exponential distribution prior for migration rate to 10.0.
 All other parameters were identical to the primary analysis and as before 10 independent MCMC chains were run.
 In this case, two chains did not converge.
 This left $80\,000$ states on which to base posterior inference.
 Posterior sets of typed trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
+
+\subsubsection*{Control, structured coalescent with equal deme sizes}
+
+To better understand where statistical power of the structured coalescent model lies we set up a tertiary analysis where a model was set up identically to the first structured coalescent analysis, but deme population sizes were enforced to have the same size.
+This analysis allowed us to differentiate whether statistical power in our analysis is coming from effective population size contrasts between demes or the backwards-in-time migration rate estimation.
+Five replicate chains were set up, two of which failed to converge after 200 million states.
+Combining the three converging runs left us with $15\,000$ trees sampled from the posterior distribution, which were summarised in TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
+
+\subsubsection*{Control, structured coalescent with more than one tree per genome}
 
 Due to concerns that recombination might affect our conclusions \citep{dudas_mers-cov_2016}, as an additional secondary analysis, we also considered a scenario where alignments were split into two fragments (fragment 1 comprised of positions 1-21000, fragment 2 of positions 21000-29364), with independent clocks, trees and migration rates, but shared substitution models and deme population sizes.
 Fragment positions were chosen based on consistent identification of the region around nucleotide 21000 as a probable breakpoint by GARD \citep{pond_gard:_2006} by previous studies into SARS and MERS coronaviruses \citep{hon_evidence_2008,dudas_mers-cov_2016}.
@@ -500,7 +518,7 @@ Three chains out of ten did not converge.
 This left $70\,000$ states on which to base posterior inference.
 Posterior sets of typed trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
 
-\subsubsection*{Discrete trait analysis}
+\subsubsection*{Control, discrete trait analysis}
 
 A currently widely used approach to infer ancestral states in phylogenies relies on treating traits of interest (such as geography, host, \textit{etc.}) as features evolving along a phylogeny as continuous time Markov chains with an arbitrary number of states \citep{lemey_bayesian_2009}.
 Unlike structured coalescent methods, such discrete trait approaches are independent from the tree (\textit{i.e.} demographic) prior and thus unable to influence coalescence rates under different trait states.
@@ -510,6 +528,7 @@ To give the most comparable results we used a constant population size coalescen
 Five replicate MCMC analyses were run for 200 million states, three of which converged onto the same posterior distribution.
 The converging chains were combined after removing 20 million states as burn-in to give a total of $27\,000$ trees drawn from the posterior distribution.
 These trees were then summarised using TreeAnnotator v2.4.5 with the common ancestor heights option \citep{heled_looking_2013}.
+
 
 \subsubsection*{Introduction seasonality}
 
@@ -951,10 +970,29 @@ This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in huma
 \centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_dta_mcc.png}
 	\caption{\textbf{Maximum clade credibility (MCC) tree with ancestral state reconstruction according to a discrete trait model.}
-MCC tree is presented the same as Figure \ref{mcc}, with colours indicating the most probable state reconstruction at internal nodes.
+MCC tree is presented the same as Figure \ref{mcc} and Figure \ref{equal_sizes}, with colours indicating the most probable state reconstruction at internal nodes.
 Unlike the structured coalescent summary shown in Figure \ref{mcc} where camels are reconstructed as the main host where MERS-CoV persists, the discrete trait approach identifies both camels and humans as major hosts with humans being the source of MERS-CoV infection in camels.
 	}
 	\label{dta}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_es_mcc.png}
+	\caption{\textbf{Maximum clade credibility (MCC) tree of structured coalescent model with enforced equal coalescence rates.}
+MCC tree is presented the same as Figures \ref{mcc} and \ref{dta}, with colours indicating the most probable state reconstruction at internal nodes.
+Similar to Figure \ref{dta} enforcing equal coalescence rates between demes in a structured coalescent model identifies humans as a major MERS-CoV host and the source of viruses in camels.
+	}
+	\label{equal_sizes}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_ML.png}
+	\caption{\textbf{Maximum likelihood (ML) tree of MERS-CoV genomes coloured by origin of sequence.}
+Maximum likelihood tree shows genetic divergence between MERS-CoV genomes collected from camels (orange tips) and humans (blue tips).
+	}
+	\label{ml}
 \end{figure}
 
 \begin{figure}[h]
