@@ -261,6 +261,7 @@ Given this, we also performed simulations where the total number of cases is dou
 In these analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
 
 Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<0.91$ and sequence sampling likely to be biased towards large hospital outbreaks.
+All matching simulations exhibit highly skewed distributions of case cluster sizes with long tails (Figure \ref{cluster_distributions}), which is qualitatively similar to the results of \citep{cauchemez_unraveling_2016}.
 Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices \citep{assiri_hospital_2013,chen_comparative_2017} appear sufficient to explain observed epidemiological patterns of MERS-CoV.
 
 
@@ -1031,6 +1032,17 @@ Numbers indicate the total number of epidemiological simulations under each comb
 More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
 	}
 	\label{marginals}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_distributions.png}
+	\caption{\textbf{Boxplots of matching simulated case and sequence cluster distributions.}
+Boxplots indicate frequency of case (blue, top) and sequence (red, bottom) cluster sizes across simulations at different bias levels, marginalised across $R_{0}$ values.
+Outliers are shown with transparency, medians are indicated with thick black lines.
+Case clusters exhibit a strong skew with large numbers of singleton introductions and a substantial tail at higher levels of bias.
+	}
+	\label{cluster_distributions}
 \end{figure}
 
 \begin{figure}[h]
