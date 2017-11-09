@@ -180,7 +180,7 @@ Comparing these results with a currently standard discrete trait analysis \citep
 Discrete trait analysis reconstruction identifies both camels and humans as important hosts for MERS-CoV persistence, but with humans as the ultimate source of camel infections.
 A similar approach has been attempted previously \citep{zhang_evolutionary_2016}, but this interpretation of MERS-CoV evolution disagrees with lack of continuing human transmission chains outside of Arabian peninsula, low seroprevalence in humans and very high seroprevalence in camels across Saudi Arabia.
 We suspect that this particular discrete trait analysis reconstruction is false due to biased data, \textit{i.e.} having nearly twice as many MERS-CoV sequences from humans (N=174) than from camels (N=100) and the inability of the model to account for and quantify vastly different rates of coalescence in the phylogenetic vicinity of both types of sequences.
-We can replicate these results by either applying the same model to current data (Figure \ref{dta}) or by enforcing equal coalescence rates within each deme in the structured coalescent model (Figure \ref{}).
+We can replicate these results by either applying the same model to current data (Figure \ref{dta}) or by enforcing equal coalescence rates within each deme in the structured coalescent model (Figure \ref{equal_sizes}).
 
 
 \subsection*{MERS-CoV shows seasonal introductions}
@@ -278,16 +278,11 @@ Another hallmark of recombination is clustering of alleles along the genome, due
     \centering
     \includegraphics[width=0.95\textwidth]{figures/mers_recombinant_features.png}
     \caption{\textbf{Recombinant features of MERS-CoV phylogenies.}
-    A) Heatmap showing the posterior probability that viruses from trees of different genomic fragments belong to the same introduction event.
-    Genomic fragment 1 represents nucleotide positions 1 to 21000 and genomic fragment 2 represents nucleotide positions 21001 to 29364.
-    The same set of viruses are arrayed on the $x$-axis and on the $y$-axis; the $x$-axis shows identity of these viruses along genomic fragment 1 and the $y$-axis shows identity of these viruses along genomic fragment 2.
-    Viruses are ordered by their appearance in tree of genomic fragment 2 reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
+    A) Marginal posterior probabilities of taxa collected from humans belonging to the same clade in phylogenies derived from different parts of the genome.
+    Taxa are ordered according to phylogeny of fragment 2 (genome positions 21001 to 29364) reduced to just the human tips and is displayed on the left.
     Human clusters are largely well-supported as monophyletic and consistent across trees of both genomic fragments.
-    B) Phylogenies derived from genomic fragment 1 (left) and genomic fragment 2 (right), reduced to just the human tips.
-  	Taxa descended from the same introduction in fragment 1 are connected to their counterparts in fragment 2 with combinations of line dotting and colour unique to each introduction clade.
-  	Branches are coloured by inferred ancestral host state (human in blue, camel in orange).
-  	Human clusters in blue change phylogenetic positions between the trees together, with little incongruence within clusters.
-  	This is evidence for recombinant viruses generated in the camel reservoir entering human populations.
+    B) Tanglegram connecting the same taxa between a phylogeny derived from fragment 1 (left, genome positions 1 to 21000) and fragment 2 (right, genome positions 21001 to 29364), reduced to just the human tips and branches with posterior probability $<0.1$ collapsed.
+    Human clusters exhibit limited diversity and corresponding low levels of incongruence within an introduction cluster.
     }
     \label{recombinant_features}
 \end{figure}
