@@ -267,7 +267,7 @@ Given these findings, and the fact that large outbreaks of MERS occurred in hosp
 
 \subsection*{Recombination shapes MERS-CoV diversity}
 Recombination has been shown to occur in all genera of coronaviruses, including MERS-CoV \citep{lai_1985,makino_1986,keck_1988,kottier_1995,herrewegh_1998}.
-In order to explore the role of recombination in shaping MERS-CoV genetic diversity we used two recombination detection approaches across partitions of taxa corresponding to inferred MERS-CoV clades.
+In order to quantify the degree to recombination has shaped MERS-CoV genetic diversity we used two recombination detection approaches across partitions of taxa corresponding to inferred MERS-CoV clades.
 Both methods rely on sampling parental and recombinant alleles within the alignment, although each quantifies different signals of recombination.
 One hallmark of recombination is the ability to carry alleles derived via mutation from one lineage to another, which appear as repeated mutations taking place in the recipient lineage, somewhere else in the tree.
 The PHI (pairwise homoplasy index) test quantifies the appearance of these excessive repeat mutations (homoplasies) within an alignment \citep{bruen_simple_2006}.
@@ -293,21 +293,21 @@ Neither method can identify where in the tree recombination occurred, but each f
 This suggests a non-negligible contribution of recombination in shaping existing MERS-CoV diversity.
 As done previously \citep{dudas_mers-cov_2016}, we show large numbers of homoplasies in MERS-CoV data (Figure \ref{incompatibilities}) with some evidence of genomic clustering of such alleles.
 % Homoplasies are present in multiple strains at a time, indicating recombination events that have been successful.
-Although the evolutionary centrality of camel viruses (Figure \ref{mcc}) may be sufficient to argue that camels are the host where MERS-CoV recombines, incidence of MERS-CoV is known to be much higher in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2014,ali_systematic_2017}.
-This provides ideal conditions for co-infection with distinct genotypes, which is a pre-requisite for detectable RNA virus recombination to occur.
+These results are consistent with high incidence of MERS-CoV in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2014,ali_systematic_2017}, allowing for co-infection with distinct genotypes and thus recombination to occur.
 
 %%% AR - this paragraph is a bit of a mess. Suggests we can't trust most of the analysis above. If we can't believe the camel tree why do we trust a structured coalescent model?
-Conversely, our results strongly suggest that co-infection of humans with distinct lineages of MERS-CoV should be exceedingly rare.
-We find little evidence that recombination will interfere with the inference of human outbreak clusters (Figure \ref{recombinant_features}A).
+Owing to these findings, we performed a sensitivity analysis in which we partitioned the MERS-CoV genome into two fragments and identified human outbreak clusters within each fragment.
+We find strong similarity in the grouping of human cases into outbreak clusters between fragments (Figure \ref{recombinant_features}A).
 Between the two trees in figure \ref{recombinant_features}B four (out of 54) `human' clades are expanded where either singleton introductions or two-taxon clades in fragment 2 join other clades in fragment 1.
 For the reverse comparison there are five `human' clades (out of 53) in fragment 2 that are expanded.
 All such clades have low divergence (figure \ref{recombinant_features}B) and thus incongruences in human clades are more likely to be caused by differences in deme assignment rather than actual recombination.
 And while we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombinant_features}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
-Critically, we observe the same source-sink dynamics between camel and human populations in trees constructed from separate genomic fragments as were observed in the original full genome tree (Figures \ref{mcc}, \ref{recombinant_features}B).
-Observed departures from strictly clonal evolution suggest that while recombination is an issue for inferring MERS-CoV phylogenies, its effect on the human side of MERS outbreaks is minimal, as expected.
-MERS-CoV evolution on the reservoir side, though complicated by recombination, is nonetheless still amenable to phylogenetic methods, in part through limited diversity of the virus in camels (see next section).
-In humans MERS-CoV evolution should be far easier to track as the only detectable and problematic recombinants are more likely to arise within the transmission chain, than through human co-infection with distinct MERS-CoV lineages.
-Overall, recombination presents a serious hurdle for detailed phylodynamic analyses in MERS-CoV, especially where lineages evolving in camels are concerned.
+Additionally, we observe the same source-sink dynamics between camel and human populations in trees constructed from separate genomic fragments as were observed in the original full genome tree (Figures \ref{mcc}, \ref{recombinant_features}B).
+
+Observed departures from strictly clonal evolution suggest that while recombination is an issue for inferring MERS-CoV phylogenies, its effect on the human side of MERS outbreaks is minimal, as expected if humans represent a transient host with little opportunity for co-infection.
+MERS-CoV evolution on the reservoir side is complicated by recombination, though is nonetheless still largely amenable to phylogenetic methods.
+% In humans MERS-CoV evolution should be far easier to track as the only detectable and problematic recombinants are more likely to arise within the transmission chain, than through human co-infection with distinct MERS-CoV lineages.
+% Overall, recombination presents a serious hurdle for detailed phylodynamic analyses in MERS-CoV, especially where lineages evolving in camels are concerned.
 Amongst other parameters of interest, recombination is expected to interfere with molecular clocks, where transferred genomic regions can give the impression of branches undergoing rapid evolution, or branches where recombination results in reversions appearing to evolve slow.
 In addition to its potential to influence tree topology, recombination in molecular sequence data is an erratic force with unpredictable effects.
 We suspect that the effects of recombination in MERS-CoV data are reigned in by a relatively small effective population size of the virus in Saudi Arabia (see next section) where haplotypes are fixed or nearly fixed, thus preventing an accumulation of genetic diversity that would then be reshuffled via recombination.
