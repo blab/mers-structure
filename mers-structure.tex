@@ -1,4 +1,5 @@
-\documentclass[11pt,oneside,letterpaper]{article}
+% \documentclass[11pt,oneside,letterpaper]{article}
+\documentclass[9pt,lineno]{elife}
 
 % graphicx package, useful for including eps and pdf graphics
 \usepackage{graphicx}
@@ -14,8 +15,8 @@
 \usepackage{url}
 \urlstyle{same}
 
-\usepackage[hidelinks]{hyperref}
-\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
+% \usepackage[hidelinks]{hyperref}
+% \hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
 
 \usepackage{longtable}
 \usepackage[]{algorithm2e}
@@ -85,7 +86,7 @@
 %%% TITLE %%%
 \title{\vspace{1.0cm} \LARGE \bf MERS-CoV spillover at the camel-human interface}
 
-\author[1]{Gytis Dudas}
+\author[1*]{Gytis Dudas}
 \author[2]{Luiz Max Carvalho}
 \author[2,3]{Andrew Rambaut}
 \author[1]{Trevor Bedford}
@@ -94,7 +95,8 @@
 \affil[2]{Institute of Evolutionary Biology, University of Edinburgh, Edinburgh, UK}
 \affil[3]{Fogarty International Center, National Institutes of Health, Bethesda, MD, USA}
 
-% \date{\today}
+\corr{gdudas@fredhutch.org}{GD}
+
 
 \begin{document}
 \maketitle
@@ -647,7 +649,7 @@ $^{5}$Epidemiology section, Command and Control Center (CCC) Ministry of Health,
 $^{6}$Wellcome Trust Sanger Institute, Hinxton, United Kingdom \\
 
 
-\bibliographystyle{mbe}
+% \bibliographystyle{mbe}
 \bibliography{mers-structure}
 
 \newpage
