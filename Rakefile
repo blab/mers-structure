@@ -1,14 +1,14 @@
-# Rakefile to collect all .tex files in a directory and run `pdflatex` and `bibtex` as needed to 
-# produce PDF output.  If a .tex file is updated `pdflatex -draftmode` will be run to produce new 
-# .aux and .log files.  These are used to determine whether `bibtex` needs to be run.  If so `bibtex` 
-# will always need to be followed by `pdflatex -draftmode`.  With fully updated .aux and .bbl in 
-# hand, a final `pdflatex` is run.  The only hole in the logic I've found is that, when making a 
-# small revision, this will run `pdflatex -draftmode` then `pdflatex` when only `pdflatex` is 
+# Rakefile to collect all .tex files in a directory and run `pdflatex` and `bibtex` as needed to
+# produce PDF output.  If a .tex file is updated `pdflatex -draftmode` will be run to produce new
+# .aux and .log files.  These are used to determine whether `bibtex` needs to be run.  If so `bibtex`
+# will always need to be followed by `pdflatex -draftmode`.  With fully updated .aux and .bbl in
+# hand, a final `pdflatex` is run.  The only hole in the logic I've found is that, when making a
+# small revision, this will run `pdflatex -draftmode` then `pdflatex` when only `pdflatex` is
 # required.
 #
 # Run `rake` to compile PDFs and `rake clean` to remove the intermediary cruft
 
-basedir = Dir.getwd 
+basedir = Dir.getwd
 
 TEX = FileList["**/*.tex"]
 AUX = TEX.ext("aux")
@@ -17,6 +17,7 @@ BLG = TEX.ext("blg")
 LOG = TEX.ext("log")
 OUT = TEX.ext("out")
 PDFSYNC = TEX.ext("pdfsync")
+SUPPINFO = TEX.ext("suppinfo")
 PDF = TEX.ext("pdf")
 
 require 'rake/clean'
@@ -26,10 +27,11 @@ CLEAN.include(BLG)
 CLEAN.include(LOG)
 CLEAN.include(OUT)
 CLEAN.include(PDFSYNC)
+CLEAN.include(SUPPINFO)
 CLOBBER.include(PDF)
 
 desc "Full compile"
-task :default => PDF 
+task :default => PDF
 
 desc "LaTeX aux"
 rule ".aux" => ".tex" do |t|
@@ -45,10 +47,10 @@ desc "LaTeX log"
 rule ".log" => ".tex" do |t|
 	prefix = t.name.pathmap("%n")
 	dir = t.name.pathmap("%d")
-	Dir.chdir(dir)	
+	Dir.chdir(dir)
 	puts "pdflatex -draftmode #{prefix}"
 	`pdflatex -draftmode #{prefix}`
-	Dir.chdir(basedir)	
+	Dir.chdir(basedir)
 end
 
 desc "LaTeX compile"
@@ -56,10 +58,10 @@ desc "LaTeX compile"
 rule ".pdf" => [".aux", ".bbl", ".log", ".tex"]  do |t|
 	prefix = t.name.pathmap("%n")
 	dir = t.name.pathmap("%d")
-	Dir.chdir(dir)		
+	Dir.chdir(dir)
 	puts "pdflatex #{prefix}"
 	`pdflatex #{prefix}`
-	Dir.chdir(basedir)		
+	Dir.chdir(basedir)
 end
 
 desc "BibTex compile"
@@ -67,14 +69,14 @@ desc "BibTex compile"
 rule ".bbl" => [".aux", ".log", ".tex"]  do |t|
 	prefix = t.name.pathmap("%n")
 	dir = t.name.pathmap("%d")
-	Dir.chdir(dir)			
+	Dir.chdir(dir)
 	if cite?(prefix)
 		puts "bibtex #{prefix}"
 		`bibtex #{prefix}`
 		puts "pdflatex -draftmode #{prefix}"
 		`pdflatex -draftmode #{prefix}`
 	end
-	Dir.chdir(basedir)		
+	Dir.chdir(basedir)
 end
 
 desc "Look at log file and check if references are complete"
@@ -86,7 +88,7 @@ def ref?(string)
 	if m != nil
 		puts m
 		dirty = true
-	end	
+	end
 	return dirty
 end
 
@@ -120,7 +122,7 @@ def cite_missing(string)
 	if m != nil
 		puts m
 		dirty = true
-	end	
+	end
 	return dirty
 end
 
@@ -134,7 +136,7 @@ def cite_aux(string)
 		cites.each {|m|
 			list += m[0].split(",")
 		}
-	end	
+	end
 	list.uniq!
 	return list
 end
@@ -149,7 +151,7 @@ def cite_bbl(string)
 		cites.each {|m|
 			list += m[0].split(",")
 		}
-	end	
+	end
 	list.uniq!
 	return list
 end
