@@ -256,6 +256,7 @@ In these analyses $R_{0}$ values tend to decrease even further as numbers of int
 
 Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<0.90$ and sequence sampling likely to be biased towards large hospital outbreaks (Figure \ref{mers_epi_grid}).
 All matching simulations exhibit highly skewed distributions of case cluster sizes with long tails (Figure \ref{cluster_distributions}), which is qualitatively similar to the results of \citep{cauchemez_unraveling_2016}.
+We find that simulated sequence cluster sizes resemble observed sequence cluster sizes in the posterior distribution, with a slight reduction in mid-sized clusters in simulated data (Figure \ref{qq}).
 Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices \citep{assiri_hospital_2013,chen_comparative_2017} appear sufficient to explain observed epidemiological patterns of MERS-CoV.
 
 
@@ -1042,6 +1043,16 @@ Case clusters exhibit a strong skew with large numbers of singleton introduction
 
 \begin{figure}[h]
 \centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_qq.png}
+	\caption{\textbf{Quantile-quantile (Q-Q) plot of empirical and simulated sequence cluster sizes.}
+Density of sequence cluster size percentiles (1st--99th, calculated across a grid of 50 values) calculated for random states from the posterior distribution ($x$-axis) and matching simulations ($y$-axis).
+Most values fall on the one-to-one line, with a heavier tail in mid-sized sequence clusters in empirical data, manifesting as a greater density of points below the one-to-one line in the middle.
+	}
+	\label{qq}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 	\includegraphics[width=0.75\textwidth]{figures/mers_epi_grid.png}
 	\caption{\textbf{Monte Carlo simulations of human transmission clusters.}
 From top to bottom each row corresponds to departures from completely random sequencing efforts with respect to case cluster size (bias parameter=1.0) to sequencing increasingly biased towards capturing large case clusters (bias=2.0, bias=3.0).
@@ -1052,13 +1063,12 @@ Under unbiased sequencing (bias=1.0) only 0.45\% of simulations fit our phylogen
 Correspondingly, we estimate 11.6\% support for a model with bias level 1.0, 45.7\% support for a model with bias level 2.0, and 42.7\% support for a model with bias level 3.0.
 Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
 While the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.71--0.98) for the unbiased sequencing simulation (\textit{i.e.}\ uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably more to likely to generate MERS-CoV-like sequence clusters.
-
 The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same $y$-axis across all levels of bias.
 Darker shade of grey indicates bins falling within the 95\% percentiles.
 The median number of cross-species introductions observed in simulations matching empirical data without bias are 346 (95\% percentiles 262--439).
 These numbers jump up to 568 (95\% percentiles 430--727) for bias = 2.0 and 656 (95\% percentiles 488--853) for bias = 3.0 simulations.
 Model averaging would suggest plausible numbers of introductions between 311 and 811.
-	}
+  }
 	\label{mers_epi_grid}
 \end{figure}
 
