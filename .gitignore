@@ -15,6 +15,7 @@ cover-letter.pdf
 *.fot
 *.cb
 *.cb2
+*.suppinfo
 
 ## Intermediate documents:
 *.dvi
