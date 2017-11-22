@@ -389,14 +389,13 @@ Although we recover migration rates from our model (Figure \ref{prior}), these o
 We also looked at potential seasonality in MERS-CoV spillover into humans.
 Our analyses indicated a period of three months where the odds of a sequenced spillover event are increased, with timing consistent with an enzootic amongst camel calves (Figure \ref{seasonality}).
 As a result of our identification of large and asymmetric flow of viral lineages into humans we also find that the basic reproduction number for MERS-CoV in humans is well below the epidemic threshold (Figure \ref{mers_epi}).
-Having said that, structured population models explicitly relating epidemiological parameters to the branching process observed in sequence data \citep{kuhnert_phylodynamics_2016} should ideally be used in cases like MERS-CoV, but in our case lack of good prior information and MCMC convergence issues prevented us from employing such models here.
+Having said that, there are highly customisable coalescent methods available that extend the methods used here to accommodate migration rates and population sizes varying through time, and integrate alternative sources of information that are able to fit stochastic noisy nonlinear models \citep{rasmussen_phylodynamic_2014} which would be more appropriate for MERS-CoV.
+Some distinct aspects of MERS-CoV epidemiology could not be captured in our methodology, such as hospital outbreaks where $R_{0}$ is expected to be consistently closer to 1.0 compared to community transmission of MERS-CoV.
+Outside of coalescent-based models there are population structure models that explicitly relate epidemiological parameters to the branching process observed in sequence data \citep{kuhnert_phylodynamics_2016}, but often rely on specifying numerous informative priors and can suffer from MCMC convergence issues.
 
 Strong population structure in viruses often arises through limited gene flow, either due to geography \citep{dudas_virus_2017}, ecology \citep{smith_dating_2009} or evolutionary forces \citep{turner_genomic_2005,dudas_reassortment_2015}.
 On a smaller scale population structure can unveil important details about transmission patterns, such as identifying reservoirs and understanding spillover trends and risk, much as we have done here.
-There is much room for improvement, however.
-The population structure model applied in this study does not have an implementation allowing for changes in effective population size through time.
 When properly understood naturally arising barriers to gene flow can be exploited for more efficient disease control and prevention, as well as risk management.
-
 
 \subsection*{Transmissibility differences between zoonoses and pandemics}
 Severe acute respiratory syndrome (SARS) coronavirus, a Betacoronavirus like MERS-CoV, caused a serious epidemic in humans in 2003, with over 8000 cases and nearly 800 deaths.
