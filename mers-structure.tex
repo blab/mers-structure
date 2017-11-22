@@ -357,17 +357,18 @@ Midline tracks the inferred median of $N_{e}\tau$.
 Despite lack of convergence, neither of the two demographic reconstructions show evidence of fluctuations in the relative genetic diversity ($N_e \tau$) of  MERS-CoV over time (Figure \ref{skygrid}).
 We recover a similar demographic trajectory when estimating $N_{e}\tau$ over time with a skygrid tree prior across the genome split into ten fragments with independent phylogenetic trees to account for confounding effects of recombination (Figures \ref{skygrid}, \ref{skygrid_comparison}).
 However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
-This estimate of $N_e\tau$ can be translated into an estimate of effective prevalence $N_e$ given an estimate of generation time or serial intervals.
-Given a 20 day duration of infection in camels \citep{adney_replication_2014}, we expect a 10 day serial interval or $\tau$ of 0.027 years per generation.
-Dividing by $\tau$ yields an estimate of $N_e$ of 129 (100--162) individuals.
 
-Here, we compare this estimate of effective prevalence to a rough estimate of census prevalence.
+This empirically estimated effectived population can be compared to the expected effective population size in a simple epidemiological model.
+At endemic equilibrium, we expect scaled effective population size $N_{e}\tau$ to follow $I \, / \, 2 \beta$, where $\beta$ is the equilibrium rate of transmission and $I$ is the equilibrium number of infecteds \citep{frost_viral_2010}.
+We assume that $\beta$ is constant and is equal to the rate of recovery.
+Given a 20 day duration of infection in camels \citep{adney_replication_2014}, we arrive at $\beta = 365/20 = 18.25$ infections per year.
 Given extremely high seroprevalence estimates within camels in Saudi Arabia \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2013,reusken_2014}, we expect camels to usually be infected within their first year of life.
 Therefore we can estimate the rough number of camel infections per year as the number of calves produced each year.
 We find there are $830\,000$ camels in Saudi Arabia \citep{abdallah_camel_farming_2013} and that female camels in Saudi Arabia have an average fecundity of 45\% \citep{abdallah_camel_farming_2013}.
-Thus, we expect $830\,000 \times 0.50 \times 0.45 = 186\,750$ new calves produced yearly and correspondingly $186\,750$ new infections every year, which spread over 10 day serial intervals gives an average of $N = 5042$ infections.
+Thus, we expect $830\,000 \times 0.50 \times 0.45 = 186\,750$ new calves produced yearly and correspondingly $186\,750$ new infections every year, which spread over 20 day intervals gives an average prevalence of $I = 10\,233$ infections.
+This results in an expected scaled effective population size $N_{e}\tau=280.4$ years.
 
-We thus arrive a ratio of $N/N_e = 39.1$ (31.1--50.4).
+Comparing expected $N_{e}\tau$ to empirical $N_{e}\tau$ we arrive at a ratio of 80.3 (64.0--103.5).
 This is less than the equivalent ratio for human measles virus \citep{bedford_strength_2011} and is in line with the expectation from neutral evolutionary dynamics plus some degree of transmission heterogeneity \citep{volz_phylodynamics_2013} and seasonal troughs in prevalence.
 Thus, we believe that the ladder-like appearance of the MERS-CoV tree can likely be explained by entirely demographic factors.
 
