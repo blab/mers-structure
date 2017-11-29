@@ -168,6 +168,8 @@ This manifests as different rates of coalescence with camel viruses showing a sc
 	\label{mcc}
 \end{figure}
 
+
+
 We believe that the small number of inferred human-to-camel migrations are induced by the migration rate prior, while some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
 This is most apparent in lineages in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot completely dismiss humans as a potential alternative host.
 The first sequences of MERS-CoV from camels do not appear in our data until November 2013.
@@ -581,7 +583,7 @@ After simulations were completed, we identified simulations in which the recover
 These values were 48-61 for number of sequence clusters, 2.87--3.65 for mean sequence cluster size, 4.84--6.02 for standard deviation of sequence cluster sizes, and 415.40--621.06 for skewness of sequence cluster sizes.
 
 We performed a smaller set of simulations with 2500 replicates and twice the number of cases, \textit{i.e.} $\sum_{i=1}^{K} C_{i} = 4000$, to explore a dramatically underreported epidemic.
-Additionally, we performed additional smaller set of simulations on a rougher grid of $R_{0}$ values (23 values, 0.50--1.05), with 5 values of dispersion parameter $\omega$ (0.002, 0.04, 0.1, 0.5, 1.0) and 3 levels of bias (1, 2, 3) to justify our choice of dispersion parameter $\omega$ that was fixed to 0.1 in the main analyses.
+Additionally, we performed additional smaller set of simulations on a rougher grid of $R_{0}$ values (23 values, 0.50--1.05), with 5 values of dispersion parameter $\omega$ (0.002, 0.04, 0.1, 0.5, 1.0) and 3 levels of bias (1, 2, 3) to justify our choice of dispersion parameter $\omega$ that was fixed to 0.1 in the main analyses (Figure \ref{marginals}).
 
 \begin{algorithm}[H]
  \KwData{Array of case cluster sizes in outbreak $\mathbf{c} = (c_1, c_2, \ldots, c_K)$, sequences available $M$, total outbreak size $N$, where $N = \sum_{i=1}^{K} c_{i}$.}
@@ -967,6 +969,17 @@ This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in huma
 
 \begin{figure}[h]
 \centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
+	\caption{\textbf{Posterior backwards migration rate estimates for two choices of prior.}
+Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice (note that rates are backwards in time).
+Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme looking backwards in time (orange) and \textit{vice versa} (blue).
+Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).
+	}
+	\label{prior}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_dta_mcc.png}
 	\caption{\textbf{Maximum clade credibility (MCC) tree with ancestral state reconstruction according to a discrete trait model.}
 MCC tree is presented the same as Figure \ref{mcc} and Figure \ref{equal_sizes}, with colours indicating the most probable state reconstruction at internal nodes.
@@ -983,74 +996,6 @@ MCC tree is presented the same as Figures \ref{mcc} and \ref{dta}, with colours 
 Similar to Figure \ref{dta} enforcing equal coalescence rates between demes in a structured coalescent model identifies humans as a major MERS-CoV host and the source of viruses in camels.
 	}
 	\label{equal_sizes}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_ML.png}
-	\caption{\textbf{Maximum likelihood (ML) tree of MERS-CoV genomes coloured by origin of sequence.}
-Maximum likelihood tree shows genetic divergence between MERS-CoV genomes collected from camels (orange tips) and humans (blue tips).
-	}
-	\label{ml}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
-	\caption{\textbf{Posterior migration rate estimates for two choices of prior.}
-Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice.
-Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme (blue) and \textit{vice versa} (orange).
-Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).
-	}
-	\label{prior}
-\end{figure}
-
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_mc_method.pdf}
-	\caption{\textbf{Monte Carlo simulation schematic.}
-Case clusters are simulated according to Equation \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
-We sample 174 cases from each simulation to represent sequencing of human MERS cases.
-`Sequencing' is carried out by using multivariate hypergeometric sampling, representing sampling cases without replacement to be sequenced.
-Sequencing simulations take place at three levels of bias: 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
-The distribution of simulated sequence clusters is summarised by its mean, median and standard deviation.
-A simulation is considered to match if the mean, median and standard deviation of its sequence cluster sizes falls within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
-$R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are retained as estimates.
-These estimates are summarised in Figure \ref{mers_epi}.
-	}
-	\label{mc_method}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_simMarginals.png}
-	\caption{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
-Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
-More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
-	}
-	\label{marginals}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_distributions.png}
-	\caption{\textbf{Boxplots of matching simulated case and sequence cluster distributions.}
-Boxplots indicate frequency of case (blue, top) and sequence (red, bottom) cluster sizes across simulations at different bias levels, marginalised across $R_{0}$ values.
-Outliers are shown with transparency, medians are indicated with thick black lines.
-Case clusters exhibit a strong skew with large numbers of singleton introductions and a substantial tail at higher levels of bias.
-	}
-	\label{cluster_distributions}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_qq.png}
-	\caption{\textbf{Quantile-quantile (Q-Q) plot of empirical and simulated sequence cluster sizes.}
-Density of sequence cluster size percentiles (1st--99th, calculated across a grid of 50 values) calculated for random states from the posterior distribution ($x$-axis) and matching simulations ($y$-axis).
-Most values fall on the one-to-one line, with a heavier tail in mid-sized sequence clusters in empirical data, manifesting as a greater density of points below the one-to-one line in the middle.
-	}
-	\label{qq}
 \end{figure}
 
 \begin{figure}[h]
@@ -1076,6 +1021,22 @@ Model averaging would suggest plausible numbers of introductions between 311 and
 
 \begin{figure}[h]
 \centering
+	\includegraphics[width=0.75\textwidth]{figures/mers_mc_method.pdf}
+	\caption{\textbf{Monte Carlo simulation schematic.}
+Case clusters are simulated according to Equation \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
+We sample 174 cases from each simulation to represent sequencing of human MERS cases.
+`Sequencing' is carried out by using multivariate hypergeometric sampling, representing sampling cases without replacement to be sequenced.
+Sequencing simulations take place at three levels of bias: 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
+The distribution of simulated sequence clusters is summarised by its mean, median and standard deviation.
+A simulation is considered to match if the mean, median and standard deviation of its sequence cluster sizes falls within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
+$R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are retained as estimates.
+These estimates are summarised in Figure \ref{mers_epi}.
+	}
+	\label{mc_method}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 	\includegraphics[width=0.65\textwidth]{figures/mers_epi_4000c.png}
 	\caption{\textbf{Results of Monte Carlo simulations with vast underestimation of cases.}
 The plot is identical to Figure \ref{mers_epi_grid}, but instead of 2000 cases,
@@ -1085,6 +1046,27 @@ With more unobserved cases the R$_{0}$ values matching observed MERS-CoV sequenc
 However, the numbers of simulations that match MERS-CoV data go down as well.
 	}
 	\label{extra_cases}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_distributions.png}
+	\caption{\textbf{Boxplots of matching simulated case and sequence cluster distributions.}
+Boxplots indicate frequency of case (blue, top) and sequence (red, bottom) cluster sizes across simulations at different bias levels, marginalised across $R_{0}$ values.
+Outliers are shown with transparency, medians are indicated with thick black lines.
+Case clusters exhibit a strong skew with large numbers of singleton introductions and a substantial tail at higher levels of bias.
+	}
+	\label{cluster_distributions}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_qq.png}
+	\caption{\textbf{Quantile-quantile (Q-Q) plot of empirical and simulated sequence cluster sizes.}
+Density of sequence cluster size percentiles (1st--99th, calculated across a grid of 50 values) calculated for random states from the posterior distribution ($x$-axis) and matching simulations ($y$-axis).
+Most values fall on the one-to-one line, with a heavier tail in mid-sized sequence clusters in empirical data, manifesting as a greater density of points below the one-to-one line in the middle.
+	}
+	\label{qq}
 \end{figure}
 
 \begin{figure}[h]
@@ -1128,6 +1110,25 @@ Inferred median $N_{e}\tau$ recovered using a skygrid tree prior on whole genome
 Dotted line indicates the one-to-one line.
 	}
 	\label{skygrid_comparison}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_ML.png}
+	\caption{\textbf{Maximum likelihood (ML) tree of MERS-CoV genomes coloured by origin of sequence.}
+Maximum likelihood tree shows genetic divergence between MERS-CoV genomes collected from camels (orange tips) and humans (blue tips).
+	}
+	\label{ml}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.65\textwidth]{figures/mers_simMarginals.png}
+	\caption{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
+Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
+More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
+	}
+	\label{marginals}
 \end{figure}
 
 \end{document}
