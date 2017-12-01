@@ -165,7 +165,7 @@ Nevertheless, we choose not to report on any particular estimates for times of c
 \textbf{We agree that casually calling the effective population size `low' does not explain the shape of the MERS-CoV phylogeny. We have rephrased this sentence to emphasise that the rate of coalescence observed in that particular part of the MERS-CoV phylogeny is high compared to the period over which sampling took place:}
 
 \begin{quotation}
-However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies.
+However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder, as often seen in human influenza A virus phylogenies.
 \end{quotation}
 
 5. p 11, I think these back-of-the-envelope calculations to relate Ne to epidemic size are illuminating, however I would do some things differently:
@@ -196,7 +196,13 @@ Note that this ``sequencing capacity'' parameter does not vary over time, even t
 
 6.3. The `model fitting' methods are ad-hoc. This is a situation where approximate Bayes computation would be appropriate. But I would try GEE/method of moments. I suspect the first three standardized moments of cluster sizes would be more useful than using mean/median/sd. - The moments could also be computed analytically if you dispense with the `sequencing capacity' aspect of the sampling model, so would be very fast.
 
-\textbf{Our approach is indeed somewhat ad-hoc, though closely related to ABC. We have replaced the tolerance parameter of ABC with sequence data uncertainty and otherwise treat parameters of interest as being under uniform priors. We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical. We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.}
+\textbf{Our approach is indeed somewhat ad-hoc, though closely related to ABC.
+We have essentially replaced the loss function in ABC with a slightly more complicated criterion based on  sequence data uncertainty.
+Our approach is also equivalent to a fully Bayesian setting where the parameters of interest are assigned uniform priors.
+Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper.
+We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical.
+This is to be expected, since the sample mean cluster size is the sufficient statistic for $R_0$ and the MLE for $k$ is proportional to the second (non-standardised) moment of the cluster sizes.
+We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.}
 
 6.4. Can you show a comparison of the empirical distribution of cluster sizes and the fitted distribution? A QQ plot? Are there any aspects of the empirical distribution that are not well characterised by the branching process model, eg at the tails?
 
