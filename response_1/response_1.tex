@@ -199,10 +199,10 @@ Note that this ``sequencing capacity'' parameter does not vary over time, even t
 \textbf{Our approach is indeed somewhat ad-hoc, though closely related to ABC.
 We have essentially replaced the loss function in ABC with a slightly more complicated criterion based on  sequence data uncertainty.
 Our approach is also equivalent to a fully Bayesian setting where the parameters of interest are assigned uniform priors.
-Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper.
 We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical.
 This is to be expected, since the sample mean cluster size is the sufficient statistic for $R_0$ and the MLE for $k$ is proportional to the second (non-standardised) moment of the cluster sizes.
 We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.}
+Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper.
 
 6.4. Can you show a comparison of the empirical distribution of cluster sizes and the fitted distribution? A QQ plot? Are there any aspects of the empirical distribution that are not well characterised by the branching process model, eg at the tails?
 
