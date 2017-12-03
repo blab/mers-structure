@@ -201,8 +201,10 @@ We have essentially replaced the loss function in ABC with a slightly more compl
 Our approach is also equivalent to a fully Bayesian setting where the parameters of interest are assigned uniform priors.
 We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical.
 This is to be expected, since the sample mean cluster size is the sufficient statistic for $R_0$ and the MLE for $k$ is proportional to the second (non-standardised) moment of the cluster sizes.
-We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.}
-Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper.
+We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.
+Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper. %LM: might want to re-order...
+}
+
 
 6.4. Can you show a comparison of the empirical distribution of cluster sizes and the fitted distribution? A QQ plot? Are there any aspects of the empirical distribution that are not well characterised by the branching process model, eg at the tails?
 
@@ -264,7 +266,13 @@ However, we wanted to translate this observation into an estimate of the basic r
 
 5. Page 5. Your summary statistics are mean, median and standard deviation of cluster size. It seems odd not to have a statistic measuring skewness, given how skew the cluster sizes seem to be. Why did you not use one? Do you think you would have got similar results with one?
 
-\textbf{Thank you for the comment. It was our thinking that mean, median and standard deviation of cluster sizes would be able to capture both the overall magnitude and skew of the empirical distribution. We also accidentally omitted the number of clusters as a fourth parameter by which we filter simulated data. In retrospect we should have been using skewness from the beginning. We have since fixed both these issues and now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript. This does not seem affect any of our results.}
+\textbf{Thank you for the comment.
+% It was our thinking that mean, median and standard deviation of cluster sizes would be able to capture both the overall magnitude and skew of the empirical distribution.
+The reason for choosing the sample mean, median 
+We also accidentally omitted the number of clusters as a fourth parameter by which we filter simulated data.
+In retrospect we should have been using skewness from the beginning. 
+We have since fixed both these issues and now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript.
+This does not seem affect any of our results.}
 
 6. Page 8. You refer repeatedly to spatial statistics to refer to location on genome. I think you should refer to clustering on the location on the genome.
 
