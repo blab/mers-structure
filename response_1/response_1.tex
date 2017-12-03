@@ -213,7 +213,7 @@ Finally, while we completely agree with the reviewer that ABC would lend itself 
 
 \section*{Reviewer \#2}
 
-1. Page 3 - where the authors state that ``Once human MERS-CoV infections are established, hoever, we find that MERS0CoV is poor at transmitted between humans" some references should be added.
+1. Page 3 - where the authors state that ``Once human MERS-CoV infections are established, however, we find that MERS-CoV is poor at transmitted between humans" some references should be added.
 
 \textbf{The sentence was meant to summarise our findings. We have changed the sentence to clarify that the statement is based on our findings:}
 
@@ -268,11 +268,12 @@ However, we wanted to translate this observation into an estimate of the basic r
 
 \textbf{Thank you for the comment.
 % It was our thinking that mean, median and standard deviation of cluster sizes would be able to capture both the overall magnitude and skew of the empirical distribution.
-The reason for choosing the sample mean, median 
+The reason for choosing the sample mean, median and standard deviation was connected to the likelihood function we employed to model the distribution of cluster sizes.
+As stated in the reply to Reviewer \#1's comment 6.3, the sample mean is the sufficient statistic for $R0$ and the MLE for the dispersion parameter depends on the sample mean and standard deviation only.
 We also accidentally omitted the number of clusters as a fourth parameter by which we filter simulated data.
-In retrospect we should have been using skewness from the beginning. 
-We have since fixed both these issues and now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript.
-This does not seem affect any of our results.}
+% In retrospect we should have been using skewness from the beginning. %LM: nah, I don't quite agree... Good idea in general, irrelevant here...
+In the interest of investigating robustness, we now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript.
+This does not seem to affect any of our results.}
 
 6. Page 8. You refer repeatedly to spatial statistics to refer to location on genome. I think you should refer to clustering on the location on the genome.
 
