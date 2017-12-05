@@ -82,9 +82,9 @@ Although we recover migration rates from our model (Figure S2), these only perta
 \end{quotation}
 
 \begin{quotation}
-Having said that, there are highly customisable coalescent methods available that extend the methods used here to accommodate migration rates and population sizes varying through time, and integrate alternative sources of information that are able to fit stochastic noisy nonlinear models (Rasmussen \textit{et al}., 2014) which would be more appropriate for MERS-CoV.
+Having said that, there are highly customisable coalescent methods available that extend the methods used here to accommodate migration rates and population sizes varying through time, and integrate alternative sources of information that are able to fit stochastic noisy nonlinear models (Rasmussen \textit{et al.}., 2014) which would be more appropriate for MERS-CoV.
 Some distinct aspects of MERS-CoV epidemiology could not be captured in our methodology, such as hospital outbreaks where $R_{0}$ is expected to be consistently closer to 1.0 compared to community transmission of MERS-CoV.
-Outside of coalescent-based models there are population structure models that explicitly relate epidemiological parameters to the branching process observed in sequence data (K\"{u}hnert \textit{et al}., 2016), but often rely on specifying numerous informative priors and can suffer from MCMC convergence issues.
+Outside of coalescent-based models there are population structure models that explicitly relate epidemiological parameters to the branching process observed in sequence data (K\"{u}hnert \textit{et al.}., 2016), but often rely on specifying numerous informative priors and can suffer from MCMC convergence issues.
 \end{quotation}
 
 % \begin{quotation}
@@ -109,12 +109,12 @@ We suspect that this particular discrete trait analysis reconstruction is false 
 
 \begin{quotation}
 When allowed different deme-specific population sizes, the structured coalescent model succeeds because a large proportion of human sequences fall into tightly connected clusters, which informs a low estimate for the population size of the human deme. 
-This in turn, informs the inferred state of long ancestral branches in the phylogeny, \textit{i.e.} because these long branches are not immediately coalescing, they are most likely in camels.
+This in turn informs the inferred state of long ancestral branches in the phylogeny, \textit{i.e.} because these long branches are not immediately coalescing, they are most likely in camels.
 \end{quotation}
 
-4. Easily addressed, but important. The paper already sounds a strong voice of concern in the final paragraph, but we think this could be even stronger. Antia et al Nature 2003 first showed, using a simple branching process, that for most genetic landscapes, the probability of a pathogen evolving to state with R0>1 increases dramatically as a function of the wild-type R0. So R0~0.8 is much worse than R0~0.3. More sophisticated models have been done since, especially by Llyod-smith's group, but the basic result is sound. In the light of this theoretical work, your findings are not at all reassuring.
+4. Easily addressed, but important. The paper already sounds a strong voice of concern in the final paragraph, but we think this could be even stronger. Antia et al. Nature 2003 first showed, using a simple branching process, that for most genetic landscapes, the probability of a pathogen evolving to state with R0>1 increases dramatically as a function of the wild-type R0. So R0~0.8 is much worse than R0~0.3. More sophisticated models have been done since, especially by Llyod-smith's group, but the basic result is sound. In the light of this theoretical work, your findings are not at all reassuring.
 
-\textbf{We agree that this is an important point, but also feel that it is difficult to formulate warnings about pandemic potential without overstating the case. We also believe that adaptive landscapes play a considerable role in emerging pandemics. We added an additional sentence to the discussion and refer to the Antia et al study:}
+\textbf{We agree that this is an important point, but also feel that it is difficult to formulate warnings about pandemic potential without overstating the case. We also believe that adaptive landscapes play a considerable role in emerging pandemics. We added an additional sentence to the discussion and refer to the Antia et al. study:}
 
 \begin{quotation}
 Previous modeling studies (Antia \textit{et al}., 2003; Part \textit{et al.}, 2013) suggest a positive relationship between initial $R_{0}$ in the human host and probability of evolutionary emergence of a novel strain which passes the supercritical threshold of $R_{0}>1.0$.
@@ -150,7 +150,7 @@ In addition, each hypergeometric distribution used to simulate sequencing is con
 
 3. p 8-11, What are the implications of recombinant MERS CoV in camels for estimation of evolutionary rates and TMRCAs?
 
-\textbf{An excellent point. Concerns over artefacts of recombination is what prevented us from reporting on evolutionary rates and tMRCAs of interest, such as our postulated introduction of the virus into the Arabian peninsula. We added a discussion about the potential effects of recombination in the results section and report evolutionary rates recovered by two methods:}
+\textbf{An excellent point. Concerns over artefacts of recombination are what prevented us from reporting on evolutionary rates and tMRCAs of interest, such as our postulated introduction of the virus into the Arabian peninsula. We added a discussion about the potential effects of recombination in the results section and report evolutionary rates recovered by two methods:}
 
 \begin{quotation}
 Overall, recombination presents a serious hurdle for detailed phylodynamic analyses in MERS-CoV, especially where lineages evolving in camels are concerned.
@@ -165,7 +165,7 @@ Nevertheless, we choose not to report on any particular estimates for times of c
 \textbf{We agree that casually calling the effective population size `low' does not explain the shape of the MERS-CoV phylogeny. We have rephrased this sentence to emphasise that the rate of coalescence observed in that particular part of the MERS-CoV phylogeny is high compared to the period over which sampling took place:}
 
 \begin{quotation}
-However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies.
+However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder, as often seen in human influenza A virus phylogenies.
 \end{quotation}
 
 5. p 11, I think these back-of-the-envelope calculations to relate Ne to epidemic size are illuminating, however I would do some things differently:
@@ -196,7 +196,15 @@ Note that this ``sequencing capacity'' parameter does not vary over time, even t
 
 6.3. The `model fitting' methods are ad-hoc. This is a situation where approximate Bayes computation would be appropriate. But I would try GEE/method of moments. I suspect the first three standardized moments of cluster sizes would be more useful than using mean/median/sd. - The moments could also be computed analytically if you dispense with the `sequencing capacity' aspect of the sampling model, so would be very fast.
 
-\textbf{Our approach is indeed somewhat ad-hoc, though closely related to ABC. We have replaced the tolerance parameter of ABC with sequence data uncertainty and otherwise treat parameters of interest as being under uniform priors. We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical. We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.}
+\textbf{Our approach is indeed somewhat ad-hoc, though closely related to ABC.
+We have essentially replaced the loss function in ABC with a slightly more complicated criterion based on  sequence data uncertainty.
+Our approach is also equivalent to a fully Bayesian setting where the parameters of interest are assigned uniform priors.
+We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical.
+This is to be expected, since the sample mean cluster size is the sufficient statistic for $R_0$ and the MLE for $k$ is proportional to the second (non-standardised) moment of the cluster sizes.
+We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.
+Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper. %LM: might want to re-order...
+}
+
 
 6.4. Can you show a comparison of the empirical distribution of cluster sizes and the fitted distribution? A QQ plot? Are there any aspects of the empirical distribution that are not well characterised by the branching process model, eg at the tails?
 
@@ -205,7 +213,7 @@ Note that this ``sequencing capacity'' parameter does not vary over time, even t
 
 \section*{Reviewer \#2}
 
-1. Page 3 - where the authors state that ``Once human MERS-CoV infections are established, hoever, we find that MERS0CoV is poor at transmitted between humans" some references should be added.
+1. Page 3 - where the authors state that ``Once human MERS-CoV infections are established, however, we find that MERS-CoV is poor at transmitted between humans" some references should be added.
 
 \textbf{The sentence was meant to summarise our findings. We have changed the sentence to clarify that the statement is based on our findings:}
 
@@ -232,7 +240,7 @@ However, currently there are no indications of what MERS-CoV diversity looks lik
 
 \section*{Reviewer \#3}
 
-1. Page 2, introduction. I am not sure I would refer to the Cauchemez et al PNAS paper as traditional epidemiology. It's sophisticated statistical modelling of spatio-temporal data and the partial observation process. I think you are using different tools in epidemiology, obtaining complimentary insights, neither particularly traditional. You could just delete `traditional' or use `case-based'.
+1. Page 2, introduction. I am not sure I would refer to the Cauchemez et al. PNAS paper as traditional epidemiology. It's sophisticated statistical modelling of spatio-temporal data and the partial observation process. I think you are using different tools in epidemiology, obtaining complimentary insights, neither particularly traditional. You could just delete `traditional' or use `case-based'.
 
 \textbf{Agreed. We have either removed or changed the three instances of `traditional' as requested.}
 
@@ -258,7 +266,14 @@ However, we wanted to translate this observation into an estimate of the basic r
 
 5. Page 5. Your summary statistics are mean, median and standard deviation of cluster size. It seems odd not to have a statistic measuring skewness, given how skew the cluster sizes seem to be. Why did you not use one? Do you think you would have got similar results with one?
 
-\textbf{Thank you for the comment. It was our thinking that mean, median and standard deviation of cluster sizes would be able to capture both the overall magnitude and skew of the empirical distribution. We also accidentally omitted the number of clusters as a fourth parameter by which we filter simulated data. In retrospect we should have been using skewness from the beginning. We have since fixed both these issues and now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript. This does not seem affect any of our results.}
+\textbf{Thank you for the comment.
+% It was our thinking that mean, median and standard deviation of cluster sizes would be able to capture both the overall magnitude and skew of the empirical distribution.
+The reason for choosing the sample mean, median and standard deviation was connected to the likelihood function we employed to model the distribution of cluster sizes.
+As stated in the reply to Reviewer \#1's comment 6.3, the sample mean is the sufficient statistic for $R0$ and the MLE for the dispersion parameter depends on the sample mean and standard deviation only.
+We also accidentally omitted the number of clusters as a fourth parameter by which we filter simulated data.
+% In retrospect we should have been using skewness from the beginning. %LM: nah, I don't quite agree... Good idea in general, irrelevant here...
+In the interest of investigating robustness, we now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript.
+This does not seem to affect any of our results.}
 
 6. Page 8. You refer repeatedly to spatial statistics to refer to location on genome. I think you should refer to clustering on the location on the genome.
 
@@ -273,9 +288,9 @@ Another hallmark of recombination is clustering of alleles along the genome, due
 
 \textbf{We have tried our best to clean up the section on recombination.}
 
-8. Discussion. I think the results of this analysis on R0 and cluster size distribution could be compared with Cauchemez et al PNAS 2016, who estimated many of the similar quantities using spatiotemporal data to define clusters. An important result of that paper was that the cluster size distributions were very skew - I think it would be good to look at skewness here.
+8. Discussion. I think the results of this analysis on R0 and cluster size distribution could be compared with Cauchemez et al. PNAS 2016, who estimated many of the similar quantities using spatiotemporal data to define clusters. An important result of that paper was that the cluster size distributions were very skew - I think it would be good to look at skewness here.
 
-\textbf{An excellent suggestion, however the authors of the Cauchemez \textit{et al}. study did not share any data beyond the raw input file they used. Since the actual numbers in Fig 1C in the manuscript are not reported and a publicly available implementation of the MCMC algorithm do not exist we have included an additional figure that visualises the distribution of cases recovered by simulation. These exhibit a heavy left skew, much like the distribution in Cauchemez \textit{et al}.}
+\textbf{An excellent suggestion, however the authors of the Cauchemez \textit{et al.}. study did not share any data beyond the raw input file they used. Since the actual numbers in Fig 1C in the manuscript are not reported and a publicly available implementation of the MCMC algorithm do not exist we have included an additional figure that visualises the distribution of cases recovered by simulation. These exhibit a heavy left skew, much like the distribution in Cauchemez \textit{et al.}.}
 
 % \bibliography{./../mers-structure}
 

@@ -228,7 +228,7 @@ First, we simulate case counts across multiple outbreaks totaling 2000 cases usi
 Sequencing simulations are performed via a multivariate hypergeometric distribution, where the probability of sequencing from a particular cluster depends on available sequencing capacity (number of trials), numbers of cases in the cluster (number of successes) and number of cases outside the cluster (number of failures).
 In addition, each hypergeometric distribution used to simulate sequencing is concentrated via a bias parameter, that enriches for large sequence clusters at the expense of smaller ones (for its effects see Figure \ref{mers_epi_grid}).
 This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from primary cases will be sampled exceedingly rarely.
-We record the number, mean, standard deviation and skewness (third standard moment) of sequence cluster sizes in each simulation (left-hand panel in Figure \ref{mers_epi}) and extract the subset of Monte Carlo simulations in which these summary statistics fall within the 95\% highest posterior density observed in the empirical MERS-CoV data from structured coalescent analyses.
+We record the number, mean, standard deviation and skewness (third standardised moment) of sequence cluster sizes in each simulation (left-hand panel in Figure \ref{mers_epi}) and extract the subset of Monte Carlo simulations in which these summary statistics fall within the 95\% highest posterior density observed in the empirical MERS-CoV data from structured coalescent analyses.
 We record $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions), for these empirically matched simulations.
 A schematic of this Monte Carlo procedure is shown in Figure \ref{mc_method}.
 Since the total number of cases is fixed at 2000, higher $R_0$ results in fewer larger transmission clusters, while lower $R_0$ results in many smaller transmission clusters.
@@ -358,7 +358,7 @@ Midline tracks the inferred median of $N_{e}\tau$.
 
 Despite lack of convergence, neither of the two demographic reconstructions show evidence of fluctuations in the relative genetic diversity ($N_e \tau$) of  MERS-CoV over time (Figure \ref{skygrid}).
 We recover a similar demographic trajectory when estimating $N_{e}\tau$ over time with a skygrid tree prior across the genome split into ten fragments with independent phylogenetic trees to account for confounding effects of recombination (Figures \ref{skygrid}, \ref{skygrid_comparison}).
-However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
+However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder, as often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
 
 This empirically estimated effectived population can be compared to the expected effective population size in a simple epidemiological model.
 At endemic equilibrium, we expect scaled effective population size $N_{e}\tau$ to follow $I \, / \, 2 \beta$, where $\beta$ is the equilibrium rate of transmission and $I$ is the equilibrium number of infecteds \citep{frost_viral_2010}.
@@ -384,7 +384,7 @@ We showed that currently existing models of population structure \citep{vaughan_
 This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{prior}) and in the presence of strong biases in sequence sampling schemes (Figure \ref{mers_epi}).
 When rapid coalescence in the human deme is not allowed (Figure \ref{equal_sizes}) structured coalescent inference loses power and ancestral state reconstruction is nearly identical to that of discrete trait analysis (Figure \ref{dta}).
 When allowed different deme-specific population sizes, the structured coalescent model succeeds because a large proportion of human sequences fall into tightly connected clusters, which informs a low estimate for the population size of the human deme.
-This in turn, informs the inferred state of long ancestral branches in the phylogeny, i.e.\ because these long branches are not immediately coalescing, they are most likely in camels.
+This in turn informs the inferred state of long ancestral branches in the phylogeny, i.e.\ because these long branches are not immediately coalescing, they are most likely in camels.
 
 From sequence data we identify at least 50 zoonotic introductions of MERS-CoV into humans from the reservoir (Figure \ref{mcc}), from which we extrapolate that hundreds more such introductions must have taken place (Figure \ref{mers_epi}).
 Although we recover migration rates from our model (Figure \ref{prior}), these only pertain to sequences and in no way reflect the epidemiologically relevant \textit{per capita} rates of zoonotic spillover events.
