@@ -73,7 +73,7 @@ Gytis Dudas
 Original comments are in plain text.  Our responses follow in \textbf{bold}.
 
 \section*{Essential revisions}
-1. The population genetic model (the particular form of structured coalescent) is highly idealised and this may influence the quantitative conclusions, although we suspect the conclusions are quite robust qualitatively. This model specifically estimates the rate of a lineage moving between demes going backwards in time; the numbers cited for the camel->human rate is really the rate that a lineage in humans goes to a camel going down the tree. The relationship between these migration rates and the epidemiologically meaningful transmission rate is complex and depends among other things on the ratio of population sizes in both demes. Per-capita transmission rates could be estimated using an epidemiologically structured coalescent model (see e.g. papers by Volz \& Rasmussen), which would ideally be stochastic due to bursty dynamics in humans. But this would be a large undertaking and so we suggest that for now the distinction is clarified. Overall, a little more discussion of the complexity and pitfalls when relating idealised population genetic models (like the island model used here) to a noisy nonlinear epidemic like this one might be merited.
+1. The population genetic model (the particular form of structured coalescent) is highly idealised and this may influence the quantitative conclusions, although we suspect the conclusions are quite robust qualitatively. This model specifically estimates the rate of a lineage moving between demes going backwards in time; the numbers cited for the camel$\rightarrow$human rate is really the rate that a lineage in humans goes to a camel going down the tree. The relationship between these migration rates and the epidemiologically meaningful transmission rate is complex and depends among other things on the ratio of population sizes in both demes. Per-capita transmission rates could be estimated using an epidemiologically structured coalescent model (see e.g.\ papers by Volz \& Rasmussen), which would ideally be stochastic due to bursty dynamics in humans. But this would be a large undertaking and so we suggest that for now the distinction is clarified. Overall, a little more discussion of the complexity and pitfalls when relating idealised population genetic models (like the island model used here) to a noisy nonlinear epidemic like this one might be merited.
 
 \textbf{Yes, we agree that the structured coalescent approach is idealised and does not reflect a meaningful rate of zoonotic transfer of lineages, which is the reason we restricted any mention of rates to supplementary figures and do not attach numbers whenever rates are mentioned, but still report the number of introductions observed in the sequence data. We have altered Figure S2 in the reviewed manuscript to reflect that the rates shown are backwards in time. We have added the following sentences to the discussion to highlight the fact that the coalescent model employed is not ideal:}
 
@@ -82,7 +82,7 @@ Although we recover migration rates from our model (Figure S2), these only perta
 \end{quotation}
 
 \begin{quotation}
-Having said that, there are highly customisable coalescent methods available that extend the methods used here to accommodate migration rates and population sizes varying through time, and integrate alternative sources of information that are able to fit stochastic noisy nonlinear models (Rasmussen \textit{et al.}., 2014) which would be more appropriate for MERS-CoV.
+Having said that, there are highly customisable coalescent methods available that extend the methods used here to accommodate time varying migration rates and population sizes, integrate alternative sources of information and fit to stochastic nonlinear models (Rasmussen \textit{et al.}, 2014), which would be more appropriate for MERS-CoV.
 Some distinct aspects of MERS-CoV epidemiology could not be captured in our methodology, such as hospital outbreaks where $R_{0}$ is expected to be consistently closer to 1.0 compared to community transmission of MERS-CoV.
 Outside of coalescent-based models there are population structure models that explicitly relate epidemiological parameters to the branching process observed in sequence data (K\"{u}hnert \textit{et al.}., 2016), but often rely on specifying numerous informative priors and can suffer from MCMC convergence issues.
 \end{quotation}
@@ -100,21 +100,21 @@ Structured coalescent analyses recover the camel-centered picture of MERS-CoV ev
 Comparing these results with a currently standard discrete trait analysis (Lemey \textit{et al.}, 2009) approach for ancestral state reconstruction shows dramatic differences in host reconstruction at internal nodes (Figure S3).
 Discrete trait analysis reconstruction identifies both camels and humans as important hosts for MERS-CoV persistence, but with humans as the ultimate source of camel infections.
 A similar approach has been attempted previously (Zhang \textit{et al.}, 2016), but this interpretation of MERS-CoV evolution disagrees with lack of continuing human transmission chains outside of Arabian peninsula, low seroprevalence in humans and very high seroprevalence in camels across Saudi Arabia.
-We suspect that this particular discrete trait analysis reconstruction is false due to biased data, \textit{i.e.} having nearly twice as many MERS-CoV sequences from humans (N=174) than from camels (N=100) and the inability of the model to account for and quantify vastly different rates of coalescence in the phylogenetic vicinity of both types of sequences.
+We suspect that this particular discrete trait analysis reconstruction is false due to biased data, \textit{i.e.} having nearly twice as many MERS-CoV sequences from humans ($n=174$) than from camels ($n=100$) and the inability of the model to account for and quantify vastly different rates of coalescence in the phylogenetic vicinity of both types of sequences.
 \end{quotation}
 
-3. A comparison to ML tree reconstruction could potentially be illuminating. We think you could be clearer about what drives the results in your paper. It is unusual for a phylogenetic ancestral reconstruction, that the results seem to be determined as much by the coalescent assumptions as by the tree topology. The two-patch model had a much higher coalescent rate in the human deme than in the camel deme - so long branches are only really possible in the camel deme. This may be why for example, staring at the top clade of figure 1, one can see camel ancestry to a whole bunch of human sequences that are not topologically separated by camel sequences. If this is correct, these results may not necessarily be wrong, but it made us slightly uncomfortable that the results are driven by the coalescent model, not the tree topology. Please elaborate, either correcting us, or explaining better. A simple test of this hypothesis would be that an ML ancestral reconstruction on the ML tree would not give the same clusters. I don't think that would make the ML result correct, but it might be an enlightening comparison. Or you may prefer another way to address this.
+3. A comparison to ML tree reconstruction could potentially be illuminating. We think you could be clearer about what drives the results in your paper. It is unusual for a phylogenetic ancestral reconstruction, that the results seem to be determined as much by the coalescent assumptions as by the tree topology. The two-patch model had a much higher coalescent rate in the human deme than in the camel deme -- so long branches are only really possible in the camel deme. This may be why for example, staring at the top clade of figure 1, one can see camel ancestry to a whole bunch of human sequences that are not topologically separated by camel sequences. If this is correct, these results may not necessarily be wrong, but it made us slightly uncomfortable that the results are driven by the coalescent model, not the tree topology. Please elaborate, either correcting us, or explaining better. A simple test of this hypothesis would be that an ML ancestral reconstruction on the ML tree would not give the same clusters. I don't think that would make the ML result correct, but it might be an enlightening comparison. Or you may prefer another way to address this.
 
 \textbf{A very good point. We share the suspicion that the results are largely driven by contrasts in effective population sizes between demes. In addition to the requested maximum likelihood phylogeny (supplementary Figure S14) we also ran a structured coalescent analysis where deme sizes are enforced to be the same (supplementary Figure S4). This model fails in a similar way to a DTA reconstruction shown in the new Figure S3. We now explain how the structured coalescent arrives at the tree shown in Figure 1 in the discussion:}
 
 \begin{quotation}
-When allowed different deme-specific population sizes, the structured coalescent model succeeds because a large proportion of human sequences fall into tightly connected clusters, which informs a low estimate for the population size of the human deme. 
+When allowed different deme-specific population sizes, the structured coalescent model succeeds because a large proportion of human sequences fall into tightly connected clusters, which informs a low estimate for the population size of the human deme.
 This in turn informs the inferred state of long ancestral branches in the phylogeny, \textit{i.e.} because these long branches are not immediately coalescing, they are most likely in camels.
 \end{quotation}
 
-4. Easily addressed, but important. The paper already sounds a strong voice of concern in the final paragraph, but we think this could be even stronger. Antia et al. Nature 2003 first showed, using a simple branching process, that for most genetic landscapes, the probability of a pathogen evolving to state with R0>1 increases dramatically as a function of the wild-type R0. So R0~0.8 is much worse than R0~0.3. More sophisticated models have been done since, especially by Llyod-smith's group, but the basic result is sound. In the light of this theoretical work, your findings are not at all reassuring.
+4. Easily addressed, but important. The paper already sounds a strong voice of concern in the final paragraph, but we think this could be even stronger. Antia et al.\ Nature 2003 first showed, using a simple branching process, that for most genetic landscapes, the probability of a pathogen evolving to state with $R_0>1$ increases dramatically as a function of the wild-type $R_0$. So $R_0\sim0.8$ is much worse than $R_0\sim0.3$. More sophisticated models have been done since, especially by Llyod-Smith's group, but the basic result is sound. In the light of this theoretical work, your findings are not at all reassuring.
 
-\textbf{We agree that this is an important point, but also feel that it is difficult to formulate warnings about pandemic potential without overstating the case. We also believe that adaptive landscapes play a considerable role in emerging pandemics. We added an additional sentence to the discussion and refer to the Antia et al. study:}
+\textbf{We agree that this is an important point, but also feel that it is difficult to formulate warnings about pandemic potential without overstating the case. We also believe that adaptive landscapes play a considerable role in emerging pandemics. We added an additional sentence to the discussion and refer to the Antia et al.\ study:}
 
 \begin{quotation}
 Previous modeling studies (Antia \textit{et al}., 2003; Part \textit{et al.}, 2013) suggest a positive relationship between initial $R_{0}$ in the human host and probability of evolutionary emergence of a novel strain which passes the supercritical threshold of $R_{0}>1.0$.
@@ -160,7 +160,7 @@ We suspect that the effects of recombination in MERS-CoV data are reigned in by 
 Nevertheless, we choose not to report on any particular estimates for times of common ancestors (tMRCAs), even though these are expected to be somewhat robust for dating human clusters, and we do not report on the evolutionary rate of the virus, even though it appears to fall firmly within the expected range for RNA viruses: regression of nucleotide differences to Jordan-N3/2012 genome against sequence collection dates yields a rate of $4.59 \times 10^{-4}$ subs/site/year, Bayesian structured coalescent estimate from primary analysis $9.57 \times 10^{-4}$ (95\% HPDs: $8.28-10.9 \times 10^{-4}$) subs/site/year.
 \end{quotation}
 
-4. p 10, `...relatively low overall with a mean estimate of N of 3.49 years (95\% HPD: 2.71-4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies...' I would not say that low Ne directly implies a ladder-like tree or vice versa, although it may produce such a tree in combination with highly dispersed sample times.
+4. p 10, `...relatively low overall with a mean estimate of $N_e\tau$ of 3.49 years (95\% HPD: 2.71-4.38), and consequently MERS-CoV phylogeny resembles a ladder often seen in human influenza A virus phylogenies...' I would not say that low $N_e$ directly implies a ladder-like tree or vice versa, although it may produce such a tree in combination with highly dispersed sample times.
 
 \textbf{We agree that casually calling the effective population size `low' does not explain the shape of the MERS-CoV phylogeny. We have rephrased this sentence to emphasise that the rate of coalescence observed in that particular part of the MERS-CoV phylogeny is high compared to the period over which sampling took place:}
 
@@ -168,23 +168,35 @@ Nevertheless, we choose not to report on any particular estimates for times of c
 However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder, as often seen in human influenza A virus phylogenies.
 \end{quotation}
 
-5. p 11, I think these back-of-the-envelope calculations to relate Ne to epidemic size are illuminating, however I would do some things differently:
+5. p 11, I think these back-of-the-envelope calculations to relate $N_e$ to epidemic size are illuminating, however I would do some things differently:
 
 5.1. A 10 day generation interval is assumed based on a 20 day infectious period, however this is strongly dependent on assumptions about how infectiousness varies over the course of infection. Note that I prefer the term `generation interval' for this particular situation, see eg https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2365921/. In a simple SIR model, the mean generation interval will equal the mean infectious period, and the choice of 10 days seems a little strange. There is certainly considerable uncertainty about parameters here, so at least the authors could compute this over a range of values.
 
-\textbf{}
+\textbf{Thank you for pointing this out. This was an error on our part. We've switched from a 10 day generation interval to a 20 day generation interval consistent with existing data and a simple SIR model.}
 
-5.2. Other theoretical work suggests a slightly different relationship between Ne tau and I(t), specifically that it will depend more on transmission rate than generation time. However if making the approximation that I(t) is constant (which the authors are) , the formulas will be the same up to a factor of 2x. See Koelle, 2011, DOI: 10.1098/rsif.2011.0495 \& Volz and Frost 2013, DOI: 10.1098/rstb.2010.0060. Specifically, I would use (Ne tau ) = I(t) / 2 * [per capita transmission rate], but some of the formulas in Koelle's paper may be more realistic for MERS.
-and equating beta = 1 / [generation time] gives 2x the authors' estimate if solving for I.
-Note that if using a 20 day generation interval and the above formula, you would have I = 127, so this doesn't make any practical difference, but is more elegant in my opinion, since we are exact about the epidemic model that the estimate is based on. If some estimate of the dispersion parameter for R0 could be obtained from the cluster size distribution, a better estimate for I could be obtained using equations in Koelle 2011.
+5.2. Other theoretical work suggests a slightly different relationship between Ne tau and I(t), specifically that it will depend more on transmission rate than generation time. However if making the approximation that $I(t)$ is constant (which the authors are) , the formulas will be the same up to a factor of 2$\times$. See Koelle, 2011, DOI: 10.1098/rsif.2011.0495 \& Volz and Frost 2013, DOI: 10.1098/rstb.2010.0060. Specifically, I would use $N_e\tau = I(t) \, / \, 2 \, \times $ [per capita transmission rate], but some of the formulas in Koelle's paper may be more realistic for MERS.
+and equating $\beta = 1 \, / $ [generation time] gives 2$\times$ the authors' estimate if solving for $I$.
+Note that if using a 20 day generation interval and the above formula, you would have $I = 127$, so this doesn't make any practical difference, but is more elegant in my opinion, since we are exact about the epidemic model that the estimate is based on. If some estimate of the dispersion parameter for $R_0$ could be obtained from the cluster size distribution, a better estimate for $I$ could be obtained using equations in Koelle 2011.
 
-\textbf{}
+\textbf{This was helpful. We've reformulated this calculation to follow Frost and Volz (2010). We believe this reformulation streamlined the description. However, the switch from 10 day generation interval to 20 day interval resulted in a 2$\times$ difference to our final estimate. However, the final result of XXX is still consistent with broad conclusions of a congruence between camel incidence rates and observed $N_e$. Relevant text in Results has been reworked:}
+
+\begin{quotation}
+This empirically estimated effectived population can be compared to the expected effective population size in a simple epidemiological model.
+At endemic equilibrium, we expect scaled effective population size $N_{e}\tau$ to follow $I \, / \, 2 \beta$, where $\beta$ is the equilibrium rate of transmission and $I$ is the equilibrium number of infecteds (Frost and Volz, 2010).
+We assume that $\beta$ is constant and is equal to the rate of recovery.
+Given a 20 day duration of infection in camels (Adnet \textit{et al.}, 2014), we arrive at $\beta = 365/20 = 18.25$ infections per year.
+Given extremely high seroprevalence estimates within camels in Saudi Arabia (M\"uller \textit{et al.}, 2014; Corman \textit{et al.}, 2014; \textit{et al.}, 2014; Reusken \textit{et al.}, 2013, 2014), we expect camels to usually be infected within their first year of life.
+Therefore we can estimate the rough number of camel infections per year as the number of calves produced each year.
+We find there are $830\,000$ camels in Saudi Arabia (Abdallah and Faye, 2013) and that female camels in Saudi Arabia have an average fecundity of 45\% (Abdallah and Faye, 2013).
+Thus, we expect $830\,000 \times 0.50 \times 0.45 = 186\,750$ new calves produced yearly and correspondingly $186\,750$ new infections every year, which spread over 20 day intervals gives an average prevalence of $I = 10\,233$ infections.
+This results in an expected scaled effective population size $N_{e}\tau=280.4$ years.
+\end{quotation}
 
 6. P 15+, I identify the following weaknesses in the simulation study, and I would candidly discuss these in the Discussion section:
 
 6.1. Dispersion parameter is set at 0.1 based on a previous branching process study, however there's not great support for re-using the value for a different epidemic. Was an effort made to estimate this parameter?
 
-\textbf{The dispersion parameter was indeed chosen from a previous study. We have run small scale analyses over a grid of three bias levels (same as the main analyses), 23 levels of $R_{0}$ (0.50--1.05), and five levels of dispersion (0.004, 0.02, 0.10, 0.50 and 1.0) with 2000 replicate simulations for each combination of variables. Numbers of simulations matching empirical data are shown in Figure S15.}
+\textbf{The dispersion parameter was indeed chosen from a previous study. We have run small scale analyses over a grid of three bias levels (same as the main analyses), 23 levels of $R_{0}$ (0.50--1.05), and five levels of dispersion (0.004, 0.02, 0.10, 0.50 and 1.0) with 2000 replicate simulations for each combination of variables. Numbers of simulations matching empirical data are shown in Figure S15. In this analysis, we find strongest support for dispersion $k$ = 0.1.}
 
 6.2. The sampling model accounts for `sequencing capacity', which is good. But is it the case that sequencing probability varied over the course of the epidemic?
 
@@ -194,15 +206,16 @@ Note that if using a 20 day generation interval and the above formula, you would
 Note that this ``sequencing capacity'' parameter does not vary over time, even though MERS-CoV sequencing efforts have varied in intensity, starting out slow due to lack of awareness, methods and materials and increasing in response to hospital outbreaks later.
 \end{quotation}
 
-6.3. The `model fitting' methods are ad-hoc. This is a situation where approximate Bayes computation would be appropriate. But I would try GEE/method of moments. I suspect the first three standardized moments of cluster sizes would be more useful than using mean/median/sd. - The moments could also be computed analytically if you dispense with the `sequencing capacity' aspect of the sampling model, so would be very fast.
+6.3. The `model fitting' methods are ad-hoc. This is a situation where approximate Bayes computation would be appropriate. But I would try GEE/method of moments. I suspect the first three standardized moments of cluster sizes would be more useful than using mean/median/sd. -- The moments could also be computed analytically if you dispense with the `sequencing capacity' aspect of the sampling model, so would be very fast.
 
 \textbf{Our approach is indeed somewhat ad-hoc, though closely related to ABC.
 We have essentially replaced the loss function in ABC with a slightly more complicated criterion based on  sequence data uncertainty.
 Our approach is also equivalent to a fully Bayesian setting where the parameters of interest are assigned uniform priors.
 We have followed the suggestion here to switch from mean/median/stdev to the first three standardised moments of sequence cluster size and found the results to be virtually identical.
+We have additionally included a 4th statistic of the number of observed sequence clusters.
 This is to be expected, since the sample mean cluster size is the sufficient statistic for $R_0$ and the MLE for $k$ is proportional to the second (non-standardised) moment of the cluster sizes.
 We do see somewhat better separation of simulations when plotting mean sequence cluster size versus their skewness in all figures summarising the results of Monte Carlo simulations.
-Finally, while we completely agree with the reviewer that ABC would lend itself  very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper. %LM: might want to re-order...
+Finally, while we completely agree with the reviewer that ABC would lend itself very well to this estimation problem, it would also entail a good deal of calibration and experimentation, which we believe would be outside the scope of this paper. %LM: might want to re-order...
 }
 
 
@@ -221,7 +234,7 @@ Finally, while we completely agree with the reviewer that ABC would lend itself 
 However, we find that MERS-CoV, once introduced into humans, follows transient transmission chains that soon abate.
 \end{quotation}
 
-2. In discussion: Could the author speculate how more sequences from humans and animals, particularly recent ones, or sequences from other geographic areas (east africa, north africa, pakistan) would potentially impace their results?
+2. In discussion: Could the author speculate how more sequences from humans and animals, particularly recent ones, or sequences from other geographic areas (East Africa, North Africa, Pakistan) would potentially impace their results?
 
 \textbf{We agree that understanding the distribution of MERS zoonotic risk to humans is of paramout importance, but feel that such speculation is outside the remit of the current study.
 During the time the study was performed (first half of 2017) human MERS-CoV sequences comprised a large majority of available MERS-CoV sequences.
@@ -240,7 +253,7 @@ However, currently there are no indications of what MERS-CoV diversity looks lik
 
 \section*{Reviewer \#3}
 
-1. Page 2, introduction. I am not sure I would refer to the Cauchemez et al. PNAS paper as traditional epidemiology. It's sophisticated statistical modelling of spatio-temporal data and the partial observation process. I think you are using different tools in epidemiology, obtaining complimentary insights, neither particularly traditional. You could just delete `traditional' or use `case-based'.
+1. Page 2, introduction. I am not sure I would refer to the Cauchemez et al.\ PNAS paper as traditional epidemiology. It's sophisticated statistical modelling of spatio-temporal data and the partial observation process. I think you are using different tools in epidemiology, obtaining complimentary insights, neither particularly traditional. You could just delete `traditional' or use `case-based'.
 
 \textbf{Agreed. We have either removed or changed the three instances of `traditional' as requested.}
 
@@ -256,7 +269,7 @@ Where sequence data are relatively cheap to produce, genomic epidemiological app
 
 \textbf{Apologies for that sentence as well. We have removed that part of the sentence altogether.}
 
-4. Page 5 `R0 more familiar to epidemiologists' More familiar than what? There are no previous quantitative estimates presented. Rephrase.
+4. Page 5 `$R_0$ more familiar to epidemiologists' More familiar than what? There are no previous quantitative estimates presented. Rephrase.
 
 \textbf{Apologies, we meant to say that $R_{0}$ is a more intuitive measure of epidemic behaviour than extrapolating risk from subtrees of a phylogeny. We have changed the sentence to say:}
 
@@ -269,11 +282,11 @@ However, we wanted to translate this observation into an estimate of the basic r
 \textbf{Thank you for the comment.
 % It was our thinking that mean, median and standard deviation of cluster sizes would be able to capture both the overall magnitude and skew of the empirical distribution.
 The reason for choosing the sample mean, median and standard deviation was connected to the likelihood function we employed to model the distribution of cluster sizes.
-As stated in the reply to Reviewer \#1's comment 6.3, the sample mean is the sufficient statistic for $R0$ and the MLE for the dispersion parameter depends on the sample mean and standard deviation only.
+As stated in the reply to Reviewer \#1's comment 6.3, the sample mean is the sufficient statistic for $R_0$ and the MLE for the dispersion parameter depends on the sample mean and standard deviation only.
 We also accidentally omitted the number of clusters as a fourth parameter by which we filter simulated data.
 % In retrospect we should have been using skewness from the beginning. %LM: nah, I don't quite agree... Good idea in general, irrelevant here...
 In the interest of investigating robustness, we now use mean, standard deviation, skewness and number of clusters as filters for simulated data throughout the manuscript.
-This does not seem to affect any of our results.}
+This does not seem to affect our results.}
 
 6. Page 8. You refer repeatedly to spatial statistics to refer to location on genome. I think you should refer to clustering on the location on the genome.
 
@@ -288,9 +301,9 @@ Another hallmark of recombination is clustering of alleles along the genome, due
 
 \textbf{We have tried our best to clean up the section on recombination.}
 
-8. Discussion. I think the results of this analysis on R0 and cluster size distribution could be compared with Cauchemez et al. PNAS 2016, who estimated many of the similar quantities using spatiotemporal data to define clusters. An important result of that paper was that the cluster size distributions were very skew - I think it would be good to look at skewness here.
+8. Discussion. I think the results of this analysis on $R_0$ and cluster size distribution could be compared with Cauchemez et al.\ PNAS 2016, who estimated many of the similar quantities using spatiotemporal data to define clusters. An important result of that paper was that the cluster size distributions were very skew - I think it would be good to look at skewness here.
 
-\textbf{An excellent suggestion, however the authors of the Cauchemez \textit{et al.}. study did not share any data beyond the raw input file they used. Since the actual numbers in Fig 1C in the manuscript are not reported and a publicly available implementation of the MCMC algorithm do not exist we have included an additional figure that visualises the distribution of cases recovered by simulation. These exhibit a heavy left skew, much like the distribution in Cauchemez \textit{et al.}.}
+\textbf{An excellent suggestion, however the authors of the Cauchemez \textit{et al.}. study did not share any data beyond the raw input file they used. Since the actual numbers in Fig 1C in the manuscript are not reported and a publicly available implementation of the MCMC algorithm do not exist we have included an additional figure (supplementary Figure S8) that visualises the distribution of cases recovered by simulation. These exhibit a heavy left skew, much like the distribution in Cauchemez \textit{et al.}.}
 
 % \bibliography{./../mers-structure}
 
