@@ -79,9 +79,11 @@ Original comments are in plain text.  Our responses follow in \textbf{bold}.
 
 \begin{quotation}
 Although we recover migration rates from our model (Figure S2), these only pertain to sequences and in no way reflect the epidemiologically relevant \textit{per capita} rates of zoonotic spillover events.
-\end{quotation}
+%\end{quotation}
 
-\begin{quotation}
+[...]
+
+%\begin{quotation}
 Having said that, there are highly customisable coalescent methods available that extend the methods used here to accommodate time varying migration rates and population sizes, integrate alternative sources of information and fit to stochastic nonlinear models (Rasmussen \textit{et al.}, 2014), which would be more appropriate for MERS-CoV.
 Some distinct aspects of MERS-CoV epidemiology could not be captured in our methodology, such as hospital outbreaks where $R_{0}$ is expected to be consistently closer to 1.0 compared to community transmission of MERS-CoV.
 Outside of coalescent-based models there are population structure models that explicitly relate epidemiological parameters to the branching process observed in sequence data (K\"{u}hnert \textit{et al.}., 2016), but often rely on specifying numerous informative priors and can suffer from MCMC convergence issues.
@@ -117,7 +119,7 @@ This in turn informs the inferred state of long ancestral branches in the phylog
 \textbf{We agree that this is an important point, but also feel that it is difficult to formulate warnings about pandemic potential without overstating the case. We also believe that adaptive landscapes play a considerable role in emerging pandemics. We added an additional sentence to the discussion and refer to the Antia et al.\ study:}
 
 \begin{quotation}
-Previous modeling studies (Antia \textit{et al}., 2003; Part \textit{et al.}, 2013) suggest a positive relationship between initial $R_{0}$ in the human host and probability of evolutionary emergence of a novel strain which passes the supercritical threshold of $R_{0}>1.0$.
+Previous modeling studies (Antia \textit{et al}., 2003; Park \textit{et al.}, 2013) suggest a positive relationship between initial $R_{0}$ in the human host and probability of evolutionary emergence of a novel strain which passes the supercritical threshold of $R_{0}>1.0$.
 This leaves MERS-CoV in a precarious position; on one hand its current $R_{0}$ of $\sim$0.7 is certainly less than 1, but its proximity to the supercritical threshold raises alarm.
 With very little known about the fitness landscape or adaptive potential of MERS-CoV, it is incredibly challenging to predict the likelihood of the emergence more transmissible variants.
 In light of these difficulties, we encourage continued genomic surveillance of MERS-CoV in the camel reservoir and from sporadic human cases to rapidly identify a supercritical variant, if one does emerge.
@@ -125,7 +127,7 @@ In light of these difficulties, we encourage continued genomic surveillance of M
 
 5. More generally, the model choices need better explaining. Why delve into a structured coalescent in BEAST2 for the ancestral reconstruction, but go back to the Skygrid in BEAST1 for computations of Ne? We assume this is a pragmatic choice, and for the latter you carefully reduced the human clusters to reduce bias, but we think the rationale for your choices need laying out more clearly. Even if pragmatic rather than principled, (e.g. there are no structure coalescent options in BEAST1), we think it still needs to be stated why you made the choices you did. Especially since there are other recently-developed BEAST2 packages that could be used to fit the same structured coalescent model: BASTA \& MASCOT, as well as the very flexible PhyDyn package (which might offer improvements in computation time).
 
-\textbf{In hindsight we see how our choices may have seemed arbitrary. Indeed all cases of using BEAST 1 vs BEAST 2 came down to what models were implemented in which package. We have tried clarified our choices throughout the manuscript.}
+\textbf{In hindsight we see how our choices may have seemed arbitrary. Indeed all cases of using BEAST 1 vs BEAST 2 came down to what models were implemented in which package. We have clarified our choices throughout the manuscript.}
 
 % \begin{quotation}
 %
@@ -303,7 +305,7 @@ Another hallmark of recombination is clustering of alleles along the genome, due
 
 8. Discussion. I think the results of this analysis on $R_0$ and cluster size distribution could be compared with Cauchemez et al.\ PNAS 2016, who estimated many of the similar quantities using spatiotemporal data to define clusters. An important result of that paper was that the cluster size distributions were very skew - I think it would be good to look at skewness here.
 
-\textbf{An excellent suggestion, however the authors of the Cauchemez \textit{et al.}. study did not share any data beyond the raw input file they used. Since the actual numbers in Fig 1C in the manuscript are not reported and a publicly available implementation of the MCMC algorithm do not exist we have included an additional figure (supplementary Figure S8) that visualises the distribution of cases recovered by simulation. These exhibit a heavy left skew, much like the distribution in Cauchemez \textit{et al.}.}
+\textbf{An excellent suggestion, however the authors of the Cauchemez \textit{et al}. study did not share any data beyond the raw input file they used. Since neither the actual numbers in Fig 1C of Cauchemez \textit{et al}., nor an implementation of the MCMC algorithm exist in the public domain we have included an additional figure (supplementary Figure S8) that visualises the distribution of cases recovered by simulation. These exhibit a heavy left skew, much like the distribution in Cauchemez \textit{et al}.}
 
 % \bibliography{./../mers-structure}
 
