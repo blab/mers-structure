@@ -23,7 +23,7 @@
 
 % reference figures across documents
 \usepackage{xr}
-\externaldocument{mers-structure_supp}
+%\externaldocument{mers-structure_supp}
 
 % text layout
 \usepackage{geometry}
@@ -148,16 +148,16 @@ Using Monte Carlo simulations we show that $R_{0}$ for MERS-CoV circulating in h
 
 \subsection*{MERS-CoV is predominantly a camel virus}
 
-The structured coalescent approach we employ (see Methods) identifies camels as a reservoir host where most of MERS-CoV evolution takes place (Figure \ref{mcc}), while human MERS outbreaks are transient and terminal with respect to long-term evolution of the virus (Figure~\ref{exploded}).
+The structured coalescent approach we employ (see Methods) identifies camels as a reservoir host where most of MERS-CoV evolution takes place (Figure \ref{mcc}), while human MERS outbreaks are transient and terminal with respect to long-term evolution of the virus (Figure~\ref{mcc}-Figure supplement 1).
 Across 174 MERS-CoV genomes collected from humans, we estimate a median of 56 separate camel-to-human cross-species transmissions (95\% highest posterior density (HPD): 48--63).
 While we estimate a median of 3 (95\% HPD: 0--12) human-to-camel migrations, the 95\% HPD interval includes zero and we find that no such migrations are found in the maximum clade credibility tree (Figure~\ref{mcc}).
-Correspondingly, we observe substantially higher camel-to-human migration rate estimates than human-to-camel migration rate estimates (Figure~\ref{prior}).
+Correspondingly, we observe substantially higher camel-to-human migration rate estimates than human-to-camel migration rate estimates (Figure~\ref{mcc}-Figure supplement 2).
 This inference derives from the tree structure wherein human viruses appear as clusters of highly related sequences nested within the diversity seen in camel viruses, which themselves show significantly higher diversity and less clustering.
 This manifests as different rates of coalescence with camel viruses showing a scaled effective population size $N_e \tau$ of 3.49 years (95\% HPD: 2.71--4.38) and human viruses showing a scaled effective population of 0.24 years (95\% HPD: 0.14--0.34).
 
 \begin{figure}[h]
  \centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_mcc.png}
+	\includegraphics[width=0.75\textwidth]{figures/figure 1.png}
 	\caption{\textbf{Typed maximum clade credibility tree of MERS-CoV genomes from 174 human viruses and 100 camel viruses.}
 	Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered with the structured coalescent.
 	The vast majority of MERS-CoV evolution is inferred to occur in camels (orange) with human outbreaks (blue) representing evolutionary dead-ends for the virus.
@@ -165,25 +165,45 @@ This manifests as different rates of coalescence with camel viruses showing a sc
 	While large clusters of human cases are apparent in the tree, significant contributions to human outbreaks are made by singleton sequences, likely representing recent cross-species transmissions that were caught early.
 	}
 	\label{mcc}
-\end{figure}
 
+  \figsupp{\textbf{Evolutionary history of MERS-CoV partitioned between camels and humans.}
+  This is the same tree as shown in Figure \ref{mcc}, but with contiguous stretches of MERS-CoV evolutionary history split by inferred host: camels (top in orange) and humans (bottom in blue).
+  This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in humans, compared to continuous circulation of the virus in camels.}{\includegraphics[width=0.65\textwidth]{figures/figure 1-supplement 1.png}}
+
+  \figsupp{\textbf{Posterior backwards migration rate estimates for two choices of prior.}
+  Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice (note that rates are backwards in time).
+  Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme looking backwards in time (orange) and \textit{vice versa} (blue).
+  Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).}{\includegraphics[width=0.65\textwidth]{figures/figure 1-supplement 2.png}}
+
+  \figsupp{\textbf{Maximum clade credibility (MCC) tree with ancestral state reconstruction according to a discrete trait model.}
+  MCC tree is presented the same as Figure \ref{mcc} and Figure \ref{mcc}-Figure supplement 4, with colours indicating the most probable state reconstruction at internal nodes.
+  Unlike the structured coalescent summary shown in Figure \ref{mcc} where camels are reconstructed as the main host where MERS-CoV persists, the discrete trait approach identifies both camels and humans as major hosts with humans being the source of MERS-CoV infection in camels.}{\includegraphics[width=0.65\textwidth]{figures/figure 1-supplement 3.png}}
+
+  \figsupp{\textbf{Maximum clade credibility (MCC) tree of structured coalescent model with enforced equal coalescence rates.}
+  MCC tree is presented the same as Figures \ref{mcc} and \ref{mcc}-Figure supplement 3, with colours indicating the most probable state reconstruction at internal nodes.
+  Similar to Figure \ref{mcc}-Figure supplement 3 enforcing equal coalescence rates between demes in a structured coalescent model identifies humans as a major MERS-CoV host and the source of viruses in camels.}{\includegraphics[width=0.65\textwidth]{figures/figure 1-supplement 4.png}}
+
+  \figsupp{\textbf{Maximum likelihood (ML) tree of MERS-CoV genomes coloured by origin of sequence.}
+  Maximum likelihood tree shows genetic divergence between MERS-CoV genomes collected from camels (orange tips) and humans (blue tips).}{\includegraphics[width=0.65\textwidth]{figures/figure 1-supplement 5.png}}
+
+\end{figure}
 
 
 We believe that the small number of inferred human-to-camel migrations are induced by the migration rate prior, while some are derived from phylogenetic proximity of human sequences to the apparent ``backbone'' of the phylogenetic tree.
 This is most apparent in lineages in early-mid 2013 that lead up to sequences comprising the MERS-CoV clade dominant in 2015, where owing to poor sampling of MERS-CoV genetic diversity from camels the model cannot completely dismiss humans as a potential alternative host.
 The first sequences of MERS-CoV from camels do not appear in our data until November 2013.
-Our finding of negligible human-to-camel transmission is robust to choice of prior (Figure~\ref{prior}).
+Our finding of negligible human-to-camel transmission is robust to choice of prior (Figure~\ref{mcc}-Figure supplement 2).
 
-The repeated and asymmetric introductions of short-lived clusters of MERS-CoV sequences from camels into humans leads us to conclude that MERS-CoV epidemiology in humans is dominated by zoonotic transmission (Figure~\ref{mcc} and~\ref{exploded}).
+The repeated and asymmetric introductions of short-lived clusters of MERS-CoV sequences from camels into humans leads us to conclude that MERS-CoV epidemiology in humans is dominated by zoonotic transmission (Figure~\ref{mcc} and~\ref{mcc}-Figure supplement 1).
 We observe dense terminal clusters of MERS-CoV circulating in humans that are of no subsequent relevance to the evolution of the virus.
 These clusters of presumed human-to-human transmission are then embedded within extensive diversity of MERS-CoV lineages inferred to be circulating in camels, a classic pattern of source-sink dynamics.
 Our findings suggest that instances of human infection with MERS-CoV are more common than currently thought, with exceedingly short transmission chains mostly limited to primary cases that might be mild and ultimately not detected by surveillance or sequencing.
 Structured coalescent analyses recover the camel-centered picture of MERS-CoV evolution despite sequence data heavily skewed towards non-uniformly sampled human cases and are robust to choice of prior.
-Comparing these results with a currently standard discrete trait analysis \citep{lemey_bayesian_2009} approach for ancestral state reconstruction shows dramatic differences in host reconstruction at internal nodes (Figure \ref{dta}).
+Comparing these results with a currently standard discrete trait analysis \citep{lemey_bayesian_2009} approach for ancestral state reconstruction shows dramatic differences in host reconstruction at internal nodes (Figure \ref{mcc}-Figure supplement 3).
 Discrete trait analysis reconstruction identifies both camels and humans as important hosts for MERS-CoV persistence, but with humans as the ultimate source of camel infections.
 A similar approach has been attempted previously \citep{zhang_evolutionary_2016}, but this interpretation of MERS-CoV evolution disagrees with lack of continuing human transmission chains outside of Arabian peninsula, low seroprevalence in humans and very high seroprevalence in camels across Saudi Arabia.
 We suspect that this particular discrete trait analysis reconstruction is false due to biased data, \textit{i.e.} having nearly twice as many MERS-CoV sequences from humans ($n=174$) than from camels ($n=100$) and the inability of the model to account for and quantify vastly different rates of coalescence in the phylogenetic vicinity of both types of sequences.
-We can replicate these results by either applying the same model to current data (Figure \ref{dta}) or by enforcing equal coalescence rates within each deme in the structured coalescent model (Figure \ref{equal_sizes}).
+We can replicate these results by either applying the same model to current data (Figure \ref{mcc}-Figure supplement 3) or by enforcing equal coalescence rates within each deme in the structured coalescent model (Figure \ref{mcc}-Figure supplement 4).
 
 
 \subsection*{MERS-CoV shows seasonal introductions}
@@ -196,7 +216,7 @@ Strong influx of susceptibles and subsequent sweeping outbreaks in camels may ex
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_seasonality.png}
+	\includegraphics[width=0.75\textwidth]{figures/figure 2.png}
 	\caption{\textbf{Seasonality of MERS-CoV introduction events.}
 A) Posterior density estimates partitioned by month showing the 95\% highest posterior density interval for relative odds ratios of MERS-CoV introductions into humans.
 Posterior means are indicated with circles.
@@ -225,26 +245,72 @@ The parameter $R_{0}$ determines expected number of secondary cases in a single 
 We estimate $R_{0}$ along with other relevant parameters via Monte Carlo simulation in two steps.
 First, we simulate case counts across multiple outbreaks totaling 2000 cases using Equation \ref{clusterLikelihood} and then we subsample from each case cluster to simulate sequencing of a fraction of cases.
 Sequencing simulations are performed via a multivariate hypergeometric distribution, where the probability of sequencing from a particular cluster depends on available sequencing capacity (number of trials), numbers of cases in the cluster (number of successes) and number of cases outside the cluster (number of failures).
-In addition, each hypergeometric distribution used to simulate sequencing is concentrated via a bias parameter, that enriches for large sequence clusters at the expense of smaller ones (for its effects see Figure \ref{mers_epi_grid}).
+In addition, each hypergeometric distribution used to simulate sequencing is concentrated via a bias parameter, that enriches for large sequence clusters at the expense of smaller ones (for its effects see Figure \ref{mers_epi}-Figure supplement 1).
 This is a particularly pressing issue, since \textit{a priori} we expect large hospital outbreaks of MERS to be overrepresented in sequence data, whereas sequences from primary cases will be sampled exceedingly rarely.
 We record the number, mean, standard deviation and skewness (third standardised moment) of sequence cluster sizes in each simulation (left-hand panel in Figure \ref{mers_epi}) and extract the subset of Monte Carlo simulations in which these summary statistics fall within the 95\% highest posterior density observed in the empirical MERS-CoV data from structured coalescent analyses.
 We record $R_{0}$ values, as well as the number of case clusters (equivalent to number of zoonotic introductions), for these empirically matched simulations.
-A schematic of this Monte Carlo procedure is shown in Figure \ref{mc_method}.
+A schematic of this Monte Carlo procedure is shown in Figure \ref{mers_epi}-Figure supplement 2.
 Since the total number of cases is fixed at 2000, higher $R_0$ results in fewer larger transmission clusters, while lower $R_0$ results in many smaller transmission clusters.
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_epi.png}
+	\includegraphics[width=0.75\textwidth]{figures/figure 3.png}
 	\caption{\textbf{Monte Carlo simulations of human transmission clusters.}
-Leftmost scatter plot shows the distribution of individual Monte Carlo simulation sequence cluster size statistics (mean and skewness) coloured by the $R_{0}$ value used for the simulation.
-The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and skewness observed for empirical MERS-CoV data.
-The distribution of $R_{0}$ values that fall within 95\% HPDs for sequence cluster size mean, standard deviation, skewness and number of introductions, is shown in the middle, on the same $y$-axis.
-Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
-The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown on the right.
-Darker shade of grey indicates bins falling within the 95\% percentiles.
-Monte Carlo simulations indicate $R_{0}$ for MERS-CoV in humans is likely to be below 1.0, with numbers of zoonotic transmissions numbering in the hundreds.
+  Leftmost scatter plot shows the distribution of individual Monte Carlo simulation sequence cluster size statistics (mean and skewness) coloured by the $R_{0}$ value used for the simulation.
+  The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and skewness observed for empirical MERS-CoV data.
+  The distribution of $R_{0}$ values that fall within 95\% HPDs for sequence cluster size mean, standard deviation, skewness and number of introductions, is shown in the middle, on the same $y$-axis.
+  Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
+  The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown on the right.
+  Darker shade of grey indicates bins falling within the 95\% percentiles.
+  Monte Carlo simulations indicate $R_{0}$ for MERS-CoV in humans is likely to be below 1.0, with numbers of zoonotic transmissions numbering in the hundreds.
 	}
 	\label{mers_epi}
+
+  \figsupp{\textbf{Monte Carlo simulations of human transmission clusters.}
+  From top to bottom each row corresponds to departures from completely random sequencing efforts with respect to case cluster size (bias parameter=1.0) to sequencing increasingly biased towards capturing large case clusters (bias=2.0, bias=3.0).
+  Leftmost scatter plots show the distribution of individual Monte Carlo simulation sequence cluster size statistics (mean and skewness) coloured by the $R_{0}$ value used for the simulation.
+  The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and skewness observed for empirical MERS-CoV data.
+  The distribution of $R_{0}$ values matching empirical data are shown in the middle, on the same $y$-axis across all levels of the bias parameter.
+  Under unbiased sequencing (bias=1.0) only 0.45\% of simulations fit our phylogenetic observations, while 1.79\% and 1.67\% of simulations fit for bias levels of 2.0 and 3.0, respectively.
+  Correspondingly, we estimate 11.6\% support for a model with bias level 1.0, 45.7\% support for a model with bias level 2.0, and 42.7\% support for a model with bias level 3.0.
+  Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
+  While the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.71--0.98) for the unbiased sequencing simulation (\textit{i.e.}\ uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably more to likely to generate MERS-CoV-like sequence clusters.
+  The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same $y$-axis across all levels of bias.
+  Darker shade of grey indicates bins falling within the 95\% percentiles.
+  The median number of cross-species introductions observed in simulations matching empirical data without bias are 346 (95\% percentiles 262--439).
+  These numbers jump up to 568 (95\% percentiles 430--727) for bias = 2.0 and 656 (95\% percentiles 488--853) for bias = 3.0 simulations.
+  Model averaging would suggest plausible numbers of introductions between 311 and 811.}{\includegraphics[width=0.75\textwidth]{figures/figure 3-supplement 1.png}}
+
+  \figsupp{\textbf{Monte Carlo simulation schematic.}
+  Case clusters are simulated according to Equation \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
+  We sample 174 cases from each simulation to represent sequencing of human MERS cases.
+  `Sequencing' is carried out by using multivariate hypergeometric sampling, representing sampling cases without replacement to be sequenced.
+  Sequencing simulations take place at three levels of bias: 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
+  The distribution of simulated sequence clusters is summarised by its mean, median and standard deviation.
+  A simulation is considered to match if the mean, median and standard deviation of its sequence cluster sizes falls within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
+  $R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are retained as estimates.
+  These estimates are summarised in Figure \ref{mers_epi}.}{\includegraphics[width=0.75\textwidth]{figures/figure 3-supplement 2.pdf}}
+
+  \figsupp{\textbf{Results of Monte Carlo simulations with vast underestimation of cases.}
+  The plot is identical to Figure \ref{mers_epi}-Figure supplement 1, but instead of 2000 cases,
+  % the currently reported number of MERS-CoV cases,
+  simulations were run with 4000 cases.
+  With more unobserved cases the R$_{0}$ values matching observed MERS-CoV sequence clusters can only be smaller, with a corresponding increase in numbers of zoonotic transmissions.
+  However, the numbers of simulations that match MERS-CoV data go down as well.}{\includegraphics[width=0.65\textwidth]{figures/figure 3-supplement 3.png}}
+
+  \figsupp{\textbf{Boxplots of matching simulated case and sequence cluster distributions.}
+  Boxplots indicate frequency of case (blue, top) and sequence (red, bottom) cluster sizes across simulations at different bias levels, marginalised across $R_{0}$ values.
+  Outliers are shown with transparency, medians are indicated with thick black lines.
+  Case clusters exhibit a strong skew with large numbers of singleton introductions and a substantial tail at higher levels of bias.}{\includegraphics[width=0.65\textwidth]{figures/figure 3-supplement 4.png}}
+
+  \figsupp{\textbf{Quantile-quantile (Q-Q) plot of empirical and simulated sequence cluster sizes.}
+  Density of sequence cluster size percentiles (1st--99th, calculated across a grid of 50 values) calculated for random states from the posterior distribution ($x$-axis) and matching simulations ($y$-axis).
+  Most values fall on the one-to-one line, with a heavier tail in mid-sized sequence clusters in empirical data, manifesting as a greater density of points below the one-to-one line in the middle.}{\includegraphics[width=0.65\textwidth]{figures/figure 3-supplement 5.png}}
+
+  \figsupp{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
+  Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
+  More simulations match observations with bias$>1$ and $\omega \approx 0.1$.}{\includegraphics[width=0.65\textwidth]{figures/figure 3-supplement 6.png}}
+
 \end{figure}
 
 We find that observed phylogenetic patterns of sequence clustering strongly support $R_{0}$ below 1.0 (middle panel in Figure \ref{mers_epi}).
@@ -253,11 +319,11 @@ Lower values for $R_{0}$ in turn suggest relatively large numbers of zoonotic tr
 Median number of cross-species introductions observed in matching simulations is 592 (95\% percentiles 311-811).
 Our results suggest a large number of unobserved MERS primary cases.
 Given this, we also performed simulations where the total number of cases is doubled to 4000 to explore the impact of dramatic underestimation of MERS cases.
-In these analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{extra_cases}).
+In these analyses $R_{0}$ values tend to decrease even further as numbers of introductions go up, although very few simulations match currently observed MERS-CoV sequence data (Figure \ref{mers_epi}-Figure supplement 3).
 
-Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<0.90$ and sequence sampling likely to be biased towards large hospital outbreaks (Figure \ref{mers_epi_grid}).
-All matching simulations exhibit highly skewed distributions of case cluster sizes with long tails (Figure \ref{cluster_distributions}), which is qualitatively similar to the results of \citep{cauchemez_unraveling_2016}.
-We find that simulated sequence cluster sizes resemble observed sequence cluster sizes in the posterior distribution, with a slight reduction in mid-sized clusters in simulated data (Figure \ref{qq}).
+Overall, our analyses indicate that MERS-CoV is poorly suited for human-to-human transmission, with an estimated $R_{0}<0.90$ and sequence sampling likely to be biased towards large hospital outbreaks (Figure \ref{mers_epi}-Figure supplement 1).
+All matching simulations exhibit highly skewed distributions of case cluster sizes with long tails (Figure \ref{mers_epi}-Figure supplement 4), which is qualitatively similar to the results of \citep{cauchemez_unraveling_2016}.
+We find that simulated sequence cluster sizes resemble observed sequence cluster sizes in the posterior distribution, with a slight reduction in mid-sized clusters in simulated data (Figure \ref{mers_epi}-Figure supplement 5).
 Given these findings, and the fact that large outbreaks of MERS occurred in hospitals, the combination of frequent spillover of MERS-CoV into humans and occasional outbreak amplification via poor hygiene practices \citep{assiri_hospital_2013,chen_comparative_2017} appear sufficient to explain observed epidemiological patterns of MERS-CoV.
 
 
@@ -272,7 +338,7 @@ Another hallmark of recombination is clustering of alleles along the genome, due
 
 \begin{figure}%
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/mers_recombinant_features.png}
+    \includegraphics[width=0.95\textwidth]{figures/figure 4.png}
     \caption{\textbf{Recombinant features of MERS-CoV phylogenies.}
     A) Marginal posterior probabilities of taxa collected from humans belonging to the same clade in phylogenies derived from different parts of the genome.
     Taxa are ordered according to phylogeny of fragment 2 (genome positions 21001 to 29364) reduced to just the human tips and is displayed on the left.
@@ -281,13 +347,30 @@ Another hallmark of recombination is clustering of alleles along the genome, due
     Human clusters exhibit limited diversity and corresponding low levels of incongruence within an introduction cluster.
     }
     \label{recombinant_features}
+
+    \figsupp{\textbf{Tests of recombination across MERS-CoV clades.}
+    Maximum clade credibility tree of MERS-CoV genomes annotated with results of two recombination detection tests (PHI and 3Seq) applied to descendent sequences of each clade.
+    Both tests identify large portions of existing sequence data as containing signals of recombination.
+    Note that markings do not indicate where recombinations have occurred on the tree, merely the minimum distance in sequence/time space between recombining lineages.}{\includegraphics[width=0.65\textwidth]{figures/figure 4-supplement 1.png}}
+
+    \figsupp{\textbf{MERS-CoV genomes exhibit high numbers of non-clonal loci.}
+    Ancestral state reconstruction (right) identifies a large number of sites in which mutations have occurred more than once in the tree (homoplasies, orange) or are reversions (red) from a state arising in an ancestor.
+    Mutations that apparently only occur once in the tree (synapomorphies) are shown in grey.
+    The maximum likelihood phylogeny on the left is coloured by whether sequences were sampled in humans (blue) or camels (orange).}{\includegraphics[width=0.75\textwidth]{figures/figure 4-supplement 2.png}}
+
+    \figsupp{\textbf{Human clade sharing between genomic fragments 1 and 2.}
+    Central scatter plot shows the posterior probability of human clades shared between genomic fragments 1 and 2, in their respective trees.
+    Left and bottom scatter plots track the posterior probability of human clades only observed in fragment 2 (left) or fragment 1 (bottom).
+    The cumulative probability of human clades present in either tree are tracked by plots on the right (fragment 2) and top (fragment 1).
+    Most of the probability mass is concentrated within human clades that are present in trees of both genomic fragment 1 and 2 (0.9701 and 0.9474 of all human clades across posteriors, respectively).}{\includegraphics[width=0.65\textwidth]{figures/figure 4-supplement 3.png}}
+
 \end{figure}
 
 Both tests can give spurious results in cases of extreme rate heterogeneity and sampling over time \citep{dudas_mers-cov_2016}, but both tests have not been reported to fail simultaneously.
-PHI and 3Seq methods consistently identify most of the apparent `backbone' of the MERS-CoV phylogeny as encompassing sequences with evidence of recombination (Figure \ref{recombination_tree}).
-Neither method can identify where in the tree recombination occurred, but each full asterisk in Figure \ref{recombination_tree} should be interpreted as the minimum partition of data that still captures both donor and recipient alleles involved in a recombination event.
+PHI and 3Seq methods consistently identify most of the apparent `backbone' of the MERS-CoV phylogeny as encompassing sequences with evidence of recombination (Figure \ref{recombinant_features}-Figure supplement 1).
+Neither method can identify where in the tree recombination occurred, but each full asterisk in Figure \ref{recombinant_features}-Figure supplement 1 should be interpreted as the minimum partition of data that still captures both donor and recipient alleles involved in a recombination event.
 This suggests a non-negligible contribution of recombination in shaping existing MERS-CoV diversity.
-As done previously \citep{dudas_mers-cov_2016}, we show large numbers of homoplasies in MERS-CoV data (Figure \ref{incompatibilities}) with some evidence of genomic clustering of such alleles.
+As done previously \citep{dudas_mers-cov_2016}, we show large numbers of homoplasies in MERS-CoV data (Figure \ref{recombinant_features}-Figure supplement 2) with some evidence of genomic clustering of such alleles.
 % Homoplasies are present in multiple strains at a time, indicating recombination events that have been successful.
 These results are consistent with high incidence of MERS-CoV in camels \citep{muller_2014,corman_antibodies_2014,chu_2014,reusken_2014,ali_systematic_2017}, allowing for co-infection with distinct genotypes and thus recombination to occur.
 
@@ -297,7 +380,7 @@ We find strong similarity in the grouping of human cases into outbreak clusters 
 Between the two trees in figure \ref{recombinant_features}B four (out of 54) `human' clades are expanded where either singleton introductions or two-taxon clades in fragment 2 join other clades in fragment 1.
 For the reverse comparison there are five `human' clades (out of 53) in fragment 2 that are expanded.
 All such clades have low divergence (figure \ref{recombinant_features}B) and thus incongruences in human clades are more likely to be caused by differences in deme assignment rather than actual recombination.
-And while we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombinant_features}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{flower}).
+And while we observe evidence of distinct phylogenetic trees from different parts of the MERS-CoV genome (Figure \ref{recombinant_features}B), human clades are minimally affected and large portions of the posterior probability density in both parts of the genome are concentrated in shared clades (Figure \ref{recombinant_features}-Figure supplement 3).
 Additionally, we observe the same source-sink dynamics between camel and human populations in trees constructed from separate genomic fragments as were observed in the original full genome tree (Figures \ref{mcc}, \ref{recombinant_features}B).
 
 Observed departures from strictly clonal evolution suggest that while recombination is an issue for inferring MERS-CoV phylogenies, its effect on the human side of MERS outbreaks is minimal, as expected if humans represent a transient host with little opportunity for co-infection.
@@ -344,7 +427,7 @@ This removes conflicting demographic signals sampled during human outbreaks, whe
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_skygrid.png}
+	\includegraphics[width=0.65\textwidth]{figures/figure 5.png}
 	\caption{\textbf{Demographic history of MERS-CoV in Arabian peninsula camels.}
 Demographic history of MERS-CoV in camels, as inferred via a skygrid coalescent tree prior \citep{gill_2013}.
 Three skygrid reconstructions are shown, red and orange for each of the stationary distributions reached by MCMC with the whole genome and a black one where the genome was split into ten partitions.
@@ -353,10 +436,14 @@ Midline tracks the inferred median of $N_{e}\tau$.
 %Maximum clade credibility (MCC) tree from the skygrid was inferred is shown in the background, with camel sequences highlighted in orange and human sequences highlighted in blue.
 	}
 	\label{skygrid}
+
+  \figsupp{\textbf{Skygrid comparison between whole and fragmented genomes.}
+  Inferred median $N_{e}\tau$ recovered using a skygrid tree prior on whole genome (bottom) and ten genomic fragments with independent trees (left), coloured by time.
+  Dotted line indicates the one-to-one line.}{\includegraphics[width=0.65\textwidth]{figures/figure 5-supplement 1.png}}
 \end{figure}
 
 Despite lack of convergence, neither of the two demographic reconstructions show evidence of fluctuations in the relative genetic diversity ($N_e \tau$) of  MERS-CoV over time (Figure \ref{skygrid}).
-We recover a similar demographic trajectory when estimating $N_{e}\tau$ over time with a skygrid tree prior across the genome split into ten fragments with independent phylogenetic trees to account for confounding effects of recombination (Figures \ref{skygrid}, \ref{skygrid_comparison}).
+We recover a similar demographic trajectory when estimating $N_{e}\tau$ over time with a skygrid tree prior across the genome split into ten fragments with independent phylogenetic trees to account for confounding effects of recombination (Figures \ref{skygrid}, \ref{skygrid}-Figure supplement 1).
 However, we do note that coalescence rate estimates are high relative to the sampling time period, with a mean estimate of $N_e\tau$ at 3.49 years (95\% HPD: 2.71--4.38), and consequently MERS-CoV phylogeny resembles a ladder, as often seen in human influenza A virus phylogenies \citep{bedford_strength_2011}.
 
 This empirically estimated effectived population can be compared to the expected effective population size in a simple epidemiological model.
@@ -379,14 +466,14 @@ Thus, we believe that the ladder-like appearance of the MERS-CoV tree can likely
 \subsection*{MERS-CoV epidemiology}
 %\lmc{Detecting?}
 In this study we aimed to understand the drivers of MERS coronavirus transmission in humans and what role the camel reservoir plays in perpetuating the epidemic in the Arabian peninsula by using sequence data collected from both hosts (174 from humans and 100 from camels).
-We showed that currently existing models of population structure \citep{vaughan_efficient_2014} can identify distinct demographic modes in MERS-CoV genomic data, where viruses continuously circulating in camels repeatedly jump into humans and cause small outbreaks doomed to extinction (Figures \ref{mcc}, \ref{exploded}).
-This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{prior}) and in the presence of strong biases in sequence sampling schemes (Figure \ref{mers_epi}).
-When rapid coalescence in the human deme is not allowed (Figure \ref{equal_sizes}) structured coalescent inference loses power and ancestral state reconstruction is nearly identical to that of discrete trait analysis (Figure \ref{dta}).
+We showed that currently existing models of population structure \citep{vaughan_efficient_2014} can identify distinct demographic modes in MERS-CoV genomic data, where viruses continuously circulating in camels repeatedly jump into humans and cause small outbreaks doomed to extinction (Figures \ref{mcc}, \ref{mcc}-Figure supplement 1).
+This inference succeeds under different choices of priors for unknown demographic parameters (Figure \ref{mcc}-Figure supplement 2) and in the presence of strong biases in sequence sampling schemes (Figure \ref{mers_epi}).
+When rapid coalescence in the human deme is not allowed (Figure \ref{mcc}-Figure supplement 4) structured coalescent inference loses power and ancestral state reconstruction is nearly identical to that of discrete trait analysis (Figure \ref{mcc}-Figure supplement 3).
 When allowed different deme-specific population sizes, the structured coalescent model succeeds because a large proportion of human sequences fall into tightly connected clusters, which informs a low estimate for the population size of the human deme.
 This in turn informs the inferred state of long ancestral branches in the phylogeny, \textit{i.e.} because these long branches are not immediately coalescing, they are most likely in camels.
 
 From sequence data we identify at least 50 zoonotic introductions of MERS-CoV into humans from the reservoir (Figure \ref{mcc}), from which we extrapolate that hundreds more such introductions must have taken place (Figure \ref{mers_epi}).
-Although we recover migration rates from our model (Figure \ref{prior}), these only pertain to sequences and in no way reflect the epidemiologically relevant \textit{per capita} rates of zoonotic spillover events.
+Although we recover migration rates from our model (Figure \ref{mcc}-Figure supplement 2), these only pertain to sequences and in no way reflect the epidemiologically relevant \textit{per capita} rates of zoonotic spillover events.
 We also looked at potential seasonality in MERS-CoV spillover into humans.
 Our analyses indicated a period of three months where the odds of a sequenced spillover event are increased, with timing consistent with an enzootic amongst camel calves (Figure \ref{seasonality}).
 As a result of our identification of large and asymmetric flow of viral lineages into humans we also find that the basic reproduction number for MERS-CoV in humans is well below the epidemic threshold (Figure \ref{mers_epi}).
@@ -466,13 +553,13 @@ In light of these difficulties, we encourage continued genomic surveillance of M
 \section*{Methods}
 \subsection*{Sequence data}
 
-All MERS-CoV sequences were downloaded from GenBank and accession numbers are given in Table \ref{sequences}.
+All MERS-CoV sequences were downloaded from GenBank and accession numbers are given in Supplementary File 1.% Table \ref{sequences}.
 Sequences without accessions were kindly shared by Ali M.\ Somily, Mazin Barry, Sarah S.\ Al Subaie, Abdulaziz A.\ BinSaeed, Fahad A.\ Alzamil, Waleed Zaher, Theeb Al Qahtani, Khaldoon Al Jerian, Scott J.N.\ McNabb, Imad A.\ Al-Jahdali, Ahmed M.\ Alotaibi, Nahid A.\ Batarfi, Matthew Cotten, Simon J.\ Watson, Spela Binter, and Paul Kellam prior to publication.
 Fragments of some strains submitted to GenBank as separate accessions were assembled into a single sequence.
 Only sequences covering at least 50\% of MERS-CoV genome were kept, to facilitate later analyses where the alignment is split into two parts in order to account for effects of recombination \citep{dudas_mers-cov_2016}.
 Sequences were annotated with available collection dates and hosts, designated as camel or human, aligned with MAFFT \citep{katoh_mafft_2013}, and edited manually.
 Protein coding sequences were extracted and concatenated, reducing alignment length from 30130 down to 29364, which allowed for codon-partitioned substitution models to be used.
-The final dataset consisted of 174 genomes from human infections and 100 genomes from camel infections (Table \ref{sequences}).
+The final dataset consisted of 174 genomes from human infections and 100 genomes from camel infections (Supplementary File 1). %(Table \ref{sequences}).
 
 \subsection*{Phylogenetic analyses}
 
@@ -490,7 +577,7 @@ Due to the complexity of multitype tree parameter space 50\% of states from ever
 Three chains out of ten did not converge and were discarded altogether.
 This left $70\,000$ states on which to base posterior inference.
 Posterior sets of typed (where migrating branches from structured coalescent are collapsed, and migration information is left as a switch in state between parent and descendant nodes) trees were summarised using TreeAnnotator v2.4.3 with the common ancestor heights option \citep{heled_looking_2013}.
-A maximum likelihood phylogeny showing just the genetic relationships between MERS-CoV genomes from camels and humans was recovered using PhyML \citep{guindon_simple_2003} under a HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution model and is shown in Figure \ref{ml}.
+A maximum likelihood phylogeny showing just the genetic relationships between MERS-CoV genomes from camels and humans was recovered using PhyML \citep{guindon_simple_2003} under a HKY+$\Gamma_{4}$ \citep{hky_1985,yang_1994} nucleotide substitution model and is shown in Figure \ref{mcc}-Figure supplement 5.
 
 \subsubsection*{Control, structured coalescent with different prior}
 
@@ -551,7 +638,7 @@ Odds ratios of introductions were computed for each month $i$ as $\text{OR}_i = 
 
 \subsection*{Epidemiological analyses}
 
-Here, we employ a Monte Carlo simulation approach to identify parameters consistent with observed patterns of sequence clustering (Figure \ref{mc_method}).
+Here, we employ a Monte Carlo simulation approach to identify parameters consistent with observed patterns of sequence clustering (Figure \ref{mers_epi}-Figure supplement 2).
 Our structured coalescent analyses indicate that every MERS outbreak is a contained cross-species spillover of the virus from camels into humans.
 The distribution of the number of these cross-species transmissions and their sizes thus contain information about the underlying transmission process.
 At heart, we expect fewer larger clusters if fundamental reproductive number $R_0$ is large and more smaller clusters if $R_0$ is small.
@@ -582,7 +669,7 @@ After simulations were completed, we identified simulations in which the recover
 These values were 48-61 for number of sequence clusters, 2.87--3.65 for mean sequence cluster size, 4.84--6.02 for standard deviation of sequence cluster sizes, and 415.40--621.06 for skewness of sequence cluster sizes.
 
 We performed a smaller set of simulations with 2500 replicates and twice the number of cases, \textit{i.e.} $\sum_{i=1}^{K} C_{i} = 4000$, to explore a dramatically underreported epidemic.
-Additionally, we performed additional smaller set of simulations on a rougher grid of $R_{0}$ values (23 values, 0.50--1.05), with 5 values of dispersion parameter $\omega$ (0.002, 0.04, 0.1, 0.5, 1.0) and 3 levels of bias (1, 2, 3) to justify our choice of dispersion parameter $\omega$ that was fixed to 0.1 in the main analyses (Figure \ref{marginals}).
+Additionally, we performed additional smaller set of simulations on a rougher grid of $R_{0}$ values (23 values, 0.50--1.05), with 5 values of dispersion parameter $\omega$ (0.002, 0.04, 0.1, 0.5, 1.0) and 3 levels of bias (1, 2, 3) to justify our choice of dispersion parameter $\omega$ that was fixed to 0.1 in the main analyses (Figure \ref{mers_epi}-Figure supplement 6).
 
 \begin{algorithm}[H]
  \KwData{Array of case cluster sizes in outbreak $\mathbf{c} = (c_1, c_2, \ldots, c_K)$, sequences available $M$, total outbreak size $N$, where $N = \sum_{i=1}^{K} c_{i}$.}
@@ -650,484 +737,488 @@ $^{6}$Wellcome Trust Sanger Institute, Hinxton, United Kingdom \\
 % \bibliographystyle{mbe}
 \bibliography{mers-structure}
 
-\newpage
+% \newpage
 
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
-
-\begin{longtable}{ | r | l | p{2cm} | l | l | }
-
-  \caption{Strain names, accessions (where available), identified host and reported collection dates for MERS-CoV genomes used in this study.} \label{sequences} \\
+% \setcounter{figure}{0}
+% \setcounter{table}{0}
+% \renewcommand{\thefigure}{S\arabic{figure}}
+% \renewcommand{\thetable}{S\arabic{table}}
 
 
-  \hline & strain & accession & host & collection date \\ \hline
-  \endfirsthead
 
-  \multicolumn{5}{l}%
-  {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+% \begin{longtable}{ | r | l | p{2cm} | l | l | }
+%
+%   \caption{Strain names, accessions (where available), identified host and reported collection dates for MERS-CoV genomes used in this study.} \label{sequences} \\
+%
+%
+%   \hline & strain & accession & host & collection date \\ \hline
+%   \endfirsthead
+%
+%   \multicolumn{5}{l}%
+%   {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+%
+%   \hline & strain & accession & host & collection date \\ \hline
+%   \endhead
+%
+%   \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
+%   \endfoot
+%
+%   \hline \hline
+%   \endlastfoot
+%
+%   1 & KSA-378 & KJ713296 & camel & 2013-11 \\
+%   2 & KSA-363 & KJ713298 & camel & 2013-11 \\
+%   3 & KSA-503 & KJ713297 & camel & 2013-11 \\
+%   4 & KSA-376 & KJ713299 & camel & 2013-11 \\
+%   5 & KSA-505 & KJ713295 & camel & 2013-11 \\
+%   6 & Jeddah-1 & KF917527 & camel & 2013-11-08 \\
+%   7 & NRCE-HKU205 & KJ477102 & camel & 2013-11-15 \\
+%   8 & KFU-HKU1 & KJ650297 & camel & 2013-11-30 \\
+%   9 & KFU-HKU13 & KJ650295 & camel & 2013-12-30 \\
+%   10 & Camel\_Egypt\_NRCE-HKU271 &  & camel & 2013-12-30 \\
+%   11 & Camel\_Egypt\_NRCE-HKU270 &  & camel & 2013-12-30 \\
+%   12 & KFU-HKU19Dam & KJ650296 & camel & 2013-12-30 \\
+%   13 & Qatar\_2\_2014 & KJ650098 & camel & 2014-02-16 \\
+%   14 & UAE/D469-14 & KU242424 & camel & 2014-03-04 \\
+%   15 & UAE/D511-14 & KU242423 & camel & 2014-03-12 \\
+%   16 & Jeddah/F13A/2014 & KT368824 & camel & 2014-05 \\
+%   17 & UAE/D1164.10/2014 & KP719928 & camel & 2014-06 \\
+%   18 & UAE/D1339.2/2014 & KP719931 & camel & 2014-06 \\
+%   19 & UAE/D1164.11/2014 & KP719929 & camel & 2014-06 \\
+%   20 & UAE/D1164.9/2014 & KP719927 & camel & 2014-06 \\
+%   21 & UAE/D1209/2014 & KP719933 & camel & 2014-06 \\
+%   22 & UAE/D1164.14/2014 & KP719930 & camel & 2014-06 \\
+%   23 & UAE/D1243.12/2014 & KP719932 & camel & 2014-06 \\
+%   24 & D1164.1/14 & KX108937 & camel & 2014-06-02 \\
+%   25 & Riyadh/Ry23N/2014 & KT368825 & camel & 2014-07 \\
+%   26 & Riyadh/Ry84N/2014 & KT368826 & camel & 2014-07 \\
+%   27 & Jeddah/S93/2014 & KT368855 & camel & 2014-09 \\
+%   28 & Jeddah/401/2014 & KT368827 & camel & 2014-09 \\
+%   29 & Jeddah/S100/2014 & KT368853 & camel & 2014-09 \\
+%   30 & Jeddah/S99/2014 & KT368857 & camel & 2014-09 \\
+%   31 & Jeddah/S94/2014 & KT368856 & camel & 2014-09 \\
+%   32 & Jeddah/S73/2014 & KT368854 & camel & 2014-09 \\
+%   33 & Jeddah/O47b/2014 & KT368852 & camel & 2014-10 \\
+%   34 & Jeddah/O23b/2014 & KT368849 & camel & 2014-10 \\
+%   35 & Jeddah/O24/2014 & KT368850 & camel & 2014-10 \\
+%   36 & Jeddah/O30/2014 & KT368851 & camel & 2014-10 \\
+%   37 & Jeddah/N51/2014 & KT368846 & camel & 2014-11 \\
+%   38 & Jeddah/N68b/2014 & KT368848 & camel & 2014-11 \\
+%   39 & Jeddah/N62b/2014 & KT368847 & camel & 2014-11 \\
+%   40 & Jeddah/D40/2014 & KT368834 & camel & 2014-12 \\
+%   41 & Jeddah/D90/2014 & KT368844 & camel & 2014-12 \\
+%   42 & Jeddah/D88/2014 & KT368843 & camel & 2014-12 \\
+%   43 & Jeddah/D36/2014 & KT368832 & camel & 2014-12 \\
+%   44 & Jeddah/D35/2014 & KT368831 & camel & 2014-12 \\
+%   45 & Jeddah/D92/2014 & KT368845 & camel & 2014-12 \\
+%   46 & Jeddah/D49/2014 & KT368841 & camel & 2014-12 \\
+%   47 & Jeddah/D34/2014 & KT368830 & camel & 2014-12 \\
+%   48 & Jeddah/D33b/2014 & KT368829 & camel & 2014-12 \\
+%   49 & Jeddah/D42/2014 & KT368835 & camel & 2014-12 \\
+%   50 & Jeddah/D50b/2014 & KT368842 & camel & 2014-12 \\
+%   51 & Jeddah/D45/2014 & KT368837 & camel & 2014-12 \\
+%   52 & Jeddah/D46b/2014 & KT368838 & camel & 2014-12 \\
+%   53 & Jeddah/D43b/2014 & KT368836 & camel & 2014-12 \\
+%   54 & Jeddah/D100/2014 & KT368828 & camel & 2014-12 \\
+%   55 & Jeddah/D47/2014 & KT368839 & camel & 2014-12 \\
+%   56 & Jeddah/D38b/2014 & KT368833 & camel & 2014-12 \\
+%   57 & Jeddah/D48/2014 & KT368840 & camel & 2014-12 \\
+%   58 & D2597.2/14 & KX108938 & camel & 2014-12-13 \\
+%   59 & Egypt\_NRCE-NC163/2014 & KU740200 & camel & 2014-12-17 \\
+%   60 & Jeddah/Jd7/2015 & KT368861 & camel & 2015-01 \\
+%   61 & Jeddah/Jd86/2015 & KT368863 & camel & 2015-01 \\
+%   62 & Jeddah/Jd90/2015 & KT368865 & camel & 2015-01 \\
+%   63 & Jeddah/Jd1b/2015 & KT368858 & camel & 2015-01 \\
+%   64 & Jeddah/Jd4/2015 & KT368859 & camel & 2015-01 \\
+%   65 & Jeddah/Jd85/2015 & KT368862 & camel & 2015-01 \\
+%   66 & Jeddah/Jd6b/2015 & KT368860 & camel & 2015-01 \\
+%   67 & Jeddah/Jd87/2015 & KT368864 & camel & 2015-01 \\
+%   68 & D252/15 & KX108939 & camel & 2015-01-30 \\
+%   69 & Jeddah/Jd199/2015 & KT368867 & camel & 2015-02 \\
+%   70 & Jeddah/Jd175/2015 & KT368866 & camel & 2015-02 \\
+%   71 & D374/15 & KX108940 & camel & 2015-02-12 \\
+%   72 & D383/15 & KX108941 & camel & 2015-02-14 \\
+%   73 & D389/15 & KX108942 & camel & 2015-02-15 \\
+%   74 & Riyadh/Ry63/2015 & KT368876 & camel & 2015-03 \\
+%   75 & Riyadh/Ry136/2015 & KT368868 & camel & 2015-03 \\
+%   76 & Riyadh/Ry178/2015 & KT368874 & camel & 2015-03 \\
+%   77 & Riyadh/Ry162/2015 & KT368871 & camel & 2015-03 \\
+%   78 & Riyadh/Ry86/2015 & KT368879 & camel & 2015-03 \\
+%   79 & Taif/T150/2015 & KT368889 & camel & 2015-03 \\
+%   80 & Riyadh/Ry137/2015 & KT368869 & camel & 2015-03 \\
+%   81 & Riyadh/Ry179/2015 & KT368875 & camel & 2015-03 \\
+%   82 & Riyadh/Ry177/2015 & KT368873 & camel & 2015-03 \\
+%   83 & Riyadh/Ry79/2015 & KT368878 & camel & 2015-03 \\
+%   84 & Riyadh/Ry173/2015 & KT368872 & camel & 2015-03 \\
+%   85 & Taif/T157b/2015 & KT368890 & camel & 2015-03 \\
+%   86 & Riyadh/Ry159b/2015 & KT368870 & camel & 2015-03 \\
+%   87 & Riyadh/Ry64/2015 & KT368877 & camel & 2015-03 \\
+%   88 & Taif/T3/2015 & KT368880 & camel & 2015-04 \\
+%   89 & Taif/T16/2015 & KT368882 & camel & 2015-04 \\
+%   90 & Taif/T22/2015 & KT368883 & camel & 2015-04 \\
+%   91 & Taif/T92/2015 & KT368887 & camel & 2015-04 \\
+%   92 & Taif/T7/2015 & KT368881 & camel & 2015-04 \\
+%   93 & Taif/T91b/2015 & KT368886 & camel & 2015-04 \\
+%   94 & Taif/T68/2015 & KT368884 & camel & 2015-04 \\
+%   95 & Taif/T89/2015 & KT368885 & camel & 2015-04 \\
+%   96 & Taif/T98/2015 & KT368888 & camel & 2015-04 \\
+%   97 & D998/15 & KX108943 & camel & 2015-04-23 \\
+%   98 & D1157/15 & KX108944 & camel & 2015-05-12 \\
+%   99 & D1189.1/15 & KX108946 & camel & 2015-05-18 \\
+%   100 & D1271/15 & KX108945 & camel & 2015-05-29 \\
+%   101 & Jordan-N3/2012 & KC776174 & human & 2012-04-15 \\
+%   102 & EMC/2012 & JX869059 & human & 2012-06-13 \\
+%   103 & England/1/2012 & KC164505 & human & 2012-09-11 \\
+%   104 & Riyadh\_1\_2012 & KF600612 & human & 2012-10-23 \\
+%   105 & Riyadh\_2\_2012 & KF600652 & human & 2012-10-30 \\
+%   106 & Riyadh\_3\_2013 & KF600613 & human & 2013-02-05 \\
+%   107 & England/3/2013 & KM210278 & human & 2013-02-10 \\
+%   108 & England/2/2013 & KM015348 & human & 2013-02-10 \\
+%   109 & England/4/2013 & KM210277 & human & 2013-02-13 \\
+%   110 & Riyadh\_4\_2013 & KJ156952 & human & 2013-03-01 \\
+%   111 & Munich/AbuDhabi/2013 & KF192507 & human & 2013-03-22 \\
+%   112 & Al-Hasa\_2\_2013 & KF186566 & human & 2013-04-21 \\
+%   113 & Al-Hasa\_3\_2013 & KF186565 & human & 2013-04-22 \\
+%   114 & UAE-FRA1\_1627-2013\_BAL & KJ361500 & human & 2013-04-26 \\
+%   115 & Al-Hasa\_4\_2013 & KF186564 & human & 2013-05-01 \\
+%   116 & Al-Hasa\_7\_2013 & KF600623, KF600655 & human & 2013-05-01 \\
+%   117 & Al-Hasa\_8\_2013 & KF600618, KF600626, KF600635, KF600638 & human & 2013-05-01 \\
+%   118 & Al-Hasa\_25\_2013 & KJ156866 & human & 2013-05-02 \\
+%   119 & Al-Hasa\_11\_2013 & KF600629, KF600636, KF600646 & human & 2013-05-03 \\
+%   120 & Al-Hasa\_12\_2013 & KF600627 & human & 2013-05-07 \\
+%   121 & Al-Hasa\_14\_2013 & KF600615, KF600643 & human & 2013-05-08 \\
+%   122 & Al-Hasa\_1\_2013 & KF186567 & human & 2013-05-09 \\
+%   123 & Al-Hasa\_15\_2013 & KF600645 & human & 2013-05-11 \\
+%   124 & Al-Hasa\_16\_2013 & KF600644 & human & 2013-05-12 \\
+%   125 & Buraidah\_1\_2013 & KF600630 & human & 2013-05-13 \\
+%   126 & Al-Hasa\_23\_2013 & KJ156860, KJ156894, KJ156929, KJ156923, KJ156862 & human & 2013-05-13 \\
+%   127 & Al-Hasa\_17\_2013 & KF600647 & human & 2013-05-15 \\
+%   128 & Al-Hasa\_19\_2013 & KF600632 & human & 2013-05-23 \\
+%   129 & Al-Hasa\_18\_2013 & KF600651 & human & 2013-05-23 \\
+%   130 & Al-Hasa\_21\_2013 & KF600634 & human & 2013-05-30 \\
+%   131 & Hafr-Al-Batin\_1\_2013 & KF600628 & human & 2013-06-04 \\
+%   132 & Wadi-Ad-Dawasir\_1\_2013 & KJ156881 & human & 2013-06-12 \\
+%   133 & Taif\_1\_2013 & KJ156949 & human & 2013-06-12 \\
+%   134 & Taif\_2\_2013 & KJ156896, KJ156876 & human & 2013-06-12 \\
+%   135 & Taif\_3\_2013 & KJ156938, KJ156897, KJ156922, KJ156868, KJ156921, KJ156915,
+% KJ156906 & human & 2013-06-13 \\
+%   136 & Al-Hasa\_26\_2013 & KJ156882, KJ156941, KJ156872 & human & 2013-06-18 \\
+%   137 & Al-Hasa\_27\_2013 & KJ156943, KJ156939 & human & 2013-06-19 \\
+%   138 & Al-Hasa\_28\_2013 & KJ156887, KJ156940, KJ156889, KJ156893, KJ156884, KJ156930,
+% KJ156928, KJ156909 & human & 2013-06-22 \\
+%   139 & Riyadh\_6\_2013 & KJ156879, KJ156947, KJ156890, KJ156908, KJ156927 & human & 2013-07-02 \\
+%   140 & Riyadh\_5\_2013 & KJ156944 & human & 2013-07-02 \\
+%   141 & Riyadh\_7\_2013 & KJ156937, KJ156905 & human & 2013-07-15 \\
+%   142 & Riyadh\_8\_2013 & KJ156880, KJ156942 & human & 2013-07-17 \\
+%   143 & Riyadh\_9\_2013 & KJ156869 & human & 2013-07-17 \\
+%   144 & Hafr-Al-Batin\_2\_2013 & KJ156910 & human & 2013-08-05 \\
+%   145 & Asir\_2\_2013 & KJ156863, KJ156899, KJ156912, KJ156900, KJ156898, KJ156945,
+% KJ156932 & human & 2013-08-05 \\
+%   146 & Riyadh\_11\_2013 & KJ156946, KJ156911 & human & 2013-08-06 \\
+%   147 & Riyadh\_12\_2013 & KJ156926, KJ156901 & human & 2013-08-08 \\
+%   148 & Riyadh\_13\_2013 & KJ156888, KJ156873 & human & 2013-08-13 \\
+%   149 & Riyadh\_14\_2013 & KJ156934 & human & 2013-08-15 \\
+%   150 & Hafr-Al-Batin\_4\_2013 & KJ156931, KJ156895, KJ156864, KJ156861 & human & 2013-08-25 \\
+%   151 & Hafr-Al-Batin\_5\_2013 & KJ156951, KJ156924, KJ156954, KJ156913 & human & 2013-08-25 \\
+%   152 & Riyadh\_17\_2013 & KJ156918, KJ156920, KJ156865 & human & 2013-08-26 \\
+%   153 & Hafr-Al-Batin\_6\_2013 & KJ156874 & human & 2013-08-28 \\
+%   154 & Riyadh\_10\_2013 & KJ156891, KJ156936, KJ156907 & human & 2013-09-05 \\
+%   155 & Madinah\_3b\_2013 & KJ156950, KJ156916 & human & 2013-09-11 \\
+%   156 & Qatar3 & KF961221 & human & 2013-10-13 \\
+%   157 & Qatar4 & KF961222 & human & 2013-10-17 \\
+%   158 & Oman\_2285\_2013 & KT156560 & human & 2013-10-28 \\
+%   159 & Jeddah-1 & KF958702 & human & 2013-11-05 \\
+%   160 & AbuDhabi\_UAE\_9\_2013 & KP209312 & human & 2013-11-15 \\
+%   161 & Oman\_2874\_2013 & KT156561 & human & 2013-12-28 \\
+%   162 & AbuDhabi/Gayathi\_UAE\_2\_2014 & KP209310 & human & 2014-03-07 \\
+%   163 & Jeddah\_C7569/KSA & KM027256 & human & 2014-04-03 \\
+%   164 & Jeddah\_C7149/KSA & KM027255 & human & 2014-04-05 \\
+%   165 & Jeddah\_C7770/KSA & KM027257 & human & 2014-04-07 \\
+%   166 & AbuDhabi\_UAE\_8\_2014 & KP209306 & human & 2014-04-07 \\
+%   167 & AbuDhabi\_UAE\_16\_2014 & KP209308 & human & 2014-04-10 \\
+%   168 & AbuDhabi\_UAE\_18\_2014 & KP209307 & human & 2014-04-10 \\
+%   169 & Jeddah\_C8826/KSA & KM027258 & human & 2014-04-12 \\
+%   170 & AbuDhabi\_UAE\_26\_2014 & KP209313 & human & 2014-04-13 \\
+%   171 & Jeddah\_C9055/KSA & KM027259 & human & 2014-04-14 \\
+%   172 & Makkah\_C9355/KSA/Makkah & KM027261 & human & 2014-04-15 \\
+%   173 & AbuDhabi\_UAE\_33\_2014 & KP209311 & human & 2014-04-17 \\
+%   174 & AbuDhabi\_UAE\_30\_2014 & KP209309 & human & 2014-04-19 \\
+%   175 & Jeddah\_C10306/KSA & KM027260 & human & 2014-04-21 \\
+%   176 & Riyadh\_2014KSA\_683/KSA/2014 & KM027262 & human & 2014-04-22 \\
+%   177 & Riyadh-KKUH-90b &  & human & 2014-04-24 \\
+%   178 & Riyadh-KKUH-105 &  & human & 2014-04-25 \\
+%   179 & Riyadh-KKUH-104 &  & human & 2014-04-25 \\
+%   180 & KFMC-1 & KT121580 & human & 2014-04-28 \\
+%   181 & KFMC-8 & KT121579 & human & 2014-04-30 \\
+%   182 & Indiana/USA-1\_SaudiArabia\_2014 & KJ813439 & human & 2014-04-30 \\
+%   183 & KFMC-10 & KT121578 & human & 2014-05-01 \\
+%   184 & KFMC-7 & KT121581 & human & 2014-05-03 \\
+%   185 & Riyadh-KKUH-291 &  & human & 2014-05-06 \\
+%   186 & KFMC-9 & KT121574 & human & 2014-05-07 \\
+%   187 & KFMC-3 & KT121573 & human & 2014-05-09 \\
+%   188 & Florida/USA-2\_SaudiArabia\_2014 & KJ829365 & human & 2014-05-10 \\
+%   189 & KFMC-2 & KT121577 & human & 2014-05-11 \\
+%   190 & KFMC-4 & KT121575 & human & 2014-05-12 \\
+%   191 & KFMC-5 & KT121572 & human & 2014-05-12 \\
+%   192 & Riyadh-KKUH-368 &  & human & 2014-05-13 \\
+%   193 & KFMC-6 & KT121576 & human & 2014-05-18 \\
+%   194 & Riyadh\_2014KSA\_158/KSA/2014 & KM027281 & human & 2014-05-20 \\
+%   195 & Jeddah-KFH-285TA &  & human & 2014-06-03 \\
+%   196 & Jeddah-KFH-605TD &  & human & 2014-06-09 \\
+%   197 & Jeddah-KFH-668TD &  & human & 2014-06-09 \\
+%   198 & Jeddah-KFH-899NF &  & human & 2014-06-16 \\
+%   199 & Jeddah-KFH-949NSG1 &  & human & 2014-06-18 \\
+%   200 & Riyadh-KKUH-643 &  & human & 2014-11-02 \\
+%   201 & Taif/KSA-7032/2014 & KU710264 & human & 2014-11-04 \\
+%   202 & Riyadh-KKUH-665 &  & human & 2014-11-19 \\
+%   203 & Riyadh-KSA-2049/2015 & KR011266 & human & 2015-01-06 \\
+%   204 & Riyadh-KSA-2343/2015 & KR011264 & human & 2015-01-21 \\
+%   205 & Riyadh-KSA-2345/2015 & KR011263 & human & 2015-01-21 \\
+%   206 & Riyadh-KSA-2466/2015 & KR011265 & human & 2015-01-26 \\
+%   207 & Kharj-KSA-2599/2015 & KT806052 & human & 2015-02-02 \\
+%   208 & Kharj-KSA-2598/2015 & KT806053 & human & 2015-02-02 \\
+%   209 & Riyadh-KSA-2716/2015 & KT806051 & human & 2015-02-05 \\
+%   210 & Khobar-KSA-6736/2015 & KT806048 & human & 2015-02-07 \\
+%   211 & Jeddah-KSA-C20843/2015 & KT806044 & human & 2015-02-09 \\
+%   212 & Jeddah-KSA-C20860/2015 & KT806055 & human & 2015-02-10 \\
+%   213 & Riyadh\_KSA\_2959\_2015 & KT026453 & human & 2015-02-10 \\
+%   214 & Riyadh-KSA-3065/2015 & KT806050 & human & 2015-02-12 \\
+%   215 & Najran-KSA-C20915/2015 & KT806054 & human & 2015-02-13 \\
+%   216 & Riyadh-KSA-3181/2015 & KT806049 & human & 2015-02-15 \\
+%   217 & Riyadh\_KKUH\_0734 &  & human & 2015-02-18 \\
+%   218 & Jeddah-KSA-C21271/2015 & KT806045 & human & 2015-02-22 \\
+%   219 & Riyadh\_KKUH\_0755 &  & human & 2015-02-23 \\
+%   220 & Riyadh\_KKUH\_0756 &  & human & 2015-02-23 \\
+%   221 & Riyadh\_KKUH\_0780 &  & human & 2015-02-25 \\
+%   222 & Riyadh\_KKUH\_0801 &  & human & 2015-02-27 \\
+%   223 & Riyadh\_KKUH\_0826 &  & human & 2015-02-28 \\
+%   224 & Riyadh\_KKUH\_0818 &  & human & 2015-02-28 \\
+%   225 & Riyadh\_KSA\_4050\_2015 & KT026454 & human & 2015-03-01 \\
+%   226 & Riyadh\_KKUH\_0944 &  & human & 2015-03-02 \\
+%   227 & Riyadh\_KKUH\_0939 &  & human & 2015-03-02 \\
+%   228 & Riyadh\_KKUH\_1080 &  & human & 2015-03-03 \\
+%   229 & Riyadh\_KKUH\_1066 &  & human & 2015-03-03 \\
+%   230 & Riyadh\_KKUH\_1145 &  & human & 2015-03-04 \\
+%   231 & Riyadh\_KKUH\_1217 &  & human & 2015-03-04 \\
+%   232 & Riyadh\_KKUH\_1461 &  & human & 2015-03-08 \\
+%   233 & Riyadh\_KKUH\_1470 &  & human & 2015-03-08 \\
+%   234 & Riyadh\_KKUH\_1522 &  & human & 2015-03-09 \\
+%   235 & Germany3/UAE-Dubai/Abu-Dhabi &  & human & 2015-03-11 \\
+%   236 & Hufuf-KSA-9158/2015 & KT806047 & human & 2015-03-27 \\
+%   237 & Hufuf-KSA-11002/2015 & KT806046 & human & 2015-05-10 \\
+%   238 & KOR/KNIH/002\_05\_2015 & KT029139 & human & 2015-05-20 \\
+%   239 & ChinaGD01 & KT036372 & human & 2015-05-28 \\
+%   240 & KOR/Seoul/014-2015 & KX034093 & human & 2015-05-30 \\
+%   241 & KOREA/Seoul/014-1-2015 & KT374052 & human & 2015-05-31 \\
+%   242 & KOREA/Seoul/035-1-2015 & KT374054 & human & 2015-06-03 \\
+%   243 & KOR/Seoul/066-2015 & KX034095 & human & 2015-06-04 \\
+%   244 & Korea/Seoul/SNU1-035/2015 & KU308549 & human & 2015-06-08 \\
+%   245 & KOR/CNUH\_SNU/030\_06\_2015 & KT868868 & human & 2015-06-08 \\
+%   246 & KOR/CNUH\_SNU/024\_06\_2015 & KT868867 & human & 2015-06-08 \\
+%   247 & KOR/CNUH\_SNU/054\_06\_2015 & KT868871 & human & 2015-06-09 \\
+%   248 & KOR/CNUH\_SNU/038\_06\_2015 & KT868870 & human & 2015-06-10 \\
+%   249 & KOR/CNUH\_SNU/148\_06\_2015 & KT868876 & human & 2015-06-10 \\
+%   250 & KOR/CNUH\_SNU/122\_06\_2015 & KT868875 & human & 2015-06-10 \\
+%   251 & KOR/CNUH\_SNU/082\_06\_2015 & KT868872 & human & 2015-06-10 \\
+%   252 & KOR/CNUH\_SNU/085\_06\_2015 & KT868873 & human & 2015-06-10 \\
+%   253 & KOR/CNUH\_SNU/016\_06\_2015 & KT868865 & human & 2015-06-11 \\
+%   254 & KOR/CNUH\_SNU/023\_06\_2015 & KT868866 & human & 2015-06-11 \\
+%   255 & KOR/CNUH\_SNU/031\_06\_2015 & KT868869 & human & 2015-06-11 \\
+%   256 & KOR/CNUH\_SNU/110\_06\_2015 & KT868874 & human & 2015-06-11 \\
+%   257 & KOR/Seoul/050-1-2015 & KX034094 & human & 2015-06-11 \\
+%   258 & THA/CU/17\_06\_2015 & KT225476 & human & 2015-06-17 \\
+%   259 & KOR/Seoul/077-2-2015 & KX034096 & human & 2015-06-17 \\
+%   260 & KOR/Seoul/080-3-2015 & KX034097 & human & 2015-06-17 \\
+%   261 & KOREA/Seoul/163-1-2015 & KT374051 & human & 2015-06-19 \\
+%   262 & KOREA/Seoul/168-1-2015 & KT374056 & human & 2015-06-21 \\
+%   263 & KOR/Seoul/162-1-2015 & KX034098 & human & 2015-06-22 \\
+%   264 & KOR/CNUH\_SNU/172\_06\_2015 & KT868877 & human & 2015-06-22 \\
+%   265 & KOR/Seoul/169-2015 & KX034099 & human & 2015-06-26 \\
+%   266 & KOR/Seoul/177-3-2015 & KX034100 & human & 2015-07-03 \\
+%   267 & Jeddah-KSA-3RS2702/2015 & KU851859 & human & 2015-07-12 \\
+%   268 & Riyadh-KSA-16120/2015 & KU851861 & human & 2015-08-24 \\
+%   269 & Riyadh-KSA-16117/2015 & KU851862 & human & 2015-08-24 \\
+%   270 & Riyadh-KSA-16121/2015 & KU851860 & human & 2015-08-24 \\
+%   271 & Riyadh-KSA-16098/2015 & KU851864 & human & 2015-08-24 \\
+%   272 & Riyadh-KSA-16077/2015 & KU851863 & human & 2015-08-27 \\
+%   273 & Jordan\_1\_2015 & KU233363 & human & 2015-09-17 \\
+%   274 & Jordan\_10\_2015 & KU233362 & human & 2015-09-17 \\
+% \end{longtable}
 
-  \hline & strain & accession & host & collection date \\ \hline
-  \endhead
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_exploded.png}
+% 	\caption{\textbf{Evolutionary history of MERS-CoV partitioned between camels and humans.}
+% This is the same tree as shown in Figure \ref{mcc}, but with contiguous stretches of MERS-CoV evolutionary history split by inferred host: camels (top in orange) and humans (bottom in blue).
+% This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in humans, compared to continuous circulation of the virus in camels.
+% 	}
+% 	\label{exploded}
+% \end{figure}
 
-  \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
-  \endfoot
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
+% 	\caption{\textbf{Posterior backwards migration rate estimates for two choices of prior.}
+% Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice (note that rates are backwards in time).
+% Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme looking backwards in time (orange) and \textit{vice versa} (blue).
+% Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).
+% 	}
+% 	\label{prior}
+% \end{figure}
 
-  \hline \hline
-  \endlastfoot
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_dta_mcc.png}
+% 	\caption{\textbf{Maximum clade credibility (MCC) tree with ancestral state reconstruction according to a discrete trait model.}
+% MCC tree is presented the same as Figure \ref{mcc} and Figure \ref{mcc}-Figure supplement 4, with colours indicating the most probable state reconstruction at internal nodes.
+% Unlike the structured coalescent summary shown in Figure \ref{mcc} where camels are reconstructed as the main host where MERS-CoV persists, the discrete trait approach identifies both camels and humans as major hosts with humans being the source of MERS-CoV infection in camels.
+% 	}
+% 	\label{dta}
+% \end{figure}
 
-  1 & KSA-378 & KJ713296 & camel & 2013-11 \\
-  2 & KSA-363 & KJ713298 & camel & 2013-11 \\
-  3 & KSA-503 & KJ713297 & camel & 2013-11 \\
-  4 & KSA-376 & KJ713299 & camel & 2013-11 \\
-  5 & KSA-505 & KJ713295 & camel & 2013-11 \\
-  6 & Jeddah-1 & KF917527 & camel & 2013-11-08 \\
-  7 & NRCE-HKU205 & KJ477102 & camel & 2013-11-15 \\
-  8 & KFU-HKU1 & KJ650297 & camel & 2013-11-30 \\
-  9 & KFU-HKU13 & KJ650295 & camel & 2013-12-30 \\
-  10 & Camel\_Egypt\_NRCE-HKU271 &  & camel & 2013-12-30 \\
-  11 & Camel\_Egypt\_NRCE-HKU270 &  & camel & 2013-12-30 \\
-  12 & KFU-HKU19Dam & KJ650296 & camel & 2013-12-30 \\
-  13 & Qatar\_2\_2014 & KJ650098 & camel & 2014-02-16 \\
-  14 & UAE/D469-14 & KU242424 & camel & 2014-03-04 \\
-  15 & UAE/D511-14 & KU242423 & camel & 2014-03-12 \\
-  16 & Jeddah/F13A/2014 & KT368824 & camel & 2014-05 \\
-  17 & UAE/D1164.10/2014 & KP719928 & camel & 2014-06 \\
-  18 & UAE/D1339.2/2014 & KP719931 & camel & 2014-06 \\
-  19 & UAE/D1164.11/2014 & KP719929 & camel & 2014-06 \\
-  20 & UAE/D1164.9/2014 & KP719927 & camel & 2014-06 \\
-  21 & UAE/D1209/2014 & KP719933 & camel & 2014-06 \\
-  22 & UAE/D1164.14/2014 & KP719930 & camel & 2014-06 \\
-  23 & UAE/D1243.12/2014 & KP719932 & camel & 2014-06 \\
-  24 & D1164.1/14 & KX108937 & camel & 2014-06-02 \\
-  25 & Riyadh/Ry23N/2014 & KT368825 & camel & 2014-07 \\
-  26 & Riyadh/Ry84N/2014 & KT368826 & camel & 2014-07 \\
-  27 & Jeddah/S93/2014 & KT368855 & camel & 2014-09 \\
-  28 & Jeddah/401/2014 & KT368827 & camel & 2014-09 \\
-  29 & Jeddah/S100/2014 & KT368853 & camel & 2014-09 \\
-  30 & Jeddah/S99/2014 & KT368857 & camel & 2014-09 \\
-  31 & Jeddah/S94/2014 & KT368856 & camel & 2014-09 \\
-  32 & Jeddah/S73/2014 & KT368854 & camel & 2014-09 \\
-  33 & Jeddah/O47b/2014 & KT368852 & camel & 2014-10 \\
-  34 & Jeddah/O23b/2014 & KT368849 & camel & 2014-10 \\
-  35 & Jeddah/O24/2014 & KT368850 & camel & 2014-10 \\
-  36 & Jeddah/O30/2014 & KT368851 & camel & 2014-10 \\
-  37 & Jeddah/N51/2014 & KT368846 & camel & 2014-11 \\
-  38 & Jeddah/N68b/2014 & KT368848 & camel & 2014-11 \\
-  39 & Jeddah/N62b/2014 & KT368847 & camel & 2014-11 \\
-  40 & Jeddah/D40/2014 & KT368834 & camel & 2014-12 \\
-  41 & Jeddah/D90/2014 & KT368844 & camel & 2014-12 \\
-  42 & Jeddah/D88/2014 & KT368843 & camel & 2014-12 \\
-  43 & Jeddah/D36/2014 & KT368832 & camel & 2014-12 \\
-  44 & Jeddah/D35/2014 & KT368831 & camel & 2014-12 \\
-  45 & Jeddah/D92/2014 & KT368845 & camel & 2014-12 \\
-  46 & Jeddah/D49/2014 & KT368841 & camel & 2014-12 \\
-  47 & Jeddah/D34/2014 & KT368830 & camel & 2014-12 \\
-  48 & Jeddah/D33b/2014 & KT368829 & camel & 2014-12 \\
-  49 & Jeddah/D42/2014 & KT368835 & camel & 2014-12 \\
-  50 & Jeddah/D50b/2014 & KT368842 & camel & 2014-12 \\
-  51 & Jeddah/D45/2014 & KT368837 & camel & 2014-12 \\
-  52 & Jeddah/D46b/2014 & KT368838 & camel & 2014-12 \\
-  53 & Jeddah/D43b/2014 & KT368836 & camel & 2014-12 \\
-  54 & Jeddah/D100/2014 & KT368828 & camel & 2014-12 \\
-  55 & Jeddah/D47/2014 & KT368839 & camel & 2014-12 \\
-  56 & Jeddah/D38b/2014 & KT368833 & camel & 2014-12 \\
-  57 & Jeddah/D48/2014 & KT368840 & camel & 2014-12 \\
-  58 & D2597.2/14 & KX108938 & camel & 2014-12-13 \\
-  59 & Egypt\_NRCE-NC163/2014 & KU740200 & camel & 2014-12-17 \\
-  60 & Jeddah/Jd7/2015 & KT368861 & camel & 2015-01 \\
-  61 & Jeddah/Jd86/2015 & KT368863 & camel & 2015-01 \\
-  62 & Jeddah/Jd90/2015 & KT368865 & camel & 2015-01 \\
-  63 & Jeddah/Jd1b/2015 & KT368858 & camel & 2015-01 \\
-  64 & Jeddah/Jd4/2015 & KT368859 & camel & 2015-01 \\
-  65 & Jeddah/Jd85/2015 & KT368862 & camel & 2015-01 \\
-  66 & Jeddah/Jd6b/2015 & KT368860 & camel & 2015-01 \\
-  67 & Jeddah/Jd87/2015 & KT368864 & camel & 2015-01 \\
-  68 & D252/15 & KX108939 & camel & 2015-01-30 \\
-  69 & Jeddah/Jd199/2015 & KT368867 & camel & 2015-02 \\
-  70 & Jeddah/Jd175/2015 & KT368866 & camel & 2015-02 \\
-  71 & D374/15 & KX108940 & camel & 2015-02-12 \\
-  72 & D383/15 & KX108941 & camel & 2015-02-14 \\
-  73 & D389/15 & KX108942 & camel & 2015-02-15 \\
-  74 & Riyadh/Ry63/2015 & KT368876 & camel & 2015-03 \\
-  75 & Riyadh/Ry136/2015 & KT368868 & camel & 2015-03 \\
-  76 & Riyadh/Ry178/2015 & KT368874 & camel & 2015-03 \\
-  77 & Riyadh/Ry162/2015 & KT368871 & camel & 2015-03 \\
-  78 & Riyadh/Ry86/2015 & KT368879 & camel & 2015-03 \\
-  79 & Taif/T150/2015 & KT368889 & camel & 2015-03 \\
-  80 & Riyadh/Ry137/2015 & KT368869 & camel & 2015-03 \\
-  81 & Riyadh/Ry179/2015 & KT368875 & camel & 2015-03 \\
-  82 & Riyadh/Ry177/2015 & KT368873 & camel & 2015-03 \\
-  83 & Riyadh/Ry79/2015 & KT368878 & camel & 2015-03 \\
-  84 & Riyadh/Ry173/2015 & KT368872 & camel & 2015-03 \\
-  85 & Taif/T157b/2015 & KT368890 & camel & 2015-03 \\
-  86 & Riyadh/Ry159b/2015 & KT368870 & camel & 2015-03 \\
-  87 & Riyadh/Ry64/2015 & KT368877 & camel & 2015-03 \\
-  88 & Taif/T3/2015 & KT368880 & camel & 2015-04 \\
-  89 & Taif/T16/2015 & KT368882 & camel & 2015-04 \\
-  90 & Taif/T22/2015 & KT368883 & camel & 2015-04 \\
-  91 & Taif/T92/2015 & KT368887 & camel & 2015-04 \\
-  92 & Taif/T7/2015 & KT368881 & camel & 2015-04 \\
-  93 & Taif/T91b/2015 & KT368886 & camel & 2015-04 \\
-  94 & Taif/T68/2015 & KT368884 & camel & 2015-04 \\
-  95 & Taif/T89/2015 & KT368885 & camel & 2015-04 \\
-  96 & Taif/T98/2015 & KT368888 & camel & 2015-04 \\
-  97 & D998/15 & KX108943 & camel & 2015-04-23 \\
-  98 & D1157/15 & KX108944 & camel & 2015-05-12 \\
-  99 & D1189.1/15 & KX108946 & camel & 2015-05-18 \\
-  100 & D1271/15 & KX108945 & camel & 2015-05-29 \\
-  101 & Jordan-N3/2012 & KC776174 & human & 2012-04-15 \\
-  102 & EMC/2012 & JX869059 & human & 2012-06-13 \\
-  103 & England/1/2012 & KC164505 & human & 2012-09-11 \\
-  104 & Riyadh\_1\_2012 & KF600612 & human & 2012-10-23 \\
-  105 & Riyadh\_2\_2012 & KF600652 & human & 2012-10-30 \\
-  106 & Riyadh\_3\_2013 & KF600613 & human & 2013-02-05 \\
-  107 & England/3/2013 & KM210278 & human & 2013-02-10 \\
-  108 & England/2/2013 & KM015348 & human & 2013-02-10 \\
-  109 & England/4/2013 & KM210277 & human & 2013-02-13 \\
-  110 & Riyadh\_4\_2013 & KJ156952 & human & 2013-03-01 \\
-  111 & Munich/AbuDhabi/2013 & KF192507 & human & 2013-03-22 \\
-  112 & Al-Hasa\_2\_2013 & KF186566 & human & 2013-04-21 \\
-  113 & Al-Hasa\_3\_2013 & KF186565 & human & 2013-04-22 \\
-  114 & UAE-FRA1\_1627-2013\_BAL & KJ361500 & human & 2013-04-26 \\
-  115 & Al-Hasa\_4\_2013 & KF186564 & human & 2013-05-01 \\
-  116 & Al-Hasa\_7\_2013 & KF600623, KF600655 & human & 2013-05-01 \\
-  117 & Al-Hasa\_8\_2013 & KF600618, KF600626, KF600635, KF600638 & human & 2013-05-01 \\
-  118 & Al-Hasa\_25\_2013 & KJ156866 & human & 2013-05-02 \\
-  119 & Al-Hasa\_11\_2013 & KF600629, KF600636, KF600646 & human & 2013-05-03 \\
-  120 & Al-Hasa\_12\_2013 & KF600627 & human & 2013-05-07 \\
-  121 & Al-Hasa\_14\_2013 & KF600615, KF600643 & human & 2013-05-08 \\
-  122 & Al-Hasa\_1\_2013 & KF186567 & human & 2013-05-09 \\
-  123 & Al-Hasa\_15\_2013 & KF600645 & human & 2013-05-11 \\
-  124 & Al-Hasa\_16\_2013 & KF600644 & human & 2013-05-12 \\
-  125 & Buraidah\_1\_2013 & KF600630 & human & 2013-05-13 \\
-  126 & Al-Hasa\_23\_2013 & KJ156860, KJ156894, KJ156929, KJ156923, KJ156862 & human & 2013-05-13 \\
-  127 & Al-Hasa\_17\_2013 & KF600647 & human & 2013-05-15 \\
-  128 & Al-Hasa\_19\_2013 & KF600632 & human & 2013-05-23 \\
-  129 & Al-Hasa\_18\_2013 & KF600651 & human & 2013-05-23 \\
-  130 & Al-Hasa\_21\_2013 & KF600634 & human & 2013-05-30 \\
-  131 & Hafr-Al-Batin\_1\_2013 & KF600628 & human & 2013-06-04 \\
-  132 & Wadi-Ad-Dawasir\_1\_2013 & KJ156881 & human & 2013-06-12 \\
-  133 & Taif\_1\_2013 & KJ156949 & human & 2013-06-12 \\
-  134 & Taif\_2\_2013 & KJ156896, KJ156876 & human & 2013-06-12 \\
-  135 & Taif\_3\_2013 & KJ156938, KJ156897, KJ156922, KJ156868, KJ156921, KJ156915,
-KJ156906 & human & 2013-06-13 \\
-  136 & Al-Hasa\_26\_2013 & KJ156882, KJ156941, KJ156872 & human & 2013-06-18 \\
-  137 & Al-Hasa\_27\_2013 & KJ156943, KJ156939 & human & 2013-06-19 \\
-  138 & Al-Hasa\_28\_2013 & KJ156887, KJ156940, KJ156889, KJ156893, KJ156884, KJ156930,
-KJ156928, KJ156909 & human & 2013-06-22 \\
-  139 & Riyadh\_6\_2013 & KJ156879, KJ156947, KJ156890, KJ156908, KJ156927 & human & 2013-07-02 \\
-  140 & Riyadh\_5\_2013 & KJ156944 & human & 2013-07-02 \\
-  141 & Riyadh\_7\_2013 & KJ156937, KJ156905 & human & 2013-07-15 \\
-  142 & Riyadh\_8\_2013 & KJ156880, KJ156942 & human & 2013-07-17 \\
-  143 & Riyadh\_9\_2013 & KJ156869 & human & 2013-07-17 \\
-  144 & Hafr-Al-Batin\_2\_2013 & KJ156910 & human & 2013-08-05 \\
-  145 & Asir\_2\_2013 & KJ156863, KJ156899, KJ156912, KJ156900, KJ156898, KJ156945,
-KJ156932 & human & 2013-08-05 \\
-  146 & Riyadh\_11\_2013 & KJ156946, KJ156911 & human & 2013-08-06 \\
-  147 & Riyadh\_12\_2013 & KJ156926, KJ156901 & human & 2013-08-08 \\
-  148 & Riyadh\_13\_2013 & KJ156888, KJ156873 & human & 2013-08-13 \\
-  149 & Riyadh\_14\_2013 & KJ156934 & human & 2013-08-15 \\
-  150 & Hafr-Al-Batin\_4\_2013 & KJ156931, KJ156895, KJ156864, KJ156861 & human & 2013-08-25 \\
-  151 & Hafr-Al-Batin\_5\_2013 & KJ156951, KJ156924, KJ156954, KJ156913 & human & 2013-08-25 \\
-  152 & Riyadh\_17\_2013 & KJ156918, KJ156920, KJ156865 & human & 2013-08-26 \\
-  153 & Hafr-Al-Batin\_6\_2013 & KJ156874 & human & 2013-08-28 \\
-  154 & Riyadh\_10\_2013 & KJ156891, KJ156936, KJ156907 & human & 2013-09-05 \\
-  155 & Madinah\_3b\_2013 & KJ156950, KJ156916 & human & 2013-09-11 \\
-  156 & Qatar3 & KF961221 & human & 2013-10-13 \\
-  157 & Qatar4 & KF961222 & human & 2013-10-17 \\
-  158 & Oman\_2285\_2013 & KT156560 & human & 2013-10-28 \\
-  159 & Jeddah-1 & KF958702 & human & 2013-11-05 \\
-  160 & AbuDhabi\_UAE\_9\_2013 & KP209312 & human & 2013-11-15 \\
-  161 & Oman\_2874\_2013 & KT156561 & human & 2013-12-28 \\
-  162 & AbuDhabi/Gayathi\_UAE\_2\_2014 & KP209310 & human & 2014-03-07 \\
-  163 & Jeddah\_C7569/KSA & KM027256 & human & 2014-04-03 \\
-  164 & Jeddah\_C7149/KSA & KM027255 & human & 2014-04-05 \\
-  165 & Jeddah\_C7770/KSA & KM027257 & human & 2014-04-07 \\
-  166 & AbuDhabi\_UAE\_8\_2014 & KP209306 & human & 2014-04-07 \\
-  167 & AbuDhabi\_UAE\_16\_2014 & KP209308 & human & 2014-04-10 \\
-  168 & AbuDhabi\_UAE\_18\_2014 & KP209307 & human & 2014-04-10 \\
-  169 & Jeddah\_C8826/KSA & KM027258 & human & 2014-04-12 \\
-  170 & AbuDhabi\_UAE\_26\_2014 & KP209313 & human & 2014-04-13 \\
-  171 & Jeddah\_C9055/KSA & KM027259 & human & 2014-04-14 \\
-  172 & Makkah\_C9355/KSA/Makkah & KM027261 & human & 2014-04-15 \\
-  173 & AbuDhabi\_UAE\_33\_2014 & KP209311 & human & 2014-04-17 \\
-  174 & AbuDhabi\_UAE\_30\_2014 & KP209309 & human & 2014-04-19 \\
-  175 & Jeddah\_C10306/KSA & KM027260 & human & 2014-04-21 \\
-  176 & Riyadh\_2014KSA\_683/KSA/2014 & KM027262 & human & 2014-04-22 \\
-  177 & Riyadh-KKUH-90b &  & human & 2014-04-24 \\
-  178 & Riyadh-KKUH-105 &  & human & 2014-04-25 \\
-  179 & Riyadh-KKUH-104 &  & human & 2014-04-25 \\
-  180 & KFMC-1 & KT121580 & human & 2014-04-28 \\
-  181 & KFMC-8 & KT121579 & human & 2014-04-30 \\
-  182 & Indiana/USA-1\_SaudiArabia\_2014 & KJ813439 & human & 2014-04-30 \\
-  183 & KFMC-10 & KT121578 & human & 2014-05-01 \\
-  184 & KFMC-7 & KT121581 & human & 2014-05-03 \\
-  185 & Riyadh-KKUH-291 &  & human & 2014-05-06 \\
-  186 & KFMC-9 & KT121574 & human & 2014-05-07 \\
-  187 & KFMC-3 & KT121573 & human & 2014-05-09 \\
-  188 & Florida/USA-2\_SaudiArabia\_2014 & KJ829365 & human & 2014-05-10 \\
-  189 & KFMC-2 & KT121577 & human & 2014-05-11 \\
-  190 & KFMC-4 & KT121575 & human & 2014-05-12 \\
-  191 & KFMC-5 & KT121572 & human & 2014-05-12 \\
-  192 & Riyadh-KKUH-368 &  & human & 2014-05-13 \\
-  193 & KFMC-6 & KT121576 & human & 2014-05-18 \\
-  194 & Riyadh\_2014KSA\_158/KSA/2014 & KM027281 & human & 2014-05-20 \\
-  195 & Jeddah-KFH-285TA &  & human & 2014-06-03 \\
-  196 & Jeddah-KFH-605TD &  & human & 2014-06-09 \\
-  197 & Jeddah-KFH-668TD &  & human & 2014-06-09 \\
-  198 & Jeddah-KFH-899NF &  & human & 2014-06-16 \\
-  199 & Jeddah-KFH-949NSG1 &  & human & 2014-06-18 \\
-  200 & Riyadh-KKUH-643 &  & human & 2014-11-02 \\
-  201 & Taif/KSA-7032/2014 & KU710264 & human & 2014-11-04 \\
-  202 & Riyadh-KKUH-665 &  & human & 2014-11-19 \\
-  203 & Riyadh-KSA-2049/2015 & KR011266 & human & 2015-01-06 \\
-  204 & Riyadh-KSA-2343/2015 & KR011264 & human & 2015-01-21 \\
-  205 & Riyadh-KSA-2345/2015 & KR011263 & human & 2015-01-21 \\
-  206 & Riyadh-KSA-2466/2015 & KR011265 & human & 2015-01-26 \\
-  207 & Kharj-KSA-2599/2015 & KT806052 & human & 2015-02-02 \\
-  208 & Kharj-KSA-2598/2015 & KT806053 & human & 2015-02-02 \\
-  209 & Riyadh-KSA-2716/2015 & KT806051 & human & 2015-02-05 \\
-  210 & Khobar-KSA-6736/2015 & KT806048 & human & 2015-02-07 \\
-  211 & Jeddah-KSA-C20843/2015 & KT806044 & human & 2015-02-09 \\
-  212 & Jeddah-KSA-C20860/2015 & KT806055 & human & 2015-02-10 \\
-  213 & Riyadh\_KSA\_2959\_2015 & KT026453 & human & 2015-02-10 \\
-  214 & Riyadh-KSA-3065/2015 & KT806050 & human & 2015-02-12 \\
-  215 & Najran-KSA-C20915/2015 & KT806054 & human & 2015-02-13 \\
-  216 & Riyadh-KSA-3181/2015 & KT806049 & human & 2015-02-15 \\
-  217 & Riyadh\_KKUH\_0734 &  & human & 2015-02-18 \\
-  218 & Jeddah-KSA-C21271/2015 & KT806045 & human & 2015-02-22 \\
-  219 & Riyadh\_KKUH\_0755 &  & human & 2015-02-23 \\
-  220 & Riyadh\_KKUH\_0756 &  & human & 2015-02-23 \\
-  221 & Riyadh\_KKUH\_0780 &  & human & 2015-02-25 \\
-  222 & Riyadh\_KKUH\_0801 &  & human & 2015-02-27 \\
-  223 & Riyadh\_KKUH\_0826 &  & human & 2015-02-28 \\
-  224 & Riyadh\_KKUH\_0818 &  & human & 2015-02-28 \\
-  225 & Riyadh\_KSA\_4050\_2015 & KT026454 & human & 2015-03-01 \\
-  226 & Riyadh\_KKUH\_0944 &  & human & 2015-03-02 \\
-  227 & Riyadh\_KKUH\_0939 &  & human & 2015-03-02 \\
-  228 & Riyadh\_KKUH\_1080 &  & human & 2015-03-03 \\
-  229 & Riyadh\_KKUH\_1066 &  & human & 2015-03-03 \\
-  230 & Riyadh\_KKUH\_1145 &  & human & 2015-03-04 \\
-  231 & Riyadh\_KKUH\_1217 &  & human & 2015-03-04 \\
-  232 & Riyadh\_KKUH\_1461 &  & human & 2015-03-08 \\
-  233 & Riyadh\_KKUH\_1470 &  & human & 2015-03-08 \\
-  234 & Riyadh\_KKUH\_1522 &  & human & 2015-03-09 \\
-  235 & Germany3/UAE-Dubai/Abu-Dhabi &  & human & 2015-03-11 \\
-  236 & Hufuf-KSA-9158/2015 & KT806047 & human & 2015-03-27 \\
-  237 & Hufuf-KSA-11002/2015 & KT806046 & human & 2015-05-10 \\
-  238 & KOR/KNIH/002\_05\_2015 & KT029139 & human & 2015-05-20 \\
-  239 & ChinaGD01 & KT036372 & human & 2015-05-28 \\
-  240 & KOR/Seoul/014-2015 & KX034093 & human & 2015-05-30 \\
-  241 & KOREA/Seoul/014-1-2015 & KT374052 & human & 2015-05-31 \\
-  242 & KOREA/Seoul/035-1-2015 & KT374054 & human & 2015-06-03 \\
-  243 & KOR/Seoul/066-2015 & KX034095 & human & 2015-06-04 \\
-  244 & Korea/Seoul/SNU1-035/2015 & KU308549 & human & 2015-06-08 \\
-  245 & KOR/CNUH\_SNU/030\_06\_2015 & KT868868 & human & 2015-06-08 \\
-  246 & KOR/CNUH\_SNU/024\_06\_2015 & KT868867 & human & 2015-06-08 \\
-  247 & KOR/CNUH\_SNU/054\_06\_2015 & KT868871 & human & 2015-06-09 \\
-  248 & KOR/CNUH\_SNU/038\_06\_2015 & KT868870 & human & 2015-06-10 \\
-  249 & KOR/CNUH\_SNU/148\_06\_2015 & KT868876 & human & 2015-06-10 \\
-  250 & KOR/CNUH\_SNU/122\_06\_2015 & KT868875 & human & 2015-06-10 \\
-  251 & KOR/CNUH\_SNU/082\_06\_2015 & KT868872 & human & 2015-06-10 \\
-  252 & KOR/CNUH\_SNU/085\_06\_2015 & KT868873 & human & 2015-06-10 \\
-  253 & KOR/CNUH\_SNU/016\_06\_2015 & KT868865 & human & 2015-06-11 \\
-  254 & KOR/CNUH\_SNU/023\_06\_2015 & KT868866 & human & 2015-06-11 \\
-  255 & KOR/CNUH\_SNU/031\_06\_2015 & KT868869 & human & 2015-06-11 \\
-  256 & KOR/CNUH\_SNU/110\_06\_2015 & KT868874 & human & 2015-06-11 \\
-  257 & KOR/Seoul/050-1-2015 & KX034094 & human & 2015-06-11 \\
-  258 & THA/CU/17\_06\_2015 & KT225476 & human & 2015-06-17 \\
-  259 & KOR/Seoul/077-2-2015 & KX034096 & human & 2015-06-17 \\
-  260 & KOR/Seoul/080-3-2015 & KX034097 & human & 2015-06-17 \\
-  261 & KOREA/Seoul/163-1-2015 & KT374051 & human & 2015-06-19 \\
-  262 & KOREA/Seoul/168-1-2015 & KT374056 & human & 2015-06-21 \\
-  263 & KOR/Seoul/162-1-2015 & KX034098 & human & 2015-06-22 \\
-  264 & KOR/CNUH\_SNU/172\_06\_2015 & KT868877 & human & 2015-06-22 \\
-  265 & KOR/Seoul/169-2015 & KX034099 & human & 2015-06-26 \\
-  266 & KOR/Seoul/177-3-2015 & KX034100 & human & 2015-07-03 \\
-  267 & Jeddah-KSA-3RS2702/2015 & KU851859 & human & 2015-07-12 \\
-  268 & Riyadh-KSA-16120/2015 & KU851861 & human & 2015-08-24 \\
-  269 & Riyadh-KSA-16117/2015 & KU851862 & human & 2015-08-24 \\
-  270 & Riyadh-KSA-16121/2015 & KU851860 & human & 2015-08-24 \\
-  271 & Riyadh-KSA-16098/2015 & KU851864 & human & 2015-08-24 \\
-  272 & Riyadh-KSA-16077/2015 & KU851863 & human & 2015-08-27 \\
-  273 & Jordan\_1\_2015 & KU233363 & human & 2015-09-17 \\
-  274 & Jordan\_10\_2015 & KU233362 & human & 2015-09-17 \\
-\end{longtable}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_es_mcc.png}
+% 	\caption{\textbf{Maximum clade credibility (MCC) tree of structured coalescent model with enforced equal coalescence rates.}
+% MCC tree is presented the same as Figures \ref{mcc} and \ref{mcc}-Figure supplement 3, with colours indicating the most probable state reconstruction at internal nodes.
+% Similar to Figure \ref{mcc}-Figure supplement 3 enforcing equal coalescence rates between demes in a structured coalescent model identifies humans as a major MERS-CoV host and the source of viruses in camels.
+% 	}
+% 	\label{equal_sizes}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_exploded.png}
-	\caption{\textbf{Evolutionary history of MERS-CoV partitioned between camels and humans.}
-This is the same tree as shown in Figure \ref{mcc}, but with contiguous stretches of MERS-CoV evolutionary history split by inferred host: camels (top in orange) and humans (bottom in blue).
-This visualisation highlights the ephemeral nature of MERS-CoV outbreaks in humans, compared to continuous circulation of the virus in camels.
-	}
-	\label{exploded}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.75\textwidth]{figures/mers_epi_grid.png}
+% 	\caption{\textbf{Monte Carlo simulations of human transmission clusters.}
+% From top to bottom each row corresponds to departures from completely random sequencing efforts with respect to case cluster size (bias parameter=1.0) to sequencing increasingly biased towards capturing large case clusters (bias=2.0, bias=3.0).
+% Leftmost scatter plots show the distribution of individual Monte Carlo simulation sequence cluster size statistics (mean and skewness) coloured by the $R_{0}$ value used for the simulation.
+% The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and skewness observed for empirical MERS-CoV data.
+% The distribution of $R_{0}$ values matching empirical data are shown in the middle, on the same $y$-axis across all levels of the bias parameter.
+% Under unbiased sequencing (bias=1.0) only 0.45\% of simulations fit our phylogenetic observations, while 1.79\% and 1.67\% of simulations fit for bias levels of 2.0 and 3.0, respectively.
+% Correspondingly, we estimate 11.6\% support for a model with bias level 1.0, 45.7\% support for a model with bias level 2.0, and 42.7\% support for a model with bias level 3.0.
+% Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
+% While the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.71--0.98) for the unbiased sequencing simulation (\textit{i.e.}\ uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably more to likely to generate MERS-CoV-like sequence clusters.
+% The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same $y$-axis across all levels of bias.
+% Darker shade of grey indicates bins falling within the 95\% percentiles.
+% The median number of cross-species introductions observed in simulations matching empirical data without bias are 346 (95\% percentiles 262--439).
+% These numbers jump up to 568 (95\% percentiles 430--727) for bias = 2.0 and 656 (95\% percentiles 488--853) for bias = 3.0 simulations.
+% Model averaging would suggest plausible numbers of introductions between 311 and 811.
+%   }
+% 	\label{mers_epi_grid}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_prior.png}
-	\caption{\textbf{Posterior backwards migration rate estimates for two choices of prior.}
-Negligible flow of MERS-CoV lineages from humans into camels is recovered regardless of prior choice (note that rates are backwards in time).
-Plots show the 95\% highest posterior density for the estimated migration rate from the human deme into the camel deme looking backwards in time (orange) and \textit{vice versa} (blue).
-Dotted lines indicate exponential priors specified for migration rates, with mean 1.0 (bottom) or 10.0 (top).
-	}
-	\label{prior}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.75\textwidth]{figures/mers_mc_method.pdf}
+% 	\caption{\textbf{Monte Carlo simulation schematic.}
+% Case clusters are simulated according to Equation \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
+% We sample 174 cases from each simulation to represent sequencing of human MERS cases.
+% `Sequencing' is carried out by using multivariate hypergeometric sampling, representing sampling cases without replacement to be sequenced.
+% Sequencing simulations take place at three levels of bias: 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
+% The distribution of simulated sequence clusters is summarised by its mean, median and standard deviation.
+% A simulation is considered to match if the mean, median and standard deviation of its sequence cluster sizes falls within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
+% $R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are retained as estimates.
+% These estimates are summarised in Figure \ref{mers_epi}.
+% 	}
+% 	\label{mc_method}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_dta_mcc.png}
-	\caption{\textbf{Maximum clade credibility (MCC) tree with ancestral state reconstruction according to a discrete trait model.}
-MCC tree is presented the same as Figure \ref{mcc} and Figure \ref{equal_sizes}, with colours indicating the most probable state reconstruction at internal nodes.
-Unlike the structured coalescent summary shown in Figure \ref{mcc} where camels are reconstructed as the main host where MERS-CoV persists, the discrete trait approach identifies both camels and humans as major hosts with humans being the source of MERS-CoV infection in camels.
-	}
-	\label{dta}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_epi_4000c.png}
+% 	\caption{\textbf{Results of Monte Carlo simulations with vast underestimation of cases.}
+% The plot is identical to Figure \ref{mers_epi}-Figure supplement 1, but instead of 2000 cases,
+% % the currently reported number of MERS-CoV cases,
+% simulations were run with 4000 cases.
+% With more unobserved cases the R$_{0}$ values matching observed MERS-CoV sequence clusters can only be smaller, with a corresponding increase in numbers of zoonotic transmissions.
+% However, the numbers of simulations that match MERS-CoV data go down as well.
+% 	}
+% 	\label{extra_cases}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_es_mcc.png}
-	\caption{\textbf{Maximum clade credibility (MCC) tree of structured coalescent model with enforced equal coalescence rates.}
-MCC tree is presented the same as Figures \ref{mcc} and \ref{dta}, with colours indicating the most probable state reconstruction at internal nodes.
-Similar to Figure \ref{dta} enforcing equal coalescence rates between demes in a structured coalescent model identifies humans as a major MERS-CoV host and the source of viruses in camels.
-	}
-	\label{equal_sizes}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_distributions.png}
+% 	\caption{\textbf{Boxplots of matching simulated case and sequence cluster distributions.}
+% Boxplots indicate frequency of case (blue, top) and sequence (red, bottom) cluster sizes across simulations at different bias levels, marginalised across $R_{0}$ values.
+% Outliers are shown with transparency, medians are indicated with thick black lines.
+% Case clusters exhibit a strong skew with large numbers of singleton introductions and a substantial tail at higher levels of bias.
+% 	}
+% 	\label{cluster_distributions}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_epi_grid.png}
-	\caption{\textbf{Monte Carlo simulations of human transmission clusters.}
-From top to bottom each row corresponds to departures from completely random sequencing efforts with respect to case cluster size (bias parameter=1.0) to sequencing increasingly biased towards capturing large case clusters (bias=2.0, bias=3.0).
-Leftmost scatter plots show the distribution of individual Monte Carlo simulation sequence cluster size statistics (mean and skewness) coloured by the $R_{0}$ value used for the simulation.
-The dotted rectangle identifies the 95\% highest posterior density bounds for sequence cluster size mean and skewness observed for empirical MERS-CoV data.
-The distribution of $R_{0}$ values matching empirical data are shown in the middle, on the same $y$-axis across all levels of the bias parameter.
-Under unbiased sequencing (bias=1.0) only 0.45\% of simulations fit our phylogenetic observations, while 1.79\% and 1.67\% of simulations fit for bias levels of 2.0 and 3.0, respectively.
-Correspondingly, we estimate 11.6\% support for a model with bias level 1.0, 45.7\% support for a model with bias level 2.0, and 42.7\% support for a model with bias level 3.0.
-Bins falling inside the 95\% percentiles are coloured by $R_{0}$, as in the leftmost scatter plot.
-While the 95\% percentiles for $R_{0}$ values are close to 1.0 (0.71--0.98) for the unbiased sequencing simulation (\textit{i.e.}\ uniform sequencing efforts, in which every case is equally likely to be sequenced), we also note that increasing levels of bias are considerably more to likely to generate MERS-CoV-like sequence clusters.
-The distribution of total number of introductions associated with simulations matching MERS-CoV sequence clusters is shown in the plots on the right, on the same $y$-axis across all levels of bias.
-Darker shade of grey indicates bins falling within the 95\% percentiles.
-The median number of cross-species introductions observed in simulations matching empirical data without bias are 346 (95\% percentiles 262--439).
-These numbers jump up to 568 (95\% percentiles 430--727) for bias = 2.0 and 656 (95\% percentiles 488--853) for bias = 3.0 simulations.
-Model averaging would suggest plausible numbers of introductions between 311 and 811.
-  }
-	\label{mers_epi_grid}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_qq.png}
+% 	\caption{\textbf{Quantile-quantile (Q-Q) plot of empirical and simulated sequence cluster sizes.}
+% Density of sequence cluster size percentiles (1st--99th, calculated across a grid of 50 values) calculated for random states from the posterior distribution ($x$-axis) and matching simulations ($y$-axis).
+% Most values fall on the one-to-one line, with a heavier tail in mid-sized sequence clusters in empirical data, manifesting as a greater density of points below the one-to-one line in the middle.
+% 	}
+% 	\label{qq}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_mc_method.pdf}
-	\caption{\textbf{Monte Carlo simulation schematic.}
-Case clusters are simulated according to Equation \ref{clusterLikelihood} until an outbreak size of 2000 cases is reached.
-We sample 174 cases from each simulation to represent sequencing of human MERS cases.
-`Sequencing' is carried out by using multivariate hypergeometric sampling, representing sampling cases without replacement to be sequenced.
-Sequencing simulations take place at three levels of bias: 1.0, where every case is equally likely to be sequenced, and 2.0 and 3.0, where cases from larger clusters are increasingly more likely to be sequenced.
-The distribution of simulated sequence clusters is summarised by its mean, median and standard deviation.
-A simulation is considered to match if the mean, median and standard deviation of its sequence cluster sizes falls within the 95\% highest posterior density interval of observed MERS-CoV sequence clusters.
-$R_{0}$ values that ultimately generate data matching empirical observations, as well as associated numbers of `introductions' are retained as estimates.
-These estimates are summarised in Figure \ref{mers_epi}.
-	}
-	\label{mc_method}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_recombination_tree.png}
+% 	\caption{\textbf{Tests of recombination across MERS-CoV clades.}
+% Maximum clade credibility tree of MERS-CoV genomes annotated with results of two recombination detection tests (PHI and 3Seq) applied to descendent sequences of each clade.
+% Both tests identify large portions of existing sequence data as containing signals of recombination.
+% Note that markings do not indicate where recombinations have occurred on the tree, merely the minimum distance in sequence/time space between recombining lineages.}
+% 	\label{recombination_tree}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_epi_4000c.png}
-	\caption{\textbf{Results of Monte Carlo simulations with vast underestimation of cases.}
-The plot is identical to Figure \ref{mers_epi_grid}, but instead of 2000 cases,
-% the currently reported number of MERS-CoV cases,
-simulations were run with 4000 cases.
-With more unobserved cases the R$_{0}$ values matching observed MERS-CoV sequence clusters can only be smaller, with a corresponding increase in numbers of zoonotic transmissions.
-However, the numbers of simulations that match MERS-CoV data go down as well.
-	}
-	\label{extra_cases}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.75\textwidth]{figures/mers_incompatibilities.png}
+% 	\caption{\textbf{MERS-CoV genomes exhibit high numbers of non-clonal loci.}
+% Ancestral state reconstruction (right) identifies a large number of sites in which mutations have occurred more than once in the tree (homoplasies, orange) or are reversions (red) from a state arising in an ancestor.
+% Mutations that apparently only occur once in the tree (synapomorphies) are shown in grey.
+% The maximum likelihood phylogeny on the left is coloured by whether sequences were sampled in humans (blue) or camels (orange).
+% 	}
+% 	\label{incompatibilities}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_distributions.png}
-	\caption{\textbf{Boxplots of matching simulated case and sequence cluster distributions.}
-Boxplots indicate frequency of case (blue, top) and sequence (red, bottom) cluster sizes across simulations at different bias levels, marginalised across $R_{0}$ values.
-Outliers are shown with transparency, medians are indicated with thick black lines.
-Case clusters exhibit a strong skew with large numbers of singleton introductions and a substantial tail at higher levels of bias.
-	}
-	\label{cluster_distributions}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_flower.png}
+% 	\caption{\textbf{Human clade sharing between genomic fragments 1 and 2.}
+% Central scatter plot shows the posterior probability of human clades shared between genomic fragments 1 and 2, in their respective trees.
+% Left and bottom scatter plots track the posterior probability of human clades only observed in fragment 2 (left) or fragment 1 (bottom).
+% The cumulative probability of human clades present in either tree are tracked by plots on the right (fragment 2) and top (fragment 1).
+% Most of the probability mass is concentrated within human clades that are present in trees of both genomic fragment 1 and 2 (0.9701 and 0.9474 of all human clades across posteriors, respectively).
+% 	}
+% 	\label{flower}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_qq.png}
-	\caption{\textbf{Quantile-quantile (Q-Q) plot of empirical and simulated sequence cluster sizes.}
-Density of sequence cluster size percentiles (1st--99th, calculated across a grid of 50 values) calculated for random states from the posterior distribution ($x$-axis) and matching simulations ($y$-axis).
-Most values fall on the one-to-one line, with a heavier tail in mid-sized sequence clusters in empirical data, manifesting as a greater density of points below the one-to-one line in the middle.
-	}
-	\label{qq}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_skygrid_comparison.png}
+% 	\caption{\textbf{Skygrid comparison between whole and fragmented genomes.}
+% Inferred median $N_{e}\tau$ recovered using a skygrid tree prior on whole genome (bottom) and ten genomic fragments with independent trees (left), coloured by time.
+% Dotted line indicates the one-to-one line.
+% 	}
+% 	\label{skygrid_comparison}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_recombination_tree.png}
-	\caption{\textbf{Tests of recombination across MERS-CoV clades.}
-Maximum clade credibility tree of MERS-CoV genomes annotated with results of two recombination detection tests (PHI and 3Seq) applied to descendent sequences of each clade.
-Both tests identify large portions of existing sequence data as containing signals of recombination.
-Note that markings do not indicate where recombinations have occurred on the tree, merely the minimum distance in sequence/time space between recombining lineages.}
-	\label{recombination_tree}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_ML.png}
+% 	\caption{\textbf{Maximum likelihood (ML) tree of MERS-CoV genomes coloured by origin of sequence.}
+% Maximum likelihood tree shows genetic divergence between MERS-CoV genomes collected from camels (orange tips) and humans (blue tips).
+% 	}
+% 	\label{ml}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.75\textwidth]{figures/mers_incompatibilities.png}
-	\caption{\textbf{MERS-CoV genomes exhibit high numbers of non-clonal loci.}
-Ancestral state reconstruction (right) identifies a large number of sites in which mutations have occurred more than once in the tree (homoplasies, orange) or are reversions (red) from a state arising in an ancestor.
-Mutations that apparently only occur once in the tree (synapomorphies) are shown in grey.
-The maximum likelihood phylogeny on the left is coloured by whether sequences were sampled in humans (blue) or camels (orange).
-	}
-	\label{incompatibilities}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% 	\includegraphics[width=0.65\textwidth]{figures/mers_simMarginals.png}
+% 	\caption{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
+% Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
+% More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
+% 	}
+% 	\label{marginals}
+% \end{figure}
 
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_flower.png}
-	\caption{\textbf{Human clade sharing between genomic fragments 1 and 2.}
-Central scatter plot shows the posterior probability of human clades shared between genomic fragments 1 and 2, in their respective trees.
-Left and bottom scatter plots track the posterior probability of human clades only observed in fragment 2 (left) or fragment 1 (bottom).
-The cumulative probability of human clades present in either tree are tracked by plots on the right (fragment 2) and top (fragment 1).
-Most of the probability mass is concentrated within human clades that are present in trees of both genomic fragment 1 and 2 (0.9701 and 0.9474 of all human clades across posteriors, respectively).
-	}
-	\label{flower}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_skygrid_comparison.png}
-	\caption{\textbf{Skygrid comparison between whole and fragmented genomes.}
-Inferred median $N_{e}\tau$ recovered using a skygrid tree prior on whole genome (bottom) and ten genomic fragments with independent trees (left), coloured by time.
-Dotted line indicates the one-to-one line.
-	}
-	\label{skygrid_comparison}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_ML.png}
-	\caption{\textbf{Maximum likelihood (ML) tree of MERS-CoV genomes coloured by origin of sequence.}
-Maximum likelihood tree shows genetic divergence between MERS-CoV genomes collected from camels (orange tips) and humans (blue tips).
-	}
-	\label{ml}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-	\includegraphics[width=0.65\textwidth]{figures/mers_simMarginals.png}
-	\caption{\textbf{Numbers of epidemiological simulations conforming to empirical observations.}
-Numbers indicate the total number of epidemiological simulations under each combination of bias and dispersion parameter $\omega$ that result in MERS-CoV-like sequence cluster sizes.
-More simulations match observations with bias$>1$ and $\omega \approx 0.1$.
-	}
-	\label{marginals}
-\end{figure}
+\textbf{Supplementary File 1}. Strain names, accessions (where available), identified host and reported collection dates for MERS-CoV genomes used in this study.
 
 \end{document}
