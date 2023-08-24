@@ -15,7 +15,7 @@
 # Figures
 ### Main:
 
-![](figures/mers_mcc.png)
+![](figures/figure 1.png)
 **Typed maximum clade credibility tree of MERS-CoV genomes from humans and camels.**
 
 Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered with the structured coalescent.
@@ -27,7 +27,7 @@ Whilst large clusters of human cases are apparent in the tree, significant contr
 
 ------------------------------
 
-![](figures/mers_seasonality.png)
+![](figures/figure 2.png)
 **MERS-CoV seasonality.**
 
 A) Violin plots coloured by month showing the 95% highest posterior density interval for odds ratios of MERS-CoV introductions into human populations.
@@ -40,7 +40,7 @@ The black dotted line indicates the joint probability density for introductions.
 
 ------------------------------
 
-![](figures/mers_epi.png)
+![](figures/figure 3.png)
 **Results of Monte Carlo simulations.**
 
 Each row corresponds to a different bias value used to concentrate the hypergeometric distribution that simulates sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias).
@@ -54,12 +54,10 @@ Monte Carlo simulations indicate R0 for MERS-CoV is likely to be below 1.0, with
 
 ------------------------------
 
-![](figures/mers_fragments.png)
+![](figures/figure 4.png)
 A) Heatmap shows the posterior probability that a pair of tips from trees of genomic fragments fall within the same clade - tips from fragment 1 are on the x axis, tips from fragment 2 are on the y axis.
 Tips are ordered by their appearance in tree of genome fragment 2 (positions from nucleotide 21000 onwards) reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
 Human clusters are largely well-supported as monophyletic and consistent across trees of both genomic fragments.
-
-![](figures/mers_chain.png)
 B) Phylogenies derived from MERS-CoV genome nucleotides up to position 21000 (left) and all nucleotides past position 21000 (right), reduced to just the human tips.
 Same taxa are connected via coloured lines indicating their vertical position in the tree on the right.
 Tree branches are coloured by inferred ancestral host state (human in blue, camel in orange).
