@@ -15,7 +15,7 @@
 # Figures
 ### Main:
 
-![](figures/figure 1.png)
+![](figures/figure%201.png)
 **Typed maximum clade credibility tree of MERS-CoV genomes from humans and camels.**
 
 Maximum clade credibility (MCC) tree showing inferred ancestral hosts for MERS-CoV recovered with the structured coalescent.
@@ -27,7 +27,7 @@ Whilst large clusters of human cases are apparent in the tree, significant contr
 
 ------------------------------
 
-![](figures/figure 2.png)
+![](figures/figure%202.png)
 **MERS-CoV seasonality.**
 
 A) Violin plots coloured by month showing the 95% highest posterior density interval for odds ratios of MERS-CoV introductions into human populations.
@@ -40,7 +40,7 @@ The black dotted line indicates the joint probability density for introductions.
 
 ------------------------------
 
-![](figures/figure 3.png)
+![](figures/figure%203.png)
 **Results of Monte Carlo simulations.**
 
 Each row corresponds to a different bias value used to concentrate the hypergeometric distribution that simulates sequencing, and goes from 1 (no bias) to 2, and 3 (increasing levels of bias).
@@ -54,7 +54,7 @@ Monte Carlo simulations indicate R0 for MERS-CoV is likely to be below 1.0, with
 
 ------------------------------
 
-![](figures/figure 4.png)
+![](figures/figure%204.png)
 A) Heatmap shows the posterior probability that a pair of tips from trees of genomic fragments fall within the same clade - tips from fragment 1 are on the x axis, tips from fragment 2 are on the y axis.
 Tips are ordered by their appearance in tree of genome fragment 2 (positions from nucleotide 21000 onwards) reduced to just the human tips and coloured by inferred host (blue for human, orange for camel) on the left.
 Human clusters are largely well-supported as monophyletic and consistent across trees of both genomic fragments.
@@ -79,5 +79,8 @@ This is evidence for recombinant viruses generated in the reservoir entering hum
 
 ------------------------------
 
-# License
+### License
 This work is licensed under a [Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+
+### Citation
+[Dudas et al. 2018. MERS-CoV spillover at the camel-human interface. eLife 7: e31257.](https://doi.org/10.7554/eLife.31257)
